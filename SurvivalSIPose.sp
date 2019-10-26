@@ -33,7 +33,7 @@ public void OnPluginStart()
 	HookEvent("survival_round_start", Event_OnSurvStart);
 	
 	RegAdminCmd("sm_spawnsimodel", Command_SpawnSIModel, ADMFLAG_ROOT, "Spawns static SI models saving to cfg.");
-	RegAdminCmd("sm_simodelmenu", Command_SpawnSIModelMenu, ADMFLAG_ROOT, "Creates a Menu to spawn SI models.");
+	//RegAdminCmd("sm_simodelmenu", Command_SpawnSIModelMenu, ADMFLAG_ROOT, "Creates a Menu to spawn SI models.");
 }
 
 public void OnMapStart()
@@ -53,25 +53,6 @@ public void OnMapStart()
 	ModelSpawnCount = 0;
 	
 	g_bLoaded = false;
-}
-
-public Action Command_SpawnSIModelMenu(int client, int args)
-{
-	if( !client )
-	{
-		ReplyToCommand(client, "Command may be used in-game only.");
-		return Plugin_Handled;
-	}
-
-	if( g_bRoundInProgress )
-	{
-		ReplyToCommand(client, "Cannot spawn SI models while round in progress.");
-		return Plugin_Handled;
-	}
-	
-	Menu menu = new Menu(Menu_CallBack);
-	
-	menu.SetTitle("SI Model Menu:");
 }
 
 public Action Command_SpawnSIModel(int client, int args)
