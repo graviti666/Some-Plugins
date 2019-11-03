@@ -10,7 +10,7 @@
 * SI models and cameras are saved at your current position and angles.
   
 ## Commands
-* !simodelmenu - Opens up a menu for spawning SI models which are saved to cfg.
+* !simodelmenu - Opens up a menu for creating configs.
 * Menu commands:
 * Load Random Model Config - Loads a random saved cfg for the map.
 * Load Lastest Model Config - Loads latest saved cfg for the map.
