@@ -17,7 +17,6 @@
 * Delete Model Config - Wipes all saved configs for the current map.
 * Spawn SI Models - Opens another menu for spawning SI models.
 * Create Camera - Spawns an camera entity at your position.
-* Correct Camera Angle - Corrects your angle position on how the camera would be faced.
 
 ## Installation
 * [Compile](https://spider.limetech.io/) the sp file or get the compiled one from plugins/ folder.
