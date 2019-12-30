@@ -1,0 +1,1717 @@
+//--------------------------------------------------------------------------------------------------------------
+// Coach Response Rule File
+//--------------------------------------------------------------------------------------------------------------
+
+Criterion "ConceptRandomTalk" "Concept" "RandomTalk" required // added by Agent 47
+
+Response RandomTalkCoach
+{
+    scene "scenes/Coach/teaserintromovie10.vcd"  then gambler _teaserintromovie foo:0 -2.277 //Thought they're supposed t'be savin' our asses!
+    scene "scenes/Coach/teaserintromovie05.vcd"  //This used to be a nice neighborhood!
+    
+}
+
+Rule RandomTalkCoach
+{
+	criteria ConceptRandomTalk IsCoach IsTalk IsTalkCoach IsNotSpeaking IsWorldTalkCoach
+	Response RandomTalkCoach
+}
+
+//Auto-generated blank response for padding out InfoRemarkables
+Response _PlayerInfoRemarkableBlankCoach
+{
+	speak "Coach_Blank" noscene //Blank
+}
+
+Response L4D1PlayerNiceShotCoach
+{
+	scene "scenes/Coach/NiceShot01.vcd"  //Nice shot..
+	scene "scenes/Coach/NiceShot03.vcd"  //Good one!
+}
+Rule L4D1PlayerNiceShotCoach
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsCoach IsSubjectDistNear1500  IsTalk IsTalkCoach IsWorldTalkCoach IsNotSpeaking ChanceToFire70Percent
+	Response L4D1PlayerNiceShotCoach
+}
+
+Response L4D1PlayerNiceShotFrancisCoach
+{
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Killing05.vcd"  //Thanks Francis!
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Killing06.vcd"  //Nice shot Francis!
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Killing07.vcd"  //Nice shot Francis!
+}
+Rule L4D1PlayerNiceShotFrancisCoach
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsCoach IsSubjectDistNear1500  IsTalk IsTalkCoach  IsWorldTalkCoach SubjectIsBiker ChanceToFire70Percent IsNotSpeaking
+	Response L4D1PlayerNiceShotFrancisCoach
+}
+
+Response L4D1PlayerNiceShotLouisCoach
+{
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Killing02.vcd"  //Louis in the house!
+}
+Rule L4D1PlayerNiceShotLouisCoach
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsCoach IsSubjectDistNear1500  IsTalk IsTalkCoach  IsWorldTalkCoach SubjectIsManager ChanceToFire70Percent IsNotSpeaking
+	Response L4D1PlayerNiceShotLouisCoach
+}
+
+Response L4D1PlayerNiceShotZoeyCoach
+{
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Killing03.vcd"  //Go Zoey!
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Killing04.vcd"  //Keep it up Zoey!
+	scene "scenes/Coach/NiceShotFemale01.vcd"  //All right girl.
+}
+Rule L4D1PlayerNiceShotZoeyCoach
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsCoach IsSubjectDistNear1500  IsTalk IsTalkCoach  IsWorldTalkCoach SubjectIsTeenGirl ChanceToFire70Percent IsNotSpeaking
+	Response L4D1PlayerNiceShotZoeyCoach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C1M4
+//--------------------------------------------------------------------------------------------------------------
+Response C6M3GasPourCoach
+{
+	scene "scenes/Coach/DLC1_C6M3_Cans01.vcd"  //Filling the generator.
+	scene "scenes/Coach/DLC1_C6M3_Cans02.vcd"  //Pouring a can.
+	scene "scenes/Coach/DLC1_C6M3_Cans03.vcd"  //Got a can.
+	scene "scenes/Coach/DLC1_C6M3_Cans04.vcd"  //I got this can.
+}
+Rule C6M3GasPourCoach
+{
+	criteria ConceptPlayerPourStarted IsCoach IsTalk IsTalkCoach IsWorldTalkCoach
+	ApplyContext "TalkCoach:1:2"
+	Response C6M3GasPourCoach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M1
+//--------------------------------------------------------------------------------------------------------------
+Response C6M1_IntotheparkNoHealthCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_IntoPark01.vcd"  //Don't run off without a health kit.
+	scene "scenes/Coach/DLC1_C6M1_IntoPark02.vcd"  //Grab a health kit.
+	scene "scenes/Coach/DLC1_C6M1_IntoPark03.vcd"  //Everyone grab a health kit.
+	scene "scenes/Coach/DLC1_C6M1_IntoPark04.vcd"  //Health kits everyone!
+}
+Rule C6M1_IntotheparkNoHealthCoach
+{
+	criteria ConceptC6M1_IntotheparkNoHealth IsCoach
+	Response C6M1_IntotheparkNoHealthCoach
+}
+
+Response C6M1Intro_01TeenGirl04Coach
+{
+	scene "scenes/Coach/DLC1_C6M1_InitialMeeting01.vcd"  then TeenGirl C6M1Intro_04a foo:0 -3.822 //Hey, hello there! You wanna let the bridge down for us?
+}
+Rule C6M1Intro_01TeenGirl04Coach
+{
+	criteria ConceptintroC6M1 IsCoach IsZoeyIntroActor IsNotSaidIntroScene MoreThan60  LessThan100 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01TeenGirl04Coach
+}
+
+Response C6M1Intro_04bCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_InitialMeeting02.vcd"  then TeenGirl C6M1Intro_04c foo:0 -2.342 //Y'all can't climb down there and save us a trip?
+}
+Rule C6M1Intro_04bCoach
+{
+	criteria ConceptC6M1Intro_04b IsCoach
+	Response C6M1Intro_04bCoach
+}
+
+Response C6M1Intro_08aCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_InitialMeeting03.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //Got it. We'll holla back at you when we get there.
+}
+Rule C6M1Intro_08aCoach
+{
+	criteria ConceptC6M1Intro_08a IsCoach
+	Response C6M1Intro_08aCoach
+}
+
+Response C6M1Intro_13bCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_InitialMeeting04.vcd"  then Mechanic C6M1Intro_13c foo:0 -4.288 //You been killin' zombies for the better part of 2 days boy you can talk to a girl.
+}
+Rule C6M1Intro_13bCoach
+{
+	criteria ConceptC6M1Intro_13b IsCoach
+	Response C6M1Intro_13bCoach
+}
+
+Response C6M1Intro_13eCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_InitialMeeting05.vcd"  then Mechanic C6M1Intro_13f foo:0 -2.690 //Okay, the boy says thank you.
+}
+Rule C6M1Intro_13eCoach
+{
+	criteria ConceptC6M1Intro_13e IsCoach
+	Response C6M1Intro_13eCoach
+}
+
+Response C6M1Intro_21aCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_InitialMeeting07.vcd"  then Coach C6M1Intro_21b foo:0 -2.005 //(to group) Tell me this boy ain't for real.
+	scene "scenes/Coach/DLC1_C6M1_InitialMeeting08.vcd"  then Coach C6M1Intro_21b foo:0 -1.885 //(to group) Tell me this boy ain't for real.
+}
+Rule C6M1Intro_21aCoach
+{
+	criteria ConceptC6M1Intro_21a IsCoach
+	Response C6M1Intro_21aCoach
+}
+
+Response C6M1Intro_21bCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_InitialMeeting06.vcd"  then Biker C6M1Intro_21c foo:0 -2.472 //No. Can you lower the bridge?
+}
+Rule C6M1Intro_21bCoach
+{
+	criteria ConceptC6M1Intro_21b IsCoach
+	Response C6M1Intro_21bCoach
+}
+
+Response C6M1Intro_21dCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_InitialMeeting09.vcd"  then Biker C6M1Intro_21e foo:0 -5.235 //Shit, okay. Yes, we are vampires? All of us are vampires?
+}
+Rule C6M1Intro_21dCoach
+{
+	criteria ConceptC6M1Intro_21d IsCoach
+	Response C6M1Intro_21dCoach
+}
+
+Response C6M1Intro_21gCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_InitialMeeting10.vcd"  //Dear lord, why'd I ever leave Savannah.
+}
+Rule C6M1Intro_21gCoach
+{
+	criteria ConceptC6M1Intro_21g IsCoach
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_21gCoach
+}
+
+Response C6M1TakeSubMachineGun01Coach
+{
+	scene "scenes/Coach/DLC1_C6M1_IntoStore04.vcd"  //Nick, you gotta pull yourself together.
+}
+Rule C6M1TakeSubMachineGun01Coach
+{
+	criteria ConceptC6M1TakeSubMachineGun01 IsCoach IsGamblerNear800
+	Response C6M1TakeSubMachineGun01Coach
+}
+
+Response LeavingC6M1StartCoach
+{
+	scene "scenes/Coach/blank.vcd"  //
+}
+Rule LeavingC6M1StartCoach
+{
+	criteria ConceptSurvivorLeavingCheckpoint IsCoach
+	ApplyContext "LeftC6M1Start:1:0"
+	applycontexttoworld
+	Response LeavingC6M1StartCoach
+}
+
+Response WorldC6M1_HistoricTourCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_HistoricSign01.vcd"  then Gambler HistoricTour01a foo:0 -4.418 //Historic Under-the-River Tour! This could be pretty interesting!
+	scene "scenes/Coach/DLC1_C6M1_HistoricSign02.vcd"  //Let's all try this under-the-river tour to get across.
+	scene "scenes/Coach/DLC1_C6M1_HistoricSign03.vcd"  //Sign says there's an under-the-river tour, that'll get us across.
+}
+Rule WorldC6M1_HistoricTourCoach
+{
+	criteria ConceptWorldC6M1_HistoricTour IsCoach IsNotLeftC6M1Start
+	Response WorldC6M1_HistoricTourCoach
+}
+
+Response WorldC6M1_PostWedding01aCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_WeddingPostWitch01.vcd"  //No Ellis.
+	scene "scenes/Coach/DLC1_C6M1_WeddingPostWitch02.vcd"  //Got to keep your head on killin' zombies, Ellis.
+}
+Rule WorldC6M1_PostWedding01aCoach
+{
+	criteria ConceptWorldC6M1_PostWedding01a IsCoach IsSubjectDistNear800
+	Response WorldC6M1_PostWedding01aCoach
+}
+
+Response WorldC6M1_WeddingWarn03aCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_WeddingWitch01.vcd"  then Producer WorldC6M1_WeddingWarn03b foo:0 -2.229 //Come on, Nick, not the time.
+}
+Rule WorldC6M1_WeddingWarn03aCoach
+{
+	criteria ConceptWorldC6M1_WeddingWarn03a IsCoach
+	ApplyContext "AtWedding:1:60"
+	applycontexttoworld
+	Response WorldC6M1_WeddingWarn03aCoach
+}
+
+Response WorldC6M1_WeddingWarn04aCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_WeddingWitch02.vcd"  //Man, I hope we don't see a tank in a tuxedo.
+}
+Rule WorldC6M1_WeddingWarn04aCoach
+{
+	criteria ConceptWorldC6M1_WeddingWarn04a IsCoach IsSubjectDistNear800
+	ApplyContext "AtWedding:1:60"
+	applycontexttoworld
+	Response WorldC6M1_WeddingWarn04aCoach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M2
+//--------------------------------------------------------------------------------------------------------------
+Response C6M2_OpenGate1Coach
+{
+	scene "scenes/Coach/DLC1_C6M1_AlarmDoorOpen01.vcd"  //I opened it.
+	scene "scenes/Coach/DLC1_C6M1_AlarmDoorOpen02.vcd"  //Open, let's go!
+	scene "scenes/Coach/DLC1_C6M2_Bridge1RaiseHitIt02.vcd"  //I hit it!
+	scene "scenes/Coach/DLC1_C6M2_Bridge2Up03.vcd"  //Come on people, don't stand around, let's go!
+}
+Rule C6M2_OpenGate1Coach
+{
+	criteria ConceptC6M2_OpenGate1 IsCoach
+	ApplyContext "SaidOpenedGate1:1:0"
+	applycontexttoworld
+	Response C6M2_OpenGate1Coach
+}
+
+Response C6M2_OpenGate2Coach
+{
+	scene "scenes/Coach/DLC1_C6M1_AlarmDoorOpen02.vcd"  //Open, let's go!
+	scene "scenes/Coach/DLC1_C6M2_Bridge1RaiseActive03.vcd"  //That is some slow ass shit.
+}
+Rule C6M2_OpenGate2Coach
+{
+	criteria ConceptC6M2_OpenGate2 IsCoach
+	ApplyContext "Said:OpenedGate2:1:0"
+	applycontexttoworld
+	Response C6M2_OpenGate2Coach
+}
+
+Response C6M2SafeRoomCoach
+{
+	scene "scenes/Coach/blank.vcd"  then any C6M2SafeRoom2 foo:0 3 //
+}
+Rule C6M2SafeRoomCoach
+{
+	criteria ConceptTalkIdle  Joined3 IsCoach isC6m2_bedlam IsInStartArea AutoIsNotScavenge AutoIsNotSurvival IsNotSaidC6M2SafeRoom IsNotSpeakingWeight0
+	ApplyContext "SaidC6M2SafeRoom:1:0"
+	applycontexttoworld
+	Response C6M2SafeRoomCoach
+}
+
+Response DLC1_C6M2_SafeRoomConvo01aCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo01.vcd"  //Nick. Son. I think we got bigger problems.
+}
+Rule DLC1_C6M2_SafeRoomConvo01aCoach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo01a IsCoach
+	Response DLC1_C6M2_SafeRoomConvo01aCoach
+}
+
+Response DLC1_C6M2_SafeRoomConvo05Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo02.vcd"  then Any DLC1_C6M2_SafeRoomConvo06a foo:0 -6.504 //City of Rayford! They used to have a boiled peanut festival here. Good memories.
+}
+Rule DLC1_C6M2_SafeRoomConvo05Coach
+{
+	criteria ConceptC6M2SafeRoom2 IsCoach IsZoeyIntroActor ZoeyGroup4 IsNotSaidC6M2SafeRoom2
+	ApplyContext "SaidC6M2SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M2_SafeRoomConvo05Coach
+}
+
+Response DLC1_C6M2_SafeRoomConvo09aCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo03.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo09b foo:0 -3.735 //Oh, come on, you aren't afraid of a little dirt are you?
+}
+Rule DLC1_C6M2_SafeRoomConvo09aCoach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo09a IsCoach
+	Response DLC1_C6M2_SafeRoomConvo09aCoach
+}
+
+Response DLC1_C6M2_SafeRoomConvo11Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo04.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo12a foo:0 -6.163 //I heard all about this under-the-river tour, supposed to be pretty damn good. Real educational.
+}
+Rule DLC1_C6M2_SafeRoomConvo11Coach
+{
+	criteria ConceptC6M2SafeRoom2 IsCoach IsZoeyIntroActor ZoeyGroup4 IsNotSaidC6M2SafeRoom2
+	ApplyContext "SaidC6M2SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M2_SafeRoomConvo11Coach
+}
+
+Response DLC1_C6M2_SafeRoomConvo12Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo07.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo13a foo:0 -3.828 //Nick, tell me you ain't looking forward to this under-the-river tour.
+}
+Rule DLC1_C6M2_SafeRoomConvo12Coach
+{
+	criteria ConceptC6M2SafeRoom2 IsCoach IsFrancisIntroActor FrancisGroup5 IsNotSaidC6M2SafeRoom2
+	ApplyContext "SaidC6M2SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M2_SafeRoomConvo12Coach
+}
+
+Response DLC1_C6M2_SafeRoomConvo12bCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo05.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo12c foo:0 -2.273 //You damn right. Under a river.
+}
+Rule DLC1_C6M2_SafeRoomConvo12bCoach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo12b IsCoach
+	Response DLC1_C6M2_SafeRoomConvo12bCoach
+}
+
+Response DLC1_C6M2_SafeRoomConvo12dCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo06.vcd"  //Uh, historical shit. Man, how am I supposed to know? I ain't been there yet.
+}
+Rule DLC1_C6M2_SafeRoomConvo12dCoach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo12d IsCoach
+	Response DLC1_C6M2_SafeRoomConvo12dCoach
+}
+
+Response DLC1_C6M2_SafeRoomConvo13bCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo08.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo13c foo:0 -5.477 //Man, Nick you got a find a way to cheer your ass up. We ain't got much to look forward to.
+}
+Rule DLC1_C6M2_SafeRoomConvo13bCoach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo13b IsCoach
+	Response DLC1_C6M2_SafeRoomConvo13bCoach
+}
+
+Response DLC1_C6M2_SafeRoomConvo13dCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo09.vcd"  //There you go Nick. Stay positive.
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo10.vcd"  //There you go Nick. Stay positive. Maybe you'll knock all his teeth out.
+}
+Rule DLC1_C6M2_SafeRoomConvo13dCoach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo13d IsCoach
+	Response DLC1_C6M2_SafeRoomConvo13dCoach
+}
+
+Response DLC1_C6M2_SafeRoomConvo14dCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo11.vcd"  then Producer DLC1_C6M2_SafeRoomConvo14e foo:0 -3.766 //Oh. In my heart, I'm there already.
+}
+Rule DLC1_C6M2_SafeRoomConvo14dCoach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo14d IsCoach
+	Response DLC1_C6M2_SafeRoomConvo14dCoach
+}
+
+Response DLC1_C6M2_SafeRoomConvo15bCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo12.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo15c foo:0 -4.894 //Man, I keep hoping we find an open burger tank.
+}
+Rule DLC1_C6M2_SafeRoomConvo15bCoach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo15b IsCoach
+	Response DLC1_C6M2_SafeRoomConvo15bCoach
+}
+
+Response DLC1_C6M2_SafeRoomConvo16a1Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo13.vcd"  then Mechanic DLC1_C6M2_SafeRoomConvo16b1 foo:0 -4.595 //Ellis, you do know that eventually we're gonna have to leave that car behind. Right?
+}
+Rule DLC1_C6M2_SafeRoomConvo16a1Coach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo16a1 IsCoach
+	Response DLC1_C6M2_SafeRoomConvo16a1Coach
+}
+
+Response DLC1_C6M2_SafeRoomConvo16eCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo14.vcd"  then Mechanic DLC1_C6M2_SafeRoomConvo16f foo:0 -3.567 //Boy, the Military ain't exactly going to strap it to the bottom of a helicopter.
+}
+Rule DLC1_C6M2_SafeRoomConvo16eCoach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo16e IsCoach
+	Response DLC1_C6M2_SafeRoomConvo16eCoach
+}
+
+Response DLC1_C6M2_SafeRoomConvo18cCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo15.vcd"  then Producer DLC1_C6M2_SafeRoomConvo18d foo:0 -.5 //Girl! What are you doing?
+}
+Rule DLC1_C6M2_SafeRoomConvo18cCoach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo18c IsCoach
+	Response DLC1_C6M2_SafeRoomConvo18cCoach
+}
+
+Response DLC1_C6M2_SafeRoomConvo18eCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo16.vcd"  //Listen, if you let your guard down for one minute… we all pay the price.
+}
+Rule DLC1_C6M2_SafeRoomConvo18eCoach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo18e IsCoach
+	Response DLC1_C6M2_SafeRoomConvo18eCoach
+}
+
+Response DLC1_C6M2_SafeRoomConvo19Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo17.vcd"  then Any DLC1_C6M2_SafeRoomConvo19a foo:0 -5.056 //Man, I just realized with all this runnin', climbin' and fightin', I ain't even had time to eat.
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo20.vcd"  then Producer DLC1_C6M2_SafeRoomConvo20a foo:0 -5.299 //All this runnin' we been doing? I bet I lost, what, five pounds.
+}
+Rule DLC1_C6M2_SafeRoomConvo19Coach
+{
+	criteria ConceptC6M2SafeRoom2 IsCoach IsNotSaidC6M2SafeRoom2
+	ApplyContext "SaidC6M2SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M2_SafeRoomConvo19Coach
+}
+
+Response DLC1_C6M2_SafeRoomConvo19bCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo18.vcd"  then Mechanic DLC1_C6M2_SafeRoomConvo19c foo:0 -8.355 //[happily] I bet I'm losin' some serious weight! [laughs proudly] Two more days, I'll be takin' my BELT in a notch.
+}
+Rule DLC1_C6M2_SafeRoomConvo19bCoach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo19b IsCoach
+	Response DLC1_C6M2_SafeRoomConvo19bCoach
+}
+
+Response DLC1_C6M2_SafeRoomConvo19dCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SafeRoomConvo19.vcd"  then Mechanic DLC1_C6M2_SafeRoomConvo19e foo:0 -1.762 //Man, I forgot about that.
+}
+Rule DLC1_C6M2_SafeRoomConvo19dCoach
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo19d IsCoach
+	Response DLC1_C6M2_SafeRoomConvo19dCoach
+}
+
+Response WorldC6M2_InSewer101aCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_Phase2InWater01.vcd"  //Nick my man, face it. We are walkin' through shit.
+}
+Rule WorldC6M2_InSewer101aCoach
+{
+	criteria ConceptWorldC6M2_InSewer101a IsCoach
+	Response WorldC6M2_InSewer101aCoach
+}
+
+Response WorldC6M2_InSewer102aCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_Phase2InWater02.vcd"  //Hey Nick, try and keep your head above water.
+	scene "scenes/Coach/DLC1_C6M2_Phase2InWater03.vcd"  //Don't trip, Nick. [laughs]
+	scene "scenes/Coach/DLC1_C6M2_Phase2InWater04.vcd"  then Gambler WorldC6M2_InSewer102b foo:0 -3.563 //Gotta keep your head above water, man.[laughs]
+	scene "scenes/Coach/DLC1_C6M2_Phase2InWater05.vcd"  then Gambler WorldC6M2_InSewer102b foo:0 -4.289 //Nick, if I give you a piggy back ride, will you shut up about the sewer?
+	scene "scenes/Coach/DLC1_C6M2_Phase2InWater06.vcd"  then Gambler WorldC6M2_InSewer102b foo:0 -5.061 //Nick, if I give you a piggy back ride, will you shut up about the sewer?
+}
+Rule WorldC6M2_InSewer102aCoach
+{
+	criteria ConceptWorldC6M2_InSewer102a IsCoach
+	Response WorldC6M2_InSewer102aCoach
+}
+
+Response WorldC6M2_InSewer202aCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_Phase2InWater07.vcd"  //Oh, Jesus! Ellis!
+}
+Rule WorldC6M2_InSewer202aCoach
+{
+	criteria ConceptWorldC6M2_InSewer202a IsCoach
+	Response WorldC6M2_InSewer202aCoach
+}
+
+Response WorldC6M2_InSewerLadder101aCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_Phase2InWater08.vcd"  //Oh, come on! Jesus! Ellis!
+}
+Rule WorldC6M2_InSewerLadder101aCoach
+{
+	criteria ConceptWorldC6M2_InSewerLadder101a IsCoach
+	Response WorldC6M2_InSewerLadder101aCoach
+}
+
+Response WorldC6M2_OnTourWalk101cCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_HistoricTour02.vcd"  //Yeah. It's a shithole.
+}
+Rule WorldC6M2_OnTourWalk101cCoach
+{
+	criteria ConceptWorldC6M2_OnTourWalk101c IsCoach
+	Response WorldC6M2_OnTourWalk101cCoach
+}
+
+Response WorldC6M2_OnTourWalk103aCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_HistoricTour05.vcd"  //Aw, shut up, Nick
+	scene "scenes/Coach/DLC1_C6M2_HistoricTour06.vcd"  //Aw, shut up, Nick
+}
+Rule WorldC6M2_OnTourWalk103aCoach
+{
+	criteria ConceptWorldC6M2_OnTourWalk103a IsCoach
+	Response WorldC6M2_OnTourWalk103aCoach
+}
+
+Response WorldC6M2_Tattoo02b>Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_Tattoo02.vcd"  then Producer WorldC6M2_Tattoo02c> foo:0 -2.512 //Shit, it's allll south of the border.
+	scene "scenes/Coach/DLC1_C6M2_Tattoo03.vcd"  then Producer WorldC6M2_Tattoo02d> foo:0 -2.019 //Coach's got a lot of real estate.
+	scene "scenes/Coach/DLC1_C6M2_Tattoo04.vcd"  //Hey, Coach keeps his secrets.
+}
+Rule WorldC6M2_Tattoo02b>Coach
+{
+	criteria ConceptWorldC6M2_Tattoo02b> IsCoach
+	Response WorldC6M2_Tattoo02b>Coach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M3
+//--------------------------------------------------------------------------------------------------------------
+Response C6M3_BridgeDownCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_Bridge2Up01.vcd"  //Bridge here, let's go!
+	scene "scenes/Coach/DLC1_C6M3_FinaleBridgeRun01.vcd"  //Get to the car!
+	scene "scenes/Coach/DLC1_C6M3_FinaleBridgeRun01.vcd"  //Get to the car!
+	scene "scenes/Coach/DLC1_C6M3_FinaleBridgeRun03.vcd"  //Bridge is down, let's go!
+	scene "scenes/Coach/DLC1_C6M3_FinaleBridgeRun03.vcd"  //Bridge is down, let's go!
+	scene "scenes/Coach/WorldC1M4B34.vcd"  //GET TO THE CAR!
+	scene "scenes/Coach/WorldC1M4B35.vcd"  //GET TO THE CAR, PEOPLE!
+}
+Rule C6M3_BridgeDownCoach
+{
+	criteria ConceptC6M3_BridgeDown IsCoach
+	ApplyContext "SaidGetToCar:1:20"
+	applycontexttoworld
+	Response C6M3_BridgeDownCoach
+}
+
+Response C6M3_BridgeGettoCarCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_Bridge2Up01.vcd"  //Bridge here, let's go!
+	scene "scenes/Coach/DLC1_C6M3_FinaleBridgeRun01.vcd"  //Get to the car!
+	scene "scenes/Coach/DLC1_C6M3_FinaleBridgeRun01.vcd"  //Get to the car!
+	scene "scenes/Coach/DLC1_C6M3_FinaleBridgeRun03.vcd"  //Bridge is down, let's go!
+	scene "scenes/Coach/DLC1_C6M3_FinaleBridgeRun03.vcd"  //Bridge is down, let's go!
+	scene "scenes/Coach/WorldC1M4B34.vcd"  //GET TO THE CAR!
+	scene "scenes/Coach/WorldC1M4B35.vcd"  //GET TO THE CAR, PEOPLE!
+}
+Rule C6M3_BridgeGettoCarCoach
+{
+	criteria ConceptGetToVehicle IsCoach IsNotSaidGetToCar Isc6m3_port
+	ApplyContext "SaidGetToCar:1:20"
+	applycontexttoworld
+	Response C6M3_BridgeGettoCarCoach
+}
+
+Response C6M3_elevatorCoach
+{
+	scene "scenes/Coach/blank.vcd"  then any C6M1Intro_25a foo:0 0.01 //
+	scene "scenes/Coach/blank.vcd"  then any C6M1Intro_25a foo:0 0.01 //
+	scene "scenes/Coach/blank.vcd"  then any C6M1Intro_25a foo:0 0.01 //
+	scene "scenes/Coach/blank.vcd"  then any C6M1Intro_25a foo:0 0.01 //
+	scene "scenes/Coach/blank.vcd"  then any C6M1Intro_25a foo:0 0.01 //
+	scene "scenes/Coach/DLC1_C6M3_Elevator01.vcd" predelay ".5" //No messin' around let's get these cans.
+	scene "scenes/Coach/blank.vcd"  then any C6M1Intro_25a foo:0 0.01 //
+	scene "scenes/Coach/DLC1_C6M3_Elevator03.vcd" predelay ".5" //We do this and get back to the car.
+	scene "scenes/Coach/DLC1_C6M3_Elevator04.vcd" predelay ".5" //Let's fill that generator and then get back to the car.
+	scene "scenes/Coach/DLC1_C6M3_Elevator05.vcd" predelay ".5" //Alright, look, no messin' around let's get these cans.
+	scene "scenes/Coach/DLC1_C6M3_Elevator07.vcd" predelay ".5" //We do this and get back to the car.
+	scene "scenes/Coach/DLC1_C6M3_Elevator08.vcd" predelay ".5" //Let's fill that generator and then get back to the car.
+}
+Rule C6M3_elevatorCoach
+{
+	criteria Conceptc6m3_elevatorCancel IsCoach IsNotSaidC6M3Elevator IsC6M3_port
+	ApplyContext "SaidC6M3Elevator:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response C6M3_elevatorCoach
+}
+
+Response C6M3_elevatorZoeyCoach
+{
+	scene "scenes/Coach/DLC1_C6M3_Elevator02.vcd" predelay ".5" //Ellis. Keep your mind on the cans not the girl.
+	scene "scenes/Coach/DLC1_C6M3_Elevator06.vcd" predelay ".5" //Ellis. Keep your mind on the cans not the girl.
+}
+Rule C6M3_elevatorZoeyCoach
+{
+	criteria Conceptc6m3_elevatorCancel IsCoach IsNotSaidC6M3Elevator IsC6M3_port IsZoeyIntroActor IsNotVersus ZoeyGroup1
+	ApplyContext "SaidC6M3Elevator:1:0,Talk:0:0"
+	applycontexttoworld
+	forceweight 1
+	Response C6M3_elevatorZoeyCoach
+}
+
+Response C6M3_GivenItemBikerCoach
+{
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Items01.vcd"  //Thanks for sharing!
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Items02.vcd"  //Thanks my man.
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Items03.vcd"  //Man, you guys are all right.
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Items08.vcd"  //Thanks my man.
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Items11.vcd"  //We owe you one.
+}
+Rule C6M3_GivenItemBikerCoach
+{
+	criteria ConceptPlayerPickup IsCoach IsDonorBiker Isc6m3_portHeavy
+	Response C6M3_GivenItemBikerCoach
+}
+
+Response C6M3_GivenItemTeenGirlCoach
+{
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Items04.vcd"  //Hey, thanks for the supplies.
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Items05.vcd"  //We owe you one.
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Items07.vcd"  //Thanks for sharing!
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Items09.vcd"  //You guys are all right.
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Items10.vcd"  //Thanks for the supplies.
+}
+Rule C6M3_GivenItemTeenGirlCoach
+{
+	criteria ConceptPlayerPickup IsCoach IsDonorTeenGirl Isc6m3_portHeavy
+	Response C6M3_GivenItemTeenGirlCoach
+}
+
+Response C6M3SafeRoomCoach
+{
+	scene "scenes/Coach/blank.vcd"  then any C6M3SafeRoom2 foo:0 3 //
+}
+Rule C6M3SafeRoomCoach
+{
+	criteria ConceptTalkIdle  Joined3 IsCoach isC6m3_port IsInStartArea AutoIsNotScavenge AutoIsNotSurvival IsNotSaidC6M3SafeRoom IsNotSpeakingWeight0
+	ApplyContext "SaidC6M3SafeRoom:1:0"
+	applycontexttoworld
+	Response C6M3SafeRoomCoach
+}
+
+Response DLC1_C6M3_SafeRoomConvo02eCoach
+{
+	scene "scenes/Coach/DLC1_C6M3_SafeRoomConvo01.vcd"  //Sometimes you just gotta have faith, Nick.
+}
+Rule DLC1_C6M3_SafeRoomConvo02eCoach
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo02e IsCoach  IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo02eCoach
+}
+
+Response DLC1_C6M3_SafeRoomConvo03Coach
+{
+	scene "scenes/Coach/DLC1_C6M3_SafeRoomConvo02.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo03a foo:0 -2.358 //Ellis. It's showtime, buddy.
+}
+Rule DLC1_C6M3_SafeRoomConvo03Coach
+{
+	criteria ConceptC6M3SafeRoom2 IsCoach IsNotSaidC6M3SafeRoom2 IsZoeyIntroActor ZoeyGroup2 IsInStartArea
+	ApplyContext "SaidC6M3SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M3_SafeRoomConvo03Coach
+}
+
+Response DLC1_C6M3_SafeRoomConvo04Coach
+{
+	scene "scenes/Coach/DLC1_C6M3_SafeRoomConvo04.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo04a foo:0 -2.981 //Ellis, you ready to meet that Zoey girl again?
+	scene "scenes/Coach/DLC1_C6M3_SafeRoomConvo05.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo04a foo:0 -6.746 //Hey, Ellis, you ready to meet that Zoey girl again? [laughs]
+}
+Rule DLC1_C6M3_SafeRoomConvo04Coach
+{
+	criteria ConceptC6M3SafeRoom2 IsCoach IsNotSaidC6M3SafeRoom2 IsZoeyIntroActor ZoeyGroup4 IsInStartArea
+	ApplyContext "SaidC6M3SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M3_SafeRoomConvo04Coach
+}
+
+Response DLC1_C6M3_SafeRoomConvo08Coach
+{
+	scene "scenes/Coach/DLC1_C6M3_SafeRoomConvo06.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo08a foo:0 -3.801 //I don't trust that biker. He's probably long gone by now.
+}
+Rule DLC1_C6M3_SafeRoomConvo08Coach
+{
+	criteria ConceptC6M3SafeRoom2 IsCoach IsNotSaidC6M3SafeRoom2 IsFrancisIntroActor IsInStartArea
+	ApplyContext "SaidC6M3SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M3_SafeRoomConvo08Coach
+}
+
+Response DLC1_C6M3_SafeRoomConvo08bCoach
+{
+	scene "scenes/Coach/DLC1_C6M3_SafeRoomConvo07.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo08c foo:0 -3.689 //Minute we left, bet ya he stole the Jimmy Gibbs Jr.
+}
+Rule DLC1_C6M3_SafeRoomConvo08bCoach
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo08b IsCoach IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo08bCoach
+}
+
+Response IncapBounceCoach
+{
+	scene "scenes/Coach/blank.vcd"  then Biker InCapBounce2 foo:0 0 //
+}
+Rule IncapBounceCoach
+{
+	criteria ConceptSurvivorIncapacitated IsCoach IsNotSaidInCapBounce isC6m3_port
+	ApplyContext "SaidInCapBounce:1:0"
+	applycontexttoworld
+	Response IncapBounceCoach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Finale Speech
+//--------------------------------------------------------------------------------------------------------------
+Response C6M3_CansDoneCoach
+{
+	scene "scenes/Coach/DLC1_C6M3_FinaleBridgeRun02.vcd"  then any EmphaticArriveRun foo:0 -1.194 //Let's get to the car!
+}
+Rule C6M3_CansDoneCoach
+{
+	criteria Conceptc6m3escapeready IsCoach IsC6M3_Port IsNotSaidc6m3escapeready
+	ApplyContext "Saidc6m3escapeready:1:0,Talk:1:5"
+	applycontexttoworld
+	Response C6M3_CansDoneCoach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Monster Spotted
+//--------------------------------------------------------------------------------------------------------------
+Response L4D1AlsoSpottedTankCoach
+{
+	scene "scenes/Coach/DLC1_L4D1Tank01.vcd"  //Lead 'em back to the bridge!
+	scene "scenes/Coach/DLC1_L4D1Tank02.vcd"  //Lead the tanks back to the bridge!
+	scene "scenes/Coach/DLC1_L4D1Tank03.vcd" odds 1 //Two tanks!
+	scene "scenes/Coach/DLC1_L4D1Tank04.vcd" odds 1 //Shit! Two tanks!
+	scene "scenes/Coach/DLC1_L4D1Tank05.vcd" odds 1 //Shit! Two tanks!
+}
+Rule L4D1AlsoSpottedTankCoach
+{
+	criteria ConceptPlayerAlsoWarnTank IsNotCoughing IsCoach IsTalk IsTalkCoach IsWorldTalkCoach Isc6m3_port
+	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
+	applycontexttoworld
+	Response L4D1AlsoSpottedTankCoach
+}
+
+Response L4D1SpottedTankCoach
+{
+	scene "scenes/Coach/DLC1_L4D1Tank01.vcd"  //Lead 'em back to the bridge!
+	scene "scenes/Coach/DLC1_L4D1Tank02.vcd"  //Lead the tanks back to the bridge!
+	scene "scenes/Coach/DLC1_L4D1Tank03.vcd" odds 1 //Two tanks!
+	scene "scenes/Coach/DLC1_L4D1Tank04.vcd" odds 1 //Shit! Two tanks!
+	scene "scenes/Coach/DLC1_L4D1Tank05.vcd" odds 1 //Shit! Two tanks!
+}
+Rule L4D1SpottedTankCoach
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeTank IsNotCoughing IsCoach IsTalk IsTalkCoach IsWorldTalkCoach Isc6m3_port IsNotSpeakingWeight0
+	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
+	applycontexttoworld
+	Response L4D1SpottedTankCoach
+}
+
+Response SurvivorSpottedFallenCoach
+{
+	norepeat
+	scene "scenes/Coach/DLC1_FallenSurvior03.vcd"  //Get that zombie!
+	scene "scenes/Coach/DLC1_FallenSurvior04.vcd"  //Kill that zombie, it's got something.
+	scene "scenes/Coach/DLC1_FallenSurvior05.vcd"  //Get that zombie!
+	scene "scenes/Coach/DLC1_FallenSurvior06.vcd"  //Take that zombie out!
+}
+Rule SurvivorSpottedFallenCoach
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeFallen IsNotCoughing IsCoach IsTalk IsTalkCoach IsWorldTalkCoach IsNotSaidFallenWarn IsNotSpeakingWeight0
+	ApplyContext "SaidFallenWarn:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedFallenCoach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Player File
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerWitchChasingC6M1Coach
+{
+	scene "scenes/Coach/DLC1_C6M1_WeddingWitchChasing01.vcd"  //Bride's chasing me!
+	scene "scenes/Coach/DLC1_C6M1_WeddingWitchChasing02.vcd"  //Ugly brides chasing me! Brides chasing me!
+	scene "scenes/Coach/DLC1_C6M1_WeddingWitchChasing03.vcd"  //Kill the bride! Kill the bride!
+}
+Rule PlayerWitchChasingC6M1Coach
+{
+	criteria ConceptPlayerExertionMinor IsCoach IsWitchPresent SubjectIsNotWitch IsNotSaidCoachWitchChasing IsSaidCoachWitchAttacking isc6m1_riverbank
+	ApplyContext "SaidCoachWitchChasing:1:15,TalkCoach:1:2"
+	forceweight 20
+	Response PlayerWitchChasingC6M1Coach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Remarkable Vocalize
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerRemarkremark_MidnightRidersBusCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_MidnightRiders01.vcd"  //Man, I think I just saw... nah.
+	scene "scenes/Coach/DLC1_C6M2_MidnightRiders02.vcd"  //I must be dreaming.
+	scene "scenes/Coach/DLC1_C6M2_MidnightRiders03.vcd"  //I think I just saw... nah.
+}
+Rule PlayerRemarkremark_MidnightRidersBusCoach
+{
+	criteria ConceptRemark IsCoach Isremark_MidnightRidersBus IsNotSaidremark_MidnightRidersBus IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear1500 IsNotSpeakingWeight0
+	ApplyContext "Saidremark_MidnightRidersBus:1:0"
+	applycontexttoworld
+	Response PlayerRemarkremark_MidnightRidersBusCoach
+}
+
+Response PlayerRemarkWorldC6M1_AcrossHereCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_BackAlley10.vcd"  //Get your ass across the walk-way.
+}
+Rule PlayerRemarkWorldC6M1_AcrossHereCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_AcrossHere IsNotSaidWorldC6M1_AcrossHere IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_AcrossHere:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_AcrossHereCoach
+}
+
+Response PlayerRemarkWorldC6M1_AlleyBelowCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_BackAlley02.vcd"  //Down this alley.
+	scene "scenes/Coach/DLC1_C6M1_BackAlley03.vcd"  //We need to get up there.
+	scene "scenes/Coach/DLC1_C6M1_BackAlley04.vcd"  //We have to get into this building.
+	scene "scenes/Coach/DLC1_C6M1_BackAlley05.vcd"  //Let's all get up there.
+	scene "scenes/Coach/DLC1_C6M1_BackAlley06.vcd"  //Down this alley.
+	scene "scenes/Coach/DLC1_C6M1_BackAlley07.vcd"  //Down here.
+}
+Rule PlayerRemarkWorldC6M1_AlleyBelowCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_AlleyBelow IsNotSaidWorldC6M1_AlleyBelow IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_AlleyBelow:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_AlleyBelowCoach
+}
+
+Response PlayerRemarkWorldC6M1_AlleyIntoBuildingCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_BackAlley08.vcd"  //Into these apartments.
+	scene "scenes/Coach/DLC1_C6M1_BackAlley09.vcd"  //Across the walk-way.
+	scene "scenes/Coach/DLC1_C6M1_BackAlley14.vcd"  //Y'all get in there.
+}
+Rule PlayerRemarkWorldC6M1_AlleyIntoBuildingCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_AlleyIntoBuilding IsNotSaidWorldC6M1_AlleyIntoBuilding IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_AlleyIntoBuilding:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_AlleyIntoBuildingCoach
+}
+
+Response PlayerRemarkWorldC6M1_InAptsCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_BackAlley12.vcd"  //In here.
+	scene "scenes/Coach/DLC1_C6M1_BackAlley13.vcd"  //Get in there.
+	scene "scenes/Coach/DLC1_C6M1_BackAlley15.vcd"  //Search these rooms for supplies.
+	scene "scenes/Coach/DLC1_C6M1_BackAlley16.vcd"  //We're goin' this way..
+}
+Rule PlayerRemarkWorldC6M1_InAptsCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_InApts IsNotSaidWorldC6M1_InApts IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_InApts:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_InAptsCoach
+}
+
+Response PlayerRemarkWorldC6M1_IntoTheStoreCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_IntoStore01.vcd"  //Through this store.
+	scene "scenes/Coach/DLC1_C6M1_IntoStore02.vcd"  //Guns in the store.
+	scene "scenes/Coach/DLC1_C6M1_IntoStore03.vcd"  //Let's get in the store.
+}
+Rule PlayerRemarkWorldC6M1_IntoTheStoreCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_IntoTheStore IsNotSaidWorldC6M1_IntoTheStore IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_IntoTheStore:1:0,JustSaidWorldC6M1_IntoTheStore:1:30"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_IntoTheStoreCoach
+}
+
+Response PlayerRemarkWorldC6M1_PostWeddingCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_WeddingPostWitch03.vcd"  //Check those tents.
+}
+Rule PlayerRemarkWorldC6M1_PostWeddingCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_PostWedding IsNotSaidWorldC6M1_PostWedding IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear600 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_PostWedding:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_PostWeddingCoach
+}
+
+Response PlayerRemarkWorldC6M1_SafeRoomAlleyCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_BackAlley01.vcd"  //Behind this bus.
+	scene "scenes/Coach/DLC1_C6M1_SafeRoomAhead01.vcd"  //Safe room back here!
+}
+Rule PlayerRemarkWorldC6M1_SafeRoomAlleyCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_SafeRoomAlley IsNotSaidWorldC6M1_SafeRoomAlley IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear600 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_SafeRoomAlley:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_SafeRoomAlleyCoach
+}
+
+Response PlayerRemarkWorldC6M1_ThroughBarCoach
+{
+	scene "scenes/Coach/MiscDirectional07.vcd"  //Through here!
+	scene "scenes/Coach/World05.vcd"  //Through here.
+	scene "scenes/Coach/WorldC1M1B139.vcd"  //Let's go through here.
+}
+Rule PlayerRemarkWorldC6M1_ThroughBarCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_ThroughBar IsNotSaidWorldC6M1_ThroughBar IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_ThroughBar:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_ThroughBarCoach
+}
+
+Response PlayerRemarkWorldC6M1_UpHereCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_BackAlley11.vcd"  //Back this way.
+	scene "scenes/Coach/World12.vcd"  //Up here.
+}
+Rule PlayerRemarkWorldC6M1_UpHereCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_UpHere IsNotSaidWorldC6M1_UpHere IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_UpHere:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_UpHereCoach
+}
+
+Response PlayerRemarkWorldC6M1_UpTheStairsCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_Upstairs01.vcd"  //Go upstairs.
+	scene "scenes/Coach/DLC1_C6M1_Upstairs02.vcd"  //Let's try upstairs.
+}
+Rule PlayerRemarkWorldC6M1_UpTheStairsCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_UpTheStairs IsNotSaidWorldC6M1_UpTheStairs IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_UpTheStairs:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_UpTheStairsCoach
+}
+
+Response PlayerRemarkWorldC6M1_UpTheStairs2Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_UpStairs01.vcd"  //Up the stairs.
+}
+Rule PlayerRemarkWorldC6M1_UpTheStairs2Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_UpTheStairs2 IsNotSaidWorldC6M1_UpTheStairs2 IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_UpTheStairs2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_UpTheStairs2Coach
+}
+
+Response PlayerRemarkWorldC6M1_WeddingWarnCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_Wedding01.vcd"  then Producer RemWorldC6M1_WeddingWarn01 foo:0 -2.989 //Damn. This here wedding didn't end well.
+	scene "scenes/Coach/DLC1_C6M1_Wedding02.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -2.843 //Look, uh, anyone see the wedding cake?
+	scene "scenes/Coach/DLC1_C6M1_Wedding03.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -1.235 //Anyone see the wedding cake?
+	scene "scenes/Coach/DLC1_C6M1_Wedding04.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -3.711 //Bride. Wedding. Gotta be cake around here somewhere.
+	scene "scenes/Coach/DLC1_C6M1_Wedding05.vcd"  //Bride. Wedding. Gotta be cake around here somewhere.
+	scene "scenes/Coach/DLC1_C6M1_Wedding06.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -3.403 //Shhh.. does anyone see the wedding cake.
+}
+Rule PlayerRemarkWorldC6M1_WeddingWarnCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_WeddingWarn IsNotSaidWorldC6M1_WeddingWarn IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_WeddingWarn:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_WeddingWarnCoach
+}
+
+Response PlayerRemarkWorldC6M1_WeddingWarn1Coach
+{
+	scene "scenes/Coach/DLC1_C6M1_Wedding01.vcd"  then Producer RemWorldC6M1_WeddingWarn01 foo:0 -2.989 //Damn. This here wedding didn't end well.
+	scene "scenes/Coach/DLC1_C6M1_Wedding02.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -2.843 //Look, uh, anyone see the wedding cake?
+	scene "scenes/Coach/DLC1_C6M1_Wedding03.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -1.235 //Anyone see the wedding cake?
+	scene "scenes/Coach/DLC1_C6M1_Wedding04.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -3.711 //Bride. Wedding. Gotta be cake around here somewhere.
+	scene "scenes/Coach/DLC1_C6M1_Wedding05.vcd"  //Bride. Wedding. Gotta be cake around here somewhere.
+	scene "scenes/Coach/DLC1_C6M1_Wedding06.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -3.403 //Shhh.. does anyone see the wedding cake.
+}
+Rule PlayerRemarkWorldC6M1_WeddingWarn1Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_WeddingWarn1 IsNotSaidWorldC6M1_WeddingWarn IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_WeddingWarn:1:0,AtWedding:1:60"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_WeddingWarn1Coach
+}
+
+Response PlayerRemarkWorldC6M1_WeddingWarn2Coach
+{
+	scene "scenes/Coach/DLC1_C6M1_Wedding01.vcd"  then Producer RemWorldC6M1_WeddingWarn01 foo:0 -2.989 //Damn. This here wedding didn't end well.
+	scene "scenes/Coach/DLC1_C6M1_Wedding02.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -2.843 //Look, uh, anyone see the wedding cake?
+	scene "scenes/Coach/DLC1_C6M1_Wedding03.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -1.235 //Anyone see the wedding cake?
+	scene "scenes/Coach/DLC1_C6M1_Wedding04.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -3.711 //Bride. Wedding. Gotta be cake around here somewhere.
+	scene "scenes/Coach/DLC1_C6M1_Wedding05.vcd"  //Bride. Wedding. Gotta be cake around here somewhere.
+	scene "scenes/Coach/DLC1_C6M1_Wedding06.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -3.403 //Shhh.. does anyone see the wedding cake.
+}
+Rule PlayerRemarkWorldC6M1_WeddingWarn2Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_WeddingWarn2 IsNotSaidWorldC6M1_WeddingWarn IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_WeddingWarn:1:0,AtWedding:1:60"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_WeddingWarn2Coach
+}
+
+Response PlayerRemarkWorldC6M1_WeddingWarn3Coach
+{
+	scene "scenes/Coach/DLC1_C6M1_Wedding01.vcd"  then Producer RemWorldC6M1_WeddingWarn01 foo:0 -2.989 //Damn. This here wedding didn't end well.
+	scene "scenes/Coach/DLC1_C6M1_Wedding02.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -2.843 //Look, uh, anyone see the wedding cake?
+	scene "scenes/Coach/DLC1_C6M1_Wedding03.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -1.235 //Anyone see the wedding cake?
+	scene "scenes/Coach/DLC1_C6M1_Wedding04.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -3.711 //Bride. Wedding. Gotta be cake around here somewhere.
+	scene "scenes/Coach/DLC1_C6M1_Wedding05.vcd"  //Bride. Wedding. Gotta be cake around here somewhere.
+	scene "scenes/Coach/DLC1_C6M1_Wedding06.vcd"  then Any RemWorldC6M1_WeddingWarn02 foo:0 -3.403 //Shhh.. does anyone see the wedding cake.
+}
+Rule PlayerRemarkWorldC6M1_WeddingWarn3Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M1_WeddingWarn3 IsNotSaidWorldC6M1_WeddingWarn IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_WeddingWarn:1:0,AtWedding:1:60"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_WeddingWarn3Coach
+}
+
+Response PlayerRemarkWorldC6M2_AcrossPlankCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_OverPlank01.vcd"  //Over this plank.
+	scene "scenes/Coach/DLC1_C6M2_OverPlank02.vcd"  //Hurry up and get your asses over this plank.
+	scene "scenes/Coach/DLC1_C6M2_OverPlank03.vcd"  //Oh shit, do not look down.
+	scene "scenes/Coach/DLC1_C6M2_OverPlank04.vcd"  //Easy now, don't be playin' on this board.
+}
+Rule PlayerRemarkWorldC6M2_AcrossPlankCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_AcrossPlank IsNotSaidWorldC6M2_AcrossPlank IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear250 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_AcrossPlank:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_AcrossPlankCoach
+}
+
+Response PlayerRemarkWorldC6M2_AfterGate1Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_Phase2InWater10.vcd"  //Don't stop people!
+	scene "scenes/Coach/DLC1_C6M2_Phase2InWater12.vcd"  //Alright, let's keep moving. Unless Nick wants to stop and take a bath
+}
+Rule PlayerRemarkWorldC6M2_AfterGate1Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_AfterGate1 IsNotSaidWorldC6M2_AfterGate1 IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear500 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_AfterGate1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_AfterGate1Coach
+}
+
+Response PlayerRemarkWorldC6M2_AfterGate2Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_InWaterFindLadder01.vcd"  //There's gotta be a ladder here somewhere.
+	scene "scenes/Coach/DLC1_C6M2_InWaterFindLadder02.vcd"  //Let's find ourselves a ladder.
+	scene "scenes/Coach/DLC1_C6M2_InWaterFindLadder03.vcd"  //Holla if you see a ladder.
+	scene "scenes/Coach/DLC1_C6M2_InWaterFindLadder04.vcd"  //We need to get on the catwalks.
+	scene "scenes/Coach/DLC1_C6M2_InWaterFindLadder05.vcd"  //We need to get out of this shit.
+	scene "scenes/Coach/DLC1_C6M2_InWaterFindLadder06.vcd"  //Keep running, that alarm ain't goin' off.
+	scene "scenes/Coach/DLC1_C6M2_InWaterFindLadder07.vcd"  //That alarm is gonna keep goin'!
+}
+Rule PlayerRemarkWorldC6M2_AfterGate2Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_AfterGate2 IsNotSaidWorldC6M2_AfterGate2 IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear500 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_AfterGate2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_AfterGate2Coach
+}
+
+Response PlayerRemarkWorldC6M2_DownHereCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_BackAlley07.vcd"  //Down here.
+	scene "scenes/Coach/MiscDirectional34.vcd"  //We can get down here!
+	scene "scenes/Coach/World08.vcd"  //Down here.
+	scene "scenes/Coach/WorldC2M114.vcd"  //Down here.
+}
+Rule PlayerRemarkWorldC6M2_DownHereCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_DownHere IsNotSaidWorldC6M2_DownHere IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_DownHere:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_DownHereCoach
+}
+
+Response PlayerRemarkWorldC6M2_DownIntoBuildingCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_UpThroughBuilding01.vcd"  //Through this building.
+	scene "scenes/Coach/DLC1_C6M2_UpThroughBuilding02.vcd"  //In here.
+	scene "scenes/Coach/DLC1_C6M2_UpThroughBuilding03.vcd"  //Down these stairs.
+	scene "scenes/Coach/DLC1_C6M2_UpThroughBuilding04.vcd"  //Get in there.
+	scene "scenes/Coach/DLC1_C6M2_UpThroughBuilding05.vcd"  //Everyone get in there.
+}
+Rule PlayerRemarkWorldC6M2_DownIntoBuildingCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_DownIntoBuilding IsNotSaidWorldC6M2_DownIntoBuilding IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_DownIntoBuilding:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_DownIntoBuildingCoach
+}
+
+Response PlayerRemarkWorldC6M2_FinalLadderCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_Bridge2Up02.vcd"  //Come on, let's get out of this sewer!
+	scene "scenes/Coach/DLC1_C6M2_UpLadder01.vcd"  //A ladder!
+	scene "scenes/Coach/DLC1_C6M2_UpLadder02.vcd"  //Up that ladder!
+}
+Rule PlayerRemarkWorldC6M2_FinalLadderCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_FinalLadder IsNotSaidWorldC6M2_FinalLadder IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_FinalLadder:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_FinalLadderCoach
+}
+
+Response PlayerRemarkWorldC6M2_FinalWaterCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_FinalWater01.vcd"  //Back in the water.
+	scene "scenes/Coach/DLC1_C6M2_FinalWater02.vcd"  //Back in the water!
+	scene "scenes/Coach/DLC1_C6M2_FinalWater03.vcd"  //Ah hell, more water.
+	scene "scenes/Coach/DLC1_C6M2_FinalWater04.vcd"  //Ah hell, back in the water!
+}
+Rule PlayerRemarkWorldC6M2_FinalWaterCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_FinalWater IsNotSaidWorldC6M2_FinalWater IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_FinalWater:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_FinalWaterCoach
+}
+
+Response PlayerRemarkWorldC6M2_FinalWaterGoGoCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_Phase2InWater10.vcd"  //Don't stop people!
+	scene "scenes/Coach/WorldC4M2B29.vcd"  //KEEP MOVING!
+}
+Rule PlayerRemarkWorldC6M2_FinalWaterGoGoCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_FinalWaterGoGo IsNotSaidWorldC6M2_FinalWaterGoGo IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_FinalWaterGoGo:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_FinalWaterGoGoCoach
+}
+
+Response PlayerRemarkWorldC6M2_InJazzClubCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_JazzClub01.vcd"  //Into the Jazz Club.
+	scene "scenes/Coach/DLC1_C6M2_JazzClub02.vcd"  //Tour's in the Jazz Club.
+}
+Rule PlayerRemarkWorldC6M2_InJazzClubCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_InJazzClub IsNotSaidWorldC6M2_InJazzClub IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear1000 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_InJazzClub:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_InJazzClubCoach
+}
+
+Response PlayerRemarkWorldC6M2_InSewer1Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_Phase2InWater11.vcd"  //Come on now, let's just get through this shit.
+}
+Rule PlayerRemarkWorldC6M2_InSewer1Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_InSewer1 IsNotSaidWorldC6M2_InSewer1 IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_InSewer1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_InSewer1Coach
+}
+
+Response PlayerRemarkWorldC6M2_InSewerLadder1Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_UpLadder101.vcd"  //Let's get out of the water.
+	scene "scenes/Coach/DLC1_C6M2_UpLadder102.vcd"  //Everybody up there!
+	scene "scenes/Coach/DLC1_C6M2_UpLadder103.vcd"  //All right, out of the water.
+	scene "scenes/Coach/DLC1_C6M2_UpLadder104.vcd"  //Everyone up there!
+}
+Rule PlayerRemarkWorldC6M2_InSewerLadder1Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_InSewerLadder1 IsNotSaidWorldC6M2_InSewerLadder1 IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_InSewerLadder1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_InSewerLadder1Coach
+}
+
+Response PlayerRemarkWorldC6M2_IntoConstructionCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_ConstructionSite01.vcd"  //Let's get down there.
+	scene "scenes/Coach/DLC1_C6M2_ConstructionSite02.vcd"  //Down by the pipe.
+}
+Rule PlayerRemarkWorldC6M2_IntoConstructionCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_IntoConstruction IsNotSaidWorldC6M2_IntoConstruction IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear150 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_IntoConstruction:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_IntoConstructionCoach
+}
+
+Response PlayerRemarkWorldC6M2_IntoPoolHallCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_IntoPoolHall01.vcd"  //Into the pool hall.
+	scene "scenes/Coach/DLC1_C6M2_IntoPoolHall02.vcd"  //Get into the pool hall.
+	scene "scenes/Coach/DLC1_C6M2_IntoPoolHall03.vcd"  //Go through these windows.
+}
+Rule PlayerRemarkWorldC6M2_IntoPoolHallCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_IntoPoolHall IsNotSaidWorldC6M2_IntoPoolHall IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_IntoPoolHall:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_IntoPoolHallCoach
+}
+
+Response PlayerRemarkWorldC6M2_JukeBoxCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_StartingJukeBox01.vcd"  //This jukebox is all right.
+	scene "scenes/Coach/DLC1_C6M2_StartingJukeBox02.vcd"  //Oh shit, this thing is still on!
+}
+Rule PlayerRemarkWorldC6M2_JukeBoxCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_JukeBox IsNotSaidWorldC6M2_JukeBox IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear150 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_JukeBox:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_JukeBoxCoach
+}
+
+Response PlayerRemarkWorldC6M2_JumpDownCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_Phase2JumpInWater01.vcd"  //Together people.
+	scene "scenes/Coach/DLC1_C6M2_Phase2JumpInWater02.vcd"  //Don't get left behind.
+}
+Rule PlayerRemarkWorldC6M2_JumpDownCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_JumpDown IsNotSaidWorldC6M2_JumpDown IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_JumpDown:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_JumpDownCoach
+}
+
+Response PlayerRemarkWorldC6M2_OnTourWalk1Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_HistoricTour01.vcd"  then Any WorldC6M2_OnTourWalk101a foo:0 -2.374 //Man, this is a real...
+	scene "scenes/Coach/DLC1_C6M2_HistoricTour03.vcd"  then Gambler WorldC6M2_OnTourWalk102a foo:0 -7.934 //Man, LOOK at all this, uh... uh... Aw, this tour is bullshit.
+	scene "scenes/Coach/DLC1_C6M2_HistoricTour04.vcd"  then Gambler WorldC6M2_OnTourWalk102a foo:0 -8.633 //Man, LOOK at all this, uh... uh... Aw, man, this tour is bullshit.
+	scene "scenes/Coach/DLC1_C6M2_HistoricTour09.vcd"  //Shit, they must have locked up all the history to keep it safe.
+}
+Rule PlayerRemarkWorldC6M2_OnTourWalk1Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_OnTourWalk1 IsNotSaidWorldC6M2_OnTourWalk1 IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_OnTourWalk1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_OnTourWalk1Coach
+}
+
+Response PlayerRemarkWorldC6M2_OnTourWalk2Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_HistoricTour07.vcd"  //Keep to the walkway.
+	scene "scenes/Coach/DLC1_C6M2_HistoricTour08.vcd"  //Follow the walkway.
+}
+Rule PlayerRemarkWorldC6M2_OnTourWalk2Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_OnTourWalk2 IsNotSaidWorldC6M2_OnTourWalk2 IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_OnTourWalk2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_OnTourWalk2Coach
+}
+
+Response PlayerRemarkWorldC6M2_OpenGate1Coach
+{
+	scene "scenes/Coach/DLC1_C6M1_AlarmDoor01.vcd"  //This here door is going to sound when we open it.
+	scene "scenes/Coach/DLC1_C6M1_AlarmDoor02.vcd"  //You know this shit's going to get loud.
+	scene "scenes/Coach/DLC1_C6M1_AlarmDoor03.vcd"  //Let's get ready before we open that door.
+	scene "scenes/Coach/DLC1_C6M2_Bridge1Raise03.vcd"  //Shit, we gotta hit that button.
+	scene "scenes/Coach/DLC1_C6M2_Bridge1Raise04.vcd"  //This looks like the only way.
+}
+Rule PlayerRemarkWorldC6M2_OpenGate1Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_OpenGate1 IsNotSaidWorldC6M2_OpenGate1 IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSaidOpenedGate1 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_OpenGate1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_OpenGate1Coach
+}
+
+Response PlayerRemarkWorldC6M2_OpenGate2Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_Bridge2Raise02.vcd"  //Second time better be the charm.
+	scene "scenes/Coach/DLC1_C6M2_Bridge2Raise03.vcd"  //Oh damn, another one of these things?
+	scene "scenes/Coach/DLC1_C6M2_Bridge2Raise04.vcd"  //Ellis, don't break it this time.
+}
+Rule PlayerRemarkWorldC6M2_OpenGate2Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_OpenGate2 IsNotSaidWorldC6M2_OpenGate2 IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSaidOpenedGate2 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_OpenGate2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_OpenGate2Coach
+}
+
+Response PlayerRemarkWorldC6M2_Phase2Coach
+{
+	scene "scenes/Coach/DLC1_C6M2_Phase201.vcd"  //Tour's over? Shit.
+	scene "scenes/Coach/DLC1_C6M2_Phase202.vcd"  //Tour's over? Bullshit.
+	scene "scenes/Coach/DLC1_C6M2_Phase204.vcd"  //Phase two my ass.
+	scene "scenes/Coach/DLC1_C6M2_Phase205.vcd"  //Phase two coming in 2010? Shit phase one ain't done.
+}
+Rule PlayerRemarkWorldC6M2_Phase2Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_Phase2 IsNotSaidWorldC6M2_Phase2 IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Phase2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_Phase2Coach
+}
+
+Response PlayerRemarkWorldC6M2_Phase2DownCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_Phase207.vcd"  //Down the stairs.
+}
+Rule PlayerRemarkWorldC6M2_Phase2DownCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_Phase2Down IsNotSaidWorldC6M2_Phase2Down IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Phase2Down:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_Phase2DownCoach
+}
+
+Response PlayerRemarkWorldC6M2_Phase2DownIntenseCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_Phase208.vcd"  //Get your asses down the stairs!
+	scene "scenes/Coach/DLC1_C6M2_Phase209.vcd"  //Come on, y'all, haul ass down the stairs!
+	scene "scenes/Coach/DLC1_C6M2_Phase210.vcd"  //Haul ass down the stairs!
+	scene "scenes/Coach/DLC1_C6M2_Phase211.vcd"  //DOWN DOWN DOWN!
+}
+Rule PlayerRemarkWorldC6M2_Phase2DownIntenseCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_Phase2Down IsNotSaidWorldC6M2_Phase2Down IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IntensityOver75 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Phase2Down:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_Phase2DownIntenseCoach
+}
+
+Response PlayerRemarkWorldC6M2_PostGate1xCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_BridgeCollapse01.vcd"  //Damn, back in water people.
+	scene "scenes/Coach/DLC1_C6M2_BridgeCollapse02.vcd"  //Let's just get this over with.
+	scene "scenes/Coach/DLC1_C6M2_BridgeCollapse03.vcd"  //Can't stay up here all day y'all.
+	scene "scenes/Coach/DLC1_C6M2_BridgeCollapse04.vcd"  //One more time!
+}
+Rule PlayerRemarkWorldC6M2_PostGate1xCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_PostGate1 IsNotSaidWorldC6M2_PostGate1 IsNotCoughing IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsSaidOpenedGate1 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_PostGate1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_PostGate1xCoach
+}
+
+Response PlayerRemarkWorldC6M2_SafeRoomCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_Saferoom01.vcd"  //Saferoom and it's dry!
+	scene "scenes/Coach/DLC1_C6M2_Saferoom02.vcd"  //Man, that bridge's gotta be close!
+}
+Rule PlayerRemarkWorldC6M2_SafeRoomCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_SafeRoom IsNotSaidWorldC6M2_SafeRoom IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear800 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_SafeRoom:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_SafeRoomCoach
+}
+
+Response PlayerRemarkWorldC6M2_SuitcaseCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_SuitcasePistols01.vcd"  //[singing] "...a suitcase full of pistols and MON-NAY!"
+}
+Rule PlayerRemarkWorldC6M2_SuitcaseCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_Suitcase IsNotSaidWorldC6M2_Suitcase IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear100 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Suitcase:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_SuitcaseCoach
+}
+
+Response PlayerRemarkWorldC6M2_TattooC&RCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_Tattoo01.vcd"  then Producer WorldC6M2_Tattoo02a> foo:0 -5.016 //I got that one, that one-hell, I got most of these.
+}
+Rule PlayerRemarkWorldC6M2_TattooC&RCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_Tattoo IsNotSaidWorldC6M2_Tattoo IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsProducerNear800Weight0 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Tattoo:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_TattooC&RCoach
+}
+
+Response PlayerRemarkWorldC6M2_TourEntranceCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_TicketCounter01.vcd"  //Here we go, under the river.
+}
+Rule PlayerRemarkWorldC6M2_TourEntranceCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_TourEntrance IsNotSaidWorldC6M2_TourEntrance IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_TourEntrance:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_TourEntranceCoach
+}
+
+Response PlayerRemarkWorldC6M2_UpCatWalkCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_UpCatwalk01.vcd"  //A ladder!
+	scene "scenes/Coach/DLC1_C6M2_UpCatwalk02.vcd"  //Ladder!
+	scene "scenes/Coach/DLC1_C6M2_UpCatwalk03.vcd"  //Thank you Jesus, a ladder!
+}
+Rule PlayerRemarkWorldC6M2_UpCatWalkCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_UpCatWalk IsNotSaidWorldC6M2_UpCatWalk IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_UpCatWalk:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_UpCatWalkCoach
+}
+
+Response PlayerRemarkWorldC6M2_UpStairsCoach
+{
+	scene "scenes/Coach/DLC1_C6M2_UpStairs01.vcd"  //Up the stairs.
+	scene "scenes/Coach/DLC1_C6M2_UpStairs02.vcd"  //Let's get up to that street.
+}
+Rule PlayerRemarkWorldC6M2_UpStairsCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_UpStairs IsNotSaidWorldC6M2_UpStairs IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_UpStairs:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_UpStairsCoach
+}
+
+Response PlayerRemarkWorldC6M2_UpStairs2Coach
+{
+	scene "scenes/Coach/DLC1_C6M1_Upstairs01.vcd"  //Go upstairs.
+	scene "scenes/Coach/DLC1_C6M1_Upstairs02.vcd"  //Let's try upstairs.
+}
+Rule PlayerRemarkWorldC6M2_UpStairs2Coach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M2_UpStairs2 IsNotSaidWorldC6M2_UpStairs2 IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_UpStairs2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_UpStairs2Coach
+}
+
+Response PlayerRemarkWorldC6M3_BridgeRunCoach
+{
+	scene "scenes/Coach/DLC1_C6M3_FinaleBridgeRun04.vcd"  then Any WorldC6M3_ByBridge01 foo:0 -3.325 //Come on people, GET TO THE CAR! GET TO THE CAR!
+	scene "scenes/Coach/DLC1_C6M3_FinaleBridgeRun05.vcd"  then Any WorldC6M3_ByBridge01 foo:0 -1.752 //We gotta run, GO!
+}
+Rule PlayerRemarkWorldC6M3_BridgeRunCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M3_BridgeRun IsNotSaidWorldC6M3_BridgeRun IsNotCoughing  IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear500 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M3_BridgeRun:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M3_BridgeRunCoach
+}
+
+Response PlayerRemarkWorldC6M3_ByBridgeCoach
+{
+	scene "scenes/Coach/DLC1_C6M3_FinaleFinalGas01.vcd"  //You three keep safe.
+	scene "scenes/Coach/DLC1_C6M3_FinaleFinalGas02.vcd"  //We owe you.
+	scene "scenes/Coach/DLC1_C6M3_FinaleFinalGas03.vcd"  //You good? See y'all!
+	scene "scenes/Coach/DLC1_C6M3_FinaleFinalGas04.vcd"  //Well alright.  We're gonna remember y'all.
+}
+Rule PlayerRemarkWorldC6M3_ByBridgeCoach
+{
+	criteria ConceptRemark IsCoach IsWorldC6M3_ByBridge IsNotSaidWorldC6M3_ByBridge IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear300 IsSaidFinalVehicleArrived IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M3_ByBridge:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M3_ByBridgeCoach
+}
+
+Response PlayerRemarkWorldFootLockerCoach
+{
+	scene "scenes/Coach/DLC1_FootLocker03.vcd"  //Open up the locker.
+	scene "scenes/Coach/DLC1_FootLocker04.vcd"  //Open the bitch up.
+	scene "scenes/Coach/DLC1_FootLocker05.vcd"  //Search the lockers.
+}
+Rule PlayerRemarkWorldFootLockerCoach
+{
+	criteria ConceptRemark IsCoach IsWorldFootLocker IsNotSaidWorldFootLocker IsNotCoughing NotInCombat IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectNear500 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldFootLocker:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldFootLockerCoach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Scavenge
+//--------------------------------------------------------------------------------------------------------------
+Response C6M3_PourFinishedCoach
+{
+	scene "scenes/Coach/blank.vcd" predelay ".5,1.5" then Manager L4D1_NiceJobPour foo:0 0 //
+}
+Rule C6M3_PourFinishedCoach
+{
+	criteria ConceptPlayerPourFinished IsCoach IsTalk IsTalkCoach IsWorldTalkCoach  Isc6m3_port ChanceToFire20Percent
+	ApplyContext "Talk:1:3"
+	Response C6M3_PourFinishedCoach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer
+//--------------------------------------------------------------------------------------------------------------
+Response SurvivorNearFinaleC6M3Coach
+{
+	scene "scenes/Coach/blank.vcd"  //
+}
+Rule SurvivorNearFinaleC6M3Coach
+{
+	criteria ConceptPlayerNearFinale IsNotCoughing IsCoach IsNotSaidFinaleAhead NotInCombat IsTalk IsTalkCoach IsNotIncapacitated IsWorldTalkCoach Isc6m3_port
+	ApplyContext "SaidFinaleAhead:1:0"
+	applycontexttoworld
+	Response SurvivorNearFinaleC6M3Coach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer - Pickups
+//--------------------------------------------------------------------------------------------------------------
+Response SurvivorPickupGolfCLubCoach
+{
+	scene "scenes/Coach/DLC1_GolfClub03.vcd"  //Grabbing a club.
+	scene "scenes/Coach/DLC1_GolfClub04.vcd"  //Grabbing a driver.
+}
+Rule SurvivorPickupGolfCLubCoach
+{
+	criteria ConceptPlayerPickup IsNotCoughing IsCoach IsPickedUpGolfClub  IsNotSpeaking  CoachNotPickedUpItem IsTalk IsTalkCoach IsWorldTalkCoach
+	ApplyContext "CoachPickedUpItem:1:30"
+	Response SurvivorPickupGolfCLubCoach
+}
+
+Response SurvivorPickupM60Coach
+{
+	scene "scenes/Coach/DLC1_M6002.vcd"  //Grabbing the big gun.
+	scene "scenes/Coach/DLC1_M6003.vcd"  //Grabbing the machine gun.
+	scene "scenes/Coach/DLC1_M6004.vcd"  //Shit, this is heavy.
+	scene "scenes/Coach/DLC1_M6005.vcd"  //This some goddamn firepower.
+	scene "scenes/Coach/DLC1_M6006.vcd"  //Grabbing the gun.
+}
+Rule SurvivorPickupM60Coach
+{
+	criteria ConceptPlayerPickup IsNotCoughing IsCoach IsPickedUpM60  IsNotSpeaking  CoachNotPickedUpItem IsTalk IsTalkCoach IsWorldTalkCoach
+	ApplyContext "CoachPickedUpItem:1:30"
+	Response SurvivorPickupM60Coach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer Convo (AUTO)
+//--------------------------------------------------------------------------------------------------------------
+Response HistoricTour02aCoach
+{
+	scene "scenes/Coach/DLC1_C6M1_HistoricSign05.vcd"  then Producer HistoricTour02b foo:0 -2.837 //Yeah, it's historic.
+	scene "scenes/Coach/DLC1_C6M1_HistoricSign06.vcd"  then Producer HistoricTour02b foo:0 -3.498 //I don't know, goes under the river.
+}
+Rule HistoricTour02aCoach
+{
+	criteria ConceptHistoricTour02a IsCoach
+	Response HistoricTour02aCoach
+}
+
+Response WeddingWitchDead01Coach
+{
+	scene "scenes/Coach/DLC1_C6M1_WeddingWitchDead01.vcd"  //You got problems boy. Deep down problems.
+}
+Rule WeddingWitchDead01Coach
+{
+	criteria ConceptWeddingWitchDead01 IsCoach
+	Response WeddingWitchDead01Coach
+}
+
+Response WeddingWitchDead02Coach
+{
+	scene "scenes/Coach/DLC1_C6M1_WeddingWitchDead03.vcd"  //Yeah, that shit was creeping me out.
+}
+Rule WeddingWitchDead02Coach
+{
+	criteria ConceptWeddingWitchDead02 IsCoach
+	Response WeddingWitchDead02Coach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Volcalize
+//--------------------------------------------------------------------------------------------------------------
+Response Player.LostCallC6M3Coach
+{
+	scene "scenes/Coach/blank.vcd"  //
+}
+Rule Player.LostCallC6M3Coach
+{
+	criteria ConceptTalkIdle IsCoach IsClosestSurvivorFar3000 IsNotSaidPlayerLostCall Isc6m3_port  ChanceToFire100Percent IsNotSpeakingWeight0
+	ApplyContext "SaidPlayerLostCall:1:50"
+	applycontexttoworld
+	Response Player.LostCallC6M3Coach
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Weapon Spotted
+//--------------------------------------------------------------------------------------------------------------
+Response SurvivorSpottedGolfClubCoach
+{
+	scene "scenes/Coach/DLC1_GolfClub01.vcd"  //Driver here.
+	scene "scenes/Coach/DLC1_GolfClub02.vcd"  //Golf club!
+}
+Rule SurvivorSpottedGolfClubCoach
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsCoach IsTalk IsTalkCoach IsSmartLookAuto  IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsGolfClub IsWorldTalkCoach IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedGolfClubCoach
+}
+
+Response SurvivorSpottedGolfClubAutoCoach
+{
+	scene "scenes/Coach/DLC1_GolfClub01.vcd"  //Driver here.
+	scene "scenes/Coach/DLC1_GolfClub02.vcd"  //Golf club!
+}
+Rule SurvivorSpottedGolfClubAutoCoach
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto IsGolfClub IsWorldTalkCoach
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedGolfClubAutoCoach
+}
+
+Response SurvivorSpottedM60Coach
+{
+	scene "scenes/Coach/DLC1_M6001.vcd"  //Big gun!
+	scene "scenes/Coach/DLC1_M6007.vcd"  //Here's a big gun!
+	scene "scenes/Coach/DLC1_M6008.vcd"  //Big gun!
+}
+Rule SurvivorSpottedM60Coach
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsCoach IsTalk IsTalkCoach IsSmartLookAuto  IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsM60 IsWorldTalkCoach IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedM60Coach
+}
+
+Response SurvivorSpottedM60AutoCoach
+{
+	scene "scenes/Coach/DLC1_M6001.vcd"  //Big gun!
+	scene "scenes/Coach/DLC1_M6007.vcd"  //Here's a big gun!
+	scene "scenes/Coach/DLC1_M6008.vcd"  //Big gun!
+}
+Rule SurvivorSpottedM60AutoCoach
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto IsM60 IsWorldTalkCoach
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedM60AutoCoach
+}
+

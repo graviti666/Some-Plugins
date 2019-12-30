@@ -124,16 +124,16 @@ Rule C4M3Saferoom001Gambler
 
 Response PlayerNiceShotGambler
 {
-	scene "scenes/Gambler/NiceShot01.vcd" //Nice shot.
-	scene "scenes/Gambler/NiceShot02.vcd" //Nice shot.
-	scene "scenes/Gambler/NiceShot03.vcd" //How'dja do that?
-	scene "scenes/Gambler/NiceShot04.vcd" //Nice shot.
-	scene "scenes/Gambler/NiceShot05.vcd" //Good shooting.
-	scene "scenes/Gambler/NiceShot06.vcd" //Nice shooting.
-	scene "scenes/Gambler/NiceShot07.vcd" //Nice shot!
-	scene "scenes/Gambler/NiceShot08.vcd" //Nice shot Ace.
-	scene "scenes/Gambler/NiceShot09.vcd" //Impressive.
-	scene "scenes/Gambler/WorldC1M2B33.vcd" //I gotta respect that!
+	scene "scenes/Gambler/NiceShot01.vcd" then subject PlayerThanks foo:0 0.1 //Nice shot.
+	scene "scenes/Gambler/NiceShot02.vcd" then subject PlayerThanks foo:0 0.1 //Nice shot.
+	scene "scenes/Gambler/NiceShot03.vcd" then subject PlayerThanks foo:0 0.1 //How'dja do that?
+	scene "scenes/Gambler/NiceShot04.vcd" then subject PlayerThanks foo:0 0.1 //Nice shot.
+	scene "scenes/Gambler/NiceShot05.vcd" then subject PlayerThanks foo:0 0.1 //Good shooting.
+	scene "scenes/Gambler/NiceShot06.vcd" then subject PlayerThanks foo:0 0.1 //Nice shooting.
+	scene "scenes/Gambler/NiceShot07.vcd" then subject PlayerThanks foo:0 0.1 //Nice shot!
+	scene "scenes/Gambler/NiceShot08.vcd" then subject PlayerThanks foo:0 0.1 //Nice shot Ace.
+	scene "scenes/Gambler/NiceShot09.vcd" then subject PlayerThanks foo:0 0.1 //Impressive.
+	scene "scenes/Gambler/WorldC1M2B33.vcd" then subject PlayerThanks foo:0 0.1 //I gotta respect that!
 }
 Rule PlayerNiceShotGambler
 {
@@ -445,7 +445,7 @@ Response PlayerC3M1FerryLanded2Gambler
 }
 Rule PlayerC3M1FerryLanded2Gambler
 {
-	criteria ConceptC3M1FerryLanded2 IsGambler IsTalk IsTalkGambler IsNotSaidC3M1FerryLaunched2 IsNotSaidC3M1FerryLanded2 IsNotSaidWorldC3M1FerryCrossing IsNotIncapacitated IsNotAlone IsWorldTalkGambler AutoIsNotScavenge AutoIsNotSurvival
+	criteria ConceptC3M1FerryLanded2 IsGambler IsTalk IsTalkGambler IsNotSaidC3M1FerryLaunched2 IsNotSaidC3M1FerryLanded2 IsNotSaidWorldC3M1FerryCrossing IsNotIncapacitated IsNotAlone IsWorldTalkGambler
 	ApplyContext "SaidC3M1FerryLanded2:1:2"
 	applycontexttoworld
 	Response PlayerC3M1FerryLanded2Gambler
@@ -960,7 +960,7 @@ Response C1M2TankerAttackGambler
 }
 Rule C1M2TankerAttackGambler
 {
-	criteria ConceptC1M2TankerAttack2 IsGambler AutoIsNotScavenge AutoIsNotSurvival
+	criteria ConceptC1M2TankerAttack2 IsGambler
 	Response C1M2TankerAttackGambler
 }
 
@@ -996,7 +996,7 @@ Response C1M4GasPourGambler
 }
 Rule C1M4GasPourGambler
 {
-	criteria ConceptPlayerPourStarted IsGambler IsTalk IsTalkGambler IsWorldTalkGambler IsNotScavenge ismap_c1m4_atrium _auto_NotNoGasPourLine
+	criteria ConceptPlayerPourStarted IsGambler IsTalk IsTalkGambler IsWorldTalkGambler
 	ApplyContext "TalkGambler:1:2"
 	Response C1M4GasPourGambler
 }
@@ -1009,7 +1009,7 @@ Response C1M4PlayerGetToRescueVehicleGambler
 }
 Rule C1M4PlayerGetToRescueVehicleGambler
 {
-	criteria ConceptGetToVehicle IsGambler IsNotSaidPlayerGetToRescueVehicle ismap_c1m4_atrium IsTalk IsTalkGambler IsWorldTalkGambler
+	criteria ConceptGetToVehicle IsGambler IsNotSaidPlayerGetToRescueVehicle IsTalk IsTalkGambler IsWorldTalkGambler
 	ApplyContext "SaidPlayerGetToRescueVehicle:1:0"
 	applycontexttoworld
 	Response C1M4PlayerGetToRescueVehicleGambler
@@ -1051,7 +1051,7 @@ Response GasPourDoneC1M4Gambler
 }
 Rule GasPourDoneC1M4Gambler
 {
-	criteria ConceptPlayerPourFinished IsGambler IsTalk IsTalkGambler IsWorldTalkGambler IsNotScavenge ismap_c1m4_atrium ScoreDoneSC
+	criteria ConceptPlayerPourFinished IsGambler IsTalk IsTalkGambler IsWorldTalkGambler
 	Response GasPourDoneC1M4Gambler
 }
 
@@ -1066,7 +1066,7 @@ Response C2M2CarouselIdleGambler
 }
 Rule C2M2CarouselIdleGambler
 {
-	criteria ConceptTalkIdle IsGambler IsNotIncapacitated ismap_c2m2 IsNotInSafeSpot AutoIsNotScavenge AutoIsNotSurvival _auto_IsCarouselOn _auto_NotTimerLockA _auto_NotTimerLockGambler _auto_NotSawTunnelOfLove IsNotSpeakingWeight0
+	criteria ConceptTalkIdle IsGambler IsNotIncapacitated ismap_c2m2 IsNotInSafeSpot AutoIsNotScavenge _auto_IsCarouselOn _auto_NotTimerLockA _auto_NotTimerLockGambler _auto_NotSawTunnelOfLove IsNotSpeakingWeight0
 	ApplyContext "_auto_TimerLockA:1:13,_auto_TimerLockGambler:1:20"
 	applycontexttoworld
 	Response C2M2CarouselIdleGambler
@@ -1738,7 +1738,7 @@ Response _c4m1Intro23Gambler
 }
 Rule _c4m1Intro23Gambler
 {
-	criteria Concept_c4m1Intro23 IsGambler AutoIsNotScavenge AutoIsNotSurvival
+	criteria Concept_c4m1Intro23 IsGambler AutoIsNotScavenge
 	ApplyContext "Talk:1:2.184,TalkGambler:1:2"
 	applycontexttoworld
 	Response _c4m1Intro23Gambler
@@ -7198,7 +7198,7 @@ Response PlayerRemarkc4m1_boataGambler
 }
 Rule PlayerRemarkc4m1_boataGambler
 {
-	criteria ConceptRemark IsGambler Isc4m1_boata IsNotSaidc4m1_boata IsNotCoughing NotInCombat IsTalk IsTalkGambler IsWorldTalkGambler IsSubjectNear200 AutoIsNotScavenge AutoIsNotSurvival IsNotSrcGrp_C4M1_002 IsNotSpeakingWeight0
+	criteria ConceptRemark IsGambler Isc4m1_boata IsNotSaidc4m1_boata IsNotCoughing NotInCombat IsTalk IsTalkGambler IsWorldTalkGambler IsSubjectNear200 AutoIsNotScavenge IsNotSrcGrp_C4M1_002 IsNotSpeakingWeight0
 	ApplyContext "Saidc4m1_boata:1:0,SrcGrp_C4M1_002:1:0"
 	applycontexttoworld
 	Response PlayerRemarkc4m1_boataGambler
@@ -7254,7 +7254,7 @@ Response PlayerRemarkc4m1_nogasGambler
 }
 Rule PlayerRemarkc4m1_nogasGambler
 {
-	criteria ConceptRemark IsGambler Isc4m1_nogas IsNotSaidc4m1_nogas IsNotCoughing NotInCombat IsTalk IsTalkGambler IsSubjectNear300 IsWorldTalkGambler AutoIsNotScavenge AutoIsNotSurvival IsNotSpeakingWeight0
+	criteria ConceptRemark IsGambler Isc4m1_nogas IsNotSaidc4m1_nogas IsNotCoughing NotInCombat IsTalk IsTalkGambler IsSubjectNear300 IsWorldTalkGambler AutoIsNotScavenge IsNotSpeakingWeight0
 	ApplyContext "Saidc4m1_nogas:1:0,Talk:1:2.493,_auto_NoGasGate:1:25"
 	applycontexttoworld
 	Response PlayerRemarkc4m1_nogasGambler
@@ -8377,7 +8377,7 @@ Response PlayerRemarkWorldC3M1FerryNagGambler
 }
 Rule PlayerRemarkWorldC3M1FerryNagGambler
 {
-	criteria ConceptRemark IsGambler IsWorldC3M1FerryNag IsNotSaidWorldC3M1FerryNag IsNotCoughing NotInCombat IsTalk IsTalkGambler IsSubjectNear600 IsNotSaidC3M1CallFerry2 IsWorldTalkGambler AutoIsNotScavenge AutoIsNotSurvival IsNotSpeakingWeight0
+	criteria ConceptRemark IsGambler IsWorldC3M1FerryNag IsNotSaidWorldC3M1FerryNag IsNotCoughing NotInCombat IsTalk IsTalkGambler IsSubjectNear600 IsNotSaidC3M1CallFerry2 IsWorldTalkGambler AutoIsNotScavenge IsNotSpeakingWeight0
 	ApplyContext "SaidWorldC3M1FerryNag:1:0,SaidWorldC3M1FerryNagNext:1:9"
 	applycontexttoworld
 	Response PlayerRemarkWorldC3M1FerryNagGambler
@@ -8801,7 +8801,7 @@ Rule PlayerImWithYouGambler
 
 Response PlayerLaughGambler
 {
-	scene "scenes/Gambler/rapenick.vcd"  //<Hearty Laugh>
+	scene "scenes/Gambler/Laughter01.vcd"  //<Hearty Laugh>
 	scene "scenes/Gambler/Laughter02.vcd"  //<Hearty Laugh>
 	scene "scenes/Gambler/Laughter03.vcd"  //<Hearty Laugh>
 	scene "scenes/Gambler/Laughter04.vcd"  //<Hearty Laugh>
@@ -9003,20 +9003,17 @@ Rule PlayerSorryGambler
 Response PlayerThanksGambler
 {
 	scene "scenes/Gambler/Thanks01.vcd"  //Thanks.
-	scene "scenes/Gambler/Thanks02.vcd"  //Thank you!
 	scene "scenes/Gambler/Thanks03.vcd"  //Thanks!
-	scene "scenes/Gambler/Thanks04.vcd"  // Thanks man i owe' you!
-	scene "scenes/Gambler/Thanks05.vcd"  //I owe you one.t
-	
-	scene "scenes/Gambler/dlc1_c6m3_finalel4d1items01.vcd" 	// SHIT Thanks!
-	scene "scenes/Gambler/dlc1_c6m3_finalel4d1items05.vcd" 	// Thanks greaseball!
-	scene "scenes/Gambler/dlc1_c6m3_finalel4d1items06.vcd"	// hey thanks babe!
-	scene "scenes/Gambler/dlc1_c6m3_finalel4d1items07.vcd"	// Thanks pal!
-	scene "scenes/Gambler/dlc1_c6m3_finalel4d1items08.vcd"	// Thanks pal!
+	scene "scenes/Gambler/Thanks05.vcd"  //I owe you one.
+	scene "scenes/Gambler/DLC1_C6M3_Finalel4d1items01.vcd"  //Ehhh.
+	scene "scenes/Gambler/DLC1_C6M3_Finalel4d1items05.vcd"  //Ehhh.
+	scene "scenes/Gambler/DLC1_C6M3_Finalel4d1items06.vcd"  //Ehhh.
+	scene "scenes/Gambler/DLC1_C6M3_Finalel4d1items07.vcd"  //Ehhh.
+	scene "scenes/Gambler/DLC1_C6M3_Finalel4d1items08.vcd"  //Ehhh.
 }
 Rule PlayerThanksGambler
 {
-	criteria ConceptPlayerThanks IsNotCoughing  IsGambler IsTalk IsTalkGambler IsWorldTalkGambler ChanceToFire25Percent
+	criteria ConceptPlayerThanks IsNotCoughing  IsGambler IsTalk IsTalkGambler IsWorldTalkGambler
 	Response PlayerThanksGambler
 }
 
@@ -12592,7 +12589,7 @@ Response _c4m3_rain01Gambler
 }
 Rule _c4m3_rain01Gambler
 {
-	criteria Concept_c4m3_rain01 IsGambler NotInCombat IsSubjectDistNear400 AutoIsNotScavenge AutoIsNotSurvival
+	criteria Concept_c4m3_rain01 IsGambler NotInCombat IsSubjectDistNear400
 	Response _c4m3_rain01Gambler
 }
 
@@ -12615,7 +12612,7 @@ Response _c4m3_startsafe04Gambler
 }
 Rule _c4m3_startsafe04Gambler
 {
-	criteria Concept_c4m3_startsafe04 IsGambler IsInStartArea AutoIsNotScavenge AutoIsNotSurvival
+	criteria Concept_c4m3_startsafe04 IsGambler IsInStartArea
 	ApplyContext "Talk:1:0.754"
 	applycontexttoworld
 	Response _c4m3_startsafe04Gambler
@@ -12628,7 +12625,7 @@ Response _C4M5_BoatComing01Gambler
 }
 Rule _C4M5_BoatComing01Gambler
 {
-	criteria Concept_C4M5_BoatComing01 IsGambler AutoIsNotScavenge AutoIsNotSurvival
+	criteria Concept_C4M5_BoatComing01 IsGambler
 	Response _C4M5_BoatComing01Gambler
 }
 
@@ -12638,7 +12635,7 @@ Response _C4M5_FinaleStart01Gambler
 }
 Rule _C4M5_FinaleStart01Gambler
 {
-	criteria Concept_C4M5_FinaleStart01 IsGambler AutoIsNotScavenge AutoIsNotSurvival
+	criteria Concept_C4M5_FinaleStart01 IsGambler
 	ApplyContext "_auto_NoLostCall:1:0"
 	applycontexttoworld
 	Response _C4M5_FinaleStart01Gambler

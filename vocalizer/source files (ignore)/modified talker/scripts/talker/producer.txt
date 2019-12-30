@@ -122,12 +122,12 @@ Rule C4M3Saferoom001Producer
 
 Response PlayerNiceShotProducer
 {
-	scene "scenes/Producer/NiceShot01.vcd"  //Nice shot.
-	scene "scenes/Producer/NiceShot02.vcd"  //Cool.
-	scene "scenes/Producer/NiceShot03.vcd"  //Great shot!
-	scene "scenes/Producer/NiceShot04.vcd"  //Nice shot!
-	scene "scenes/Producer/NiceShot05.vcd"  //Good one!
-	scene "scenes/Producer/WorldC1M2B18.vcd" //Oh... my... GOD.
+	scene "scenes/Producer/NiceShot01.vcd" then subject PlayerThanks foo:0 0.1 //Nice shot.
+	scene "scenes/Producer/NiceShot02.vcd" then subject PlayerThanks foo:0 0.1 //Cool.
+	scene "scenes/Producer/NiceShot03.vcd" then subject PlayerThanks foo:0 0.1 //Great shot!
+	scene "scenes/Producer/NiceShot04.vcd" then subject PlayerThanks foo:0 0.1 //Nice shot!
+	scene "scenes/Producer/NiceShot05.vcd" then subject PlayerThanks foo:0 0.1 //Good one!
+	scene "scenes/Producer/WorldC1M2B18.vcd" then subject PlayerThanks foo:0 0.1 //Oh... my... GOD.
 }
 Rule PlayerNiceShotProducer
 {
@@ -899,7 +899,7 @@ Response C1M2TankerAttackProducer
 }
 Rule C1M2TankerAttackProducer
 {
-	criteria ConceptC1M2TankerAttack2 IsProducer AutoIsNotScavenge AutoIsNotSurvival
+	criteria ConceptC1M2TankerAttack2 IsProducer
 	Response C1M2TankerAttackProducer
 }
 
@@ -931,7 +931,7 @@ Response C1M4GasPourProducer
 }
 Rule C1M4GasPourProducer
 {
-	criteria ConceptPlayerPourStarted IsProducer IsTalk IsTalkProducer IsWorldTalkProducer IsNotScavenge ismap_c1m4_atrium _auto_NotNoGasPourLine
+	criteria ConceptPlayerPourStarted IsProducer IsTalk IsTalkProducer IsWorldTalkProducer IsNotScavenge
 	ApplyContext "TalkProducer:1:2"
 	Response C1M4GasPourProducer
 }
@@ -6930,10 +6930,13 @@ Response PlayerThanksProducer
 	scene "scenes/Producer/Thanks05.vcd"  //Thanks.
 	scene "scenes/Producer/DLC1_C6M1_InitialMeeting18.vcd" //THANK YOU!
 	scene "scenes/Producer/DLC1_C6M1_InitialMeeting19.vcd" //THANK YOU, VERY MUCH!
+	
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Items04.vcd"  //I'm game.
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Items05.vcd"  //I'm game.
 }
 Rule PlayerThanksProducer
 {
-	criteria ConceptPlayerThanks IsNotCoughing  IsProducer IsTalk IsTalkProducer IsWorldTalkProducer ChanceToFire25Percent
+	criteria ConceptPlayerThanks IsNotCoughing  IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
 	Response PlayerThanksProducer
 }
 
@@ -9835,7 +9838,7 @@ Response _C4M5_FinaleStart01Producer
 }
 Rule _C4M5_FinaleStart01Producer
 {
-	criteria Concept_C4M5_FinaleStart01 IsProducer AutoIsNotScavenge AutoIsNotSurvival
+	criteria Concept_C4M5_FinaleStart01 IsProducer
 	ApplyContext "_auto_NoLostCall:1:0"
 	applycontexttoworld
 	Response _C4M5_FinaleStart01Producer

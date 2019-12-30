@@ -134,17 +134,17 @@ Rule C4M3Saferoom001Mechanic
 
 Response PlayerNiceShotMechanic
 {
-	scene "scenes/Mechanic/NiceShot01.vcd"  //Well, Nice.
-	scene "scenes/Mechanic/NiceShot02.vcd"  //Nice shot.
-	scene "scenes/Mechanic/NiceShot03.vcd"  //Cool.
-	scene "scenes/Mechanic/NiceShot04.vcd"  //Yeah, nice!
-	scene "scenes/Mechanic/NiceShot05.vcd"  //Good shootin', Tex!
-	scene "scenes/Mechanic/NiceShot06.vcd"  //Nice.
-	scene "scenes/Mechanic/NiceShot07.vcd"  //Goddamn your good.
-	scene "scenes/Mechanic/NiceShot08.vcd"  //Goddamn your good.
-	scene "scenes/Mechanic/NiceShot09.vcd"  //Hey good shootin'!
-	scene "scenes/Mechanic/NiceShot10.vcd"  //Yeah, nice!
-	scene "scenes/Mechanic/NiceShot11.vcd"  //Nice shot.
+	scene "scenes/Mechanic/NiceShot01.vcd" then subject PlayerThanks foo:0 0.1 //Well, Nice.
+	scene "scenes/Mechanic/NiceShot02.vcd" then subject PlayerThanks foo:0 0.1 //Nice shot.
+	scene "scenes/Mechanic/NiceShot03.vcd" then subject PlayerThanks foo:0 0.1 //Cool.
+	scene "scenes/Mechanic/NiceShot04.vcd" then subject PlayerThanks foo:0 0.1 //Yeah, nice!
+	scene "scenes/Mechanic/NiceShot05.vcd" then subject PlayerThanks foo:0 0.1 //Good shootin', Tex!
+	scene "scenes/Mechanic/NiceShot06.vcd" then subject PlayerThanks foo:0 0.1 //Nice.
+	scene "scenes/Mechanic/NiceShot07.vcd" then subject PlayerThanks foo:0 0.1 //Goddamn your good.
+	scene "scenes/Mechanic/NiceShot08.vcd" then subject PlayerThanks foo:0 0.1 //Goddamn your good.
+	scene "scenes/Mechanic/NiceShot09.vcd" then subject PlayerThanks foo:0 0.1 //Hey good shootin'!
+	scene "scenes/Mechanic/NiceShot10.vcd" then subject PlayerThanks foo:0 0.1 //Yeah, nice!
+	scene "scenes/Mechanic/NiceShot11.vcd" then subject PlayerThanks foo:0 0.1 //Nice shot.
 }
 Rule PlayerNiceShotMechanic
 {
@@ -962,7 +962,7 @@ Response C1M2TankerAttackMechanic
 }
 Rule C1M2TankerAttackMechanic
 {
-	criteria ConceptC1M2TankerAttack2 IsMechanic AutoIsNotScavenge AutoIsNotSurvival
+	criteria ConceptC1M2TankerAttack2 IsMechanic
 	Response C1M2TankerAttackMechanic
 }
 
@@ -999,7 +999,7 @@ Response C1M4GasPourMechanic
 }
 Rule C1M4GasPourMechanic
 {
-	criteria ConceptPlayerPourStarted IsMechanic IsTalk IsTalkMechanic IsWorldTalkMechanic IsNotScavenge ismap_c1m4_atrium _auto_NotNoGasPourLine
+	criteria ConceptPlayerPourStarted IsMechanic IsTalk IsTalkMechanic IsWorldTalkMechanic IsNotScavenge
 	ApplyContext "TalkMechanic:1:2"
 	Response C1M4GasPourMechanic
 }
@@ -1992,7 +1992,7 @@ Response C3M4Button201Mechanic
 }
 Rule C3M4Button201Mechanic
 {
-	criteria ConceptC3M4Button201 IsMechanic AutoIsNotScavenge AutoIsNotSurvival
+	criteria ConceptC3M4Button201 IsMechanic
 	ApplyContext "Talk:1:2.509"
 	applycontexttoworld
 	Response C3M4Button201Mechanic
@@ -9259,13 +9259,22 @@ Response PlayerThanksMechanic
 	scene "scenes/Mechanic/Thanks02.vcd"  //Much obliged
 	scene "scenes/Mechanic/Thanks04.vcd"  //I owe you one.
 	scene "scenes/Mechanic/Thanks05.vcd"  //Hey, thanks a lot.
+	scene "scenes/Mechanic/GettingRevived19.vcd"  //Well I'm just great thanks.
+	scene "scenes/Mechanic/Worldgeneric02.vcd"  //Thanks, I like it too.
+	scene "scenes/Mechanic/WorldC3M444.vcd"  //No no no, it's great, okay thank you.
 	scene "scenes/Mechanic/WorldC5M108.vcd"  //Thank you
-	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Items06.vcd"  //Hey, thanks guys!
-	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Items07.vcd"  //This from you? THANKS!
+	
+	scene "scenes/Mechanic/DLC1_C6M3_finalel4d1items08.vcd"  //I'm game.
+	scene "scenes/Mechanic/DLC1_C6M3_finalel4d1items06.vcd"  //I'm game.
+	scene "scenes/Mechanic/DLC1_C6M3_finalel4d1items07.vcd"  //I'm game.
+	
+	scene "scenes/Mechanic/DLC1_C6M3_finalechat10.vcd"  //Nick.
+	scene "scenes/Mechanic/WorldC3M436.vcd"  //Nick.
+	
 }
 Rule PlayerThanksMechanic
 {
-	criteria ConceptPlayerThanks IsNotCoughing  IsMechanic IsTalk IsTalkMechanic IsWorldTalkMechanic ChanceToFire25Percent
+	criteria ConceptPlayerThanks IsNotCoughing  IsMechanic IsTalk IsTalkMechanic IsWorldTalkMechanic
 	Response PlayerThanksMechanic
 }
 
@@ -12954,7 +12963,7 @@ Response _C4M5_BoatComing01Mechanic
 }
 Rule _C4M5_BoatComing01Mechanic
 {
-	criteria Concept_C4M5_BoatComing01 IsMechanic AutoIsNotScavenge AutoIsNotSurvival
+	criteria Concept_C4M5_BoatComing01 IsMechanic
 	Response _C4M5_BoatComing01Mechanic
 }
 
@@ -12998,7 +13007,7 @@ Response _introc1m1Mechanic
 }
 Rule _introc1m1Mechanic
 {
-	criteria Concept_introc1m1 IsMechanic AutoIsNotScavenge AutoIsNotSurvival
+	criteria Concept_introc1m1 IsMechanic
 	ApplyContext "TalkMechanic:1:0.741"
 	applycontexttoworld
 	Response _introc1m1Mechanic

@@ -1,0 +1,2199 @@
+//--------------------------------------------------------------------------------------------------------------
+// Producer Response Rule File
+//--------------------------------------------------------------------------------------------------------------
+
+
+
+
+//Auto-generated blank response for padding out InfoRemarkables
+Response _PlayerInfoRemarkableBlankProducer
+{
+	speak "Producer_Blank" noscene //Blank
+}
+
+Response L4D1PlayerNiceShotProducer
+{
+	scene "scenes/Producer/NiceShot01.vcd"  //Nice shot.
+}
+Rule L4D1PlayerNiceShotProducer
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsProducer IsSubjectDistNear1500  IsTalk IsTalkProducer IsWorldTalkProducer IsNotSpeaking ChanceToFire70Percent
+	Response L4D1PlayerNiceShotProducer
+}
+
+Response L4D1PlayerNiceShotFrancisProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Killing04.vcd"  //Francis!
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Killing05.vcd"  //Nice shot Francis!
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Killing06.vcd"  //Thanks Francis!
+}
+Rule L4D1PlayerNiceShotFrancisProducer
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsProducer IsSubjectDistNear1500  IsTalk IsTalkProducer  IsWorldTalkProducer SubjectIsBiker ChanceToFire70Percent IsNotSpeaking
+	Response L4D1PlayerNiceShotFrancisProducer
+}
+
+Response L4D1PlayerNiceShotLouisProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Killing01.vcd"  //Nice Louis!
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Killing02.vcd"  //Nice shooting Louis!
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Killing03.vcd"  //All right Louis!
+}
+Rule L4D1PlayerNiceShotLouisProducer
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsProducer IsSubjectDistNear1500  IsTalk IsTalkProducer  IsWorldTalkProducer SubjectIsManager ChanceToFire70Percent IsNotSpeaking
+	Response L4D1PlayerNiceShotLouisProducer
+}
+
+Response L4D1PlayerNiceShotZoeyProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Killing07.vcd"  //Thanks Zoey!
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Killing08.vcd"  //Nice shot Zoey!
+}
+Rule L4D1PlayerNiceShotZoeyProducer
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsProducer IsSubjectDistNear1500  IsTalk IsTalkProducer  IsWorldTalkProducer SubjectIsTeenGirl ChanceToFire70Percent IsNotSpeaking
+	Response L4D1PlayerNiceShotZoeyProducer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C1M4
+//--------------------------------------------------------------------------------------------------------------
+Response C6M3GasPourProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_Cans02.vcd"  //I got this one.
+	scene "scenes/Producer/DLC1_C6M3_Cans03.vcd"  //Pouring!
+	scene "scenes/Producer/DLC1_C6M3_Cans04.vcd"  //Pouring this one in.
+	scene "scenes/Producer/DLC1_C6M3_Cans05.vcd"  //Cover me, filling the generator.
+	scene "scenes/Producer/DLC1_C6M3_Cans06.vcd"  //Cover me, pouring!
+}
+Rule C6M3GasPourProducer
+{
+	criteria ConceptPlayerPourStarted IsProducer IsTalk IsTalkProducer IsWorldTalkProducer IsNotScavenge isC6M3_Port ChanceToFire70Percent
+	ApplyContext "TalkProducer:1:2"
+	Response C6M3GasPourProducer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M1
+//--------------------------------------------------------------------------------------------------------------
+Response C6M1_IntotheparkNoHealthProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_IntoPark03.vcd"  //Make sure to grab a health kit.
+	scene "scenes/Producer/DLC1_C6M1_IntoPark04.vcd"  //Make sure to grab a health kit.
+	scene "scenes/Producer/DLC1_C6M1_IntoPark05.vcd"  //Everyone grab a health kit.
+}
+Rule C6M1_IntotheparkNoHealthProducer
+{
+	criteria ConceptC6M1_IntotheparkNoHealth IsProducer
+	Response C6M1_IntotheparkNoHealthProducer
+}
+
+Response C6M1Intro_01Biker03Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting06.vcd"  then Biker C6M1Intro_06a foo:0 -2.023 //Hey there, can you lower the bridge.
+}
+Rule C6M1Intro_01Biker03Producer
+{
+	criteria ConceptintroC6M1 IsProducer IsFrancisIntroActor IsNotSaidIntroScene FrancisGroup3 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01Biker03Producer
+}
+
+Response C6M1Intro_01Biker04Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting37.vcd"  then Biker C6M1Intro_18a foo:0 -3.074 //If you lower the bridge I'll tell you how old I am.
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting43.vcd"  then Biker C6M1Intro_19a foo:0 -8.658 //Okay, if you lower the bridge (to group) ugh…. I will give you a kiss.
+}
+Rule C6M1Intro_01Biker04Producer
+{
+	criteria ConceptintroC6M1 IsProducer IsFrancisIntroActor IsNotSaidIntroScene FrancisGroup4 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01Biker04Producer
+}
+
+Response C6M1Intro_01TeenGirl03Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting01.vcd"  then TeenGirl C6M1Intro_03a foo:0 -3.225 //Hey up there! You wanna let the bridge down?
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting32.vcd"  then TeenGirl C6M1Intro_17a foo:0 -3.721 //(exasperated) Really? Isn't there some way you can just lower it?
+}
+Rule C6M1Intro_01TeenGirl03Producer
+{
+	criteria ConceptintroC6M1 IsProducer IsZoeyIntroActor IsNotSaidIntroScene MoreThan40  LessThan60 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01TeenGirl03Producer
+}
+
+Response C6M1Intro_05aProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting02.vcd"  then Biker C6M1Intro_05b foo:0 -2.451 //Uh, do you know how we can get to the other side?
+}
+Rule C6M1Intro_05aProducer
+{
+	criteria ConceptC6M1Intro_05a IsProducer
+	Response C6M1Intro_05aProducer
+}
+
+Response C6M1Intro_05cProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting03.vcd"  then Biker C6M1Intro_05d foo:0 -1.958 //You aren't from around these parts are you?
+}
+Rule C6M1Intro_05cProducer
+{
+	criteria ConceptC6M1Intro_05c IsProducer
+	Response C6M1Intro_05cProducer
+}
+
+Response C6M1Intro_05eProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting04.vcd"  then Any WorldC6M1_HistoricTour foo:0 -1.874 //Great. All right.
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting05.vcd"  //Great. Can't help us with directions, probably can't shoot a gun.
+}
+Rule C6M1Intro_05eProducer
+{
+	criteria ConceptC6M1Intro_05e IsProducer
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_05eProducer
+}
+
+Response C6M1Intro_06bProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting07.vcd"  then Biker C6M1Intro_06c foo:0 -2.236 //Is the road even clear on the other side?
+}
+Rule C6M1Intro_06bProducer
+{
+	criteria ConceptC6M1Intro_06b IsProducer
+	Response C6M1Intro_06bProducer
+}
+
+Response C6M1Intro_06dProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting08.vcd"  then Biker C6M1Intro_06e foo:0 -0.709 //Then it's a date.
+}
+Rule C6M1Intro_06dProducer
+{
+	criteria ConceptC6M1Intro_06d IsProducer
+	Response C6M1Intro_06dProducer
+}
+
+Response C6M1Intro_07cProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting09.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //(to group) Maybe, but at least he's no zombie. OKAY!
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting11.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //(to group) Maybe, but at least he's no zombie.
+}
+Rule C6M1Intro_07cProducer
+{
+	criteria ConceptC6M1Intro_07c IsProducer
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_07cProducer
+}
+
+Response C6M1Intro_09eProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting12.vcd"  then Producer C6M1Intro_09f foo:0 -2.022 //Uh, Nick. He's talking to me.
+}
+Rule C6M1Intro_09eProducer
+{
+	criteria ConceptC6M1Intro_09e IsProducer
+	Response C6M1Intro_09eProducer
+}
+
+Response C6M1Intro_09fProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting13.vcd"  then Biker C6M1Intro_09g foo:0 -1.643 //Hey! Can you lower the bridge.
+}
+Rule C6M1Intro_09fProducer
+{
+	criteria ConceptC6M1Intro_09f IsProducer
+	Response C6M1Intro_09fProducer
+}
+
+Response C6M1Intro_10bProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting14.vcd"  then Biker C6M1Intro_10c foo:0 -4.931 //Hey, hey boys. Okay, if we get to the other side can you help us lower it?
+}
+Rule C6M1Intro_10bProducer
+{
+	criteria ConceptC6M1Intro_10b IsProducer
+	Response C6M1Intro_10bProducer
+}
+
+Response C6M1Intro_10dProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting15.vcd"  then Producer C6M1Intro_10e foo:0 -2.369 //See Nick, you should try being nice sometime.
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting16.vcd"  then Producer C6M1Intro_10e foo:0 -2.026 //See Nick, you should try being nice sometime.
+}
+Rule C6M1Intro_10dProducer
+{
+	criteria ConceptC6M1Intro_10d IsProducer
+	Response C6M1Intro_10dProducer
+}
+
+Response C6M1Intro_10eProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting18.vcd"  //THANK YOU!
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting19.vcd"  //THANK YOU, VERY MUCH!
+}
+Rule C6M1Intro_10eProducer
+{
+	criteria ConceptC6M1Intro_10e IsProducer
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_10eProducer
+}
+
+Response C6M1Intro_12aProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting20.vcd"  then Mechanic C6M1Intro_12b foo:0 -2.341 //Ellis you going to answer her?
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting21.vcd"  then Mechanic C6M1Intro_12b foo:0 -2.595 //Ellis you going to answer her?
+}
+Rule C6M1Intro_12aProducer
+{
+	criteria ConceptC6M1Intro_12a IsProducer
+	Response C6M1Intro_12aProducer
+}
+
+Response C6M1Intro_12cProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting22.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //He's got it. We'll see you on the other side.
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting23.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //He's got it. We'll see you on the other side.
+}
+Rule C6M1Intro_12cProducer
+{
+	criteria ConceptC6M1Intro_12c IsProducer
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_12cProducer
+}
+
+Response C6M1Intro_14dProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting24.vcd"  //Let's go, real charming Nick.
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting25.vcd"  //Let's go, real charming Nick.
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting26.vcd"  //And you were a con man?
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting27.vcd"  //Huh? And you were a con man?
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting28.vcd"  //I- I can't believe you were a con man.
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting29.vcd"  //I can't believe you were a con man.
+}
+Rule C6M1Intro_14dProducer
+{
+	criteria ConceptC6M1Intro_14d IsProducer
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_14dProducer
+}
+
+Response C6M1Intro_15cProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting30.vcd"  then TeenGirl C6M1Intro_15d foo:0 -2.339 //I can't believe you used to be a con artist.
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting31.vcd"  then TeenGirl C6M1Intro_15d foo:0 -3.277 //I can't believe you used to be a con artist.
+}
+Rule C6M1Intro_15cProducer
+{
+	criteria ConceptC6M1Intro_15c IsProducer
+	Response C6M1Intro_15cProducer
+}
+
+Response C6M1Intro_17bProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting33.vcd"  then TeenGirl C6M1Intro_17c foo:0 -4.790 //Can you try? I don't think its going to be easy to get to the other side of the river.
+}
+Rule C6M1Intro_17bProducer
+{
+	criteria ConceptC6M1Intro_17b IsProducer
+	Response C6M1Intro_17bProducer
+}
+
+Response C6M1Intro_17dProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting34.vcd"  //Well shit.
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting35.vcd"  //Well shit.
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting36.vcd"  //Well shit.
+}
+Rule C6M1Intro_17dProducer
+{
+	criteria ConceptC6M1Intro_17d IsProducer
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_17dProducer
+}
+
+Response C6M1Intro_18bProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting38.vcd"  then Biker C6M1Intro_18c foo:0 -2.243 //I want to call you an asshole... I do.
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting39.vcd"  then Biker C6M1Intro_18c foo:0 -1.339 //Ah ha. Really?
+}
+Rule C6M1Intro_18bProducer
+{
+	criteria ConceptC6M1Intro_18b IsProducer
+	Response C6M1Intro_18bProducer
+}
+
+Response C6M1Intro_18dProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting40.vcd"  then Biker C6M1Intro_18e foo:0 -2.015 //So it isn't worth getting to the other side?
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting41.vcd"  then Biker C6M1Intro_18e foo:0 -1.958 //Really, it's not worth getting to the other side?
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting42.vcd"  then Biker C6M1Intro_18e foo:0 -2.960 //Bulllshit! So, it's not worth getting to the other side?
+}
+Rule C6M1Intro_18dProducer
+{
+	criteria ConceptC6M1Intro_18d IsProducer
+	Response C6M1Intro_18dProducer
+}
+
+Response C6M1Intro_19bProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting44.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //Yeah, that sounds simple.
+}
+Rule C6M1Intro_19bProducer
+{
+	criteria ConceptC6M1Intro_19b IsProducer
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_19bProducer
+}
+
+Response C6M1Intro_20aProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting45.vcd"  then Producer C6M1Intro_20b foo:0 -0.951 //What the?
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting46.vcd"  then Producer C6M1Intro_20b foo:0 -1.214 //(to group) Is he being serious?
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting48.vcd"  then Producer C6M1Intro_20b foo:0 -1.464 //(to group) Is he being serious?
+}
+Rule C6M1Intro_20aProducer
+{
+	criteria ConceptC6M1Intro_20a IsProducer
+	Response C6M1Intro_20aProducer
+}
+
+Response C6M1Intro_20bProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting47.vcd"  then Biker C6M1Intro_20c foo:0 -2.037 //No. Can you lower the bridge?
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting49.vcd"  then Biker C6M1Intro_20c foo:0 -2.417 //No. Can you lower the bridge?
+}
+Rule C6M1Intro_20bProducer
+{
+	criteria ConceptC6M1Intro_20b IsProducer
+	Response C6M1Intro_20bProducer
+}
+
+Response C6M1Intro_20dProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting50.vcd"  then Biker C6M1Intro_20e foo:0 -4.900 //Okay, then, yes, we are vampires? All of us are vampires?
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting51.vcd"  then Biker C6M1Intro_20e foo:0 -5.295 //Okay, then, yes, we are vampires? All of us are vampires?
+}
+Rule C6M1Intro_20dProducer
+{
+	criteria ConceptC6M1Intro_20d IsProducer
+	Response C6M1Intro_20dProducer
+}
+
+Response C6M1Intro_20gProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting53.vcd"  //Dear lord, why'd I ever leave Cleveland.
+}
+Rule C6M1Intro_20gProducer
+{
+	criteria ConceptC6M1Intro_20g IsProducer
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_20gProducer
+}
+
+Response C6M1Intro_22aProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting54.vcd"  then TeenGirl C6M1Intro_22b foo:0 -3.403 //Oh thank god! I thought I was the last woman on earth.
+}
+Rule C6M1Intro_22aProducer
+{
+	criteria ConceptC6M1Intro_22a IsProducer
+	Response C6M1Intro_22aProducer
+}
+
+Response C6M1Intro_22cProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting55.vcd"  then TeenGirl C6M1Intro_22d foo:0 -2.930 //Can you lower the bridge? We need to get across the river.
+}
+Rule C6M1Intro_22cProducer
+{
+	criteria ConceptC6M1Intro_22c IsProducer
+	Response C6M1Intro_22cProducer
+}
+
+Response C6M1Intro_22fProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting56.vcd"  then TeenGirl C6M1Intro_22g foo:0 -3.037 //If that's what we gotta do, that we gotta do.
+}
+Rule C6M1Intro_22fProducer
+{
+	criteria ConceptC6M1Intro_22f IsProducer
+	Response C6M1Intro_22fProducer
+}
+
+Response C6M1Intro_22hProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting59.vcd"  //Take care.
+	scene "scenes/Producer/DLC1_C6M1_InitialMeeting60.vcd"  //You too.
+}
+Rule C6M1Intro_22hProducer
+{
+	criteria ConceptC6M1Intro_22h IsProducer
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_22hProducer
+}
+
+Response LeavingC6M1StartProducer
+{
+	scene "scenes/Producer/blank.vcd"  //
+}
+Rule LeavingC6M1StartProducer
+{
+	criteria ConceptSurvivorLeavingCheckpoint IsProducer
+	ApplyContext "LeftC6M1Start:1:0"
+	applycontexttoworld
+	Response LeavingC6M1StartProducer
+}
+
+Response RemWorldC6M1_WeddingWarn01Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_Wedding01.vcd"  //Do they ever?
+	scene "scenes/Producer/DLC1_C6M1_Wedding02.vcd"  //Do they ever?
+}
+Rule RemWorldC6M1_WeddingWarn01Producer
+{
+	criteria ConceptRemWorldC6M1_WeddingWarn01 IsProducer IsSubjectDistNear800
+	ApplyContext "AtWedding:1:60"
+	applycontexttoworld
+	Response RemWorldC6M1_WeddingWarn01Producer
+}
+
+Response WorldC6M1_HistoricTourProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_HistoricSign01.vcd"  then Coach HistoricTour02a foo:0 -3.829 //Uh, Coach, you know anything about this under the river tour?
+	scene "scenes/Producer/DLC1_C6M1_HistoricSign02.vcd"  then Coach HistoricTour02a foo:0 -2.545 //Coach, you know anything about this under the river tour?
+	scene "scenes/Producer/DLC1_C6M1_HistoricSign10.vcd"  //Hey, we can try this under-the-river tour to get across.
+	scene "scenes/Producer/DLC1_C6M1_HistoricSign11.vcd"  //We can try this under-the-river tour to get across.
+	scene "scenes/Producer/DLC1_C6M1_HistoricSign12.vcd"  //If we can't go over the river, we can always try under.
+}
+Rule WorldC6M1_HistoricTourProducer
+{
+	criteria ConceptWorldC6M1_HistoricTour IsProducer IsNotLeftC6M1Start
+	Response WorldC6M1_HistoricTourProducer
+}
+
+Response WorldC6M1_PostWedding02aProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_WeddingPostWitch02.vcd"  //Is that really how your brain works?
+}
+Rule WorldC6M1_PostWedding02aProducer
+{
+	criteria ConceptWorldC6M1_PostWedding02a IsProducer IsSubjectDistNear800
+	Response WorldC6M1_PostWedding02aProducer
+}
+
+Response WorldC6M1_WeddingWarn03bProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch01.vcd"  //Both of you. Shut up.
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch02.vcd"  //(Whispered) WOULD YOU GUYS SHUT UP!
+	scene "scenes/Producer/Worldgenericproducer01.vcd"  //(Whispered) WOULD YOU GUYS SHUT UP!
+	scene "scenes/Producer/Worldgenericproducer02.vcd"  //(Whispered) WOULD YOU GUYS SHUT UP!
+	scene "scenes/Producer/Worldgenericproducer03.vcd"  //(Whispered) WOULD YOU GUYS SHUT UP!
+}
+Rule WorldC6M1_WeddingWarn03bProducer
+{
+	criteria ConceptWorldC6M1_WeddingWarn03b IsProducer
+	ApplyContext "AtWedding:1:60"
+	applycontexttoworld
+	Response WorldC6M1_WeddingWarn03bProducer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M2
+//--------------------------------------------------------------------------------------------------------------
+Response C6M2_OpenGate1Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_AlarmDoorOpen01.vcd"  //I opened it!
+	scene "scenes/Producer/DLC1_C6M1_AlarmDoorOpen02.vcd"  //I opened it, let's go!
+	scene "scenes/Producer/DLC1_C6M2_Bridge1RaiseHitIt01.vcd"  //I hit it.
+	scene "scenes/Producer/DLC1_C6M2_Bridge1RaiseHitIt03.vcd"  //I hit it.
+}
+Rule C6M2_OpenGate1Producer
+{
+	criteria ConceptC6M2_OpenGate1 IsProducer
+	ApplyContext "SaidOpenedGate1:1:0"
+	applycontexttoworld
+	Response C6M2_OpenGate1Producer
+}
+
+Response C6M2_OpenGate2Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_AlarmDoorOpen02.vcd"  //I opened it, let's go!
+}
+Rule C6M2_OpenGate2Producer
+{
+	criteria ConceptC6M2_OpenGate2 IsProducer
+	ApplyContext "Said:OpenedGate2:1:0"
+	applycontexttoworld
+	Response C6M2_OpenGate2Producer
+}
+
+Response C6M2SafeRoomProducer
+{
+	scene "scenes/Producer/blank.vcd"  then any C6M2SafeRoom2 foo:0 3 //
+}
+Rule C6M2SafeRoomProducer
+{
+	criteria ConceptTalkIdle  Joined3 IsProducer isC6m2_bedlam IsInStartArea AutoIsNotScavenge AutoIsNotSurvival IsNotSaidC6M2SafeRoom IsNotSpeakingWeight0
+	ApplyContext "SaidC6M2SafeRoom:1:0"
+	applycontexttoworld
+	Response C6M2SafeRoomProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo01aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo01.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo01b foo:0 -2.711 //Compared to you Nick, he was down right nice.
+}
+Rule DLC1_C6M2_SafeRoomConvo01aProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo01a IsProducer
+	Response DLC1_C6M2_SafeRoomConvo01aProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo03aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo02.vcd"  then Mechanic DLC1_C6M2_SafeRoomConvo03b foo:0 -2.886 //Sweety, it's just a car.
+}
+Rule DLC1_C6M2_SafeRoomConvo03aProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo03a IsProducer
+	Response DLC1_C6M2_SafeRoomConvo03aProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo03cProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo04.vcd"  //Calm down Ellis.
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo05.vcd"  //Feel better now?
+}
+Rule DLC1_C6M2_SafeRoomConvo03cProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo03c IsProducer
+	Response DLC1_C6M2_SafeRoomConvo03cProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo04aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo06.vcd"  //You'll be back with her soon enough. Also she's a car. And this is creepy.
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo07.vcd"  //You'll be back with her soon enough. Also she's a car. And this is creepy.
+}
+Rule DLC1_C6M2_SafeRoomConvo04aProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo04a IsProducer
+	Response DLC1_C6M2_SafeRoomConvo04aProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo06aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo09.vcd"  //I have a bunch of good memories, too... of never once going to a boiled peanut festival.
+}
+Rule DLC1_C6M2_SafeRoomConvo06aProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo06a IsProducer
+	Response DLC1_C6M2_SafeRoomConvo06aProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo07Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo15.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo08a foo:0 -1.679 //Do you think we can trust that guy?
+}
+Rule DLC1_C6M2_SafeRoomConvo07Producer
+{
+	criteria ConceptC6M2SafeRoom2 IsProducer IsFrancisIntroActor FrancisGroup3 IsNotSaidC6M2SafeRoom2
+	ApplyContext "SaidC6M2SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M2_SafeRoomConvo07Producer
+}
+
+Response DLC1_C6M2_SafeRoomConvo07aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo10.vcd"  //Sweety, she'd be crazy not to.
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo14.vcd"  //Out of all the men left? Sure.
+}
+Rule DLC1_C6M2_SafeRoomConvo07aProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo07a IsProducer
+	Response DLC1_C6M2_SafeRoomConvo07aProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo08bProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo16.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo08c foo:0 -1.262 //What!?!
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo19.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo08c foo:0 -0.750 //What!?!
+}
+Rule DLC1_C6M2_SafeRoomConvo08bProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo08b IsProducer
+	Response DLC1_C6M2_SafeRoomConvo08bProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo08dProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo17.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo08e foo:0 -0.977 //I don't believe this.
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo20.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo08e foo:0 -2.271 //I don't believe this.
+}
+Rule DLC1_C6M2_SafeRoomConvo08dProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo08d IsProducer
+	Response DLC1_C6M2_SafeRoomConvo08dProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo08fProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo18.vcd"  //He is better looking than you.
+}
+Rule DLC1_C6M2_SafeRoomConvo08fProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo08f IsProducer
+	Response DLC1_C6M2_SafeRoomConvo08fProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo10aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo22.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo10b foo:0 -2.753 //(laughter) You're kidding right?
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo23.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo10b foo:0 -1.652 //(laughter) You're kidding right?
+}
+Rule DLC1_C6M2_SafeRoomConvo10aProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo10a IsProducer
+	Response DLC1_C6M2_SafeRoomConvo10aProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo10cProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo24.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo10d foo:0 -3.678 //Oh, you are going to love the under-the-river tour.
+}
+Rule DLC1_C6M2_SafeRoomConvo10cProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo10c IsProducer
+	Response DLC1_C6M2_SafeRoomConvo10cProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo13Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo26.vcd"  then Producer DLC1_C6M2_SafeRoomConvo14a foo:0 -1.209 //(to self)We need to get motivated.
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo27.vcd"  then Producer DLC1_C6M2_SafeRoomConvo14a foo:0 -2.664 //(to self)We need to get motivated. How we gonna get motivated...
+}
+Rule DLC1_C6M2_SafeRoomConvo13Producer
+{
+	criteria ConceptC6M2SafeRoom2 IsProducer IsZoeyIntroActor ZoeyGroup3 IsNotSaidC6M2SafeRoom2
+	ApplyContext "SaidC6M2SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M2_SafeRoomConvo13Producer
+}
+
+Response DLC1_C6M2_SafeRoomConvo14aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo30.vcd"  then Mechanic DLC1_C6M2_SafeRoomConvo14b foo:0 -5.157 //Hey, Ellis? I hear there's a Stock Car museum in New Orleans.
+}
+Rule DLC1_C6M2_SafeRoomConvo14aProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo14a IsProducer
+	Response DLC1_C6M2_SafeRoomConvo14aProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo14cProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo28.vcd"  then Coach DLC1_C6M2_SafeRoomConvo14d foo:0 -3.757 //Coach. We make it to New Orleans, there's a Cheeseburger museum.
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo29.vcd"  then Coach DLC1_C6M2_SafeRoomConvo14d foo:0 -4.800 //Coach. We make it to New Orleans, there's a Cheeseburger museum.
+}
+Rule DLC1_C6M2_SafeRoomConvo14cProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo14c IsProducer
+	Response DLC1_C6M2_SafeRoomConvo14cProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo14eProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo31.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo14f foo:0 -0.987 //Nick, there's a-
+}
+Rule DLC1_C6M2_SafeRoomConvo14eProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo14e IsProducer
+	Response DLC1_C6M2_SafeRoomConvo14eProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo15aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo32.vcd"  then Coach DLC1_C6M2_SafeRoomConvo15b foo:0 -3.064 //Oh, I just keep hoping I wake up every day.
+}
+Rule DLC1_C6M2_SafeRoomConvo15aProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo15a IsProducer
+	Response DLC1_C6M2_SafeRoomConvo15aProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo16Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo37.vcd"  then Mechanic DLC1_C6M2_SafeRoomConvo17a foo:0 -10.043 //Ellis honey, I've been thinking. Somewhere down the road, do you think we can trade up for a car with, let's say,  working doors and a backseat?
+}
+Rule DLC1_C6M2_SafeRoomConvo16Producer
+{
+	criteria ConceptC6M2SafeRoom2 IsProducer IsFrancisIntroActor IsNotSaidC6M2SafeRoom2
+	ApplyContext "SaidC6M2SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M2_SafeRoomConvo16Producer
+}
+
+Response DLC1_C6M2_SafeRoomConvo16aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo33.vcd"  then Mechanic DLC1_C6M2_SafeRoomConvo16b foo:0 -5.036 //Ellis honey, you do know that eventually we'll have to leave that car behind. Right?
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo34.vcd"  then Mechanic DLC1_C6M2_SafeRoomConvo16b foo:0 -4.510 //Ellis honey, you do know that eventually we'll have to leave that car behind. Right?
+}
+Rule DLC1_C6M2_SafeRoomConvo16aProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo16a IsProducer
+	Response DLC1_C6M2_SafeRoomConvo16aProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo16cProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo35.vcd"  then Mechanic DLC1_C6M2_SafeRoomConvo16d foo:0 -3.803 //Ya know, I just don't think the military is going to air lift the car to safety.
+}
+Rule DLC1_C6M2_SafeRoomConvo16cProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo16c IsProducer
+	Response DLC1_C6M2_SafeRoomConvo16cProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo17bProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo38.vcd"  //Oh! Actually, does anyone want to put that to a vote?
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo39.vcd"  //Uhh! Actually, does anyone want to put that to a vote?
+}
+Rule DLC1_C6M2_SafeRoomConvo17bProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo17b IsProducer
+	Response DLC1_C6M2_SafeRoomConvo17bProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo18aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo40.vcd"  then Mechanic DLC1_C6M2_SafeRoomConvo18b foo:0 -2.626 //Ellis, ask yourself, what would Keith do?
+}
+Rule DLC1_C6M2_SafeRoomConvo18aProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo18a IsProducer
+	Response DLC1_C6M2_SafeRoomConvo18aProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo18dProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo41.vcd"  then Coach DLC1_C6M2_SafeRoomConvo18e foo:0 -1.428 //AH! I wasn't thinking.
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo42.vcd"  then Coach DLC1_C6M2_SafeRoomConvo18e foo:0 -1.354 //AH! I wasn't thinking.
+}
+Rule DLC1_C6M2_SafeRoomConvo18dProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo18d IsProducer
+	Response DLC1_C6M2_SafeRoomConvo18dProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo19aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo43.vcd"  //You're looking good coach.
+}
+Rule DLC1_C6M2_SafeRoomConvo19aProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo19a IsProducer
+	Response DLC1_C6M2_SafeRoomConvo19aProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo20aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo44.vcd"  //Well anybody who survives this shit is gonna be in GREAT shape.
+}
+Rule DLC1_C6M2_SafeRoomConvo20aProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo20a IsProducer
+	Response DLC1_C6M2_SafeRoomConvo20aProducer
+}
+
+Response DLC1_C6M2_SafeRoomConvo21aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo46.vcd"  then Mechanic DLC1_C6M2_SafeRoomConvo21b foo:0 -3.574 //Right... and the zombie apocalypse?
+	scene "scenes/Producer/DLC1_C6M2_SafeRoomConvo47.vcd"  then Mechanic DLC1_C6M2_SafeRoomConvo21b foo:0 -2.638 //And the... zombie apocalypse?
+}
+Rule DLC1_C6M2_SafeRoomConvo21aProducer
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo21a IsProducer
+	Response DLC1_C6M2_SafeRoomConvo21aProducer
+}
+
+Response WorldC6M2_InSewer101aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_Phase2InWater03.vcd"  then Producer WorldC6M2_InSewer101b foo:0 -2.388 //Nick, I'm pretty sure this is sewage.
+}
+Rule WorldC6M2_InSewer101aProducer
+{
+	criteria ConceptWorldC6M2_InSewer101a IsProducer
+	Response WorldC6M2_InSewer101aProducer
+}
+
+Response WorldC6M2_InSewer102bProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_Phase2InWater02.vcd"  //Yeah, it's sewage.
+}
+Rule WorldC6M2_InSewer102bProducer
+{
+	criteria ConceptWorldC6M2_InSewer102b IsProducer
+	Response WorldC6M2_InSewer102bProducer
+}
+
+Response WorldC6M2_InSewer202aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_Phase2InWater07.vcd"  //Ugh-gh-gh-gh-gh.
+	scene "scenes/Producer/DLC1_C6M2_Phase2InWater08.vcd"  //[laughing] Ellis! I'm not laughing, I'm not! I'm not laughing.
+	scene "scenes/Producer/DLC1_C6M2_Phase2InWater09.vcd"  //Okay, Carl.
+}
+Rule WorldC6M2_InSewer202aProducer
+{
+	criteria ConceptWorldC6M2_InSewer202a IsProducer
+	Response WorldC6M2_InSewer202aProducer
+}
+
+Response WorldC6M2_OnTourWalk101aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_HistoricTour03.vcd"  then Producer WorldC6M2_OnTourWalk101b foo:0 -0.850 //Shithole?
+}
+Rule WorldC6M2_OnTourWalk101aProducer
+{
+	criteria ConceptWorldC6M2_OnTourWalk101a IsProducer
+	Response WorldC6M2_OnTourWalk101aProducer
+}
+
+Response WorldC6M2_OnTourWalk101bProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_HistoricTour02.vcd"  //Sorry Coach.
+	scene "scenes/Producer/DLC1_C6M2_HistoricTour04.vcd"  //Sorry Coach.
+}
+Rule WorldC6M2_OnTourWalk101bProducer
+{
+	criteria ConceptWorldC6M2_OnTourWalk101b IsProducer
+	Response WorldC6M2_OnTourWalk101bProducer
+}
+
+Response WorldC6M2_OnTourWalk102bProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_HistoricTour05.vcd"  //Shut up, Nick.
+	scene "scenes/Producer/DLC1_C6M2_HistoricTour06.vcd"  //Shut up, Nick.
+}
+Rule WorldC6M2_OnTourWalk102bProducer
+{
+	criteria ConceptWorldC6M2_OnTourWalk102b IsProducer
+	Response WorldC6M2_OnTourWalk102bProducer
+}
+
+Response WorldC6M2_Phase201aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_Phase201.vcd"  //It better.
+	scene "scenes/Producer/DLC1_C6M2_Phase202.vcd"  //It better.
+}
+Rule WorldC6M2_Phase201aProducer
+{
+	criteria ConceptWorldC6M2_Phase201a IsProducer
+	Response WorldC6M2_Phase201aProducer
+}
+
+Response WorldC6M2_Tattoo01a>Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_Tattoo01.vcd"  then Gambler WorldC6M2_Tattoo01b> foo:0 -2.084 //Hm. Sorry, I didn't get his name.
+	scene "scenes/Producer/DLC1_C6M2_Tattoo02.vcd"  then Gambler WorldC6M2_Tattoo01b> foo:0 -2.432 //Damn. Sorry. I didn't get his name.
+	scene "scenes/Producer/DLC1_C6M2_Tattoo03.vcd"  then Gambler WorldC6M2_Tattoo01b> foo:0 -2.005 //Sorry. I forgot his name.
+}
+Rule WorldC6M2_Tattoo01a>Producer
+{
+	criteria ConceptWorldC6M2_Tattoo01a> IsProducer
+	Response WorldC6M2_Tattoo01a>Producer
+}
+
+Response WorldC6M2_Tattoo02a>Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_Tattoo04.vcd"  then Coach WorldC6M2_Tattoo02b> foo:0 -0.489 //Where?
+	scene "scenes/Producer/DLC1_C6M2_Tattoo05.vcd"  then Coach WorldC6M2_Tattoo02b> foo:0 -0.736 //Where?
+}
+Rule WorldC6M2_Tattoo02a>Producer
+{
+	criteria ConceptWorldC6M2_Tattoo02a> IsProducer
+	Response WorldC6M2_Tattoo02a>Producer
+}
+
+Response WorldC6M2_Tattoo02c>Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_Tattoo08.vcd"  //Please be the ankle, please be the ankle.
+	scene "scenes/Producer/DLC1_C6M2_Tattoo09.vcd"  //Please be the ankle, please be the ankle.
+}
+Rule WorldC6M2_Tattoo02c>Producer
+{
+	criteria ConceptWorldC6M2_Tattoo02c> IsProducer
+	Response WorldC6M2_Tattoo02c>Producer
+}
+
+Response WorldC6M2_Tattoo02d>Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_Tattoo06.vcd"  //Burgh-gh-gh-gh-gh.
+	scene "scenes/Producer/DLC1_C6M2_Tattoo07.vcd"  //Ughhh.
+}
+Rule WorldC6M2_Tattoo02d>Producer
+{
+	criteria ConceptWorldC6M2_Tattoo02d> IsProducer
+	Response WorldC6M2_Tattoo02d>Producer
+}
+
+Response WorldC6M2_TourEntrance01aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_TicketCounter02.vcd"  //Who am I kidding?
+}
+Rule WorldC6M2_TourEntrance01aProducer
+{
+	criteria ConceptWorldC6M2_TourEntrance01a IsProducer
+	Response WorldC6M2_TourEntrance01aProducer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M3
+//--------------------------------------------------------------------------------------------------------------
+Response C6M3_BridgeDownProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_Bridge2Up02.vcd"  //It's here, let's go!
+	scene "scenes/Producer/DLC1_C6M3_FinaleBridgeRun02.vcd"  //Come on, let's get to the car!
+	scene "scenes/Producer/DLC1_C6M3_FinaleBridgeRun02.vcd"  //Come on, let's get to the car!
+	scene "scenes/Producer/DLC1_C6M3_FinaleBridgeRun03.vcd"  //Bridge's down, let's go!
+	scene "scenes/Producer/DLC1_C6M3_FinaleBridgeRun03.vcd"  //Bridge's down, let's go!
+}
+Rule C6M3_BridgeDownProducer
+{
+	criteria ConceptC6M3_BridgeDown IsProducer
+	ApplyContext "SaidGetToCar:1:20"
+	applycontexttoworld
+	Response C6M3_BridgeDownProducer
+}
+
+Response C6M3_BridgeGettoCarProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_Bridge2Up02.vcd"  //It's here, let's go!
+	scene "scenes/Producer/DLC1_C6M3_FinaleBridgeRun02.vcd"  //Come on, let's get to the car!
+	scene "scenes/Producer/DLC1_C6M3_FinaleBridgeRun02.vcd"  //Come on, let's get to the car!
+	scene "scenes/Producer/DLC1_C6M3_FinaleBridgeRun03.vcd"  //Bridge's down, let's go!
+	scene "scenes/Producer/DLC1_C6M3_FinaleBridgeRun03.vcd"  //Bridge's down, let's go!
+}
+Rule C6M3_BridgeGettoCarProducer
+{
+	criteria ConceptGetToVehicle IsProducer IsNotSaidGetToCar Isc6m3_port
+	ApplyContext "SaidGetToCar:1:20"
+	applycontexttoworld
+	Response C6M3_BridgeGettoCarProducer
+}
+
+Response C6M1Intro_25aProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_Bridge1RaiseActive03.vcd"  //Even the elevators are slow in the south.
+	scene "scenes/Producer/DLC1_C6M3_Elevator01.vcd"  //Let's fill the generator as fast as we can.
+	scene "scenes/Producer/DLC1_C6M3_Elevator02.vcd"  //Something bad happened here. I don't have a good feeling about this.
+	scene "scenes/Producer/DLC1_C6M3_Elevator03.vcd"  //You know its going to be bad if they wouldn't risk it.
+	scene "scenes/Producer/DLC1_C6M3_Elevator04.vcd"  //I wish they would come with us, safety in numbers.
+	scene "scenes/Producer/DLC1_C6M3_Elevator05.vcd"  //After a few hours in the car with you guys, it's nice to hear some new voices.
+	scene "scenes/Producer/DLC1_C6M3_Elevator06.vcd"  //There names are Zoey, Louis and Francis right?
+}
+Rule C6M1Intro_25aProducer
+{
+	criteria ConceptC6M1Intro_25a IsProducer IsC6M3_port
+	ApplyContext "Talk:1:7"
+	applycontexttoworld
+	Response C6M1Intro_25aProducer
+}
+
+Response C6M3_GivenItemBikerProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Items04.vcd"  //Thanks guys!
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Items05.vcd"  //Thank you guys!
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Items06.vcd"  //Thanks Francis.
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Items08.vcd" odds 1 //Thanks sexy guy in the vest.
+}
+Rule C6M3_GivenItemBikerProducer
+{
+	criteria ConceptPlayerPickup IsProducer IsDonorBiker Isc6m3_portHeavy
+	Response C6M3_GivenItemBikerProducer
+}
+
+Response C6M3_GivenItemTeenGirlProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Items01.vcd"  //Thanks Zoey!
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Items02.vcd"  //Thanks Zoey!
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Items03.vcd"  //Thank for the help Zoey!
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Items07.vcd"  //Thanks for the stuff!
+}
+Rule C6M3_GivenItemTeenGirlProducer
+{
+	criteria ConceptPlayerPickup IsProducer IsDonorTeenGirl Isc6m3_portHeavy
+	Response C6M3_GivenItemTeenGirlProducer
+}
+
+Response C6M3SafeRoomProducer
+{
+	scene "scenes/Producer/blank.vcd"  then any C6M3SafeRoom2 foo:0 3 //
+}
+Rule C6M3SafeRoomProducer
+{
+	criteria ConceptTalkIdle  Joined3 IsProducer isC6m3_port IsInStartArea AutoIsNotScavenge AutoIsNotSurvival IsNotSaidC6M3SafeRoom IsNotSpeakingWeight0
+	ApplyContext "SaidC6M3SafeRoom:1:0"
+	applycontexttoworld
+	Response C6M3SafeRoomProducer
+}
+
+Response DLC1_C6M3_SafeRoomConvo01Producer
+{
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo01.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo01a foo:0 -1.260 //Do you think he's waiting for us?
+}
+Rule DLC1_C6M3_SafeRoomConvo01Producer
+{
+	criteria ConceptC6M3SafeRoom2 IsProducer IsNotSaidC6M3SafeRoom2 IsFrancisIntroActor FrancisGroup3 IsInStartArea
+	ApplyContext "SaidC6M3SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M3_SafeRoomConvo01Producer
+}
+
+Response DLC1_C6M3_SafeRoomConvo01bProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo02.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo01c foo:0 -0.926 //Ellis!
+}
+Rule DLC1_C6M3_SafeRoomConvo01bProducer
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo01b IsProducer  IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo01bProducer
+}
+
+Response DLC1_C6M3_SafeRoomConvo02a1Producer
+{
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo03.vcd"  then Gambler DLC1_C6M3_SafeRoomConvo02b foo:0 -0.760 //He'll be there.
+}
+Rule DLC1_C6M3_SafeRoomConvo02a1Producer
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo02a1 IsProducer
+	Response DLC1_C6M3_SafeRoomConvo02a1Producer
+}
+
+Response DLC1_C6M3_SafeRoomConvo02cProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo05.vcd"  then Gambler DLC1_C6M3_SafeRoomConvo02d foo:0 -1.258 //I just have a good feeling.
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo06.vcd"  then Gambler DLC1_C6M3_SafeRoomConvo02d foo:0 -2.508 //It's a woman thing; I just have a good feeling.
+}
+Rule DLC1_C6M3_SafeRoomConvo02cProducer
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo02c IsProducer  IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo02cProducer
+}
+
+Response DLC1_C6M3_SafeRoomConvo04bProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo07.vcd"  then Gambler DLC1_C6M3_SafeRoomConvo04c foo:0 -2.568 //Just be your own sweet self, Ellis.
+}
+Rule DLC1_C6M3_SafeRoomConvo04bProducer
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo04b IsProducer IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo04bProducer
+}
+
+Response DLC1_C6M3_SafeRoomConvo04dProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo09.vcd"  //I just think Nick is jealous.
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo10.vcd"  //Nick is just jealous.
+}
+Rule DLC1_C6M3_SafeRoomConvo04dProducer
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo04d IsProducer IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo04dProducer
+}
+
+Response DLC1_C6M3_SafeRoomConvo05cProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo11.vcd"  then Gambler DLC1_C6M3_SafeRoomConvo05d foo:0 -1.309 //Nick. Leave him alone.
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo12.vcd"  then Gambler DLC1_C6M3_SafeRoomConvo05d foo:0 -0.901 //Leave him alone.
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo13.vcd"  //Ellis, you'll be fine.
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo14.vcd"  //Nick, you need to find a woman who hates herself, she'll love you.
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo15.vcd"  //Nick, I don't think she's deaf, so she isn't going to like you.
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo16.vcd"  //Nick, being one of the last two women in the world alive. I can safely safe, at least half of the women in this world hate you.
+}
+Rule DLC1_C6M3_SafeRoomConvo05cProducer
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo05c IsProducer IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo05cProducer
+}
+
+Response DLC1_C6M3_SafeRoomConvo06aProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo17.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo06b foo:0 -3.045 //I think someone has a crush on that "awesome" biker dude.
+}
+Rule DLC1_C6M3_SafeRoomConvo06aProducer
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo06a IsProducer IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo06aProducer
+}
+
+Response DLC1_C6M3_SafeRoomConvo07Producer
+{
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo20.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo07a foo:0 -3.413 //I hope that girl is still waiting for us.
+}
+Rule DLC1_C6M3_SafeRoomConvo07Producer
+{
+	criteria ConceptC6M3SafeRoom2 IsProducer IsNotSaidC6M3SafeRoom2 IsZoeyIntroActor IsInStartArea
+	ApplyContext "SaidC6M3SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M3_SafeRoomConvo07Producer
+}
+
+Response DLC1_C6M3_SafeRoomConvo07bProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo18.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo07c foo:0 -4.242 //Ellis, she shouted at you for five seconds from a bridge.
+}
+Rule DLC1_C6M3_SafeRoomConvo07bProducer
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo07b IsProducer IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo07bProducer
+}
+
+Response DLC1_C6M3_SafeRoomConvo08gProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo21.vcd"  //Great. Thanks, Coach.
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo22.vcd"  //Thanks, Coach.
+}
+Rule DLC1_C6M3_SafeRoomConvo08gProducer
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo08g IsProducer  IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo08gProducer
+}
+
+Response DLC1_C6M3_SafeRoomConvo09Producer
+{
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo23.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo09a foo:0 -4.131 //Ellis, so uh, where are you going to take that Zoey girl on your first date?
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo24.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo09a foo:0 -3.778 //Ellis, so uh, where are you going to take Zoey on your first date?
+}
+Rule DLC1_C6M3_SafeRoomConvo09Producer
+{
+	criteria ConceptC6M3SafeRoom2 IsProducer IsNotSaidC6M3SafeRoom2 IsZoeyIntroActor ZoeyGroup1 IsInStartArea
+	ApplyContext "SaidC6M3SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M3_SafeRoomConvo09Producer
+}
+
+Response DLC1_C6M3_SafeRoomConvo09bProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo25.vcd"  //Oh, yeah, um... What woman wouldn't love that.
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo27.vcd"  //Uh... Lucky girl.
+	scene "scenes/Producer/DLC1_C6M3_SafeRoomConvo28.vcd"  //Lucky girl.
+}
+Rule DLC1_C6M3_SafeRoomConvo09bProducer
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo09b IsProducer  IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo09bProducer
+}
+
+Response IncapBounceProducer
+{
+	scene "scenes/Producer/blank.vcd"  then Biker InCapBounce2 foo:0 0 //
+}
+Rule IncapBounceProducer
+{
+	criteria ConceptSurvivorIncapacitated IsProducer IsNotSaidInCapBounce isC6m3_port
+	ApplyContext "SaidInCapBounce:1:0"
+	applycontexttoworld
+	Response IncapBounceProducer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Finale Speech
+//--------------------------------------------------------------------------------------------------------------
+Response C6M3_CansDoneProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_FinaleBridgeRun04.vcd"  then any EmphaticArriveRun foo:0 -1.498 //Everyone to the car!
+}
+Rule C6M3_CansDoneProducer
+{
+	criteria Conceptc6m3escapeready IsProducer IsC6M3_Port IsNotSaidc6m3escapeready
+	ApplyContext "Saidc6m3escapeready:1:0,Talk:1:5"
+	applycontexttoworld
+	Response C6M3_CansDoneProducer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Monster Spotted
+//--------------------------------------------------------------------------------------------------------------
+Response L4D1AlsoSpottedTankProducer
+{
+	scene "scenes/Producer/DLC1_L4D1Tank01.vcd"  //Holy shit!
+	scene "scenes/Producer/DLC1_L4D1Tank02.vcd"  //Holy shit! Holy shit! Holy shit! Holy SHIT!
+	scene "scenes/Producer/DLC1_L4D1Tank03.vcd" odds 1 //Two tanks!
+	scene "scenes/Producer/DLC1_L4D1Tank04.vcd"  //Boys we got tanks!
+	scene "scenes/Producer/DLC1_L4D1Tank05.vcd"  //Lead the tanks back to Louis.
+	scene "scenes/Producer/DLC1_L4D1Tank06.vcd" odds 1 //We got two too many tanks.
+	scene "scenes/Producer/DLC1_L4D1Tank07.vcd"  //TANKS!
+	scene "scenes/Producer/DLC1_L4D1Tank08.vcd"  //Lead the tanks back to Louis.
+	scene "scenes/Producer/DLC1_L4D1Tank09.vcd" odds 1 //Whoa. We got two too many tanks.
+}
+Rule L4D1AlsoSpottedTankProducer
+{
+	criteria ConceptPlayerAlsoWarnTank IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer Isc6m3_port
+	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
+	applycontexttoworld
+	Response L4D1AlsoSpottedTankProducer
+}
+
+Response L4D1SpottedTankProducer
+{
+	scene "scenes/Producer/DLC1_L4D1Tank01.vcd"  //Holy shit!
+	scene "scenes/Producer/DLC1_L4D1Tank02.vcd"  //Holy shit! Holy shit! Holy shit! Holy SHIT!
+	scene "scenes/Producer/DLC1_L4D1Tank03.vcd" odds 1 //Two tanks!
+	scene "scenes/Producer/DLC1_L4D1Tank04.vcd"  //Boys we got tanks!
+	scene "scenes/Producer/DLC1_L4D1Tank05.vcd"  //Lead the tanks back to Louis.
+	scene "scenes/Producer/DLC1_L4D1Tank06.vcd" odds 1 //We got two too many tanks.
+	scene "scenes/Producer/DLC1_L4D1Tank07.vcd"  //TANKS!
+	scene "scenes/Producer/DLC1_L4D1Tank08.vcd"  //Lead the tanks back to Louis.
+	scene "scenes/Producer/DLC1_L4D1Tank09.vcd" odds 1 //Whoa. We got two too many tanks.
+}
+Rule L4D1SpottedTankProducer
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeTank IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer Isc6m3_port IsNotSpeakingWeight0
+	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
+	applycontexttoworld
+	Response L4D1SpottedTankProducer
+}
+
+Response SurvivorSpottedFallenProducer
+{
+	norepeat
+	scene "scenes/Producer/DLC1_FallenSurvior01.vcd"  //Get that zombie!
+	scene "scenes/Producer/DLC1_FallenSurvior03.vcd"  //Stop that zombie!
+	scene "scenes/Producer/DLC1_FallenSurvior04.vcd"  //That zombie's carrying something!
+}
+Rule SurvivorSpottedFallenProducer
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeFallen IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer IsNotSaidFallenWarn IsNotSpeakingWeight0
+	ApplyContext "SaidFallenWarn:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedFallenProducer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Player File
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerWitchChasingC6M1Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitchChasing01.vcd"  //Ahh I pissed off another bride!
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitchChasing02.vcd"  //Kill the bride! Kill the bride!
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitchChasing03.vcd"  //Kill the bride!
+}
+Rule PlayerWitchChasingC6M1Producer
+{
+	criteria ConceptPlayerExertionMinor IsProducer IsWitchPresent SubjectIsNotWitch IsNotSaidProducerWitchChasing IsSaidProducerWitchAttacking isc6m1_riverbank
+	ApplyContext "SaidProducerWitchChasing:1:15,TalkProducer:1:2"
+	forceweight 20
+	Response PlayerWitchChasingC6M1Producer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Remarkable Vocalize
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerRemarkremark_MidnightRidersBusProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_MidnightRiders01.vcd"  //Was that a bus?
+	scene "scenes/Producer/DLC1_C6M2_MidnightRiders02.vcd"  //Was that a tour bus?
+}
+Rule PlayerRemarkremark_MidnightRidersBusProducer
+{
+	criteria ConceptRemark IsProducer Isremark_MidnightRidersBus IsNotSaidremark_MidnightRidersBus IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear1500 IsNotSpeakingWeight0
+	ApplyContext "Saidremark_MidnightRidersBus:1:0"
+	applycontexttoworld
+	Response PlayerRemarkremark_MidnightRidersBusProducer
+}
+
+Response PlayerRemarkWorldC6M1_AcrossHereProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_BackAlley04.vcd"  //We can cross-over up there.
+}
+Rule PlayerRemarkWorldC6M1_AcrossHereProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_AcrossHere IsNotSaidWorldC6M1_AcrossHere IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_AcrossHere:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_AcrossHereProducer
+}
+
+Response PlayerRemarkWorldC6M1_AlleyBelowProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_BackAlley02.vcd"  //Down this alley.
+}
+Rule PlayerRemarkWorldC6M1_AlleyBelowProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_AlleyBelow IsNotSaidWorldC6M1_AlleyBelow IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_AlleyBelow:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_AlleyBelowProducer
+}
+
+Response PlayerRemarkWorldC6M1_AlleyIntoBuildingProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_BackAlley03.vcd"  //We need to get into the building.
+	scene "scenes/Producer/DLC1_C6M1_BackAlley05.vcd"  //We can cross-over up there.
+}
+Rule PlayerRemarkWorldC6M1_AlleyIntoBuildingProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_AlleyIntoBuilding IsNotSaidWorldC6M1_AlleyIntoBuilding IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_AlleyIntoBuilding:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_AlleyIntoBuildingProducer
+}
+
+Response PlayerRemarkWorldC6M1_InAptsProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_BackAlley06.vcd"  //Let's search these rooms.
+}
+Rule PlayerRemarkWorldC6M1_InAptsProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_InApts IsNotSaidWorldC6M1_InApts IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_InApts:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_InAptsProducer
+}
+
+Response PlayerRemarkWorldC6M1_IntotheparkProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_IntoPark01.vcd"  //Through this park.
+	scene "scenes/Producer/DLC1_C6M1_IntoPark02.vcd"  //Down into the park.
+	scene "scenes/Producer/DLC1_C6M1_IntoPark06.vcd"  //Ellis, I really think the car will be okay on its own.
+}
+Rule PlayerRemarkWorldC6M1_IntotheparkProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_Intothepark IsNotSaidWorldC6M1_Intothepark IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_Intothepark:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_IntotheparkProducer
+}
+
+Response PlayerRemarkWorldC6M1_IntoThePark2Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_IntoPark01.vcd"  //Through this park.
+}
+Rule PlayerRemarkWorldC6M1_IntoThePark2Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_IntoThePark2 IsNotSaidWorldC6M1_IntoThePark2 IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_IntoThePark2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_IntoThePark2Producer
+}
+
+Response PlayerRemarkWorldC6M1_IntoTheStoreProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_IntoStore01.vcd"  //Through this store.
+	scene "scenes/Producer/DLC1_C6M1_IntoStore02.vcd"  //Through the store.
+	scene "scenes/Producer/DLC1_C6M1_IntoStore04.vcd"  //Guns in the store.
+}
+Rule PlayerRemarkWorldC6M1_IntoTheStoreProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_IntoTheStore IsNotSaidWorldC6M1_IntoTheStore IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_IntoTheStore:1:0,JustSaidWorldC6M1_IntoTheStore:1:30"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_IntoTheStoreProducer
+}
+
+Response PlayerRemarkWorldC6M1_PostWeddingProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_WeddingPostWitch03.vcd"  //Check the tents.
+	scene "scenes/Producer/DLC1_C6M1_WeddingPostWitch04.vcd"  //Well, this isn't the worst wedding I've ever been to.
+	scene "scenes/Producer/DLC1_C6M1_WeddingPostWitch07.vcd"  //Check the tents.
+}
+Rule PlayerRemarkWorldC6M1_PostWeddingProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_PostWedding IsNotSaidWorldC6M1_PostWedding IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear600 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_PostWedding:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_PostWeddingProducer
+}
+
+Response PlayerRemarkWorldC6M1_SafeRoomAlleyProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_BackAlley01.vcd"  //Behind this bus.
+	scene "scenes/Producer/DLC1_C6M1_SafeRoomAhead01.vcd"  //Safe house!
+}
+Rule PlayerRemarkWorldC6M1_SafeRoomAlleyProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_SafeRoomAlley IsNotSaidWorldC6M1_SafeRoomAlley IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear600 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_SafeRoomAlley:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_SafeRoomAlleyProducer
+}
+
+Response PlayerRemarkWorldC6M1_ThroughBarProducer
+{
+	scene "scenes/Producer/MiscDirectional01.vcd"  //Through here!
+	scene "scenes/Producer/MiscDirectional11.vcd"  //Let's go through here!
+}
+Rule PlayerRemarkWorldC6M1_ThroughBarProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_ThroughBar IsNotSaidWorldC6M1_ThroughBar IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_ThroughBar:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_ThroughBarProducer
+}
+
+Response PlayerRemarkWorldC6M1_UpHereProducer
+{
+	scene "scenes/Producer/MiscDirectional26.vcd"  //We can get up here!
+	scene "scenes/Producer/WorldC3M251.vcd"  //We can get through up here.
+}
+Rule PlayerRemarkWorldC6M1_UpHereProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_UpHere IsNotSaidWorldC6M1_UpHere IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_UpHere:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_UpHereProducer
+}
+
+Response PlayerRemarkWorldC6M1_UpTheStairsProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_Upstairs02.vcd"  //Let's go upstairs.
+}
+Rule PlayerRemarkWorldC6M1_UpTheStairsProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_UpTheStairs IsNotSaidWorldC6M1_UpTheStairs IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_UpTheStairs:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_UpTheStairsProducer
+}
+
+Response PlayerRemarkWorldC6M1_UpTheStairs2Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_Upstairs01.vcd"  //Go upstairs.
+	scene "scenes/Producer/DLC1_C6M1_Upstairs03.vcd"  //Go upstairs.
+	scene "scenes/Producer/DLC1_C6M2_UpStairs01.vcd"  //Up the stairs!
+}
+Rule PlayerRemarkWorldC6M1_UpTheStairs2Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_UpTheStairs2 IsNotSaidWorldC6M1_UpTheStairs2 IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_UpTheStairs2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_UpTheStairs2Producer
+}
+
+Response PlayerRemarkWorldC6M1_WeddingWarnProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch09.vcd"  //I don't know what she's crying about, at least she got married.
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch12.vcd"  //You see? This is why I hate weddings.
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch13.vcd"  //This is one time I don't mind being the bridesmaid.
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch15.vcd"  //Something old, something new, something about to rip your guts out.
+}
+Rule PlayerRemarkWorldC6M1_WeddingWarnProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_WeddingWarn IsNotSaidWorldC6M1_WeddingWarn IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_WeddingWarn:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_WeddingWarnProducer
+}
+
+Response PlayerRemarkWorldC6M1_WeddingWarn1Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch09.vcd"  //I don't know what she's crying about, at least she got married.
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch12.vcd"  //You see? This is why I hate weddings.
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch13.vcd"  //This is one time I don't mind being the bridesmaid.
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch15.vcd"  //Something old, something new, something about to rip your guts out.
+}
+Rule PlayerRemarkWorldC6M1_WeddingWarn1Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_WeddingWarn1 IsNotSaidWorldC6M1_WeddingWarn IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_WeddingWarn:1:0,AtWedding:1:60"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_WeddingWarn1Producer
+}
+
+Response PlayerRemarkWorldC6M1_WeddingWarn2Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch09.vcd"  //I don't know what she's crying about, at least she got married.
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch12.vcd"  //You see? This is why I hate weddings.
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch13.vcd"  //This is one time I don't mind being the bridesmaid.
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch15.vcd"  //Something old, something new, something about to rip your guts out.
+}
+Rule PlayerRemarkWorldC6M1_WeddingWarn2Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_WeddingWarn2 IsNotSaidWorldC6M1_WeddingWarn IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_WeddingWarn:1:0,AtWedding:1:60"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_WeddingWarn2Producer
+}
+
+Response PlayerRemarkWorldC6M1_WeddingWarn3Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch09.vcd"  //I don't know what she's crying about, at least she got married.
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch12.vcd"  //You see? This is why I hate weddings.
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch13.vcd"  //This is one time I don't mind being the bridesmaid.
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch15.vcd"  //Something old, something new, something about to rip your guts out.
+}
+Rule PlayerRemarkWorldC6M1_WeddingWarn3Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_WeddingWarn3 IsNotSaidWorldC6M1_WeddingWarn IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_WeddingWarn:1:0,AtWedding:1:60"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_WeddingWarn3Producer
+}
+
+Response PlayerRemarkWorldC6M1_WeddingWarnAngelProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitch10.vcd"  //Hey Ellis look, it's another angel.
+}
+Rule PlayerRemarkWorldC6M1_WeddingWarnAngelProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M1_WeddingWarn IsNotSaidWorldC6M1_WeddingWarn IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsMechanicNear800Weight0 IsZoeyIntroActor ZoeyGroup2 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_WeddingWarn:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_WeddingWarnAngelProducer
+}
+
+Response PlayerRemarkWorldC6M2_AcrossPlankProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_OverPlank01.vcd"  //Quick over this plank.
+	scene "scenes/Producer/DLC1_C6M2_OverPlank02.vcd"  //Hurry up over this plank.
+	scene "scenes/Producer/DLC1_C6M2_OverPlank03.vcd"  //I am not looking down.
+}
+Rule PlayerRemarkWorldC6M2_AcrossPlankProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_AcrossPlank IsNotSaidWorldC6M2_AcrossPlank IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear250 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_AcrossPlank:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_AcrossPlankProducer
+}
+
+Response PlayerRemarkWorldC6M2_AfterGate1Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_Phase2InWater11.vcd"  //Don't stop, let's go!
+	scene "scenes/Producer/DLC1_C6M2_Phase2InWater12.vcd"  //Keep moving!
+}
+Rule PlayerRemarkWorldC6M2_AfterGate1Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_AfterGate1 IsNotSaidWorldC6M2_AfterGate1 IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear500 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_AfterGate1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_AfterGate1Producer
+}
+
+Response PlayerRemarkWorldC6M2_AfterGate2Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_InWaterFindLadder01.vcd"  //Nick, you've got a turd on your shoulder.
+	scene "scenes/Producer/DLC1_C6M2_InWaterFindLadder02.vcd"  //Nick, you've got a turd on your shoulder.
+	scene "scenes/Producer/DLC1_C6M2_InWaterFindLadder03.vcd"  //Nick, there's something on your shoulder.
+	scene "scenes/Producer/DLC1_C6M2_InWaterFindLadder04.vcd"  //There goes my boots.
+	scene "scenes/Producer/DLC1_C6M2_InWaterFindLadder05.vcd"  //That alarm is not turning off.
+	scene "scenes/Producer/DLC1_C6M2_InWaterFindLadder06.vcd"  //We need to keep running.
+	scene "scenes/Producer/DLC1_C6M2_InWaterFindLadder07.vcd"  //We need to keep running.
+}
+Rule PlayerRemarkWorldC6M2_AfterGate2Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_AfterGate2 IsNotSaidWorldC6M2_AfterGate2 IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear500 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_AfterGate2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_AfterGate2Producer
+}
+
+Response PlayerRemarkWorldC6M2_DownHereProducer
+{
+	scene "scenes/Producer/MiscDirectional05.vcd"  //Down here!
+	scene "scenes/Producer/World10.vcd"  //Down here.
+	scene "scenes/Producer/WorldC2M108.vcd"  //Down here!
+}
+Rule PlayerRemarkWorldC6M2_DownHereProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_DownHere IsNotSaidWorldC6M2_DownHere IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_DownHere:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_DownHereProducer
+}
+
+Response PlayerRemarkWorldC6M2_DownIntoBuildingProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_UpThroughBuilding01.vcd"  //Through here.
+	scene "scenes/Producer/DLC1_C6M2_UpThroughBuilding02.vcd"  //In here.
+	scene "scenes/Producer/DLC1_C6M2_UpThroughBuilding03.vcd"  //Through this building.
+}
+Rule PlayerRemarkWorldC6M2_DownIntoBuildingProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_DownIntoBuilding IsNotSaidWorldC6M2_DownIntoBuilding IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_DownIntoBuilding:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_DownIntoBuildingProducer
+}
+
+Response PlayerRemarkWorldC6M2_FinalLadderProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_UpLadder01.vcd"  //Another ladder.
+	scene "scenes/Producer/DLC1_C6M2_UpLadder02.vcd"  //We can get up here.
+}
+Rule PlayerRemarkWorldC6M2_FinalLadderProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_FinalLadder IsNotSaidWorldC6M2_FinalLadder IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_FinalLadder:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_FinalLadderProducer
+}
+
+Response PlayerRemarkWorldC6M2_FinalWaterProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_FinalWater01.vcd"  //Back in the water!
+	scene "scenes/Producer/DLC1_C6M2_FinalWater02.vcd"  //Yay, back in the water!
+	scene "scenes/Producer/DLC1_C6M2_FinalWater03.vcd"  //Yay, great, back in the water!
+	scene "scenes/Producer/DLC1_C6M2_FinalWater04.vcd"  //(Sarcastically) Yay! More water!
+}
+Rule PlayerRemarkWorldC6M2_FinalWaterProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_FinalWater IsNotSaidWorldC6M2_FinalWater IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_FinalWater:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_FinalWaterProducer
+}
+
+Response PlayerRemarkWorldC6M2_FinalWaterGoGoProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_Phase2InWater11.vcd"  //Don't stop, let's go!
+	scene "scenes/Producer/DLC1_C6M2_Phase2InWater12.vcd"  //Keep moving!
+	scene "scenes/Producer/WorldC4M2B25.vcd"  //KEEP MOVING!
+}
+Rule PlayerRemarkWorldC6M2_FinalWaterGoGoProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_FinalWaterGoGo IsNotSaidWorldC6M2_FinalWaterGoGo IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_FinalWaterGoGo:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_FinalWaterGoGoProducer
+}
+
+Response PlayerRemarkWorldC6M2_InJazzClubProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_JazzClub01.vcd"  //Into the club.
+	scene "scenes/Producer/DLC1_C6M2_JazzClub02.vcd"  //The tour is in the club.
+	scene "scenes/Producer/DLC1_C6M2_JazzClub03.vcd"  //The tour is in the club.
+}
+Rule PlayerRemarkWorldC6M2_InJazzClubProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_InJazzClub IsNotSaidWorldC6M2_InJazzClub IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear1000 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_InJazzClub:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_InJazzClubProducer
+}
+
+Response PlayerRemarkWorldC6M2_InSewer1Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_Phase2InWater01.vcd"  //Nick, I'm pretty sure this is sewage.
+	scene "scenes/Producer/DLC1_C6M2_Phase2InWater10.vcd"  //This is more interesting than phase one.
+}
+Rule PlayerRemarkWorldC6M2_InSewer1Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_InSewer1 IsNotSaidWorldC6M2_InSewer1 IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_InSewer1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_InSewer1Producer
+}
+
+Response PlayerRemarkWorldC6M2_InSewer2Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_Phase2InWater05.vcd"  then Gambler WorldC6M2_InSewer201a foo:0 -2.052 //Hey, Nick! Splash fight!
+}
+Rule PlayerRemarkWorldC6M2_InSewer2Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_InSewer2 IsNotSaidWorldC6M2_InSewer2 IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsSaidWorldC6M2_InSewer1 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_InSewer2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_InSewer2Producer
+}
+
+Response PlayerRemarkWorldC6M2_InSewerLadder1Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_UpLadder101.vcd"  //Out of the water!
+	scene "scenes/Producer/DLC1_C6M2_UpLadder102.vcd"  //Out of the water!
+	scene "scenes/Producer/DLC1_C6M2_UpLadder103.vcd"  //Let's get out!
+}
+Rule PlayerRemarkWorldC6M2_InSewerLadder1Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_InSewerLadder1 IsNotSaidWorldC6M2_InSewerLadder1 IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_InSewerLadder1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_InSewerLadder1Producer
+}
+
+Response PlayerRemarkWorldC6M2_IntoConstructionProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_ConstructionSite01.vcd"  //Let's jump down.
+	scene "scenes/Producer/DLC1_C6M2_ConstructionSite02.vcd"  //Down into the construction site.
+}
+Rule PlayerRemarkWorldC6M2_IntoConstructionProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_IntoConstruction IsNotSaidWorldC6M2_IntoConstruction IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear150 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_IntoConstruction:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_IntoConstructionProducer
+}
+
+Response PlayerRemarkWorldC6M2_IntoPoolHallProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_IntoPoolHall01.vcd"  //Get into the pool hall.
+	scene "scenes/Producer/DLC1_C6M2_IntoPoolHall02.vcd"  //We can climb in through the window.
+}
+Rule PlayerRemarkWorldC6M2_IntoPoolHallProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_IntoPoolHall IsNotSaidWorldC6M2_IntoPoolHall IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_IntoPoolHall:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_IntoPoolHallProducer
+}
+
+Response PlayerRemarkWorldC6M2_JukeBoxProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_StartingJukeBox01.vcd"  //Ugh. This jukebox sucks.
+	scene "scenes/Producer/DLC1_C6M2_StartingJukeBox02.vcd"  //Ugh. This jukebox sucks.
+}
+Rule PlayerRemarkWorldC6M2_JukeBoxProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_JukeBox IsNotSaidWorldC6M2_JukeBox IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear150 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_JukeBox:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_JukeBoxProducer
+}
+
+Response PlayerRemarkWorldC6M2_JumpDownProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_Phase2JumpInWater01.vcd"  //Let's jump together.
+	scene "scenes/Producer/DLC1_C6M2_Phase2JumpInWater02.vcd"  //Why is it always water?
+}
+Rule PlayerRemarkWorldC6M2_JumpDownProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_JumpDown IsNotSaidWorldC6M2_JumpDown IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_JumpDown:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_JumpDownProducer
+}
+
+Response PlayerRemarkWorldC6M2_OnTourWalk1Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_HistoricTour09.vcd"  //Follow the walkway.
+	scene "scenes/Producer/DLC1_C6M2_HistoricTour10.vcd"  //Keep to the walkway.
+	scene "scenes/Producer/DLC1_C6M2_HistoricTour11.vcd"  //Stay off the dirt, it's historical.
+}
+Rule PlayerRemarkWorldC6M2_OnTourWalk1Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_OnTourWalk1 IsNotSaidWorldC6M2_OnTourWalk1 IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_OnTourWalk1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_OnTourWalk1Producer
+}
+
+Response PlayerRemarkWorldC6M2_OnTourWalk2Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_HistoricTour07.vcd"  //Only in the South would this pass for a museum.
+}
+Rule PlayerRemarkWorldC6M2_OnTourWalk2Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_OnTourWalk2 IsNotSaidWorldC6M2_OnTourWalk2 IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_OnTourWalk2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_OnTourWalk2Producer
+}
+
+Response PlayerRemarkWorldC6M2_OnTourWalk3Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_HistoricTour08.vcd"  //Five dollars well spent.
+}
+Rule PlayerRemarkWorldC6M2_OnTourWalk3Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_OnTourWalk3 IsNotSaidWorldC6M2_OnTourWalk3 IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_OnTourWalk3:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_OnTourWalk3Producer
+}
+
+Response PlayerRemarkWorldC6M2_OpenGate1Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_AlarmDoor01.vcd"  //Get ready an alarm is going to sound when we open this.
+	scene "scenes/Producer/DLC1_C6M2_Bridge1Raise02.vcd"  //Get ready to go once we hit this button.
+}
+Rule PlayerRemarkWorldC6M2_OpenGate1Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_OpenGate1 IsNotSaidWorldC6M2_OpenGate1 IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSaidOpenedGate1 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_OpenGate1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_OpenGate1Producer
+}
+
+Response PlayerRemarkWorldC6M2_Phase2Producer
+{
+	scene "scenes/Producer/DLC1_C6M2_Phase203.vcd"  //Another phase? I'm still not done thinking about phase one.
+	scene "scenes/Producer/DLC1_C6M2_Phase204.vcd"  //Phase two? Phase one was finished?
+	scene "scenes/Producer/DLC1_C6M2_Phase205.vcd"  //I hope phase two is as good as phase one.
+	scene "scenes/Producer/DLC1_C6M2_Phase207.vcd"  //I've never had so much fun learning.
+	scene "scenes/Producer/DLC1_C6M2_Phase208.vcd"  //That was almost as bad as the Seattle underground tour.
+}
+Rule PlayerRemarkWorldC6M2_Phase2Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_Phase2 IsNotSaidWorldC6M2_Phase2 IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Phase2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_Phase2Producer
+}
+
+Response PlayerRemarkWorldC6M2_Phase2DownProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_Phase209.vcd"  //Down the stairs!
+}
+Rule PlayerRemarkWorldC6M2_Phase2DownProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_Phase2Down IsNotSaidWorldC6M2_Phase2Down IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Phase2Down:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_Phase2DownProducer
+}
+
+Response PlayerRemarkWorldC6M2_Phase2DownIntenseProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_Phase210.vcd"  //Down, go down!
+}
+Rule PlayerRemarkWorldC6M2_Phase2DownIntenseProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_Phase2Down IsNotSaidWorldC6M2_Phase2Down IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IntensityOver75 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Phase2Down:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_Phase2DownIntenseProducer
+}
+
+Response PlayerRemarkWorldC6M2_PostGate1xProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_BridgeCollapse01.vcd"  //Back in the water.
+}
+Rule PlayerRemarkWorldC6M2_PostGate1xProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_PostGate1 IsNotSaidWorldC6M2_PostGate1 IsNotCoughing IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsSaidOpenedGate1 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_PostGate1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_PostGate1xProducer
+}
+
+Response PlayerRemarkWorldC6M2_SafeRoomProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_Saferoom01.vcd"  //Saferoom!
+}
+Rule PlayerRemarkWorldC6M2_SafeRoomProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_SafeRoom IsNotSaidWorldC6M2_SafeRoom IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear800 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_SafeRoom:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_SafeRoomProducer
+}
+
+Response PlayerRemarkWorldC6M2_SuitcaseProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_SuitcasePistols01.vcd"  //Is this your suitcase Nick?
+	scene "scenes/Producer/DLC1_C6M2_SuitcasePistols02.vcd"  //Heh. Is this your suitcase Nick?
+}
+Rule PlayerRemarkWorldC6M2_SuitcaseProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_Suitcase IsNotSaidWorldC6M2_Suitcase IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear100 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Suitcase:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_SuitcaseProducer
+}
+
+Response PlayerRemarkWorldC6M2_TourEntranceProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_TicketCounter01.vcd"  then Producer WorldC6M2_TourEntrance01a foo:0 -1.841 //Maybe there's no zombies down here.
+}
+Rule PlayerRemarkWorldC6M2_TourEntranceProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_TourEntrance IsNotSaidWorldC6M2_TourEntrance IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_TourEntrance:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_TourEntranceProducer
+}
+
+Response PlayerRemarkWorldC6M2_UpCatWalkProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_UpCatwalk01.vcd"  //A ladder!
+	scene "scenes/Producer/DLC1_C6M2_UpCatwalk02.vcd"  //Thank god, a ladder!
+	scene "scenes/Producer/DLC1_C6M2_UpCatwalk03.vcd"  //Thank god, a ladder!
+}
+Rule PlayerRemarkWorldC6M2_UpCatWalkProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_UpCatWalk IsNotSaidWorldC6M2_UpCatWalk IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_UpCatWalk:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_UpCatWalkProducer
+}
+
+Response PlayerRemarkWorldC6M2_UpStairsProducer
+{
+	scene "scenes/Producer/DLC1_C6M2_UpStairs01.vcd"  //Up the stairs!
+	scene "scenes/Producer/DLC1_C6M2_UpStairs02.vcd"  //The street's up there!
+	scene "scenes/Producer/DLC1_C6M2_UpStairs03.vcd"  //Up the stairs!
+}
+Rule PlayerRemarkWorldC6M2_UpStairsProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_UpStairs IsNotSaidWorldC6M2_UpStairs IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_UpStairs:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_UpStairsProducer
+}
+
+Response PlayerRemarkWorldC6M2_UpStairs2Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_Upstairs01.vcd"  //Go upstairs.
+	scene "scenes/Producer/DLC1_C6M1_Upstairs02.vcd"  //Let's go upstairs.
+	scene "scenes/Producer/DLC1_C6M2_UpStairs03.vcd"  //Up the stairs!
+}
+Rule PlayerRemarkWorldC6M2_UpStairs2Producer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M2_UpStairs2 IsNotSaidWorldC6M2_UpStairs2 IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_UpStairs2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_UpStairs2Producer
+}
+
+Response PlayerRemarkWorldC6M3_BridgeRunProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_FinaleBridgeRun01.vcd"  then Any WorldC6M3_ByBridge01 foo:0 -0.909 //Get to the car!
+	scene "scenes/Producer/DLC1_C6M3_FinaleBridgeRun06.vcd"  then Any WorldC6M3_ByBridge01 foo:0 -1.768 //Thank you guys! GOOD LUCK!
+}
+Rule PlayerRemarkWorldC6M3_BridgeRunProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M3_BridgeRun IsNotSaidWorldC6M3_BridgeRun IsNotCoughing  IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear500 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M3_BridgeRun:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M3_BridgeRunProducer
+}
+
+Response PlayerRemarkWorldC6M3_ByBridgeProducer
+{
+	scene "scenes/Producer/DLC1_C6M3_FinaleFinalGas01.vcd"  //Thanks Louis, sure you don't want to come along?
+	scene "scenes/Producer/DLC1_C6M3_FinaleFinalGas02.vcd"  //Thanks Francis, there's room in the car.
+	scene "scenes/Producer/DLC1_C6M3_FinaleFinalGas03.vcd"  //Thanks Zoey, us women gotta work together.
+	scene "scenes/Producer/DLC1_C6M3_FinaleFinalGas04.vcd"  //Thank you guys for all you've done.
+	scene "scenes/Producer/DLC1_C6M3_FinaleFinalGas05.vcd"  //Thanks! Keep safe.
+	scene "scenes/Producer/DLC1_C6M3_FinaleFinalGas06.vcd"  //Thanks! Good luck.
+}
+Rule PlayerRemarkWorldC6M3_ByBridgeProducer
+{
+	criteria ConceptRemark IsProducer IsWorldC6M3_ByBridge IsNotSaidWorldC6M3_ByBridge IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear300 IsSaidFinalVehicleArrived IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M3_ByBridge:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M3_ByBridgeProducer
+}
+
+Response PlayerRemarkWorldFootLockerProducer
+{
+	scene "scenes/Producer/DLC1_FootLocker02.vcd"  //Search the locker.
+	scene "scenes/Producer/DLC1_FootLocker04.vcd"  //Check the locker.
+	scene "scenes/Producer/DLC1_FootLocker05.vcd"  //Check the lockers.
+}
+Rule PlayerRemarkWorldFootLockerProducer
+{
+	criteria ConceptRemark IsProducer IsWorldFootLocker IsNotSaidWorldFootLocker IsNotCoughing NotInCombat IsTalk IsTalkProducer IsWorldTalkProducer IsSubjectNear500 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldFootLocker:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldFootLockerProducer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Scavenge
+//--------------------------------------------------------------------------------------------------------------
+Response C6M3_PourFinishedProducer
+{
+	scene "scenes/Producer/blank.vcd" predelay ".5,1.5" then Manager L4D1_NiceJobPour foo:0 0 //
+}
+Rule C6M3_PourFinishedProducer
+{
+	criteria ConceptPlayerPourFinished IsProducer IsTalk IsTalkProducer IsWorldTalkProducer  Isc6m3_port ChanceToFire20Percent
+	ApplyContext "Talk:1:3"
+	Response C6M3_PourFinishedProducer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer
+//--------------------------------------------------------------------------------------------------------------
+Response SurvivorNearFinaleC6M3Producer
+{
+	scene "scenes/Producer/blank.vcd"  //
+}
+Rule SurvivorNearFinaleC6M3Producer
+{
+	criteria ConceptPlayerNearFinale IsNotCoughing IsProducer IsNotSaidFinaleAhead NotInCombat IsTalk IsTalkProducer IsNotIncapacitated IsWorldTalkProducer Isc6m3_port
+	ApplyContext "SaidFinaleAhead:1:0"
+	applycontexttoworld
+	Response SurvivorNearFinaleC6M3Producer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer - Pickups
+//--------------------------------------------------------------------------------------------------------------
+Response SurvivorPickupGolfCLubProducer
+{
+	scene "scenes/Producer/DLC1_GolfClub02.vcd"  //Grabbing a golf club.
+	scene "scenes/Producer/DLC1_GolfClub05.vcd"  //Grabbing the driver.
+	scene "scenes/Producer/DLC1_GolfClub07.vcd"  //Fore!
+}
+Rule SurvivorPickupGolfCLubProducer
+{
+	criteria ConceptPlayerPickup IsNotCoughing IsProducer IsPickedUpGolfClub  IsNotSpeaking  ProducerNotPickedUpItem IsTalk IsTalkProducer IsWorldTalkProducer
+	ApplyContext "ProducerPickedUpItem:1:30"
+	Response SurvivorPickupGolfCLubProducer
+}
+
+Response SurvivorPickupM60Producer
+{
+	scene "scenes/Producer/DLC1_M6006.vcd"  //I'm taking the big gun.
+	scene "scenes/Producer/DLC1_M6007.vcd"  //I'm taking the big gun.
+	scene "scenes/Producer/DLC1_M6008.vcd"  //Taking the big gun.
+	scene "scenes/Producer/DLC1_M6009.vcd"  //Oh my god, this gun feels good.
+	scene "scenes/Producer/DLC1_M6010.vcd"  //I have found my new favorite gun.
+}
+Rule SurvivorPickupM60Producer
+{
+	criteria ConceptPlayerPickup IsNotCoughing IsProducer IsPickedUpM60  IsNotSpeaking  ProducerNotPickedUpItem IsTalk IsTalkProducer IsWorldTalkProducer
+	ApplyContext "ProducerPickedUpItem:1:30"
+	Response SurvivorPickupM60Producer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer Convo (AUTO)
+//--------------------------------------------------------------------------------------------------------------
+Response HistoricTour02bProducer
+{
+	scene "scenes/Producer/DLC1_C6M1_HistoricSign03.vcd"  //(sarcastically) Thanks Coach.
+	scene "scenes/Producer/DLC1_C6M1_HistoricSign04.vcd"  //(sarcastically) Gee, thanks Coach.
+	scene "scenes/Producer/DLC1_C6M1_HistoricSign05.vcd"  //(sarcastically) Uh, gee, glad I asked.
+	scene "scenes/Producer/DLC1_C6M1_HistoricSign06.vcd"  //(sarcastically) Gee, thanks Coach.
+	scene "scenes/Producer/DLC1_C6M1_HistoricSign07.vcd"  //(sarcastically) Glad I asked.
+	scene "scenes/Producer/DLC1_C6M1_HistoricSign08.vcd"  //Good enough.
+	scene "scenes/Producer/DLC1_C6M1_HistoricSign09.vcd"  //Well, okay... Good enough.
+}
+Rule HistoricTour02bProducer
+{
+	criteria ConceptHistoricTour02b IsProducer
+	Response HistoricTour02bProducer
+}
+
+Response WeddingWitchDead01Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitchDead01.vcd"  //Nick, you scare me.
+}
+Rule WeddingWitchDead01Producer
+{
+	criteria ConceptWeddingWitchDead01 IsProducer
+	Response WeddingWitchDead01Producer
+}
+
+Response WeddingWitchDead04Producer
+{
+	scene "scenes/Producer/DLC1_C6M1_WeddingWitchDead05.vcd"  //Yeah, let's just get of here.
+}
+Rule WeddingWitchDead04Producer
+{
+	criteria ConceptWeddingWitchDead04 IsProducer
+	Response WeddingWitchDead04Producer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Volcalize
+//--------------------------------------------------------------------------------------------------------------
+Response Player.LostCallC6M3Producer
+{
+	scene "scenes/Producer/blank.vcd"  //
+}
+Rule Player.LostCallC6M3Producer
+{
+	criteria ConceptTalkIdle IsProducer IsClosestSurvivorFar3000 IsNotSaidPlayerLostCall Isc6m3_port  ChanceToFire100Percent IsNotSpeakingWeight0
+	ApplyContext "SaidPlayerLostCall:1:50"
+	applycontexttoworld
+	Response Player.LostCallC6M3Producer
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Weapon Spotted
+//--------------------------------------------------------------------------------------------------------------
+Response SurvivorSpottedGolfClubProducer
+{
+	scene "scenes/Producer/DLC1_GolfClub01.vcd"  //Golf club.
+	scene "scenes/Producer/DLC1_GolfClub03.vcd"  //Golf club here.
+	scene "scenes/Producer/DLC1_GolfClub04.vcd"  //Club here.
+	scene "scenes/Producer/DLC1_GolfClub06.vcd"  //Driver here.
+}
+Rule SurvivorSpottedGolfClubProducer
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsProducer IsTalk IsTalkProducer IsSmartLookAuto  IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsGolfClub IsWorldTalkProducer IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedGolfClubProducer
+}
+
+Response SurvivorSpottedGolfClubAutoProducer
+{
+	scene "scenes/Producer/DLC1_GolfClub01.vcd"  //Golf club.
+	scene "scenes/Producer/DLC1_GolfClub03.vcd"  //Golf club here.
+	scene "scenes/Producer/DLC1_GolfClub04.vcd"  //Club here.
+	scene "scenes/Producer/DLC1_GolfClub06.vcd"  //Driver here.
+}
+Rule SurvivorSpottedGolfClubAutoProducer
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto IsGolfClub IsWorldTalkProducer
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedGolfClubAutoProducer
+}
+
+Response SurvivorSpottedM60Producer
+{
+	scene "scenes/Producer/DLC1_M6001.vcd"  //There's a big gun.
+	scene "scenes/Producer/DLC1_M6002.vcd"  //Big gun here.
+	scene "scenes/Producer/DLC1_M6003.vcd"  //Big gun here.
+	scene "scenes/Producer/DLC1_M6004.vcd"  //There's a big gun over here.
+	scene "scenes/Producer/DLC1_M6005.vcd"  //Man, big gun over here.
+}
+Rule SurvivorSpottedM60Producer
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsProducer IsTalk IsTalkProducer IsSmartLookAuto  IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsM60 IsWorldTalkProducer IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedM60Producer
+}
+
+Response SurvivorSpottedM60AutoProducer
+{
+	scene "scenes/Producer/DLC1_M6001.vcd"  //There's a big gun.
+	scene "scenes/Producer/DLC1_M6002.vcd"  //Big gun here.
+	scene "scenes/Producer/DLC1_M6003.vcd"  //Big gun here.
+	scene "scenes/Producer/DLC1_M6004.vcd"  //There's a big gun over here.
+	scene "scenes/Producer/DLC1_M6005.vcd"  //Man, big gun over here.
+}
+Rule SurvivorSpottedM60AutoProducer
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto IsM60 IsWorldTalkProducer
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedM60AutoProducer
+}
+

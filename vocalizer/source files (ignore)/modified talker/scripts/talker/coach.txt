@@ -13,6 +13,15 @@ Criterion "IsNotSaidAlertGiveItemStopFirstAidCoach" "SaidAlertGiveItemStopFirstA
 Criterion "IsNotSaidBeenJockeyedCoach" "SaidBeenJockeyedCoach" "!=1" "required" weight 0
 Criterion "IsSaidCoachWitchAttacking" "SaidCoachWitchAttacking" "1" "required" weight 0
 
+Criterion "ConceptThatWasMe" "Concept" "ThatWasMe" required // modified talker
+Criterion "ConceptReviveParish" "Concept" "PlayerReviveFriend" required // modified talker
+Criterion "ConceptAnySense" "Concept" "AnySense" required // modified talker
+Criterion "ConceptSmellThat" "Concept" "SmellThat" required // modified talker
+Criterion "ConceptMournTeenGirl" "Concept" "SeeDeadPlayer" required // modified talker
+Criterion "GoingToDieParish" "Concept" "PlayerGoingToDie" required // modified talker
+Criterion "ConceptSmellResponse" "Concept" "SmellResponse" required // modified talker
+Criterion "ConceptRevivedByDefibrillatorProducer" "Concept" "PlayerRevivedByDefibrillatorDelayed" required // modified talker
+
 //Auto-generated blank response for padding out InfoRemarkables
 Response _PlayerInfoRemarkableBlankCoach
 {
@@ -26,7 +35,6 @@ Response C1M1InSmokeCoach
 	scene "scenes/Coach/Cough03.vcd"  then any C1M1Cough foo:0 -0.478 //[Coughing from smoke]
 	scene "scenes/Coach/Cough06.vcd"  then any C1M1Cough foo:0 -0.502 //[Coughing from smoke]
 }
-
 Rule C1M1InSmokeCoach
 {
 	criteria ConceptTalkIdle IsCoach IsSaidC1M1InSmoke ismap_c1m1_hotel AutoIsNotScavenge AutoIsNotSurvival IsNotSpeakingWeight0
@@ -109,16 +117,16 @@ Rule C4M3Saferoom001Coach
 
 Response PlayerNiceShotCoach
 {
-	scene "scenes/Coach/NiceShot01.vcd" //Nice shot..
-	scene "scenes/Coach/NiceShot02.vcd" //Damn. Good one.
-	scene "scenes/Coach/NiceShot03.vcd" //Good one!
-	scene "scenes/Coach/NiceShot04.vcd" //You on it.
-	scene "scenes/Coach/NiceShot05.vcd" //You got it.
-	scene "scenes/Coach/NiceShot06.vcd" //ohh hoo hoo, allright!
-	scene "scenes/Coach/NiceShot07.vcd" //Damn. I'm impressed.
-	scene "scenes/Coach/NiceShot08.vcd" //You nailed it.
-	scene "scenes/Coach/NiceShot09.vcd" //You beat 'em.
-	scene "scenes/Coach/NiceShot10.vcd" //Well alright now, you're in charge.
+	scene "scenes/Coach/NiceShot01.vcd" then subject PlayerThanks foo:0 0.1 //Nice shot..
+	scene "scenes/Coach/NiceShot02.vcd" then subject PlayerThanks foo:0 0.1 //Damn. Good one.
+	scene "scenes/Coach/NiceShot03.vcd" then subject PlayerThanks foo:0 0.1 //Good one!
+	scene "scenes/Coach/NiceShot04.vcd" then subject PlayerThanks foo:0 0.1 //You on it.
+	scene "scenes/Coach/NiceShot05.vcd" then subject PlayerThanks foo:0 0.1 //You got it.
+	scene "scenes/Coach/NiceShot06.vcd" then subject PlayerThanks foo:0 0.1 //ohh hoo hoo, allright!
+	scene "scenes/Coach/NiceShot07.vcd" then subject PlayerThanks foo:0 0.1 //Damn. I'm impressed.
+	scene "scenes/Coach/NiceShot08.vcd" then subject PlayerThanks foo:0 0.1 //You nailed it.
+	scene "scenes/Coach/NiceShot09.vcd" then subject PlayerThanks foo:0 0.1 //You beat 'em.
+	scene "scenes/Coach/NiceShot10.vcd" then subject PlayerThanks foo:0 0.1 //Well alright now, you're in charge.
 }
 Rule PlayerNiceShotCoach
 {
@@ -150,10 +158,10 @@ Rule PlayerNiceShotMechanicCoach
 
 Response PlayerNiceShotProducerCoach
 {
-	scene "scenes/Coach/niceshotfemale01.vcd" //All right, girl.
-	scene "scenes/Coach/niceshotfemale02.vcd" //All right, girl.
-	scene "scenes/Coach/niceshotfemale03.vcd" //All right, girl.
-	scene "scenes/Coach/NiceShotProducer01.vcd" //Ro that was a nice shot.
+	scene "scenes/Coach/niceshotfemale01.vcd" then subject PlayerThanks foo:0 0.1 //All right, girl.
+	scene "scenes/Coach/niceshotfemale02.vcd" then subject PlayerThanks foo:0 0.1 //All right, girl.
+	scene "scenes/Coach/niceshotfemale03.vcd" then subject PlayerThanks foo:0 0.1 //All right, girl.
+	scene "scenes/Coach/NiceShotProducer01.vcd" then subject PlayerThanks foo:0 0.1 //Ro that was a nice shot.
 }
 Rule PlayerNiceShotProducerCoach
 {
@@ -785,11 +793,11 @@ Rule ThanksGotItemCoach
 //--------------------------------------------------------------------------------------------------------------
 Response HealThanksCoach 
 {
-	scene "scenes/Coach/Thanks01.vcd" predelay ".2,.5" //Thanks.
-	scene "scenes/Coach/Thanks06.vcd" predelay ".2,.5" //Allrighht thanks.
-	scene "scenes/Coach/Thanks07.vcd" predelay ".2,.5" //THANKS!
-	scene "scenes/Coach/DLC1_C6M3_finalel4d1items01.vcd" //I'm game.
-	scene "scenes/Coach/DLC1_C6M3_finalel4d1items07.vcd" //I'm game.
+	scene "scenes/Coach/Thanks01.vcd" predelay ".2,.5" then subject PlayerYouAreWelcome foo:0 0 //Thanks.
+	scene "scenes/Coach/Thanks06.vcd" predelay ".2,.5" then subject PlayerYouAreWelcome foo:0 0 //Allrighht thanks.
+	scene "scenes/Coach/Thanks07.vcd" predelay ".2,.5" then subject PlayerYouAreWelcome foo:0 0 //THANKS!
+	scene "scenes/Coach/DLC1_C6M3_finalel4d1items01.vcd" predelay ".2,.5" then subject PlayerYouAreWelcome foo:0 0 //I'm game.
+	scene "scenes/Coach/DLC1_C6M3_finalel4d1items07.vcd" predelay ".2,.5" then subject PlayerYouAreWelcome foo:0 0 //I'm game.
 }
 Rule HealThanksCoach
 {
@@ -800,9 +808,9 @@ Rule HealThanksCoach
 
 Response ReviveThanksCoach
 {
-	scene "scenes/Coach/Thanks01.vcd" predelay ".2,.5" //Thanks.
-	scene "scenes/Coach/Thanks06.vcd" predelay ".2,.5" //Allrighht thanks.
-	scene "scenes/Coach/Thanks07.vcd" predelay ".2,.5" //THANKS!
+	scene "scenes/Coach/Thanks01.vcd" predelay ".2,.5" then subject PlayerYouAreWelcome foo:0 0 //Thanks.
+	scene "scenes/Coach/Thanks06.vcd" predelay ".2,.5" then subject PlayerYouAreWelcome foo:0 0 //Allrighht thanks.
+	scene "scenes/Coach/Thanks07.vcd" predelay ".2,.5" then subject PlayerYouAreWelcome foo:0 0 //THANKS!
 }
 Rule ReviveThanksCoach
 {
@@ -1008,7 +1016,7 @@ Response C1M2TankerAttackCoach
 }
 Rule C1M2TankerAttackCoach
 {
-	criteria ConceptC1M2TankerAttack2 IsCoach AutoIsNotScavenge
+	criteria ConceptC1M2TankerAttack2 IsCoach
 	Response C1M2TankerAttackCoach
 }
 
@@ -1349,11 +1357,11 @@ Response C2M5_Button2YellCoach
 	scene "scenes/Coach/WorldC2M5B33.vcd" then any PLayerHurrah foo:0 0 //This is gonna be good!
 	scene "scenes/Coach/WorldC2M5B35.vcd"  //Woo!
 	scene "scenes/Coach/WorldC2M5B38.vcd" then any PLayerHurrah foo:0 0 //Finale's on! Get ready to rock!
-	scene "scenes/Coach/WorldC2M5B45.vcd"  // Turn it up!
-	scene "scenes/Coach/WorldC2M5B46.vcd"  // We need to amp it up!
-	scene "scenes/Coach/WorldC2M5B55.vcd"  // More more we need more!
-	scene "scenes/Coach/WorldC2M5B56.vcd"  // Roock it out!!
-	scene "scenes/Coach/WorldC2M5B57.vcd"  // woo!
+	scene "scenes/Coach/WorldC2M5B45.vcd"  //Woo!
+	scene "scenes/Coach/WorldC2M5B46.vcd"  //Woo!
+	scene "scenes/Coach/WorldC2M5B55.vcd"  //Woo!
+	scene "scenes/Coach/WorldC2M5B56.vcd"  //Woo!
+	scene "scenes/Coach/WorldC2M5B57.vcd"  //Woo!
 	scene "scenes/Coach/WorldC2M5B58.vcd" then any PLayerHurrah foo:0 0 //I love you, Midnight Riders!
 	scene "scenes/Coach/WorldC2M5B59.vcd" then any PLayerHurrah foo:0 0 //I love this song! I love any these notes!
 	scene "scenes/Coach/WorldC2M5B61.vcd" then any PLayerHurrah foo:0 0 //Let loose!
@@ -1361,12 +1369,12 @@ Response C2M5_Button2YellCoach
 	scene "scenes/Coach/WorldC2M5B67.vcd" then any PLayerHurrah foo:0 0 //This music IS GREAT!
 	scene "scenes/Coach/WorldC2M5B68.vcd" then any PLayerHurrah foo:0 0 //I forgot how much I like this song!
 	scene "scenes/Coach/WorldC2M5B69.vcd" then any PLayerHurrah foo:0 0 //They nailed this damn song!
-	scene "scenes/Coach/WorldC2M5B70.vcd"  // I ain't normally a rock music fan!
-	scene "scenes/Coach/WorldC2M5B71.vcd"  // Turn it up i love this part!
-	scene "scenes/Coach/WorldC2M5B89.vcd"  // Rock it out!
+	scene "scenes/Coach/WorldC2M5B70.vcd"  //Woo!
+	scene "scenes/Coach/WorldC2M5B71.vcd"  //Woo!
+	scene "scenes/Coach/WorldC2M5B89.vcd"  //Woo!
 	scene "scenes/Coach/WorldC2M5B90.vcd" then any PLayerHurrah foo:0 0 //I love you, Midnight Riders!
-	scene "scenes/Coach/WorldC2M5B93.vcd"  // Let er' loose!
-	scene "scenes/Coach/WorldC2M5B94.vcd"  // Let loose!
+	scene "scenes/Coach/WorldC2M5B93.vcd"  //Woo!
+	scene "scenes/Coach/WorldC2M5B94.vcd"  //Woo!
 	
 }
 Rule C2M5_Button2YellCoach
@@ -1418,7 +1426,7 @@ Response c2m5_intro003Coach
 }
 Rule c2m5_intro003Coach
 {
-	criteria Conceptc2m5_intro003 IsCoach IsInStartArea AutoIsNotScavenge
+	criteria Conceptc2m5_intro003 IsCoach IsInStartArea AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:1.788"
 	applycontexttoworld
 	Response c2m5_intro003Coach
@@ -1430,7 +1438,7 @@ Response c2m5_intro006Coach
 }
 Rule c2m5_intro006Coach
 {
-	criteria Conceptc2m5_intro006 IsCoach IsInStartArea AutoIsNotScavenge
+	criteria Conceptc2m5_intro006 IsCoach IsInStartArea AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:3.868"
 	applycontexttoworld
 	Response c2m5_intro006Coach
@@ -1442,7 +1450,7 @@ Response c2m5_intro007Coach
 }
 Rule c2m5_intro007Coach
 {
-	criteria Conceptc2m5_intro007 IsCoach IsInStartArea AutoIsNotScavenge
+	criteria Conceptc2m5_intro007 IsCoach IsInStartArea AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:5.836"
 	applycontexttoworld
 	Response c2m5_intro007Coach
@@ -1454,7 +1462,7 @@ Response c2m5_intro010Coach
 }
 Rule c2m5_intro010Coach
 {
-	criteria Conceptc2m5_intro010 IsCoach IsInStartArea AutoIsNotScavenge
+	criteria Conceptc2m5_intro010 IsCoach IsInStartArea AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:9.129"
 	applycontexttoworld
 	Response c2m5_intro010Coach
@@ -1466,7 +1474,7 @@ Response c2m5_intro012Coach
 }
 Rule c2m5_intro012Coach
 {
-	criteria Conceptc2m5_intro012 IsCoach IsInStartArea AutoIsNotScavenge
+	criteria Conceptc2m5_intro012 IsCoach IsInStartArea AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:3.161"
 	applycontexttoworld
 	Response c2m5_intro012Coach
@@ -1478,7 +1486,7 @@ Response c2m5_intro013Coach
 }
 Rule c2m5_intro013Coach
 {
-	criteria Conceptc2m5_intro013 IsCoach IsInStartArea AutoIsNotScavenge
+	criteria Conceptc2m5_intro013 IsCoach IsInStartArea AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:4.232"
 	applycontexttoworld
 	Response c2m5_intro013Coach
@@ -1490,7 +1498,7 @@ Response c2m5_intro014Coach
 }
 Rule c2m5_intro014Coach
 {
-	criteria Conceptc2m5_intro014 IsCoach IsInStartArea AutoIsNotScavenge
+	criteria Conceptc2m5_intro014 IsCoach IsInStartArea AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:5.836"
 	applycontexttoworld
 	Response c2m5_intro014Coach
@@ -1881,7 +1889,7 @@ Response C3M4Button201Coach
 }
 Rule C3M4Button201Coach
 {
-	criteria ConceptC3M4Button201 IsCoach AutoIsNotScavenge
+	criteria ConceptC3M4Button201 IsCoach AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:2.948"
 	applycontexttoworld
 	Response C3M4Button201Coach
@@ -1895,7 +1903,7 @@ Response C3M4GateBlow01Coach
 }
 Rule C3M4GateBlow01Coach
 {
-	criteria ConceptC3M4GateBlow01 IsCoach IsTalk AutoIsNotScavenge
+	criteria ConceptC3M4GateBlow01 IsCoach IsTalk AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "_auto_GateExploded:1:0"
 	applycontexttoworld
 	Response C3M4GateBlow01Coach
@@ -1947,7 +1955,7 @@ Response _c4m1Intro22Coach
 }
 Rule _c4m1Intro22Coach
 {
-	criteria Concept_c4m1Intro22 IsCoach AutoIsNotScavenge
+	criteria Concept_c4m1Intro22 IsCoach AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:15.296"
 	applycontexttoworld
 	Response _c4m1Intro22Coach
@@ -2027,7 +2035,7 @@ Response C5M1_intro002Coach
 }
 Rule C5M1_intro002Coach
 {
-	criteria ConceptC5M1_intro002 IsCoach AutoIsNotScavenge
+	criteria ConceptC5M1_intro002 IsCoach AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:3.727"
 	applycontexttoworld
 	Response C5M1_intro002Coach
@@ -4675,7 +4683,6 @@ Response SurvivorTauntResponseCoach
 	scene "scenes/Coach/WorldC3M116.vcd"  then Mechanic WorldC3M1FerryCrossingG02 foo:0 -4.832 //Though I walk through the valley of the shadow of death, I will fear no evil
 	scene "scenes/Coach/WorldC3M117.vcd"  then Mechanic WorldC3M1FerryCrossingG02 foo:0 -6.085 //Though I walk through the valley of the shadow of death, I will fear no evil
 }
-
 Rule SurvivorTauntResponseCoach
 {
 	criteria ConceptPlayerTaunt IsSurvivor IsNotCoughing IsCoach IsTalk IsTalkCoach IsWorldTalkCoach
@@ -4705,12 +4712,10 @@ Rule ShotMannequinCoach2
 //--------------------------------------------------------------------------------------------------------------
 // Player File
 //--------------------------------------------------------------------------------------------------------------
-
 Response C4M1IdleComment01Coach
 {
 	scene "scenes/Coach/WorldC4M1B18.vcd"  //Keep your eyes open for landmarks. We gonna have to come back through here.
 }
-
 Rule C4M1IdleComment01Coach
 {
 	criteria ConceptTalkIdle IsSurvivor ismap_c4m1_milltown_a IsSaidc4m1_nogas IsNotSpeaking IsCoach IsNotIncapacitated IsTalk IsTalkCoach NotInCombat IsWorldTalkCoach TimeSinceGroupInCombat02 AutoIsNotScavenge AutoIsNotSurvival IsNotSrcGrp_C4M1_003 _auto_NotNoGasGate
@@ -5061,18 +5066,10 @@ Response SurvivorReloadingCoach
 	scene "scenes/Coach/Reloading05.vcd"  //Reloading!
 	scene "scenes/Coach/Reloading06.vcd"  //Reloading!
 	scene "scenes/Coach/Reloading07.vcd"  //Reloading!
-
-//quiet reloads
-	scene "scenes/Coach/ReloadingQuiet01.vcd"  //Reloading...
-	scene "scenes/Coach/ReloadingQuiet02.vcd"  //Reloading...
-	scene "scenes/Coach/ReloadingQuiet03.vcd"  //Reloading...
-	scene "scenes/Coach/ReloadingQuiet04.vcd"  //Reloading...
-	scene "scenes/Coach/ReloadingQuiet05.vcd"  //Reloading...
-	scene "scenes/Coach/ReloadingQuiet06.vcd"  //Reloading...
 }
 Rule SurvivorReloadingCoach
 {
-	criteria ConceptPlayerReloading IsSurvivor IsNotSpeaking IsCoach IsNotIncapacitated IsTalk IsTalkCoach IsWorldTalkCoach
+	criteria ConceptPlayerReloading IsSurvivor IsNotSpeaking IsCoach IsNotIncapacitated IsTalk IsTalkCoach RecentGroupInCombat10 HasNotgrenadelauncher IsWorldTalkCoach
 	Response SurvivorReloadingCoach
 }
 
@@ -5172,7 +5169,7 @@ Response C2M1FallingCoach
 }
 Rule C2M1FallingCoach
 {
-	criteria ConceptC2M1Falling IsCoach AutoIsNotScavenge
+	criteria ConceptC2M1Falling IsCoach AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:1.615"
 	applycontexttoworld
 	Response C2M1FallingCoach
@@ -8787,9 +8784,6 @@ Response PlayerNiceJobResponseCoach
 	scene "scenes/Coach/Hurrah24.vcd"   //THAT is how you kick zombie ASS!
 	scene "scenes/Coach/Hurrah25.vcd"   //We destroy zombies! That is what we do.
 	scene "scenes/Coach/Hurrah26.vcd"  //You made me proud out there, people...
-	scene "scenes/Coach/WorldC3M4B07.vcd"	// Gate open!
-	scene "scenes/Coach/WorldC3M4B08.vcd"	// My kinda guy!
-	scene "scenes/Coach/WorldC3M4B10.vcd"  //Our Cajun friend opened the gate!
 }
 Rule PlayerNiceJobResponseCoach
 {
@@ -8878,8 +8872,6 @@ Response PlayerSorryCoach
 	scene "scenes/Coach/Revivefriendff01.vcd"  //If this had anything to do with me, I do apologize. Come on, let's get you up.
 	scene "scenes/Coach/Revivefriendff02.vcd" //Ah hell, I'm sorry. Ain't used to all this shootin' and running around.
 	scene "scenes/Coach/Revivefriendff03.vcd"  //Ah hell, I'm sorry. Ain't used to all this shootin' and running around.	Atleast not the running around.
-	scene "scenes/Coach/WorldC1M4B10.vcd"  then mechanic _c1m4startelevator5b foo:0 -2.685 //Forgive us Jimmy, but we need your car.
-	scene "scenes/Coach/WorldC1M4B37.vcd"  //Sorry about this, Mr. Gibbs.
 	
 }
 Rule PlayerSorryCoach
@@ -8908,8 +8900,6 @@ Response PlayerThanksCoach
 	scene "scenes/Coach/Thanks07.vcd"  //THANKS!
 	scene "scenes/Coach/DLC1_C6M3_finalel4d1items08.vcd"  //I'm game.
 	scene "scenes/Coach/DLC1_C6M3_finalel4d1items02.vcd"  //I'm game.
-	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Items02.vcd"  //Thanks my man.
-	
 }
 Rule PlayerThanksCoach
 {
@@ -8919,7 +8909,7 @@ Rule PlayerThanksCoach
 
 Response PlayerUpsetThanksCoach
 {
-	scene "scenes/Coach/Thanks09.vcd" odds 15 //What? I said THANKS.
+	scene "scenes/Coach/Thanks09.vcd"  //What? I said THANKS.
 }
 Rule PlayerUpsetThanksCoach
 {
@@ -8966,9 +8956,7 @@ Response PlayerYesCoach
 	scene "scenes/Coach/Yes06.vcd"  //Know that's right.
 	scene "scenes/Coach/Yes07.vcd"  //Positively.
 	scene "scenes/Coach/Yes08.vcd"  //Yeah.
-	scene "scenes/Coach/Yes09.vcd"	//yee shou u right
 	scene "scenes/Coach/Yes10.vcd"  //Sho sho.
-	scene "scenes/Coach/Yes11.vcd"	//yee shou u right
 	scene "scenes/Coach/DLC1_C6M3_finalechat10.vcd"  //I'm game.
 	
 	scene "scenes/Coach/WorldSigns24.vcd"  //No shit.
@@ -9057,7 +9045,7 @@ Response PlayerNegativeCoach
 	scene "scenes/Coach/DLC1_C6M3_finalechat01.vcd"  //I'm game.
 	scene "scenes/Coach/DLC1_C6M3_finalechat02.vcd"  //I'm game.
 	scene "scenes/Coach/WorldC5M4B05.vcd"  //I'm game.
-	
+
 	scene "scenes/Coach/dlc1_c6m2_bridge1raiseactive01.vcd"	//ohh cmon elevator!
 	scene "scenes/Coach/dlc1_c6m2_bridge1raiseactive02.vcd"	//ohh cmon elevator!
 	scene "scenes/Coach/dlc1_c6m2_bridge1raiseactive03.vcd"	//That is some slow ass shit!
@@ -9251,16 +9239,20 @@ Response PlayerHurrahCoach
 	scene "scenes/Coach/Hurrah25.vcd"  //Woo /
 	scene "scenes/Coach/Hurrah22.vcd"  //Woo /
 	
+	scene "scenes/Coach/WorldC1M2B44.vcd"   // Barrier's down! Let's move, baby!
+	scene "scenes/Coach/WorldC1M2B45.vcd"   // Path clear! Let's get to that mall!
+	scene "scenes/Coach/WorldC1M2B46.vcd"  //  [laughs] When that man says he's gonna clear a path, he clears a path!
+	scene "scenes/Coach/WorldC1M2B47.vcd" //   That's how I used clear a path when I played college ball.
+	
+	scene "scenes/Coach/WorldC2M5B57.vcd"  //Woo!
 	scene "scenes/Coach/WorldC2M5B58.vcd"  //I love you, Midnight Riders!
 	scene "scenes/Coach/WorldC2M5B59.vcd"  //I love this song! I love any these notes!
 	scene "scenes/Coach/WorldC2M5B61.vcd"  //Let loose!
 	scene "scenes/Coach/WorldC2M5B66.vcd"  //Come on Midnight Riders!
 	scene "scenes/Coach/WorldC2M5B67.vcd"  //This music IS GREAT!
 	scene "scenes/Coach/WorldC2M5B68.vcd"  //I forgot how much I like this song!
-	scene "scenes/Coach/WorldC2M5B69.vcd" //They nailed this damn song!
-	scene "scenes/Coach/WorldC2M5B70.vcd"  // I ain't normally a rock music fan!
-	scene "scenes/Coach/WorldC2M5B71.vcd"  // Turn it up i love this part!
-	scene "scenes/Coach/WorldC2M5B89.vcd"  // Rock it out!
+	scene "scenes/Coach/WorldC2M5B69.vcd"  //They nailed this damn song!
+	scene "scenes/Coach/WorldC2M5B70.vcd"  //Woo!
 }
 Rule PlayerHurrahCoach
 {
@@ -9270,11 +9262,11 @@ Rule PlayerHurrahCoach
 
 Response PlayerWarnCarefulCoach
 {
-	scene "scenes/Coach/WarnCareful01.vcd"  //Careful now...
-	scene "scenes/Coach/WarnCareful02.vcd"  //Shit ain't right, be careful.
-	scene "scenes/Coach/WarnCareful03.vcd" //Everybody? Keep ya shit tight.
-	scene "scenes/Coach/WarnCareful04.vcd" //Keep ya shit tight.
-	scene "scenes/Coach/WorldC5M3B22.vcd" //Everybody take it slow, now.
+	scene "scenes/Coach/WarnCareful01.vcd" then any RespondAffirmative foo:0 0 //Careful now...
+	scene "scenes/Coach/WarnCareful02.vcd" then any RespondAffirmative foo:0 0 //Shit ain't right, be careful.
+	scene "scenes/Coach/WarnCareful03.vcd" then any RespondAffirmative foo:0 0 //Everybody? Keep ya shit tight.
+	scene "scenes/Coach/WarnCareful04.vcd" then any RespondAffirmative foo:0 0 //Keep ya shit tight.
+	scene "scenes/Coach/WorldC5M3B22.vcd" then any RespondAffirmative foo:0 0 //Everybody take it slow, now.
 }
 Rule PlayerWarnCarefulCoach
 {
@@ -9440,7 +9432,7 @@ Response GasPourSCCoach
 }
 Rule GasPourSCCoach
 {
-	criteria ConceptPlayerPourStarted IsCoach IsTalk IsTalkCoach IsWorldTalkCoach _auto_NotNoGasPourLine
+	criteria ConceptPlayerPourStarted IsCoach IsTalk IsTalkCoach IsWorldTalkCoach IsScavenge _auto_NotNoGasPourLine
 	ApplyContext "TalkCoach:1:2"
 	Response GasPourSCCoach
 }
@@ -9455,7 +9447,6 @@ Response GrabbingGasSCCoach
 	scene "scenes/Coach/DLC1_C6M3_Cans04.vcd"  //I got this can.
 	scene "scenes/Coach/DLC1_C6M3_Cans05.vcd"  //This can's mine.
 }
-
 Rule GrabbingGasSCCoach
 {
 	criteria ConceptPlayerEquippedScavengeItem IsCoach IsTalk IsTalkCoach IsWorldTalkCoach CoachNotSaidGrabbingCan
@@ -9721,7 +9712,6 @@ Response PlayerIncapacitatedInitialCoach
 	scene "scenes/Coach/IncapacitatedInitial02.vcd" then any PlayerToTheRescue foo:0 0 //Damnit, I'm down.
 	scene "scenes/Coach/IncapacitatedInitial03.vcd" then any PlayerToTheRescue foo:0 0 //Shit, need some help.
 }
-
 Rule PlayerIncapacitatedInitialCoach
 {
 	criteria ConceptPlayerIncapacitated IsNotCoughing  IsCoach IsTalk IsTalkCoach IsWorldTalkCoach
@@ -9742,11 +9732,9 @@ Response PlayerKillConfirmationCoach
 	scene "scenes/Coach/KillConfirmation09.vcd"  then Any PlayerNiceShot foo:0 -0.918 //That one's mine.
 	scene "scenes/Coach/Blank.vcd"  then Mechanic KillSteal foo:0 0 //Blank
 }
-
-//removed IsNotCoughing, IsSubjectFar300
 Rule PlayerKillConfirmationCoach
 {
-	criteria ConceptKilledZombie IsNotSpeaking IsCoach IsTalk IsTalkCoach SubjectIsNotTank IsWorldTalkCoach
+	criteria ConceptKilledZombie IsNotCoughing IsNotSpeaking IsCoach IsTalk IsTalkCoach SubjectIsNotTank IsSubjectFar300 IsWorldTalkCoach
 	Response PlayerKillConfirmationCoach
 }
 
@@ -9789,7 +9777,7 @@ Response PlayerLockTheDoorCheckPointCoach
 }
 Rule PlayerLockTheDoorCheckPointCoach
 {
-	criteria ConceptPlayerLockTheDoorCheckPoint IsNotCoughing IsCoach IsTalk IsTalkCoach
+	criteria ConceptPlayerLockTheDoorCheckPoint IsNotCoughing IsCoach IsInSafeSpot IsTalk IsTalkCoach
 	Response PlayerLockTheDoorCheckPointCoach
 }
 
@@ -10748,7 +10736,7 @@ Response SurvivorVocalizeEmphaticGoQuietCoach
 }
 Rule SurvivorVocalizeEmphaticGoQuietCoach
 {
-	criteria ConceptPlayerEmphaticGoQuiet IsCoach IsNotInSafeSpot IsNotInCheckpoint IsTalk IsTalkCoach SubjectIsNotWitch IsWorldTalkCoach
+	criteria ConceptPlayerEmphaticGoQuiet IsCoach IsNotInSafeSpot IsNotInCheckpoint IsTalk IsTalkCoach IsWitchPresent SubjectIsNotWitch IsWorldTalkCoach
 	Response SurvivorVocalizeEmphaticGoQuietCoach
 }
 
@@ -11993,7 +11981,7 @@ Response _C1M1_ElevatorHelloCoach
 }
 Rule _C1M1_ElevatorHelloCoach
 {
-	criteria Concept_C1M1_ElevatorHello IsCoach AutoIsNotScavenge
+	criteria Concept_C1M1_ElevatorHello IsCoach AutoIsNotScavenge AutoIsNotSurvival
 	Response _C1M1_ElevatorHelloCoach
 }
 
@@ -12005,7 +11993,7 @@ Response _C1M1_ElevatorHello01aCoach
 }
 Rule _C1M1_ElevatorHello01aCoach
 {
-	criteria Concept_C1M1_ElevatorHello01a IsCoach AutoIsNotScavenge
+	criteria Concept_C1M1_ElevatorHello01a IsCoach AutoIsNotScavenge AutoIsNotSurvival
 	Response _C1M1_ElevatorHello01aCoach
 }
 
@@ -12604,7 +12592,7 @@ Response _C4M5_BoatComing01Coach
 }
 Rule _C4M5_BoatComing01Coach
 {
-	criteria Concept_C4M5_BoatComing01 IsCoach AutoIsNotScavenge
+	criteria Concept_C4M5_BoatComing01 IsCoach AutoIsNotScavenge AutoIsNotSurvival
 	Response _C4M5_BoatComing01Coach
 }
 
@@ -12638,7 +12626,7 @@ Response _C4M5_Intro03Coach
 }
 Rule _C4M5_Intro03Coach
 {
-	criteria Concept_C4M5_Intro03 IsCoach AutoIsNotScavenge
+	criteria Concept_C4M5_Intro03 IsCoach AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:3.485"
 	applycontexttoworld
 	Response _C4M5_Intro03Coach
@@ -12749,7 +12737,7 @@ Response _introc1m1b04Coach
 }
 Rule _introc1m1b04Coach
 {
-	criteria Concept_introc1m1b04 IsCoach AutoIsNotScavenge
+	criteria Concept_introc1m1b04 IsCoach AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:8.41,TalkCoach:1:8.417"
 	applycontexttoworld
 	Response _introc1m1b04Coach
@@ -13151,7 +13139,7 @@ Response c4m1_InBurgerTank01Coach
 }
 Rule c4m1_InBurgerTank01Coach
 {
-	criteria Conceptc4m1_InBurgerTank01 IsCoach NotInCombat AutoIsNotScavenge
+	criteria Conceptc4m1_InBurgerTank01 IsCoach NotInCombat AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "TalkCoach:1:3"
 	applycontexttoworld
 	Response c4m1_InBurgerTank01Coach
@@ -13165,7 +13153,7 @@ Response c4m1_nogas01Coach
 }
 Rule c4m1_nogas01Coach
 {
-	criteria Conceptc4m1_nogas01 IsCoach NotInCombat IsSubjectDistNear500 AutoIsNotScavenge
+	criteria Conceptc4m1_nogas01 IsCoach NotInCombat IsSubjectDistNear500 AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "Talk:1:6.700"
 	Response c4m1_nogas01Coach
 }

@@ -1,0 +1,1967 @@
+//--------------------------------------------------------------------------------------------------------------
+// Mechanic Response Rule File
+//--------------------------------------------------------------------------------------------------------------
+
+
+
+
+//Auto-generated blank response for padding out InfoRemarkables
+Response _PlayerInfoRemarkableBlankMechanic
+{
+	speak "Mechanic_Blank" noscene //Blank
+}
+
+Response L4D1PlayerNiceShotMechanic
+{
+	scene "scenes/Mechanic/NiceShot09.vcd"  //Hey good shootin'!
+}
+Rule L4D1PlayerNiceShotMechanic
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsMechanic IsSubjectDistNear1500  IsTalk IsTalkMechanic IsWorldTalkMechanic IsNotSpeaking ChanceToFire70Percent
+	Response L4D1PlayerNiceShotMechanic
+}
+
+Response L4D1PlayerNiceShotFrancisMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Killing12.vcd"  //Hey, nice shot Francis.
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Killing14.vcd"  //Thanks Francis!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Killing19.vcd"  //Francis!
+}
+Rule L4D1PlayerNiceShotFrancisMechanic
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsMechanic IsSubjectDistNear1500  IsTalk IsTalkMechanic  IsWorldTalkMechanic SubjectIsBiker ChanceToFire70Percent IsNotSpeaking
+	Response L4D1PlayerNiceShotFrancisMechanic
+}
+
+Response L4D1PlayerNiceShotLouisMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Killing15.vcd"  //Louis, you are deadly, man!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Killing16.vcd"  //Nice shooting Lou!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Killing20.vcd"  //Loooouis!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Killing21.vcd"  //Loooouis!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Killing22.vcd"  //Nice shooting Lou!
+}
+Rule L4D1PlayerNiceShotLouisMechanic
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsMechanic IsSubjectDistNear1500  IsTalk IsTalkMechanic  IsWorldTalkMechanic SubjectIsManager ChanceToFire70Percent IsNotSpeaking
+	Response L4D1PlayerNiceShotLouisMechanic
+}
+
+Response L4D1PlayerNiceShotZoeyMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Killing01.vcd"  //A girl who can shoot? I am in love.
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Killing02.vcd"  //Man, you tell me Zoey don't look good with that gun. Mm!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Killing04.vcd"  //Hey, nice shot Zoey!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Killing07.vcd"  //Zoey! Zoey! Zoey! Man I just love sayin' it.
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Killing10.vcd"  //Zoey! Zoey! Zoey! I just love sayin' it!
+}
+Rule L4D1PlayerNiceShotZoeyMechanic
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsMechanic IsSubjectDistNear1500  IsTalk IsTalkMechanic  IsWorldTalkMechanic SubjectIsTeenGirl ChanceToFire70Percent IsNotSpeaking
+	Response L4D1PlayerNiceShotZoeyMechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C1M4
+//--------------------------------------------------------------------------------------------------------------
+Response C6M3GasPourMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_Cans03.vcd"  //Filling the generator.
+	scene "scenes/Mechanic/DLC1_C6M3_Cans04.vcd"  //Hey I'm filling the generator.
+	scene "scenes/Mechanic/DLC1_C6M3_Cans05.vcd"  //Pouring one in.
+	scene "scenes/Mechanic/DLC1_C6M3_Cans06.vcd"  //One more in the gennie.
+	scene "scenes/Mechanic/DLC1_C6M3_Cans07.vcd"  //One more in the gennie.
+	scene "scenes/Mechanic/DLC1_C6M3_Cans08.vcd"  //Can't fit much more.
+	scene "scenes/Mechanic/DLC1_C6M3_Cans09.vcd"  //This thing can't fit much more.
+}
+Rule C6M3GasPourMechanic
+{
+	criteria ConceptPlayerPourStarted IsMechanic IsTalk IsTalkMechanic IsWorldTalkMechanic IsNotScavenge isC6M3_Port ChanceToFire70Percent
+	ApplyContext "TalkMechanic:1:2"
+	Response C6M3GasPourMechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M1
+//--------------------------------------------------------------------------------------------------------------
+Response C6M1_IntotheparkNoHealthMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_IntoPark02.vcd"  //Grab a health kit.
+	scene "scenes/Mechanic/DLC1_C6M1_IntoPark03.vcd"  //Everybody grab a health kit, now.
+}
+Rule C6M1_IntotheparkNoHealthMechanic
+{
+	criteria ConceptC6M1_IntotheparkNoHealth IsMechanic
+	Response C6M1_IntotheparkNoHealthMechanic
+}
+
+Response C6M1Intro_01aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting01.vcd"  then Biker C6M1Intro_01b foo:0 -6.365 //Thanks! Yeah, she's purty purty. Any chance you could lower the bridge for us?
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting03.vcd"  then Biker C6M1Intro_01b foo:0 -5.025 //Thanks, thanks! Hey man, any chance you could lower the bridge for us?
+}
+Rule C6M1Intro_01aMechanic
+{
+	criteria ConceptC6M1Intro_01a IsMechanic IsNotVersus
+	Response C6M1Intro_01aMechanic
+}
+
+Response C6M1Intro_01Biker02Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting18.vcd"  then Biker C6M1Intro_24b foo:0 -12.798 //Oh man, I know! That's what I've been sayin'!. If there're zombies there's got to be vampires, wolfmen, mummies, aliens and all that shit man. It just makes sense.
+}
+Rule C6M1Intro_01Biker02Mechanic
+{
+	criteria ConceptintroC6M1 IsMechanic IsFrancisIntroActor IsNotSaidIntroScene FrancisGroup2 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01Biker02Mechanic
+}
+
+Response C6M1Intro_01cMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting02.vcd"  then Biker C6M1Intro_01d foo:0 -0.982 //Oh, come on, man!
+}
+Rule C6M1Intro_01cMechanic
+{
+	criteria ConceptC6M1Intro_01c IsMechanic IsNotVersus
+	Response C6M1Intro_01cMechanic
+}
+
+Response C6M1Intro_01TeenGirl04Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting21.vcd"  then TeenGirl C6M1Intro_23a foo:0 -2.512 //Can you lower the bridge so we can get our car across?
+}
+Rule C6M1Intro_01TeenGirl04Mechanic
+{
+	criteria ConceptintroC6M1 IsMechanic IsZoeyIntroActor IsNotSaidIntroScene MoreThan60  LessThan100 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01TeenGirl04Mechanic
+}
+
+Response C6M1Intro_02aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting04.vcd"  then Biker C6M1Intro_02b foo:0 -4.221 //No, sir! Just borrowin' the car! Any chance you could lower that bridge?
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting05.vcd"  then Biker C6M1Intro_02b foo:0 -5.011 //No, sir! Just borrowin' this beauty! Any chance you could lower that bridge for us?
+}
+Rule C6M1Intro_02aMechanic
+{
+	criteria ConceptC6M1Intro_02a IsMechanic
+	Response C6M1Intro_02aMechanic
+}
+
+Response C6M1Intro_11aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting06.vcd"  then TeenGirl C6M1Intro_11b foo:0 -5.419 //Well, thanks. Hey, could y'all lower your bridge so we can get across? We're heading to New Orleans.
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting09.vcd"  then TeenGirl C6M1Intro_11b foo:0 -6.880 //Thanks, thanks, yeah. Hey, could you lower the bridge so we can get across? We're heading over to New Orleans.
+}
+Rule C6M1Intro_11aMechanic
+{
+	criteria ConceptC6M1Intro_11a IsMechanic
+	Response C6M1Intro_11aMechanic
+}
+
+Response C6M1Intro_11cMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting07.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //Okay then. Wish us luck.
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting08.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //(to self) Oh my gosh that is the prettiest girl I have ever seen.
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting10.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //Okay, thanks. Wish us luck.
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting11.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //(to self) Whoa, man, that was the prettiest girl I have ever seen.
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting12.vcd"  then Gambler C6M1Intro_11d foo:0 -13.161 //(to self) Man oh man. I jumped Jimmy Gibbs car through a plate glass window and I just met the prettiest girl I have ever seen. Nick, shoot me right now, brother, things are never going to get any better than this.
+}
+Rule C6M1Intro_11cMechanic
+{
+	criteria ConceptC6M1Intro_11c IsMechanic
+	Response C6M1Intro_11cMechanic
+}
+
+Response C6M1Intro_12bMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting13.vcd"  then Producer C6M1Intro_12c foo:0 -4.691 //(to self) She is so beautiful, she is so beautiful.
+}
+Rule C6M1Intro_12bMechanic
+{
+	criteria ConceptC6M1Intro_12b IsMechanic
+	Response C6M1Intro_12bMechanic
+}
+
+Response C6M1Intro_13aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting16.vcd"  then Coach C6M1Intro_13b foo:0 -14.217 //Well Hello! Hello... Howdy. Beautiful weather, huh... we're havin' (to group) Oh god, I'm too nervous to talk to her, one of you better do this.
+}
+Rule C6M1Intro_13aMechanic
+{
+	criteria ConceptC6M1Intro_13a IsMechanic
+	Response C6M1Intro_13aMechanic
+}
+
+Response C6M1Intro_13cMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting14.vcd"  then TeenGirl C6M1Intro_13d foo:0 -3.537 //Nah, I can't. Look at her.
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting15.vcd"  then TeenGirl C6M1Intro_13d foo:0 -6.079 //Nah, I can't. Look at her, she's an angel.
+}
+Rule C6M1Intro_13cMechanic
+{
+	criteria ConceptC6M1Intro_13c IsMechanic
+	Response C6M1Intro_13cMechanic
+}
+
+Response C6M1Intro_13fMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting17.vcd"  //COACH, come on, man!
+}
+Rule C6M1Intro_13fMechanic
+{
+	criteria ConceptC6M1Intro_13f IsMechanic
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_13fMechanic
+}
+
+Response C6M1Intro_23bMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting22.vcd"  then TeenGirl C6M1Intro_23c foo:0 -7.488 //Oh, do we uh... need to know  some sort of password or something?
+}
+Rule C6M1Intro_23bMechanic
+{
+	criteria ConceptC6M1Intro_23b IsMechanic
+	Response C6M1Intro_23bMechanic
+}
+
+Response C6M1Intro_23dMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting23.vcd"  then Any WorldC6M1_HistoricTour foo:0 -4.369 //Well, I guess we'll take it. See ya!
+}
+Rule C6M1Intro_23dMechanic
+{
+	criteria ConceptC6M1Intro_23d IsMechanic
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_23dMechanic
+}
+
+Response C6M1Intro_24cMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting19.vcd"  then Biker C6M1Intro_24d foo:0 -2.841 //So you can go ahead and lower that bridge for us then?
+}
+Rule C6M1Intro_24cMechanic
+{
+	criteria ConceptC6M1Intro_24c IsMechanic
+	Response C6M1Intro_24cMechanic
+}
+
+Response C6M1Intro_24eMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_InitialMeeting20.vcd"  //Ahh I gotcha and that's what y'all need help with. All right okay, I don't like it. But okay.
+}
+Rule C6M1Intro_24eMechanic
+{
+	criteria ConceptC6M1Intro_24e IsMechanic
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_24eMechanic
+}
+
+Response LeavingC6M1StartMechanic
+{
+	scene "scenes/Mechanic/blank.vcd"  //
+}
+Rule LeavingC6M1StartMechanic
+{
+	criteria ConceptSurvivorLeavingCheckpoint IsMechanic
+	ApplyContext "LeftC6M1Start:1:0"
+	applycontexttoworld
+	Response LeavingC6M1StartMechanic
+}
+
+Response RemWorldC6M1_WeddingWarn02Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_Wedding01.vcd"  //Ain't seen none Coach, but I'll yell if I do.
+}
+Rule RemWorldC6M1_WeddingWarn02Mechanic
+{
+	criteria ConceptRemWorldC6M1_WeddingWarn02 IsMechanic IsSubjectDistNear800
+	ApplyContext "AtWedding:1:60, CoachCake:1:0"
+	applycontexttoworld
+	Response RemWorldC6M1_WeddingWarn02Mechanic
+}
+
+Response WorldC6M1_WeddingWarn03aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingWitch01.vcd"  then Producer WorldC6M1_WeddingWarn03b foo:0 -0.799 //(whispered) Shut up Nick.
+}
+Rule WorldC6M1_WeddingWarn03aMechanic
+{
+	criteria ConceptWorldC6M1_WeddingWarn03a IsMechanic
+	ApplyContext "AtWedding:1:60"
+	applycontexttoworld
+	Response WorldC6M1_WeddingWarn03aMechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M2
+//--------------------------------------------------------------------------------------------------------------
+Response C6M2_OpenGate1Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_AlarmDoorOpen01.vcd"  //I opened it.
+	scene "scenes/Mechanic/DLC1_C6M1_AlarmDoorOpen02.vcd"  //It's open, GO!
+	scene "scenes/Mechanic/DLC1_C6M1_AlarmDoorOpen03.vcd"  //I hit it, man, GO GO GO!
+	scene "scenes/Mechanic/DLC1_C6M2_Bridge1RaiseHitIt01.vcd"  //I hit it.
+	scene "scenes/Mechanic/DLC1_C6M2_Bridge2Up03.vcd"  //Alright, let's boogie.
+}
+Rule C6M2_OpenGate1Mechanic
+{
+	criteria ConceptC6M2_OpenGate1 IsMechanic
+	ApplyContext "SaidOpenedGate1:1:0"
+	applycontexttoworld
+	Response C6M2_OpenGate1Mechanic
+}
+
+Response C6M2_OpenGate1bMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Bridge2Raise08.vcd"  //Hey!
+}
+Rule C6M2_OpenGate1bMechanic
+{
+	criteria ConceptC6M2_OpenGate1b IsMechanic
+	Response C6M2_OpenGate1bMechanic
+}
+
+Response C6M2_OpenGate1BlameMechanic
+{
+	scene "scenes/Mechanic/blank.vcd"  then Gambler C6M2_OpenGate1a foo:0 0.01 //
+}
+Rule C6M2_OpenGate1BlameMechanic
+{
+	criteria ConceptC6M2_OpenGate1 IsMechanic IsGamblerNear800Weight0
+	ApplyContext "SaidOpenedGate1:1:0"
+	applycontexttoworld
+	Response C6M2_OpenGate1BlameMechanic
+}
+
+Response C6M2_OpenGate2Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_AlarmDoorOpen02.vcd"  //It's open, GO!
+	scene "scenes/Mechanic/DLC1_C6M1_AlarmDoorOpen03.vcd"  //I hit it, man, GO GO GO!
+	scene "scenes/Mechanic/DLC1_C6M2_Bridge1RaiseHitIt01.vcd"  //I hit it.
+	scene "scenes/Mechanic/DLC1_C6M2_Bridge2Up03.vcd"  //Alright, let's boogie.
+}
+Rule C6M2_OpenGate2Mechanic
+{
+	criteria ConceptC6M2_OpenGate2 IsMechanic
+	ApplyContext "Said:OpenedGate2:1:0"
+	applycontexttoworld
+	Response C6M2_OpenGate2Mechanic
+}
+
+Response C6M2LeavingSafeRoomMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_LeavingSaferoom01.vcd"  //Let's hurry, man. I miss my car.
+	scene "scenes/Mechanic/DLC1_C6M2_LeavingSaferoom02.vcd"  //Jimmy Gibb Jr, we're coming for ya, baby.
+	scene "scenes/Mechanic/DLC1_C6M2_LeavingSaferoom03.vcd"  //Okay we gotta hurry, man! I miss the car.
+}
+Rule C6M2LeavingSafeRoomMechanic
+{
+	criteria ConceptSurvivorLeavingInitialCheckpoint IsMechanic IsNotSaidC6M2LeavingSafeRoom isc6m2_bedlam ChanceToFire70Percent
+	ApplyContext "SaidC6M2LeavingSafeRoom:1:0"
+	applycontexttoworld
+	Response C6M2LeavingSafeRoomMechanic
+}
+
+Response C6M2SafeRoomMechanic
+{
+	scene "scenes/Mechanic/blank.vcd"  then any C6M2SafeRoom2 foo:0 3 //
+}
+Rule C6M2SafeRoomMechanic
+{
+	criteria ConceptTalkIdle  Joined3 IsMechanic isC6m2_bedlam IsInStartArea AutoIsNotScavenge AutoIsNotSurvival IsNotSaidC6M2SafeRoom IsNotSpeakingWeight0
+	ApplyContext "SaidC6M2SafeRoom:1:0"
+	applycontexttoworld
+	Response C6M2SafeRoomMechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo02aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo01.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo02b foo:0 -3.509 //Nick, for the last time, I am NOT leaving it behind.
+}
+Rule DLC1_C6M2_SafeRoomConvo02aMechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo02a IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo02aMechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo03Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo02.vcd"  then Producer DLC1_C6M2_SafeRoomConvo03a foo:0 -3.330 //We gotta find a way to get that bridge up, no way I'm leaving that car behind.
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo04.vcd"  then Producer DLC1_C6M2_SafeRoomConvo04a foo:0 -3.113 //Screw this I just can't leave that car behind. I'm going back for her.
+}
+Rule DLC1_C6M2_SafeRoomConvo03Mechanic
+{
+	criteria ConceptC6M2SafeRoom2 IsMechanic IsFrancisIntroActor FrancisGroup1 IsNotSaidC6M2SafeRoom2
+	ApplyContext "SaidC6M2SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M2_SafeRoomConvo03Mechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo03bMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo03.vcd"  then Producer DLC1_C6M2_SafeRoomConvo03c foo:0 -16.180 //JUST A CAR!?!? JUST A CAR!?!?! That's like saying the mona Lisa's just a sculpture or shit, that's like sayin' Jimmy Gibb's just a driver. That's like saying that girl on the bridge is just a little pretty, she's an angel. Shit, that's like, that's like,
+}
+Rule DLC1_C6M2_SafeRoomConvo03bMechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo03b IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo03bMechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo06Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo05.vcd"  then Any DLC1_C6M2_SafeRoomConvo07a foo:0 -6.763 //Hey Rochelle; now don't spare my feelings nonr, do you think I got any shot with that Zoey girl?
+}
+Rule DLC1_C6M2_SafeRoomConvo06Mechanic
+{
+	criteria ConceptC6M2SafeRoom2 IsMechanic IsZoeyIntroActor ZoeyGroup1 IsNotSaidC6M2SafeRoom2
+	ApplyContext "SaidC6M2SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M2_SafeRoomConvo06Mechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo08Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo09.vcd"  then Producer DLC1_C6M2_SafeRoomConvo15a foo:0 -4.114 //Oh, I keep hoping we drive to a place where there aren't any more zombies.
+}
+Rule DLC1_C6M2_SafeRoomConvo08Mechanic
+{
+	criteria ConceptC6M2SafeRoom2 IsMechanic IsNotSaidC6M2SafeRoom2
+	ApplyContext "SaidC6M2SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M2_SafeRoomConvo08Mechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo11aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo06.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo11b foo:0 -4.069 //I was just thinkin' of her Nick. Man, she is beautiful.
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo07.vcd"  then Gambler DLC1_C6M2_SafeRoomConvo11b foo:0 -6.728 //Yeah, I was just thinkin' of her too, Nick. Oh, she is beautiful.
+}
+Rule DLC1_C6M2_SafeRoomConvo11aMechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo11a IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo11aMechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo14bMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo08.vcd"  then Producer DLC1_C6M2_SafeRoomConvo14c foo:0 -2.922 //Get outta here! Alright!
+}
+Rule DLC1_C6M2_SafeRoomConvo14bMechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo14b IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo14bMechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo15Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo10.vcd"  then Coach DLC1_C6M2_SafeRoomConvo16a1 foo:0 -3.684 //You know, we've been gone for a while, you think the car is okay?
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo10.vcd"  then Producer DLC1_C6M2_SafeRoomConvo16a foo:0 -3.684 //You know, we've been gone for a while, you think the car is okay?
+}
+Rule DLC1_C6M2_SafeRoomConvo15Mechanic
+{
+	criteria ConceptC6M2SafeRoom2 IsMechanic IsNotSaidC6M2SafeRoom2
+	ApplyContext "SaidC6M2SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M2_SafeRoomConvo15Mechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo16bMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo11.vcd"  then Producer DLC1_C6M2_SafeRoomConvo16c foo:0 -1.763 //Yeah, yeah, that's not going to happen.
+}
+Rule DLC1_C6M2_SafeRoomConvo16bMechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo16b IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo16bMechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo16b1Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo11.vcd"  then Coach DLC1_C6M2_SafeRoomConvo16e foo:0 -1.763 //Yeah, yeah, that's not going to happen.
+}
+Rule DLC1_C6M2_SafeRoomConvo16b1Mechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo16b1 IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo16b1Mechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo16dMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo12.vcd"  //(knowing laugh) Okay Ro. Whatever you say.
+}
+Rule DLC1_C6M2_SafeRoomConvo16dMechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo16d IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo16dMechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo16fMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo13.vcd"  //(knowing laugh) Okay Coach. Whatever you say.
+}
+Rule DLC1_C6M2_SafeRoomConvo16fMechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo16f IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo16fMechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo17Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo15.vcd"  then Producer DLC1_C6M2_SafeRoomConvo18a foo:0 -3.626 //Ah man, that Zoey will never go for a man like me.
+}
+Rule DLC1_C6M2_SafeRoomConvo17Mechanic
+{
+	criteria ConceptC6M2SafeRoom2 IsMechanic IsZoeyIntroActor IsNotSaidC6M2SafeRoom2
+	ApplyContext "SaidC6M2SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M2_SafeRoomConvo17Mechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo17aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo14.vcd"  then Producer DLC1_C6M2_SafeRoomConvo17b foo:0 -7.751 //Ro, that car's family now. Hell that biker fella's an awesome dude, but we ain't tradin' him for Nick.
+}
+Rule DLC1_C6M2_SafeRoomConvo17aMechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo17a IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo17aMechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo18bMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo16.vcd"  then Coach DLC1_C6M2_SafeRoomConvo18c foo:0 -2.705 //Oh, Ro, man, that reminds me of this...
+}
+Rule DLC1_C6M2_SafeRoomConvo18bMechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo18b IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo18bMechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo19aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo17.vcd"  then Coach DLC1_C6M2_SafeRoomConvo19b foo:0 -2.249 //Yeah. It's been hell, alright.
+}
+Rule DLC1_C6M2_SafeRoomConvo19aMechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo19a IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo19aMechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo19cMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo18.vcd"  then Coach DLC1_C6M2_SafeRoomConvo19d foo:0 -6.193 //[happily] Not if we get that bridge down. We'll be drivin' the Jimmy Gibbs Junior all the way to New Orleans!
+}
+Rule DLC1_C6M2_SafeRoomConvo19cMechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo19c IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo19cMechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo19eMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo19.vcd"  //Well, maybe if we find a nice open stretch, we slow down, and you can jog right alongside. Like in that boxing movie!
+}
+Rule DLC1_C6M2_SafeRoomConvo19eMechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo19e IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo19eMechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo20Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo22.vcd"  then Producer DLC1_C6M2_SafeRoomConvo21a foo:0 -12.293 //Man, if you woulda told me a year ago that I'd be driving around in JIMMY GIBBS JUNIOR'S stock car, I wouldn't have BELIEVED you. It is like... just beyond, man.
+}
+Rule DLC1_C6M2_SafeRoomConvo20Mechanic
+{
+	criteria ConceptC6M2SafeRoom2 IsMechanic IsNotSaidC6M2SafeRoom2
+	ApplyContext "SaidC6M2SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M2_SafeRoomConvo20Mechanic
+}
+
+Response DLC1_C6M2_SafeRoomConvo21bMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_SafeRoomConvo23.vcd"  //Yeah, no, I seen my share of horror movies.
+}
+Rule DLC1_C6M2_SafeRoomConvo21bMechanic
+{
+	criteria ConceptDLC1_C6M2_SafeRoomConvo21b IsMechanic
+	Response DLC1_C6M2_SafeRoomConvo21bMechanic
+}
+
+Response WorldC6M2_FinalWater01bMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_FinalWater03.vcd"  //Well, I still like you Nick.
+}
+Rule WorldC6M2_FinalWater01bMechanic
+{
+	criteria ConceptWorldC6M2_FinalWater01b IsMechanic
+	Response WorldC6M2_FinalWater01bMechanic
+}
+
+Response WorldC6M2_InSewer101aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2InWater01.vcd"  then Gambler WorldC6M2_InSewer101c foo:0 -0.999 //Don't smell like it.
+}
+Rule WorldC6M2_InSewer101aMechanic
+{
+	criteria ConceptWorldC6M2_InSewer101a IsMechanic
+	Response WorldC6M2_InSewer101aMechanic
+}
+
+Response WorldC6M2_OnTourWalk102bMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_HistoricTour01.vcd"  //Nick! We all see this tours got some problems no sense picking on Coach.
+}
+Rule WorldC6M2_OnTourWalk102bMechanic
+{
+	criteria ConceptWorldC6M2_OnTourWalk102b IsMechanic
+	Response WorldC6M2_OnTourWalk102bMechanic
+}
+
+Response WorldC6M2_Tattoo03b>Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Tattoo02.vcd"  //I like mine better.
+}
+Rule WorldC6M2_Tattoo03b>Mechanic
+{
+	criteria ConceptWorldC6M2_Tattoo03b> IsMechanic
+	Response WorldC6M2_Tattoo03b>Mechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M3
+//--------------------------------------------------------------------------------------------------------------
+Response C6M3_BridgeDownMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_AlarmDoorOpen04.vcd"  //It's open, GO GO GO!
+	scene "scenes/Mechanic/DLC1_C6M2_Bridge2Up05.vcd"  //It's here, lets' go!
+	scene "scenes/Mechanic/DLC1_C6M2_Bridge2Up06.vcd"  //Alright, it's here, lets' go!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleBridgeRun03.vcd"  //Run to Jimmy Gibbs Jr!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleBridgeRun03.vcd"  //Run to Jimmy Gibbs Jr!
+	scene "scenes/Mechanic/WorldC1M4B59.vcd"  //Let's go! I'm driving! WOOO!
+	scene "scenes/Mechanic/WorldC1M4B60.vcd"  //Everybody get in the damn car!
+	scene "scenes/Mechanic/WorldC1M4B61.vcd"  //Get in the car! We're ready!
+	scene "scenes/Mechanic/WorldC1M4B62.vcd"  //Come on, let's GO!
+}
+Rule C6M3_BridgeDownMechanic
+{
+	criteria ConceptC6M3_BridgeDown IsMechanic
+	ApplyContext "SaidGetToCar:1:20"
+	applycontexttoworld
+	Response C6M3_BridgeDownMechanic
+}
+
+Response C6M3_BridgeGettoCarMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_AlarmDoorOpen04.vcd"  //It's open, GO GO GO!
+	scene "scenes/Mechanic/DLC1_C6M2_Bridge2Up05.vcd"  //It's here, lets' go!
+	scene "scenes/Mechanic/DLC1_C6M2_Bridge2Up06.vcd"  //Alright, it's here, lets' go!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleBridgeRun03.vcd"  //Run to Jimmy Gibbs Jr!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleBridgeRun03.vcd"  //Run to Jimmy Gibbs Jr!
+	scene "scenes/Mechanic/WorldC1M4B59.vcd"  //Let's go! I'm driving! WOOO!
+	scene "scenes/Mechanic/WorldC1M4B60.vcd"  //Everybody get in the damn car!
+	scene "scenes/Mechanic/WorldC1M4B61.vcd"  //Get in the car! We're ready!
+	scene "scenes/Mechanic/WorldC1M4B62.vcd"  //Come on, let's GO!
+}
+Rule C6M3_BridgeGettoCarMechanic
+{
+	criteria ConceptGetToVehicle IsMechanic IsNotSaidGetToCar Isc6m3_port
+	ApplyContext "SaidGetToCar:1:20"
+	applycontexttoworld
+	Response C6M3_BridgeGettoCarMechanic
+}
+
+Response C6M1Intro_25aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_Elevator01.vcd"  //Sooner we get these cans, the sooner we're back with Jimmy Gibbs Jr.
+	scene "scenes/Mechanic/DLC1_C6M3_Elevator02.vcd"  //Hey these cans look pretty spread out. We should stick together.
+	scene "scenes/Mechanic/DLC1_C6M3_Elevator06.vcd"  //Okay, this is the most nervous I've been since this shit started.
+	scene "scenes/Mechanic/DLC1_C6M3_Elevator07.vcd"  //Alright, let's get down there and fill ourselves up a generator.
+	scene "scenes/Mechanic/DLC1_C6M3_Elevator08.vcd"  //Let's get down there and fill ourselves up a generator.
+}
+Rule C6M1Intro_25aMechanic
+{
+	criteria ConceptC6M1Intro_25a IsMechanic IsC6M3_port
+	ApplyContext "Talk:1:7"
+	applycontexttoworld
+	Response C6M1Intro_25aMechanic
+}
+
+Response C6M1Intro_25aZoeyMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_Elevator03.vcd"  //Man, I'm gonna kill so many zombies she's gonna have to love me.
+	scene "scenes/Mechanic/DLC1_C6M3_Elevator04.vcd"  //I'm gonna kill a tank in her honor and then I'm gonna name it after her.
+	scene "scenes/Mechanic/DLC1_C6M3_Elevator05.vcd"  //I'm gonna kill a tank in her honor. Ooh, and then I'm gonna name it after her.
+}
+Rule C6M1Intro_25aZoeyMechanic
+{
+	criteria ConceptC6M1Intro_25a IsMechanic IsC6M3_port IsZoeyIntroActor ChanceToFire50Percent IsNotVersus ZoeyGroup1
+	ApplyContext "Talk:1:7"
+	applycontexttoworld
+	Response C6M1Intro_25aZoeyMechanic
+}
+
+Response C6M3_GivenItemBikerMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Items05.vcd"  //Thanks Francis!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Items06.vcd"  //Hey, thanks guys!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Items07.vcd"  //This from you? THANKS!
+}
+Rule C6M3_GivenItemBikerMechanic
+{
+	criteria ConceptPlayerPickup IsMechanic IsDonorBiker Isc6m3_portHeavy
+	Response C6M3_GivenItemBikerMechanic
+}
+
+Response C6M3_GivenItemTeenGirlMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Items01.vcd"  //Thanks Zoey!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Items02.vcd"  //Thank you Zoey!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Items03.vcd"  //Hey, thanks Zoey!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Items04.vcd" odds 10 //Aw, I wish there was something I could give you back, Zoey.
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleL4D1Items08.vcd"  //Hey, thanks y'all!
+}
+Rule C6M3_GivenItemTeenGirlMechanic
+{
+	criteria ConceptPlayerPickup IsMechanic IsDonorTeenGirl Isc6m3_portHeavy
+	Response C6M3_GivenItemTeenGirlMechanic
+}
+
+Response C6M3SafeRoomMechanic
+{
+	scene "scenes/Mechanic/blank.vcd"  then any C6M3SafeRoom2 foo:0 3 //
+}
+Rule C6M3SafeRoomMechanic
+{
+	criteria ConceptTalkIdle  Joined3 IsMechanic isC6m3_port IsInStartArea AutoIsNotScavenge AutoIsNotSurvival IsNotSaidC6M3SafeRoom IsNotSpeakingWeight0
+	ApplyContext "SaidC6M3SafeRoom:1:0"
+	applycontexttoworld
+	Response C6M3SafeRoomMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo01aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo01.vcd"  then Producer DLC1_C6M3_SafeRoomConvo01b foo:0 -7.373 //Oh sure! Rochelle and biker dude sitting in a tree, K-I-S-S-I-N-G.
+}
+Rule DLC1_C6M3_SafeRoomConvo01aMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo01a IsMechanic  IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo01aMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo01cMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo02.vcd"  //Hey man I saw how you two were looking at each other.
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo03.vcd"  //Mm hm.  I saw y'all  looking at each other.
+}
+Rule DLC1_C6M3_SafeRoomConvo01cMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo01c IsMechanic
+	Response DLC1_C6M3_SafeRoomConvo01cMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo02eMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo05.vcd"  //Nah, he don't live there.
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo06.vcd"  //No man, he don't live there.
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo07.vcd"  //I saw how he was lookin' at Rochelle. He ain't goin nowhere.
+}
+Rule DLC1_C6M3_SafeRoomConvo02eMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo02e IsMechanic  IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo02eMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo03aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo08.vcd"  then Gambler DLC1_C6M3_SafeRoomConvo03b foo:0 -1.144 //How do I look?
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo09.vcd"  then Gambler DLC1_C6M3_SafeRoomConvo03b foo:0 -0.992 //How do I look, man?
+}
+Rule DLC1_C6M3_SafeRoomConvo03aMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo03a IsMechanic  IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo03aMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo03cMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo10.vcd"  then Gambler DLC1_C6M3_SafeRoomConvo03d foo:0 -1.799 //You got a turd on your shoulder, Nick.
+}
+Rule DLC1_C6M3_SafeRoomConvo03cMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo03c IsMechanic  IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo03cMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo04aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo11.vcd"  then Producer DLC1_C6M3_SafeRoomConvo04b foo:0 -3.659 //Man, I don't know, what do you think? With the hat or without it?
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo12.vcd"  then Producer DLC1_C6M3_SafeRoomConvo04b foo:0 -3.834 //Man, I don't know, what do you think? With the hat or without it?
+}
+Rule DLC1_C6M3_SafeRoomConvo04aMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo04a IsMechanic IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo04aMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo04dMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo13.vcd"  //Nick, I don't need that kinda pressure, man!
+}
+Rule DLC1_C6M3_SafeRoomConvo04dMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo04d IsMechanic IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo04dMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo05aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo14.vcd"  then Gambler DLC1_C6M3_SafeRoomConvo05b foo:0 -2.546 //Don't remind me, Nick. I am a nervous wreck here.
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo15.vcd"  then Gambler DLC1_C6M3_SafeRoomConvo05b foo:0 -3.886 //Okay, you know what? Don't need the reminding me, Nick, alright? I am a nervous wreck over here.
+}
+Rule DLC1_C6M3_SafeRoomConvo05aMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo05a IsMechanic IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo05aMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo06Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo16.vcd"  then Producer DLC1_C6M3_SafeRoomConvo06a foo:0 -5.805 //Okay Ro, I don't want to get your hopes up, but I think that awesome biker dude has a little crush on you.
+}
+Rule DLC1_C6M3_SafeRoomConvo06Mechanic
+{
+	criteria ConceptC6M3SafeRoom2 IsMechanic IsNotSaidC6M3SafeRoom2 IsFrancisIntroActor FrancisGroup4 IsInStartArea
+	ApplyContext "SaidC6M3SafeRoom2:1:0"
+	applycontexttoworld
+	Response DLC1_C6M3_SafeRoomConvo06Mechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo06bMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo17.vcd"  //Well, I don't doubt it. that is a cool guy.
+}
+Rule DLC1_C6M3_SafeRoomConvo06bMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo06b IsMechanic IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo06bMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo07aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo18.vcd"  then Producer DLC1_C6M3_SafeRoomConvo07b foo:0 -2.804 //Nah, she ain't goin' nowhere. That ain't like her.
+}
+Rule DLC1_C6M3_SafeRoomConvo07aMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo07a IsMechanic IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo07aMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo07cMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo19.vcd"  //Yeah, it was like love at first sight. The other four seconds was gravy.
+}
+Rule DLC1_C6M3_SafeRoomConvo07cMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo07c IsMechanic IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo07cMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo08aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo20.vcd"  then Coach DLC1_C6M3_SafeRoomConvo08b foo:0 -1.669 //Nah man, he seemed like a good guy.
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo21.vcd"  then Coach DLC1_C6M3_SafeRoomConvo08b foo:0 -1.934 //Nah man, he seemed like a good guy.
+}
+Rule DLC1_C6M3_SafeRoomConvo08aMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo08a IsMechanic IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo08aMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo08cMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo23.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo08d foo:0 -0.936 //I will kill him.
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo24.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo08e foo:0 -1.581 //He is a dead man.
+}
+Rule DLC1_C6M3_SafeRoomConvo08cMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo08c IsMechanic IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo08cMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo08dMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo26.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo08f foo:0 -1.479 //I will kill him.
+}
+Rule DLC1_C6M3_SafeRoomConvo08dMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo08d IsMechanic IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo08dMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo08eMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo25.vcd"  then Mechanic DLC1_C6M3_SafeRoomConvo08f foo:0 -2.608 //He is a dead man.
+}
+Rule DLC1_C6M3_SafeRoomConvo08eMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo08e IsMechanic IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo08eMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo08fMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo28.vcd"  then Producer DLC1_C6M3_SafeRoomConvo08g foo:0 -5.514 //Folks, we got a new goal. New Orleans is gonna have to wait. We are going to have to hunt that biker man down.
+}
+Rule DLC1_C6M3_SafeRoomConvo08fMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo08f IsMechanic IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo08fMechanic
+}
+
+Response DLC1_C6M3_SafeRoomConvo09aMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_SafeRoomConvo29.vcd"  then Producer DLC1_C6M3_SafeRoomConvo09b foo:0 -13.536 //Ro, it's the zombie apocalypse. First dating days are over.  Nick, By the way, I'm gonna have to borrow your suit, because we're skippin' right to the marriage, brother. Then we're goin' cross country, just her me and the Jimmy Gibbs Jr.
+}
+Rule DLC1_C6M3_SafeRoomConvo09aMechanic
+{
+	criteria ConceptDLC1_C6M3_SafeRoomConvo09a IsMechanic  IsInStartArea
+	Response DLC1_C6M3_SafeRoomConvo09aMechanic
+}
+
+Response IncapBounceMechanic
+{
+	scene "scenes/Mechanic/blank.vcd"  then Biker InCapBounce2 foo:0 0 //
+}
+Rule IncapBounceMechanic
+{
+	criteria ConceptSurvivorIncapacitated IsMechanic IsNotSaidInCapBounce isC6m3_port
+	ApplyContext "SaidInCapBounce:1:0"
+	applycontexttoworld
+	Response IncapBounceMechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Finale Speech
+//--------------------------------------------------------------------------------------------------------------
+Response C6M3_CansDoneMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleBridgeRun01.vcd"  then any EmphaticArriveRun foo:0 -1.830 //I'm coming baby!
+}
+Rule C6M3_CansDoneMechanic
+{
+	criteria Conceptc6m3escapeready IsMechanic IsC6M3_Port IsNotSaidc6m3escapeready
+	ApplyContext "Saidc6m3escapeready:1:0,Talk:1:5"
+	applycontexttoworld
+	Response C6M3_CansDoneMechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Monster Spotted
+//--------------------------------------------------------------------------------------------------------------
+Response L4D1AlsoSpottedTankMechanic
+{
+	scene "scenes/Mechanic/DLC1_L4D1Tank01.vcd" odds 1 //Oh, this ain't good, TWO TANKS!
+	scene "scenes/Mechanic/DLC1_L4D1Tank02.vcd"  //Shiiiiiiittttt!
+	scene "scenes/Mechanic/DLC1_L4D1Tank03.vcd" odds 1 //Oh, this ain't good, we got TWO TANKS here!
+	scene "scenes/Mechanic/DLC1_L4D1Tank04.vcd"  //Oh shiiiiiiittttt!
+	scene "scenes/Mechanic/DLC1_L4D1Tank05.vcd"  //Lead 'em back to Louis!
+	scene "scenes/Mechanic/DLC1_L4D1Tank06.vcd"  //Louis, get ready! Tanks coming!
+	scene "scenes/Mechanic/DLC1_L4D1Tank07.vcd"  //Louis, get yourself ready, baby! we got tanks coming!
+}
+Rule L4D1AlsoSpottedTankMechanic
+{
+	criteria ConceptPlayerAlsoWarnTank IsNotCoughing IsMechanic IsTalk IsTalkMechanic IsWorldTalkMechanic Isc6m3_port
+	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
+	applycontexttoworld
+	Response L4D1AlsoSpottedTankMechanic
+}
+
+Response L4D1SpottedTankMechanic
+{
+	scene "scenes/Mechanic/DLC1_L4D1Tank01.vcd" odds 1 //Oh, this ain't good, TWO TANKS!
+	scene "scenes/Mechanic/DLC1_L4D1Tank02.vcd"  //Shiiiiiiittttt!
+	scene "scenes/Mechanic/DLC1_L4D1Tank03.vcd" odds 1 //Oh, this ain't good, we got TWO TANKS here!
+	scene "scenes/Mechanic/DLC1_L4D1Tank04.vcd"  //Oh shiiiiiiittttt!
+	scene "scenes/Mechanic/DLC1_L4D1Tank05.vcd"  //Lead 'em back to Louis!
+	scene "scenes/Mechanic/DLC1_L4D1Tank06.vcd"  //Louis, get ready! Tanks coming!
+	scene "scenes/Mechanic/DLC1_L4D1Tank07.vcd"  //Louis, get yourself ready, baby! we got tanks coming!
+}
+Rule L4D1SpottedTankMechanic
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeTank IsNotCoughing IsMechanic IsTalk IsTalkMechanic IsWorldTalkMechanic Isc6m3_port IsNotSpeakingWeight0
+	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
+	applycontexttoworld
+	Response L4D1SpottedTankMechanic
+}
+
+Response SurvivorSpottedFallenMechanic
+{
+	norepeat
+	scene "scenes/Mechanic/DLC1_FallenSurvior01.vcd"  //Hey kill that zombie!
+	scene "scenes/Mechanic/DLC1_FallenSurvior02.vcd"  //Kill that zombie!
+	scene "scenes/Mechanic/DLC1_FallenSurvior03.vcd"  //Hey, stop that zombie!
+	scene "scenes/Mechanic/DLC1_FallenSurvior04.vcd"  //Get that zombie!
+	scene "scenes/Mechanic/DLC1_FallenSurvior05.vcd"  //Get that zombie, there!
+	scene "scenes/Mechanic/DLC1_FallenSurvior06.vcd"  //Do not let that zombie get away.
+}
+Rule SurvivorSpottedFallenMechanic
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeFallen IsNotCoughing IsMechanic IsTalk IsTalkMechanic IsWorldTalkMechanic IsNotSaidFallenWarn IsNotSpeakingWeight0
+	ApplyContext "SaidFallenWarn:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedFallenMechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Player File
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerWitchChasingC6M1Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingWitchChasing01.vcd"  //Runaway bride, runaway bride!
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingWitchChasing02.vcd"  //Help, here! Here comes the bride!
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingWitchChasing03.vcd"  //Here comes the bride!
+}
+Rule PlayerWitchChasingC6M1Mechanic
+{
+	criteria ConceptPlayerExertionMinor IsMechanic IsWitchPresent SubjectIsNotWitch IsNotSaidMechanicWitchChasing IsSaidMechanicWitchAttacking isc6m1_riverbank
+	ApplyContext "SaidMechanicWitchChasing:1:15,TalkMechanic:1:2"
+	forceweight 20
+	Response PlayerWitchChasingC6M1Mechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Remarkable Vocalize
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerRemarkremark_MidnightRidersBusMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_MidnightRiders01.vcd"  //Oh man, I must be seeing things.
+	scene "scenes/Mechanic/DLC1_C6M2_MidnightRiders02.vcd"  //What?
+	scene "scenes/Mechanic/DLC1_C6M2_MidnightRiders03.vcd"  //What? Wha... who?
+}
+Rule PlayerRemarkremark_MidnightRidersBusMechanic
+{
+	criteria ConceptRemark IsMechanic Isremark_MidnightRidersBus IsNotSaidremark_MidnightRidersBus IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear1500 IsNotSpeakingWeight0
+	ApplyContext "Saidremark_MidnightRidersBus:1:0"
+	applycontexttoworld
+	Response PlayerRemarkremark_MidnightRidersBusMechanic
+}
+
+Response PlayerRemarkWorldC6M1_AcrossHereMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_BackAlley09.vcd"  //We can get across here.
+	scene "scenes/Mechanic/DLC1_C6M1_BackAlley10.vcd"  //Let's get across here.
+}
+Rule PlayerRemarkWorldC6M1_AcrossHereMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_AcrossHere IsNotSaidWorldC6M1_AcrossHere IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_AcrossHere:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_AcrossHereMechanic
+}
+
+Response PlayerRemarkWorldC6M1_AlleyBelowMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_BackAlley02.vcd"  //Down this alley.
+	scene "scenes/Mechanic/DLC1_C6M1_BackAlley03.vcd"  //This is like a goddamn maze.
+	scene "scenes/Mechanic/DLC1_C6M1_BackAlley04.vcd"  //I think we want to get up there.
+	scene "scenes/Mechanic/DLC1_C6M1_BackAlley05.vcd"  //Y'all, how do we get to them walkways?
+	scene "scenes/Mechanic/DLC1_C6M1_BackAlley06.vcd"  //Let's go down this alley.
+}
+Rule PlayerRemarkWorldC6M1_AlleyBelowMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_AlleyBelow IsNotSaidWorldC6M1_AlleyBelow IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_AlleyBelow:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_AlleyBelowMechanic
+}
+
+Response PlayerRemarkWorldC6M1_AlleyIntoBuildingMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_BackAlley08.vcd"  //Into these apartments.
+	scene "scenes/Mechanic/DLC1_C6M1_BackAlley11.vcd"  //Into the building.
+	scene "scenes/Mechanic/DLC1_C6M1_BackAlley12.vcd"  //Hey, into the building.
+}
+Rule PlayerRemarkWorldC6M1_AlleyIntoBuildingMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_AlleyIntoBuilding IsNotSaidWorldC6M1_AlleyIntoBuilding IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_AlleyIntoBuilding:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_AlleyIntoBuildingMechanic
+}
+
+Response PlayerRemarkWorldC6M1_InAptsMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_BackAlley14.vcd"  //Hey, let's search these rooms here.
+}
+Rule PlayerRemarkWorldC6M1_InAptsMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_InApts IsNotSaidWorldC6M1_InApts IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_InApts:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_InAptsMechanic
+}
+
+Response PlayerRemarkWorldC6M1_IntotheparkMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_IntoPark01.vcd"  //Through this park.
+	scene "scenes/Mechanic/DLC1_C6M1_IntoPark04.vcd"  //By Jimmy Gibb Jr, don't worry we're gonna come back for you.
+	scene "scenes/Mechanic/DLC1_C6M1_IntoPark05.vcd"  //(calling out) Hey can you all watch the car while we're gone?
+	scene "scenes/Mechanic/DLC1_C6M1_IntoPark06.vcd"  //Should I maybe stay here and guard the car?
+	scene "scenes/Mechanic/DLC1_C6M1_IntoPark07.vcd"  //Should I stay here and guard the car?
+	scene "scenes/Mechanic/DLC1_C6M1_IntoPark08.vcd"  //All right...
+}
+Rule PlayerRemarkWorldC6M1_IntotheparkMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_Intothepark IsNotSaidWorldC6M1_Intothepark IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_Intothepark:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_IntotheparkMechanic
+}
+
+Response PlayerRemarkWorldC6M1_IntoThePark2Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_IntoPark01.vcd"  //Through this park.
+}
+Rule PlayerRemarkWorldC6M1_IntoThePark2Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_IntoThePark2 IsNotSaidWorldC6M1_IntoThePark2 IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_IntoThePark2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_IntoThePark2Mechanic
+}
+
+Response PlayerRemarkWorldC6M1_IntoTheStoreMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_IntoStore01.vcd"  //Through this store.
+	scene "scenes/Mechanic/DLC1_C6M1_IntoStore02.vcd"  //Guns in the store.
+	scene "scenes/Mechanic/DLC1_C6M1_IntoStore03.vcd"  //Hey, we got guns in here!
+	scene "scenes/Mechanic/DLC1_C6M1_IntoStore04.vcd"  //Hey there's guns in the store.
+	scene "scenes/Mechanic/DLC1_C6M1_IntoStore05.vcd"  //Cut through the store.
+}
+Rule PlayerRemarkWorldC6M1_IntoTheStoreMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_IntoTheStore IsNotSaidWorldC6M1_IntoTheStore IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_IntoTheStore:1:0,JustSaidWorldC6M1_IntoTheStore:1:30"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_IntoTheStoreMechanic
+}
+
+Response PlayerRemarkWorldC6M1_PostWeddingMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingPostWitch05.vcd"  //Hey, check the tents.
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingPostWitch06.vcd"  //Okay, as far as weddings go, that was the most exciting.
+}
+Rule PlayerRemarkWorldC6M1_PostWeddingMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_PostWedding IsNotSaidWorldC6M1_PostWedding IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear600 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_PostWedding:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_PostWeddingMechanic
+}
+
+Response PlayerRemarkWorldC6M1_PostWeddingZMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingPostWitch02.vcd"  then Any WorldC6M1_PostWedding02a foo:0 -3.481 //You know what? This got me thinking... I should totally marry that girl.
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingPostWitch03.vcd"  then Any WorldC6M1_PostWedding02a foo:0 -2.750 //This reminds me, I should totally marry that girl.
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingPostWitch04.vcd"  then Gambler WorldC6M1_WeddingWarn05a foo:0 -2.399 //This wedding here? I'm takin' this as a sign.
+}
+Rule PlayerRemarkWorldC6M1_PostWeddingZMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_PostWedding IsNotSaidWorldC6M1_PostWedding IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear600 IsZoeyIntroActor ZoeyGroup1 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_PostWedding:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_PostWeddingZMechanic
+}
+
+Response PlayerRemarkWorldC6M1_PostWeddingZCMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingPostWitch01.vcd"  then Coach WorldC6M1_PostWedding01a foo:0 -2.761 //Hey Coach. Can coaches marry people?
+}
+Rule PlayerRemarkWorldC6M1_PostWeddingZCMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_PostWedding IsNotSaidWorldC6M1_PostWedding IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear600 IsZoeyIntroActor ZoeyGroup2 IsCoachNear800Weight0 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_PostWedding:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_PostWeddingZCMechanic
+}
+
+Response PlayerRemarkWorldC6M1_SafeRoomAlleyMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_BackAlley01.vcd"  //Behind this bus.
+	scene "scenes/Mechanic/DLC1_C6M1_SafeRoomAhead01.vcd"  //Safe house back here!
+	scene "scenes/Mechanic/DLC1_C6M1_SafeRoomAhead02.vcd"  //Hey guys, safe house back here!
+}
+Rule PlayerRemarkWorldC6M1_SafeRoomAlleyMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_SafeRoomAlley IsNotSaidWorldC6M1_SafeRoomAlley IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear600 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_SafeRoomAlley:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_SafeRoomAlleyMechanic
+}
+
+Response PlayerRemarkWorldC6M1_ThroughBarMechanic
+{
+	scene "scenes/Mechanic/WorldC2M310.vcd"  //Through here.
+	scene "scenes/Mechanic/WorldMisc03.vcd"  //Right through here.
+}
+Rule PlayerRemarkWorldC6M1_ThroughBarMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_ThroughBar IsNotSaidWorldC6M1_ThroughBar IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_ThroughBar:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_ThroughBarMechanic
+}
+
+Response PlayerRemarkWorldC6M1_UpHereMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_BackAlley07.vcd"  //Back up here.
+	scene "scenes/Mechanic/MiscDirectional28.vcd"  //We can get up here!
+}
+Rule PlayerRemarkWorldC6M1_UpHereMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_UpHere IsNotSaidWorldC6M1_UpHere IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_UpHere:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_UpHereMechanic
+}
+
+Response PlayerRemarkWorldC6M1_UpTheStairsMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_Upstairs03.vcd"  //Let's try upstairs.
+}
+Rule PlayerRemarkWorldC6M1_UpTheStairsMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_UpTheStairs IsNotSaidWorldC6M1_UpTheStairs IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_UpTheStairs:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_UpTheStairsMechanic
+}
+
+Response PlayerRemarkWorldC6M1_UpTheStairs2Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_Upstairs01.vcd"  //Go upstairs.
+	scene "scenes/Mechanic/DLC1_C6M1_Upstairs02.vcd"  //Let's go upstairs.
+	scene "scenes/Mechanic/DLC1_C6M1_Upstairs04.vcd"  //Upstairs, everybody.
+	scene "scenes/Mechanic/DLC1_C6M2_UpStairs01.vcd"  //Up the stairs.
+}
+Rule PlayerRemarkWorldC6M1_UpTheStairs2Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_UpTheStairs2 IsNotSaidWorldC6M1_UpTheStairs2 IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_UpTheStairs2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_UpTheStairs2Mechanic
+}
+
+Response PlayerRemarkWorldC6M1_WeddingWarnMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_Wedding02.vcd"  //A wedding!
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingWitch05.vcd"  //Oh man. You think she's crying cause she got left at the alter?
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingWitch06.vcd"  //I normally really like weddings. This is just weird.
+}
+Rule PlayerRemarkWorldC6M1_WeddingWarnMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_WeddingWarn IsNotSaidWorldC6M1_WeddingWarn IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_WeddingWarn:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_WeddingWarnMechanic
+}
+
+Response PlayerRemarkWorldC6M1_WeddingWarn1Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_Wedding02.vcd"  //A wedding!
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingWitch05.vcd"  //Oh man. You think she's crying cause she got left at the alter?
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingWitch06.vcd"  //I normally really like weddings. This is just weird.
+}
+Rule PlayerRemarkWorldC6M1_WeddingWarn1Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_WeddingWarn1 IsNotSaidWorldC6M1_WeddingWarn IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_WeddingWarn:1:0,AtWedding:1:60"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_WeddingWarn1Mechanic
+}
+
+Response PlayerRemarkWorldC6M1_WeddingWarn2Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_Wedding02.vcd"  //A wedding!
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingWitch05.vcd"  //Oh man. You think she's crying cause she got left at the alter?
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingWitch06.vcd"  //I normally really like weddings. This is just weird.
+}
+Rule PlayerRemarkWorldC6M1_WeddingWarn2Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_WeddingWarn2 IsNotSaidWorldC6M1_WeddingWarn IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_WeddingWarn:1:0,AtWedding:1:60"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_WeddingWarn2Mechanic
+}
+
+Response PlayerRemarkWorldC6M1_WeddingWarn3Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_Wedding02.vcd"  //A wedding!
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingWitch05.vcd"  //Oh man. You think she's crying cause she got left at the alter?
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingWitch06.vcd"  //I normally really like weddings. This is just weird.
+}
+Rule PlayerRemarkWorldC6M1_WeddingWarn3Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M1_WeddingWarn3 IsNotSaidWorldC6M1_WeddingWarn IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M1_WeddingWarn:1:0,AtWedding:1:60"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M1_WeddingWarn3Mechanic
+}
+
+Response PlayerRemarkWorldC6M2_AcrossPlankMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_OverPlank01.vcd"  //Hurry over this plank.
+	scene "scenes/Mechanic/DLC1_C6M2_OverPlank02.vcd"  //Okay, just don't look down.
+	scene "scenes/Mechanic/DLC1_C6M2_OverPlank03.vcd"  //Bad time for a smoker.
+}
+Rule PlayerRemarkWorldC6M2_AcrossPlankMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_AcrossPlank IsNotSaidWorldC6M2_AcrossPlank IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear250 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_AcrossPlank:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_AcrossPlankMechanic
+}
+
+Response PlayerRemarkWorldC6M2_AfterGate1Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2InWater04.vcd"  //Keep moving.
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2InWater05.vcd"  //Let's keep moving!
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2InWater06.vcd"  //Hey, just keep moving. Let's keep moving!
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2InWater07.vcd"  //Keep moving.
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2InWater08.vcd"  //Alright, let's keep moving!
+}
+Rule PlayerRemarkWorldC6M2_AfterGate1Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_AfterGate1 IsNotSaidWorldC6M2_AfterGate1 IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear500 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_AfterGate1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_AfterGate1Mechanic
+}
+
+Response PlayerRemarkWorldC6M2_AfterGate2Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_InWaterFindLadder01.vcd"  then Gambler WorldC6M2_AfterGate201a foo:0 -1.968 //Hey, Nick, there's a turd right on your shoulder there.
+	scene "scenes/Mechanic/DLC1_C6M2_InWaterFindLadder02.vcd"  then Gambler WorldC6M2_AfterGate201a foo:0 -1.585 //Nick, you got a little turd on your shoulder.
+	scene "scenes/Mechanic/DLC1_C6M2_InWaterFindLadder03.vcd"  then Gambler WorldC6M2_AfterGate201a foo:0 -1.342 //Hey, Nick, turd on your shoulder.
+	scene "scenes/Mechanic/DLC1_C6M2_InWaterFindLadder04.vcd"  //Man, they ain't gonna stop coming.
+	scene "scenes/Mechanic/DLC1_C6M2_InWaterFindLadder05.vcd"  //We gotta  find a ladder.
+	scene "scenes/Mechanic/DLC1_C6M2_InWaterFindLadder06.vcd"  //Man even I'm getting' sick of this shit.
+	scene "scenes/Mechanic/DLC1_C6M2_InWaterFindLadder07.vcd"  //Man, they ain't not gonna stop coming.
+	scene "scenes/Mechanic/DLC1_C6M2_InWaterFindLadder08.vcd"  //Anybody seen a ladder?
+	scene "scenes/Mechanic/DLC1_C6M2_InWaterFindLadder09.vcd"  //We need to find a ladder.
+	scene "scenes/Mechanic/DLC1_C6M2_InWaterFindLadder10.vcd"  //Man even I'm getting' sick of this shit.
+}
+Rule PlayerRemarkWorldC6M2_AfterGate2Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_AfterGate2 IsNotSaidWorldC6M2_AfterGate2 IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear500 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_AfterGate2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_AfterGate2Mechanic
+}
+
+Response PlayerRemarkWorldC6M2_DownHereMechanic
+{
+	scene "scenes/Mechanic/MiscDirectional05.vcd"  //Down here!
+	scene "scenes/Mechanic/WorldMisc04.vcd"  //Down here.
+}
+Rule PlayerRemarkWorldC6M2_DownHereMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_DownHere IsNotSaidWorldC6M2_DownHere IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_DownHere:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_DownHereMechanic
+}
+
+Response PlayerRemarkWorldC6M2_DownIntoBuildingMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_UpThroughBuilding01.vcd"  //Everyone in here.
+	scene "scenes/Mechanic/DLC1_C6M2_UpThroughBuilding02.vcd"  //Hey, everybody in here.
+	scene "scenes/Mechanic/DLC1_C6M2_UpThroughBuilding03.vcd"  //Through this building.
+	scene "scenes/Mechanic/DLC1_C6M2_UpThroughBuilding04.vcd"  //Down these stairs.
+}
+Rule PlayerRemarkWorldC6M2_DownIntoBuildingMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_DownIntoBuilding IsNotSaidWorldC6M2_DownIntoBuilding IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_DownIntoBuilding:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_DownIntoBuildingMechanic
+}
+
+Response PlayerRemarkWorldC6M2_FinalLadderMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_UpLadder01.vcd"  //Hey, up the ladder.
+	scene "scenes/Mechanic/DLC1_C6M2_UpLadder02.vcd"  //Let's head up the ladder.
+	scene "scenes/Mechanic/DLC1_C6M2_UpLadder03.vcd"  //Ladder on that wall.
+	scene "scenes/Mechanic/DLC1_C6M2_UpLadder04.vcd"  //Hey, get up there!
+}
+Rule PlayerRemarkWorldC6M2_FinalLadderMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_FinalLadder IsNotSaidWorldC6M2_FinalLadder IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_FinalLadder:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_FinalLadderMechanic
+}
+
+Response PlayerRemarkWorldC6M2_FinalWaterMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_FinalWater01.vcd"  then Gambler WorldC6M2_FinalWater01a foo:0 -1.706 //Haha, more water, Nick!
+	scene "scenes/Mechanic/DLC1_C6M2_FinalWater02.vcd"  then Gambler WorldC6M2_FinalWater01a foo:0 -1.028 //Watch for turds, Nick!
+	scene "scenes/Mechanic/DLC1_C6M2_FinalWater04.vcd"  //Back into the water.
+	scene "scenes/Mechanic/DLC1_C6M2_FinalWater05.vcd"  then Gambler WorldC6M2_FinalWater01a foo:0 -2.258 //Hey, Nick, didn't that suit used to be white?
+	scene "scenes/Mechanic/DLC1_C6M2_FinalWater06.vcd"  //Man, they got a lotta work to do on this phase two bit.
+}
+Rule PlayerRemarkWorldC6M2_FinalWaterMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_FinalWater IsNotSaidWorldC6M2_FinalWater IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_FinalWater:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_FinalWaterMechanic
+}
+
+Response PlayerRemarkWorldC6M2_FinalWaterGoGoMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2InWater04.vcd"  //Keep moving.
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2InWater05.vcd"  //Let's keep moving!
+	scene "scenes/Mechanic/WorldC4M2B27.vcd"  //KEEP MOVING!
+}
+Rule PlayerRemarkWorldC6M2_FinalWaterGoGoMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_FinalWaterGoGo IsNotSaidWorldC6M2_FinalWaterGoGo IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_FinalWaterGoGo:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_FinalWaterGoGoMechanic
+}
+
+Response PlayerRemarkWorldC6M2_InJazzClubMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_JazzClub01.vcd"  //Into the Jazz club!
+	scene "scenes/Mechanic/DLC1_C6M2_JazzClub02.vcd"  //Hey, Into the club, guys!
+	scene "scenes/Mechanic/DLC1_C6M2_JazzClub03.vcd"  //Tour's in the Jazz club.
+	scene "scenes/Mechanic/DLC1_C6M2_JazzClub04.vcd"  //Hey, the tour's in the Jazz club.
+	scene "scenes/Mechanic/DLC1_C6M2_JazzClub05.vcd"  //Hey that tunnel's in the club.
+	scene "scenes/Mechanic/DLC1_C6M2_JazzClub06.vcd"  //Jimmy Gibb Jr here we come!
+}
+Rule PlayerRemarkWorldC6M2_InJazzClubMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_InJazzClub IsNotSaidWorldC6M2_InJazzClub IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear1000 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_InJazzClub:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_InJazzClubMechanic
+}
+
+Response PlayerRemarkWorldC6M2_InSewer2Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2InWater02.vcd"  then Producer WorldC6M2_InSewer202a foo:0 -4.622 //Oh man, I found a candy bar! [beat] Whup. False alarm.
+}
+Rule PlayerRemarkWorldC6M2_InSewer2Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_InSewer2 IsNotSaidWorldC6M2_InSewer2 IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsSaidWorldC6M2_InSewer1 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_InSewer2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_InSewer2Mechanic
+}
+
+Response PlayerRemarkWorldC6M2_InSewerLadder1Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2InWater03.vcd"  then Any WorldC6M2_InSewerLadder101a foo:0 -2.795 //Okay if anybody needs a bathroom break, now'd be a good time.
+	scene "scenes/Mechanic/DLC1_C6M2_UpLadder101.vcd"  //Let's get out of the water.
+	scene "scenes/Mechanic/DLC1_C6M2_UpLadder102.vcd"  //Hey, everybody let's get out of the water.
+	scene "scenes/Mechanic/DLC1_C6M2_UpLadder103.vcd"  //Time to dry off.
+	scene "scenes/Mechanic/DLC1_C6M2_UpLadder104.vcd"  //Alright, let's get out of this water.
+	scene "scenes/Mechanic/DLC1_C6M2_UpLadder105.vcd"  //Hey, everybody let's get out of the water.
+}
+Rule PlayerRemarkWorldC6M2_InSewerLadder1Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_InSewerLadder1 IsNotSaidWorldC6M2_InSewerLadder1 IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_InSewerLadder1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_InSewerLadder1Mechanic
+}
+
+Response PlayerRemarkWorldC6M2_IntoConstructionMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_ConstructionSite01.vcd"  //Hey let's jump down.
+	scene "scenes/Mechanic/DLC1_C6M2_ConstructionSite02.vcd"  //Into the construction site.
+	scene "scenes/Mechanic/DLC1_C6M2_ConstructionSite03.vcd"  //Street's all tore up.
+}
+Rule PlayerRemarkWorldC6M2_IntoConstructionMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_IntoConstruction IsNotSaidWorldC6M2_IntoConstruction IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear150 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_IntoConstruction:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_IntoConstructionMechanic
+}
+
+Response PlayerRemarkWorldC6M2_IntoPoolHallMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_IntoPoolHall01.vcd"  //We can get in through the window.
+	scene "scenes/Mechanic/DLC1_C6M2_IntoPoolHall02.vcd"  //Get into the pool hall.
+	scene "scenes/Mechanic/DLC1_C6M2_IntoPoolHall03.vcd"  //Hey Let's go into the pool hall.
+}
+Rule PlayerRemarkWorldC6M2_IntoPoolHallMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_IntoPoolHall IsNotSaidWorldC6M2_IntoPoolHall IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_IntoPoolHall:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_IntoPoolHallMechanic
+}
+
+Response PlayerRemarkWorldC6M2_JukeBoxMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_StartingJukeBox01.vcd"  //All right, baby, the jukebox works!
+}
+Rule PlayerRemarkWorldC6M2_JukeBoxMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_JukeBox IsNotSaidWorldC6M2_JukeBox IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear150 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_JukeBox:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_JukeBoxMechanic
+}
+
+Response PlayerRemarkWorldC6M2_JumpDownMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2JumpInWater01.vcd"  //Last one is a rotten egg.
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2JumpInWater02.vcd"  //This is gonna be great.
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2JumpInWater03.vcd"  //This is gonna be fun.
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2JumpInWater04.vcd"  //Hey let's jump together.
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2JumpInWater05.vcd"  //Now this is more like it.
+	scene "scenes/Mechanic/DLC1_C6M2_Phase2JumpInWater06.vcd"  //CANNONBALL!
+}
+Rule PlayerRemarkWorldC6M2_JumpDownMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_JumpDown IsNotSaidWorldC6M2_JumpDown IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_JumpDown:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_JumpDownMechanic
+}
+
+Response PlayerRemarkWorldC6M2_OnTourWalk2Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_HistoricTour04.vcd"  //I guess this shit's old, huh? I don't know. But...
+}
+Rule PlayerRemarkWorldC6M2_OnTourWalk2Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_OnTourWalk2 IsNotSaidWorldC6M2_OnTourWalk2 IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_OnTourWalk2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_OnTourWalk2Mechanic
+}
+
+Response PlayerRemarkWorldC6M2_OnTourWalk3Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_HistoricTour02.vcd"  //Don't know why, I was thinkin' there'd be rides here.
+	scene "scenes/Mechanic/DLC1_C6M2_HistoricTour03.vcd"  //Not sure why, I thought there'd be a couple of rides at least.
+}
+Rule PlayerRemarkWorldC6M2_OnTourWalk3Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_OnTourWalk3 IsNotSaidWorldC6M2_OnTourWalk3 IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_OnTourWalk3:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_OnTourWalk3Mechanic
+}
+
+Response PlayerRemarkWorldC6M2_OpenGate1Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_AlarmDoor01.vcd"  //I got a bad feelin' about this.
+	scene "scenes/Mechanic/DLC1_C6M1_AlarmDoor02.vcd"  //Get ready before we open this door, now.
+	scene "scenes/Mechanic/DLC1_C6M1_AlarmDoor03.vcd"  //Y'all ready? Alright, let's open this door.
+	scene "scenes/Mechanic/DLC1_C6M1_AlarmDoor04.vcd"  //Alright, alarm's gonna sound when we open this.
+	scene "scenes/Mechanic/DLC1_C6M2_Bridge1Raise04.vcd"  //Let's get ready and then hit it.
+}
+Rule PlayerRemarkWorldC6M2_OpenGate1Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_OpenGate1 IsNotSaidWorldC6M2_OpenGate1 IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSaidOpenedGate1 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_OpenGate1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_OpenGate1Mechanic
+}
+
+Response PlayerRemarkWorldC6M2_OpenGate2Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Bridge2Raise06.vcd"  //Hey, let's try this one.
+}
+Rule PlayerRemarkWorldC6M2_OpenGate2Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_OpenGate2 IsNotSaidWorldC6M2_OpenGate2 IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSaidOpenedGate2 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_OpenGate2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_OpenGate2Mechanic
+}
+
+Response PlayerRemarkWorldC6M2_Phase2Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Phase201.vcd"  then Producer WorldC6M2_Phase201a foo:0 -1.792 //Hope phase two has rides.
+	scene "scenes/Mechanic/DLC1_C6M2_Phase202.vcd"  //Phase one is over?
+	scene "scenes/Mechanic/DLC1_C6M2_Phase203.vcd"  then Producer WorldC6M2_Phase201a foo:0 -2.253 //Man, I hope phase two has rides.
+	scene "scenes/Mechanic/DLC1_C6M2_Phase204.vcd"  //Phase one is over? Jeez...
+	scene "scenes/Mechanic/DLC1_C6M2_Phase205.vcd"  //Hey,sorry about the lack of history in phase one coach.
+	scene "scenes/Mechanic/DLC1_C6M2_Phase206.vcd"  then Producer WorldC6M2_Phase201a foo:0 -1.646 //Hope this goes under the river.
+}
+Rule PlayerRemarkWorldC6M2_Phase2Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_Phase2 IsNotSaidWorldC6M2_Phase2 IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Phase2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_Phase2Mechanic
+}
+
+Response PlayerRemarkWorldC6M2_Phase2DownMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Phase208.vcd"  //Let's get down these stairs.
+}
+Rule PlayerRemarkWorldC6M2_Phase2DownMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_Phase2Down IsNotSaidWorldC6M2_Phase2Down IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Phase2Down:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_Phase2DownMechanic
+}
+
+Response PlayerRemarkWorldC6M2_Phase2DownIntenseMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Phase207.vcd"  //GET DOWN THE STAIRS!
+	scene "scenes/Mechanic/DLC1_C6M2_Phase209.vcd"  //Go down. Go down. Go down.
+}
+Rule PlayerRemarkWorldC6M2_Phase2DownIntenseMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_Phase2Down IsNotSaidWorldC6M2_Phase2Down IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IntensityOver75 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Phase2Down:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_Phase2DownIntenseMechanic
+}
+
+Response PlayerRemarkWorldC6M2_PostGate1xMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_BridgeCollapse01.vcd"  //Back in the water.
+	scene "scenes/Mechanic/DLC1_C6M2_BridgeCollapse02.vcd"  //Back in the water, everybody.
+	scene "scenes/Mechanic/DLC1_C6M2_BridgeCollapse03.vcd"  //Time for your bath Nick.
+}
+Rule PlayerRemarkWorldC6M2_PostGate1xMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_PostGate1 IsNotSaidWorldC6M2_PostGate1 IsNotCoughing IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsSaidOpenedGate1 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_PostGate1:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_PostGate1xMechanic
+}
+
+Response PlayerRemarkWorldC6M2_SafeRoomMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Saferoom01.vcd"  //We're getting close, I can feel her. I mean the car of course.
+	scene "scenes/Mechanic/DLC1_C6M2_Saferoom02.vcd"  //Oh man, we're getting close, I can just feel her. I mean the car of course.
+	scene "scenes/Mechanic/DLC1_C6M2_Saferoom03.vcd"  //Hey there's a dry saferoom up here!
+	scene "scenes/Mechanic/DLC1_C6M2_Saferoom04.vcd"  //Dry saferoom up here!
+	scene "scenes/Mechanic/DLC1_C6M2_Saferoom05.vcd"  //Oh We are getting close, man, I can feel her. I mean the car.
+}
+Rule PlayerRemarkWorldC6M2_SafeRoomMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_SafeRoom IsNotSaidWorldC6M2_SafeRoom IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear800 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_SafeRoom:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_SafeRoomMechanic
+}
+
+Response PlayerRemarkWorldC6M2_TattooMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Tattoo03.vcd"  //TATTOOS!
+	scene "scenes/Mechanic/DLC1_C6M2_Tattoo04.vcd"  //TATTOOS! TATTOOS!
+	scene "scenes/Mechanic/DLC1_C6M2_Tattoo05.vcd"  //Man, I love tattoos. I only have one, but I was gonna get my truck tattooed on my other arm. Damn zombies.
+	scene "scenes/Mechanic/DLC1_C6M2_Tattoo06.vcd"  //I love tattoos. I only have one, but I was gonna get my truck tattooed on my other arm.
+	scene "scenes/Mechanic/DLC1_C6M2_Tattoo07.vcd"  //Man, I love tattoos. I only have one, I was gonna get my truck tattooed on the other arm, but maybe now I get Jimmy Gibbs Jr car. Damn zombies.
+}
+Rule PlayerRemarkWorldC6M2_TattooMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_Tattoo IsNotSaidWorldC6M2_Tattoo IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Tattoo:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_TattooMechanic
+}
+
+Response PlayerRemarkWorldC6M2_TattooE&GMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_Tattoo01.vcd"  then Gambler WorldC6M2_Tattoo03a> foo:0 -2.996 //Hey Nick, you and me ought to get tattoos that say "bros".
+}
+Rule PlayerRemarkWorldC6M2_TattooE&GMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_Tattoo IsNotSaidWorldC6M2_Tattoo IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsGamblerNear800Weight0 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_Tattoo:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_TattooE&GMechanic
+}
+
+Response PlayerRemarkWorldC6M2_TourEntranceMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_TicketCounter01.vcd"  //Should we leave some money?
+	scene "scenes/Mechanic/DLC1_C6M2_TicketCounter02.vcd"  //Let's go under-the-river!
+}
+Rule PlayerRemarkWorldC6M2_TourEntranceMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_TourEntrance IsNotSaidWorldC6M2_TourEntrance IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_TourEntrance:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_TourEntranceMechanic
+}
+
+Response PlayerRemarkWorldC6M2_UpCatWalkMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_UpCatwalk01.vcd"  //A ladder!
+	scene "scenes/Mechanic/DLC1_C6M2_UpCatwalk02.vcd"  //Ladder!
+	scene "scenes/Mechanic/DLC1_C6M2_UpCatwalk03.vcd"  //There's a  ladder!
+	scene "scenes/Mechanic/DLC1_C6M2_UpCatwalk04.vcd"  //Oh, finally, a ladder!
+}
+Rule PlayerRemarkWorldC6M2_UpCatWalkMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_UpCatWalk IsNotSaidWorldC6M2_UpCatWalk IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_UpCatWalk:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_UpCatWalkMechanic
+}
+
+Response PlayerRemarkWorldC6M2_UpStairsMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M2_UpStairs01.vcd"  //Up the stairs.
+	scene "scenes/Mechanic/DLC1_C6M2_UpStairs02.vcd"  //There's a street up there.
+	scene "scenes/Mechanic/DLC1_C6M2_UpStairs03.vcd"  //Hey, let's get up to the street.
+}
+Rule PlayerRemarkWorldC6M2_UpStairsMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_UpStairs IsNotSaidWorldC6M2_UpStairs IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_UpStairs:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_UpStairsMechanic
+}
+
+Response PlayerRemarkWorldC6M2_UpStairs2Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_Upstairs01.vcd"  //Go upstairs.
+	scene "scenes/Mechanic/DLC1_C6M1_Upstairs03.vcd"  //Let's try upstairs.
+	scene "scenes/Mechanic/DLC1_C6M1_Upstairs04.vcd"  //Upstairs, everybody.
+}
+Rule PlayerRemarkWorldC6M2_UpStairs2Mechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M2_UpStairs2 IsNotSaidWorldC6M2_UpStairs2 IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M2_UpStairs2:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M2_UpStairs2Mechanic
+}
+
+Response PlayerRemarkWorldC6M3_BridgeRunMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleBridgeRun02.vcd"  then  WorldC6M3_ByBridge01 foo:0 -1.803 //I'm coming baby!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleBridgeRun04.vcd"  then  WorldC6M3_ByBridge01Ellis foo:0 -2.772 //This is the longest run of my life!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleBridgeRun05.vcd"  then  WorldC6M3_ByBridge01Ellis foo:0 -2.578 //Oh man, this is the longest run of my life!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleBridgeRun06.vcd"  then  WorldC6M3_ByBridge01 foo:0 -2.297 //I'm coming baby! I'm comin'!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleBridgeRun07.vcd"  then  WorldC6M3_ByBridge01 foo:0 -4.828 //I'm comin'! I'm sorry I left you!
+}
+Rule PlayerRemarkWorldC6M3_BridgeRunMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M3_BridgeRun IsNotSaidWorldC6M3_BridgeRun IsNotCoughing  IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear500 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M3_BridgeRun:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M3_BridgeRunMechanic
+}
+
+Response PlayerRemarkWorldC6M3_ByBridgeMechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleFinalGas01.vcd"  //Hey, thanks Zoey, I won't forget you!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleFinalGas03.vcd"  //THANK YOU ZOEY!
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleFinalGas04.vcd"  //Thank you, thank you Zoey.
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleFinalGas06.vcd"  //Thanks Francis.
+	scene "scenes/Mechanic/DLC1_C6M3_FinaleFinalGas07.vcd"  //Man, Francis, you are the coolest.
+}
+Rule PlayerRemarkWorldC6M3_ByBridgeMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldC6M3_ByBridge IsNotSaidWorldC6M3_ByBridge IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear300 IsSaidFinalVehicleArrived IsNotSpeakingWeight0
+	ApplyContext "SaidWorldC6M3_ByBridge:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldC6M3_ByBridgeMechanic
+}
+
+Response PlayerRemarkWorldFootLockerMechanic
+{
+	scene "scenes/Mechanic/DLC1_FootLocker02.vcd"  //Hey open up the lockers.
+	scene "scenes/Mechanic/DLC1_FootLocker03.vcd"  //Hey, let's search the lockers.
+	scene "scenes/Mechanic/DLC1_FootLocker04.vcd"  //Hey, we should probably check these lockers.
+	scene "scenes/Mechanic/DLC1_FootLocker07.vcd"  //Open up the locker.
+	scene "scenes/Mechanic/DLC1_FootLocker08.vcd"  //Search the locker.
+	scene "scenes/Mechanic/DLC1_FootLocker09.vcd"  //We should probably check this locker.
+}
+Rule PlayerRemarkWorldFootLockerMechanic
+{
+	criteria ConceptRemark IsMechanic IsWorldFootLocker IsNotSaidWorldFootLocker IsNotCoughing NotInCombat IsTalk IsTalkMechanic IsWorldTalkMechanic IsSubjectNear500 IsNotSpeakingWeight0
+	ApplyContext "SaidWorldFootLocker:1:0"
+	applycontexttoworld
+	Response PlayerRemarkWorldFootLockerMechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Scavenge
+//--------------------------------------------------------------------------------------------------------------
+Response C6M3_PourFinishedMechanic
+{
+	scene "scenes/Mechanic/blank.vcd" predelay ".5,1.5" then Manager L4D1_NiceJobPour foo:0 0 //
+}
+Rule C6M3_PourFinishedMechanic
+{
+	criteria ConceptPlayerPourFinished IsMechanic IsTalk IsTalkMechanic IsWorldTalkMechanic  Isc6m3_port ChanceToFire20Percent
+	ApplyContext "Talk:1:3"
+	Response C6M3_PourFinishedMechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer
+//--------------------------------------------------------------------------------------------------------------
+Response SurvivorNearFinaleC6M3Mechanic
+{
+	scene "scenes/Mechanic/blank.vcd"  //
+}
+Rule SurvivorNearFinaleC6M3Mechanic
+{
+	criteria ConceptPlayerNearFinale IsNotCoughing IsMechanic IsNotSaidFinaleAhead NotInCombat IsTalk IsTalkMechanic IsNotIncapacitated IsWorldTalkMechanic Isc6m3_port
+	ApplyContext "SaidFinaleAhead:1:0"
+	applycontexttoworld
+	Response SurvivorNearFinaleC6M3Mechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer - Pickups
+//--------------------------------------------------------------------------------------------------------------
+Response SurvivorPickupGolfCLubMechanic
+{
+	scene "scenes/Mechanic/DLC1_GolfClub04.vcd"  //Grabbing a golf club.
+	scene "scenes/Mechanic/DLC1_GolfClub05.vcd"  //Grabbing the club.
+	scene "scenes/Mechanic/DLC1_GolfClub06.vcd"  //I'm going with the golf club.
+}
+Rule SurvivorPickupGolfCLubMechanic
+{
+	criteria ConceptPlayerPickup IsNotCoughing IsMechanic IsPickedUpGolfClub  IsNotSpeaking  MechanicNotPickedUpItem IsTalk IsTalkMechanic IsWorldTalkMechanic
+	ApplyContext "MechanicPickedUpItem:1:30"
+	Response SurvivorPickupGolfCLubMechanic
+}
+
+Response SurvivorPickupM60Mechanic
+{
+	scene "scenes/Mechanic/DLC1_M6007.vcd"  //Shit, this is heavy.
+	scene "scenes/Mechanic/DLC1_M6008.vcd"  //This is a big gun.
+	scene "scenes/Mechanic/DLC1_M6009.vcd"  //Now this is a big gun.
+	scene "scenes/Mechanic/DLC1_M6011.vcd"  //Grabbing the belt gun.
+	scene "scenes/Mechanic/DLC1_M6012.vcd"  //Grabbing the belt gun.
+}
+Rule SurvivorPickupM60Mechanic
+{
+	criteria ConceptPlayerPickup IsNotCoughing IsMechanic IsPickedUpM60  IsNotSpeaking  MechanicNotPickedUpItem IsTalk IsTalkMechanic IsWorldTalkMechanic
+	ApplyContext "MechanicPickedUpItem:1:30"
+	Response SurvivorPickupM60Mechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer Convo (AUTO)
+//--------------------------------------------------------------------------------------------------------------
+Response WeddingWitchDead04Mechanic
+{
+	scene "scenes/Mechanic/DLC1_C6M1_WeddingWitchDead02.vcd"  //Whole thing makes me uncomfortable.
+}
+Rule WeddingWitchDead04Mechanic
+{
+	criteria ConceptWeddingWitchDead04 IsMechanic
+	Response WeddingWitchDead04Mechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Volcalize
+//--------------------------------------------------------------------------------------------------------------
+Response Player.LostCallC6M3Mechanic
+{
+	scene "scenes/Mechanic/blank.vcd"  //
+}
+Rule Player.LostCallC6M3Mechanic
+{
+	criteria ConceptTalkIdle IsMechanic IsClosestSurvivorFar3000 IsNotSaidPlayerLostCall Isc6m3_port  ChanceToFire100Percent IsNotSpeakingWeight0
+	ApplyContext "SaidPlayerLostCall:1:50"
+	applycontexttoworld
+	Response Player.LostCallC6M3Mechanic
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Weapon Spotted
+//--------------------------------------------------------------------------------------------------------------
+Response SurvivorSpottedGolfClubMechanic
+{
+	scene "scenes/Mechanic/DLC1_GolfClub01.vcd"  //Golf club!
+	scene "scenes/Mechanic/DLC1_GolfClub02.vcd"  //I got a golf club here.
+	scene "scenes/Mechanic/DLC1_GolfClub03.vcd"  //Club here.
+}
+Rule SurvivorSpottedGolfClubMechanic
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsMechanic IsTalk IsTalkMechanic IsSmartLookAuto  IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsGolfClub IsWorldTalkMechanic IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedGolfClubMechanic
+}
+
+Response SurvivorSpottedGolfClubAutoMechanic
+{
+	scene "scenes/Mechanic/DLC1_GolfClub01.vcd"  //Golf club!
+	scene "scenes/Mechanic/DLC1_GolfClub02.vcd"  //I got a golf club here.
+	scene "scenes/Mechanic/DLC1_GolfClub03.vcd"  //Club here.
+}
+Rule SurvivorSpottedGolfClubAutoMechanic
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsMechanic IsTalk IsTalkMechanic IsNotSmartLookAuto IsGolfClub IsWorldTalkMechanic
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedGolfClubAutoMechanic
+}
+
+Response SurvivorSpottedM60Mechanic
+{
+	scene "scenes/Mechanic/DLC1_M6001.vcd"  //Hey that's an M60.
+	scene "scenes/Mechanic/DLC1_M6002.vcd"  //Big gun here.
+	scene "scenes/Mechanic/DLC1_M6003.vcd"  //Big gun here.
+	scene "scenes/Mechanic/DLC1_M6004.vcd"  //Belt gun here.
+}
+Rule SurvivorSpottedM60Mechanic
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsMechanic IsTalk IsTalkMechanic IsSmartLookAuto  IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsM60 IsWorldTalkMechanic IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedM60Mechanic
+}
+
+Response SurvivorSpottedM60AutoMechanic
+{
+	scene "scenes/Mechanic/DLC1_M6001.vcd"  //Hey that's an M60.
+	scene "scenes/Mechanic/DLC1_M6002.vcd"  //Big gun here.
+	scene "scenes/Mechanic/DLC1_M6003.vcd"  //Big gun here.
+	scene "scenes/Mechanic/DLC1_M6004.vcd"  //Belt gun here.
+}
+Rule SurvivorSpottedM60AutoMechanic
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsMechanic IsTalk IsTalkMechanic IsNotSmartLookAuto IsM60 IsWorldTalkMechanic
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedM60AutoMechanic
+}
+
