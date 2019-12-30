@@ -4,18 +4,10 @@
 	// Bugs: smokers wont move 'run away' when they've attacked and this is fired.
 	L4D2_RunScript("StartAssault()");
 	
-	// Tells a nextbot to target a specific player
-	//L4D2_RunScript("CommandABot({cmd=0,bot=GetPlayerFromUserID(%i),target=GetPlayerFromUserID(%i)})", GetClientUserId(player), GetClientUserId(survivor));
-	
-	Logic:
-	
-	Updates SI origin every second and checks after few seconds if previous position is near last 
-	also checks around the map if position is near a stuckspot which they'll be teleported out of.
-	
-	1st detection: Does a push attempt
-	2nd detection: Tells SI to move to a nearest survivor position.
-	3rd detection: Tells SI to StartAssault() function which should make them attack almost immediatly if still or hiding for some reason.
-	4th detection: Scan nearby area for a valid nav position and reset check count.
+	ConVars to test:
+	nb_assault 				- "Tell all NextBots to assault"
+	nb_rush					- "Causes all infected to rush the survivors."
+	nb_move_to_position 	- "Force NextBots to move to the specified absolute position."
 */
 #include <sourcemod>
 #include <sdktools>
@@ -38,7 +30,8 @@ ConVar g_hPluginEnabled;
 float g_fLastPos[MAXPLAYERS + 1][3];
 
 int g_iAliveTimer[MAXPLAYERS + 1];
-int g_iStuckDetections[MAXPLAYERS + 1] = {0, ...};
+
+static int g_iStuckDetections[MAXPLAYERS + 1] = 0;
 
 bool g_bRoundInProgress;
 bool bStuckSpotFirstSaved;
@@ -62,18 +55,19 @@ public void OnPluginStart()
 	
 	LoadTranslations("common.phrases.txt");
 	
+	g_hStuckSpotsArray = CreateArray(128);
+	
 	HookEvent("player_spawn", Event_OnPlayerSpawn);
 	HookEvent("player_death", Event_OnPlayerDeath);
 	HookEvent("survival_round_start", Event_OnSurvivalStart);
 	HookEvent("round_end", Event_OnRoundEnd);
-	
-	g_hStuckSpotsArray = CreateArray(128);
 	
 	RegAdminCmd("sm_stuckspots", Cmd_ManageStuckSpots, ADMFLAG_ROOT);
 	
 	#if DEBUG
 	RegAdminCmd("sm_getallpos", Cmd_GetSavedArrayPos, ADMFLAG_ROOT);
 	RegAdminCmd("sm_movetype", Cmd_TestMoveTypesOnSI, ADMFLAG_ROOT);
+	RegAdminCmd("sm_cheat", Cmd_OnCheatCommand, ADMFLAG_ROOT);
 	#endif
 }
 
@@ -137,34 +131,83 @@ public Action Cmd_TestMoveTypesOnSI(int client, int args)
 		}
 	}
 	
-	PrintToChat(client, "Movetype on %N set!", player);
-	
-	L4D2_RunScript("EntIndexToHScript(%i).TryGetPathableLocationWithin(%i)", player, 500);
-	
-	int survivor = GetNearestSurvivor();
-	if (survivor != -1)
-	{
-		PrintToChat(client, "(%N) nearest survivor is: %N", player, survivor);
-		
-		float dist;
-		float clientOrg[3], survivorOrg[3];
-		
-		GetClientAbsOrigin(player, clientOrg);
-		GetClientAbsOrigin(survivor, survivorOrg);
-				
-		dist = GetVectorDistance(clientOrg, survivorOrg);
-		PrintToChat(client, "%N - %N distance = %.3f", player, survivor, dist);
-		
-		SetEntityMoveType(player, MOVETYPE_ISOMETRIC);
-		
-		// CommandABot: cmd=Attack, bot=SI
-		L4D2_RunScript("CommandABot({cmd=1,pos=Vector(%f, %f, %f),bot=GetPlayerFromUserID(%i)})", 
-		survivorOrg[0], survivorOrg[1], survivorOrg[2], GetClientUserId(player));
-		
-		g_bShouldForceMovement[player] = true;
-	}
+	TryGetUnusualStuckSpots(player);
 	
 	return Plugin_Handled;
+}
+
+public Action Cmd_OnCheatCommand(int client, int args)
+{
+	if (args < 1)
+	{
+		ReplyToCommand(client, "[SM] usage: sm_cheat <command> <optional argument>");
+		return Plugin_Handled;
+	}
+	
+	char sArgument[64], sArgument2[64];
+	GetCmdArg(1, sArgument, sizeof(sArgument));
+	GetCmdArg(2, sArgument2, sizeof(sArgument2));
+	
+	CheatCommand(client, sArgument, sArgument2);
+	
+	return Plugin_Handled;
+}
+
+/* Executes any cheat flagged commands on the server. 
+ * @param1 - name of the command
+ * @param2 - optional command argument
+ * @return - no return.
+*/
+void CheatCommand(int client, const char[] command, const char[] argument = "")
+{
+	int iFlags = GetCommandFlags(command);
+	SetCommandFlags(command, iFlags ^ FCVAR_CHEAT);
+	FakeClientCommand(client, "%s %s", command, argument);
+	SetCommandFlags(command, iFlags);
+}
+
+void TryGetUnusualStuckSpots(int client)
+{
+	char sMap[42];
+	GetCurrentMap(sMap, sizeof(sMap));
+	
+	if (StrEqual(sMap, "c1m4_atrium"))
+	{
+		float flower_pot[3] =  {-2782.263184, -3520.630127, 318.446259};
+		float flower_target[3] = {-2706.899414, -3814.638916, 403.762543};
+		
+		if (GetVectorDistance(g_fLastPos[client], flower_pot) < 100.0)
+		{
+			float dist = GetVectorDistance(flower_pot, flower_target);
+			MovePlayerSmoothly(client, dist, 251.0, flower_target);
+		}
+	}
+}
+
+stock bool MovePlayerSmoothly(int client, float distance, float jump_power = 251.0, float vectarget[3])
+{
+	static float angle[3], dir[3], current[3], resulting[3], vecOrigin[3];
+	
+	static int iVelocity = 0;
+	if (iVelocity == 0)
+		iVelocity = FindSendPropInfo("CBasePlayer", "m_vecVelocity[0]");
+	
+	GetClientAbsOrigin(client, vecOrigin);
+	GetVectorOrigins(vecOrigin, vectarget, angle);
+	TeleportEntity(client, NULL_VECTOR, angle, NULL_VECTOR);
+	
+	GetClientEyeAngles(client, angle);
+	
+	GetAngleVectors(angle, dir, NULL_VECTOR, NULL_VECTOR);
+	ScaleVector(dir, distance);
+	
+	GetEntDataVector(client, iVelocity, current);
+	resulting[0] = current[0] + dir[0];
+	resulting[1] = current[1] + dir[1];
+	resulting[2] = jump_power; // min. 251
+	
+	TeleportEntity(client, NULL_VECTOR, NULL_VECTOR, resulting);
+	return true;
 }
 #endif
 // <- END OF DEBUG ->
@@ -478,24 +521,23 @@ public void Event_OnPlayerDeath(Event event, const char[] name, bool dontBroadca
 public void Event_OnPlayerSpawn(Event event, const char[] name, bool dontBroadcast)
 {
 	// Is plugin enabled ?
-	if ( !GetConVarBool(g_hPluginEnabled) ) return;
+	if ( !GetConVarBool(g_hPluginEnabled) || !IsSurvivalMode() ) return;
 	
 	int client = GetClientOfUserId(GetEventInt(event, "userid"));
 	
-	if ( client && IsClientInGame(client) && GetClientTeam(client) == INFECTED_TEAM )
+	if( IsSpecialInfected(client) || IsTank(client) )
 	{
-		if( IsSpecialInfected(client) || IsTank(client) )
-		{
-			// Update SI position every few second
-			CreateTimer(5.0, Timer_CheckStuckSpots, GetClientUserId(client), TIMER_REPEAT | TIMER_FLAG_NO_MAPCHANGE);
+		// Update SI position every few second
+		CreateTimer(5.0, Timer_CheckStuckSpots, GetClientUserId(client), TIMER_REPEAT | TIMER_FLAG_NO_MAPCHANGE);
 			
-			// Start getting time alive
-			g_iAliveTimer[client] = GetTime();
-			
-			#if DEBUG
-			PrintToChatAll("starting timer for %N", client);
-			#endif
-		}
+		// Start getting time alive
+		g_iAliveTimer[client] = GetTime();
+		
+		g_iStuckDetections[client] = 0;
+		
+		#if DEBUG
+		PrintToChatAll("starting timer for %N", client);
+		#endif
 	}
 }
 
@@ -509,7 +551,7 @@ public Action Timer_CheckStuckSpots(Handle timer, any data)
 		GetClientAbsOrigin(client, g_fLastPos[client]);
 		
 		// If position what we have cached x seconds ago is close radius to this one
-		CreateTimer(1.0, Timer_CheckPosition, GetClientUserId(client), TIMER_FLAG_NO_MAPCHANGE);
+		CreateTimer(3.0, Timer_CheckPosition, GetClientUserId(client), TIMER_FLAG_NO_MAPCHANGE);
 		
 		// If SI not moving check if he within a radius for a 'stuckspot' and teleport him out.
 		// Spots are looked up from kv file on map start.
@@ -536,7 +578,7 @@ public Action Timer_CheckPosition(Handle timer, any data)
 {
 	int client = GetClientOfUserId(data);
 	
-	if( client && IsClientInGame(client) )
+	if( client && IsClientInGame(client) && IsPlayerAlive(client) )
 	{
 		// Is not moving
 		if( IsNotMoving(client) )
@@ -549,6 +591,10 @@ public Action Timer_CheckPosition(Handle timer, any data)
 			
 			if( g_iStuckDetections[client] == 1 )
 			{
+				L4D2_RunScript("StartAssault()");
+			}
+			else if( g_iStuckDetections[client] == 2 )
+			{
 				// Doesnt have direct line of sight or pinning someone
 				if (GetSIAbilityState(client) || L4D_HasVisibleThreats(client) ) 
 				{
@@ -559,38 +605,44 @@ public Action Timer_CheckPosition(Handle timer, any data)
 					return Plugin_Continue;
 				}
 				
-				TryToPush(client);
-				
-				TrySetMovement(client);
-			}
-			else if( g_iStuckDetections[client] == 2 )
-			{
-				int survivor = GetNearestSurvivor();
-				if(survivor != -1)
-				{
-					float survivorOrg[3];
-					GetClientAbsOrigin(survivor, survivorOrg);
-					
-					TryToPush(client);
-					
-					L4D2_RunScript("CommandABot({cmd=1,pos=Vector(%f,%f,%f),bot=GetPlayerFromUserID(%i)})", 
-					survivorOrg[0], survivorOrg[1], survivorOrg[2], GetClientUserId(client));
-					
-					#if DEBUG
-					PrintToChatAll("%N moving to %N", client, survivor);
-					#endif
-				}
+				TeleportPlayerSmooth(client, 150.0);
 			}
 			else if( g_iStuckDetections[client] == 3 )
 			{
-				TryToPush(client);
+				if (GetSIAbilityState(client) || L4D_HasVisibleThreats(client) ) 
+				{
+					#if DEBUG
+					PrintToChatAll("%N pinning/has los skipping..", client);
+					#endif
+					
+					return Plugin_Continue;
+				}
 				
-				L4D2_RunScript("StartAssault()");
+				TryToPush(client);
 			}
 			else if( g_iStuckDetections[client] == 4 )
 			{
-				// Tries to find an 'pathable location' within 500 units radius. TODO: test
 				L4D2_RunScript("EntIndexToHScript(%i).TryGetPathableLocationWithin(%i)", client, 500);
+				TryToPush(client);
+			}
+			else if( g_iStuckDetections[client] == 5 )
+			{
+				static float angle[3], vecOrigin[3], vecTarget[3];
+				
+				int iNear = GetNearestSurvivor(client);
+				if (iNear != 0) {
+					GetClientAbsOrigin(client, vecOrigin);
+					GetClientAbsOrigin(iNear, vecTarget);
+					GetVectorOrigins(vecOrigin, vecTarget, angle);
+					TeleportEntity(client, NULL_VECTOR, angle, NULL_VECTOR);
+				}
+				
+				g_bShouldForceMovement[client] = true;
+				
+				TryToPush(client);
+				StartMovingSI(client);
+				
+				// Reset
 				g_iStuckDetections[client] = 0;
 			}
 		}
@@ -631,6 +683,12 @@ bool IsAtNotAllowedSpot(int client)
 	return false;
 }
 
+void StartMovingSI(int client)
+{	
+	CreateTimer(1.0, Timer_MoveSI, GetClientUserId(client), TIMER_REPEAT | TIMER_FLAG_NO_MAPCHANGE);
+	CreateTimer(6.0, Timer_Stop, GetClientUserId(client), TIMER_FLAG_NO_MAPCHANGE);
+}
+
 // Add a velocity impulse to push SI
 void TryToPush(int client)
 {
@@ -667,24 +725,97 @@ void TryToPush(int client)
 	}
 }
 
+// credits: drakoga's tank anti-stuck plugin
+// smooth teleport in eye view direction (with collision)
+stock bool TeleportPlayerSmooth(int client, float distance, float jump_power = 251.0)
+{
+	static float angle[3], dir[3], current[3], resulting[3], vecOrigin[3], vecTarget[3];
+	
+	static int iVelocity = 0;
+	if (iVelocity == 0)
+		iVelocity = FindSendPropInfo("CBasePlayer", "m_vecVelocity[0]");
+	
+	int iNear = GetNearestSurvivor(client);
+	if (iNear != 0) {
+		GetClientAbsOrigin(client, vecOrigin);
+		GetClientAbsOrigin(iNear, vecTarget);
+		GetVectorOrigins(vecOrigin, vecTarget, angle);
+		TeleportEntity(client, NULL_VECTOR, angle, NULL_VECTOR);
+	}
+	
+	GetClientEyeAngles(client, angle);
+	
+	GetAngleVectors(angle, dir, NULL_VECTOR, NULL_VECTOR);
+	ScaleVector(dir, distance);
+	
+	GetEntDataVector(client, iVelocity, current);
+	resulting[0] = current[0] + dir[0];
+	resulting[1] = current[1] + dir[1];
+	resulting[2] = jump_power; // min. 251
+	
+	TeleportEntity(client, NULL_VECTOR, NULL_VECTOR, resulting);
+	return true;
+}
+
+void GetVectorOrigins(float vecClientPos[3], float vecTargetPos[3], float ang[3])
+{
+	static float v[3];
+	SubtractVectors(vecTargetPos, vecClientPos, v);
+	NormalizeVector(v, v);
+	GetVectorAngles(v, ang);
+}
+
 /*********************************
 	Shared stuff
 *********************************/
 
-// Makes the SI move in a low friction glide state or something
-void TrySetMovement(int client)
-{
-	SetEntityMoveType(client, MOVETYPE_ISOMETRIC);
-	CreateTimer(2.5, Timer_ResetMovement, client);
+//credit: dragokas' tank anti-stuck plugin
+int GetNearestSurvivor(int client) {
+	static float tpos[3], spos[3], dist, mindist;
+	static int i, iNearClient;
+	mindist = 0.0;
+	iNearClient = 0;
+	GetClientAbsOrigin(client, tpos);
+	
+	for (i = 1; i <= MaxClients; i++) {
+		if (IsClientInGame(i) && GetClientTeam(i) == 2 && IsPlayerAlive(i)) {
+			GetClientAbsOrigin(i, spos);
+			dist = GetVectorDistance(tpos, spos, false);
+			if (dist < mindist || mindist < 0.1) {
+				mindist = dist;
+				iNearClient = i;
+			}
+		}
+	}
+	return iNearClient;
 }
 
-// Reset movetype to normal
-public Action Timer_ResetMovement(Handle timer, any data)
+public Action Timer_MoveSI(Handle timer, any data)
 {
-	int client = data;
+	int client = GetClientOfUserId(data);
+	if(client && IsClientInGame(client) && IsPlayerAlive(client))
+	{
+		if (!g_bShouldForceMovement[client])
+		{
+			return Plugin_Stop;
+		}
+		
+		if(g_bShouldForceMovement[client]) 
+		{
+			int flags = GetEntityFlags(client);
+			if(flags & FL_ONGROUND)
+				TeleportPlayerSmooth(client, 295.0, 269.0);
+		}
+	}
+	return Plugin_Continue;
+}
+
+public Action Timer_Stop(Handle timer, any data)
+{
+	int client = GetClientOfUserId(data);
 	if(client && IsClientInGame(client))
 	{
-		SetEntityMoveType(client, MOVETYPE_WALK);
+		g_bShouldForceMovement[client] = false;
 	}
 }
 
@@ -694,7 +825,7 @@ bool IsNotMoving(int client)
 	GetClientAbsOrigin(client, currentpos);
 	
 	// still withing this radius
-	if( GetVectorDistance(g_fLastPos[client], currentpos) < 30.0 )
+	if( GetVectorDistance(g_fLastPos[client], currentpos) < 35.0 )
 	{
 		// Not moving
 		return true;
@@ -721,7 +852,7 @@ bool IsTank(int client)
 // True if the client has visible threats, false otherwise
 bool L4D_HasVisibleThreats(int client)
 {
-	if( GetEntProp(client, Prop_Send, "m_hasVisibleThreats") )
+	if( GetEntProp(client, Prop_Send, "m_hasVisibleThreats") > 0 )
 	{
 		return true;
 	}
@@ -756,6 +887,13 @@ bool IsSpecialInfected(int client)
 	return false;
 }
 
+bool IsSurvivalMode()
+{
+	char sGamemode[16];
+	FindConVar("mp_gamemode").GetString(sGamemode, sizeof(sGamemode));
+	return StrEqual(sGamemode, "survival");
+}
+
 // credits: stock from timocop (alliedmodder forums)
 /**
 * Runs a single line of vscript code.
@@ -782,53 +920,41 @@ void L4D2_RunScript(const char[] sCode, any:...)
 	AcceptEntityInput(iScriptLogic, "RunScriptCode");
 }
 
-// @return: nearest survivor index from an SI client's position
-// credit: https://forums.alliedmods.net/showthread.php?p=1920200
-int GetNearestSurvivor()
+/*
+// Targeting Functions from aimbot.smx plugin
+void LookAtClient(int iClient, int iTarget)
 {
-	// Variables to store
-	float clientOrigin[3];
-	float searchOrigin[3];
-	float near;
-	float distance;
+	float fTargetPos[3]; float fTargetAngles[3]; float fClientPos[3]; float fFinalPos[3];
+	GetClientEyePosition(iClient, fClientPos);
+	GetClientEyePosition(iTarget, fTargetPos);
+	GetClientEyeAngles(iTarget, fTargetAngles);
 	
-	// nearest client
-	int nearest;
+	float fVecFinal[3];
+	AddInFrontOf(fTargetPos, fTargetAngles, 7.0, fVecFinal);
+	MakeVectorFromPoints(fClientPos, fVecFinal, fFinalPos);
 	
-	// SI search
-	for (int i = 1; i <= MaxClients; i++)
-	{
-		if (!IsClientInGame(i) || GetClientTeam(i) != 3 || !IsPlayerAlive(i) )continue;
-		
-		nearest = 0;
-		near = 0.0;
-		
-		GetClientAbsOrigin(i, clientOrigin);
-		
-		// Survivor search
-		for (int ii = 1; ii <= MaxClients; ii++)
-		{
-			if ( !IsClientInGame(ii) || GetClientTeam(ii) == 1 || !IsPlayerAlive(ii) || GetClientTeam(ii) != 2 )continue;
-			
-			GetClientAbsOrigin(ii, searchOrigin);
-			
-			distance = GetVectorDistance(clientOrigin, searchOrigin);
-			
-			// Is he more near to the player as the player before?
-			if(near == 0.0) 
-			{
-				near = distance;
-				nearest = ii;
-			}
-			
-			if(distance < near)
-			{
-				near = distance;
-				nearest = ii;
-			}
-			
-			return nearest;
-		}
-	}
-	return -1;
+	GetVectorAngles(fFinalPos, fFinalPos);
+
+	float vecPunchAngle[3];
+	
+	GetEntPropVector(iClient, Prop_Send, "m_vecPunchAngle", vecPunchAngle);
+	
+	TeleportEntity(iClient, NULL_VECTOR, fFinalPos, NULL_VECTOR);
 }
+
+void AddInFrontOf(float fVecOrigin[3], float fVecAngle[3], float fUnits, float fOutPut[3])
+{
+	float fVecView[3]; GetViewVector(fVecAngle, fVecView);
+	
+	fOutPut[0] = fVecView[0] * fUnits + fVecOrigin[0];
+	fOutPut[1] = fVecView[1] * fUnits + fVecOrigin[1];
+	fOutPut[2] = fVecView[2] * fUnits + fVecOrigin[2];
+}
+
+void GetViewVector(float fVecAngle[3], float fOutPut[3])
+{
+	fOutPut[0] = Cosine(fVecAngle[1] / (180 / FLOAT_PI));
+	fOutPut[1] = Sine(fVecAngle[1] / (180 / FLOAT_PI));
+	fOutPut[2] = -Sine(fVecAngle[0] / (180 / FLOAT_PI));
+}
+*/
