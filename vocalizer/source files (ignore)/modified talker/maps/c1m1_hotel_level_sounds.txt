@@ -1,0 +1,62 @@
+//Melee VO for animation events
+
+//(Grunts of swinging an axe,bat, etc with mouth closed)
+"Coach.MeleeSwing"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.59"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_70dB"
+	"rndwave"	
+	{ 
+		"wave"			"player\survivor\voice\Coach\MeleeSwing01.wav"
+		"wave"			"player\survivor\voice\Coach\MeleeSwing02.wav"
+		"wave"			"player\survivor\voice\Coach\MeleeSwing03.wav"
+
+
+	}
+}
+
+"Gambler.MeleeSwing"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.53"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_70dB"
+	"rndwave"
+	{
+	        "wave"			"player\survivor\voice\Gambler\MeleeSwing01.wav"
+		"wave"			"player\survivor\voice\Gambler\MeleeSwing02.wav"
+		"wave"			"player\survivor\voice\Gambler\MeleeSwing03.wav"
+	}
+	
+}
+
+"Mechanic.MeleeSwing"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.67"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_70dB"
+	"rndwave"
+	{
+		"wave"			"player\survivor\voice\Mechanic\MeleeSwing01.wav"
+		"wave"			"player\survivor\voice\Mechanic\MeleeSwing02.wav"
+		"wave"			"player\survivor\voice\Mechanic\MeleeSwing03.wav"
+	}
+}
+
+"Producer.MeleeSwing"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.66"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_70dB"
+	"rndwave"
+	{
+		"wave"			"player\survivor\voice\Producer\MeleeSwing01.wav"
+		"wave"			"player\survivor\voice\Producer\MeleeSwing02.wav"
+		"wave"			"player\survivor\voice\Producer\MeleeSwing03.wav"
+	}
+}
+
