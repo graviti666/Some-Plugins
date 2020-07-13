@@ -1,26 +1,9 @@
 "AddonInfo"
 {
 addonSteamAppID 550            // 550 is the app ID for Left 4 Dead 2
-addontitle	 "Improved Modified Talker"
+addontitle	 "Improved Talker Scripts"
 addonversion	 "1"
-addonauthor "Agent 47, Morning Nine Nine, KillzNThrillz, Gold, Gravity"
-addonContent_Campaign	0
-
-addonDescription "Modified version of (Improved Talker) by Agent 47. A goddamn lot of lines added, including every single laughter sound files for the survivors (which for some reason gets left behind in other talkers...). Added Hurrah lines, Argh! Lines, Yes lines, No lines, Thanks lines and many more for L4d2 survivors"
-
+addonauthor "Gravity"
+addonDescription "server-side Vocalizer with all unused generic vocalizes. Laughter/hurrah etc..."
 addonContent_Script 1
-addonContent_Music 0
-addonContent_Sound 0
-addonContent_prop 0 //This Add-on provides new props, 
-addonContent_Prefab 1 //Provides new prefabs
-
-addonContent_BackgroundMovie	0	//Provides a replacement for the background movie.
-addonContent_Survivor 0 //Provides a new survivor model. 0=false, 1=true, String in quotes if replaces specific single character, i.e. "Francis"
-addonContent_BossInfected 0 //Provides a new boss infected model. Break these out?
-addonContent_CommonInfected 0 //Provides a new common infected model
-addonContent_WeaponModel	 0 //Provides a new appearance to existing weapons, but does not change their function
-addonContent_weapon 0 //provides new weapons or new zombie killing functionality, i.e. guns, explosives, booby traps, hot tar, 
-addonContent_Skin 0 //0 if no new skin textures for existing models. 1 if multiple skin pack. String in quotes if specific single skin
-addonContent_Spray 0 //Provides new sprays. 
-addonContent_Map 0	//Add-on provides a standalone map
 }
