@@ -4,12 +4,12 @@
   existing gameinfo.txt at the top such as " Game      modified_game_sounds ". Where 'modified_game_sounds' is the folder name created.
   
 ## Credits
-  original authors: Agent 47, Morning Nine Nine, KillzNThrillz, Gold.
-  Modified by gravity
+> Gravity
   
 ## Changelog:
 - (7/12/20) Almost all lines work in survival now.
 - (7/12/20) L4D2 survivors added more 'hurrah' sounds for personal taste.
+- (7/13/20) Vocalizer now re-done entirely only contains extra rosetta responses, none of that automated crap from the original authors.
 
 ## Todo:
-- Fix infinitely reapeating vocalizes "Boat call" "Coach's BBQ liner"
+- Nothing for now.
