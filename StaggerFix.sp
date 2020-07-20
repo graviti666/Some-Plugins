@@ -3,7 +3,7 @@
 
 * Left4Dhooks Direct (replacement for left4downtown) - https://forums.alliedmods.net/showthread.php?t=321696
 * dhooks - https://forums.alliedmods.net/showthread.php?p=2588686#post2588686
-* SM 1.0
+* SM 1.10
 ------------------------------------------------------------------------------------------------*/
 #include <sourcemod>
 #include <left4dhooks>
