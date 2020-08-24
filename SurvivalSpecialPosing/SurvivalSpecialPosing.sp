@@ -1,3 +1,6 @@
+/*
+ * 24, August 2020 - Disabled rooftop fall cameras as theyre quite buggy.
+*/
 #include <sourcemod>
 #include <sdktools>
 
@@ -122,6 +125,9 @@ public void OnMapStart()
 	{
 		PrecacheModel(sSIModelsList[i], true);
 	}
+	
+	if (IsRooftop())
+		DisableRooftopDeathFallCameras();
 }
 
 // Create the cfg file if it doesnt exist
@@ -488,6 +494,9 @@ void CreateCameraEntity( float position[3], float angles[3], bool bSave = false 
 public void Event_OnRoundInitialize(Event event, const char[] name, bool dontBroadcast)
 {
 	CreateTimer(2.0, Timer_ResolveSpecs, _, TIMER_FLAG_NO_MAPCHANGE);
+	
+	if (IsRooftop())
+		DisableRooftopDeathFallCameras();
 }
 
 public Action Timer_ResolveSpecs(Handle timer)
@@ -527,7 +536,7 @@ public void Event_OnRoundEnd(Event event, const char[] name, bool dontBroadcast)
 
 public void Event_OnSurvStart(Event event, const char[] name, bool dontBroadcast)
 {
-	g_bRoundInProgress = true;
+	g_bRoundInProgress = true;		
 }
 
 // map change before round end event gets called again
@@ -789,6 +798,22 @@ bool bLoadCfgFile(bool PrintSection = false, bool LatestSave = false)
 /*******************************
 Shared stuff
 *******************************/
+
+void DisableRooftopDeathFallCameras()
+{
+	int entity = -1;
+	while ((entity = FindEntityByClassname(entity, "point_deathfall_camera")) != -1)
+	{
+		if (IsValidEntity(entity)) AcceptEntityInput(entity, "kill");
+	}
+}
+
+bool IsRooftop()
+{
+	char sMap[32];
+	GetCurrentMap(sMap, sizeof(sMap));
+	return (StrEqual(sMap, "c8m5_rooftop"));
+}
 
 bool IsSurvival()
 {
