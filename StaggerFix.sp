@@ -35,11 +35,12 @@ public void OnMapStart()
 public Action L4D2_OnStagger(int target, int source)
 {
 	if (target && IsClientInGame(target) && GetClientTeam(target) == 2)
-	{
-		g_iPreviousStagger[target] = GetTime();
-		
+	{	
 		if (g_hStaggerCheck[target] == null)
-			g_hStaggerCheck[target] = CreateTimer(2.5, Timer_CheckStagger, GetClientUserId(target), TIMER_FLAG_NO_MAPCHANGE);
+		{
+			g_iPreviousStagger[target] = GetTime();
+			g_hStaggerCheck[target] = CreateTimer(2.5, Timer_CheckStagger, GetClientUserId(target), TIMER_FLAG_NO_MAPCHANGE);	
+		}
 	}
 }
 
