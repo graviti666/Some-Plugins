@@ -1,9 +1,0 @@
-"AddonInfo"
-{
-addonSteamAppID 550            // 550 is the app ID for Left 4 Dead 2
-addontitle	 "Improved Talker Scripts"
-addonversion	 "1"
-addonauthor "Gravity"
-addonDescription "server-side Vocalizer with all unused generic vocalizes. Laughter/hurrah etc..."
-addonContent_Script 1
-}
