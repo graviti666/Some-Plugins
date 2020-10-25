@@ -1,0 +1,25 @@
+"Games"
+{
+	"#default"
+	{
+		"#supported"
+		{
+			"engine"	"left4dead2"
+		}
+		"Signatures"
+		{
+			"CBaseServer_ConnectClient"
+			{
+				"library"		"engine"
+				"linux"		"@_ZN11CBaseServer13ConnectClientER8netadr_siiiPKcS3_S3_iR10CUtlVectorI22CLC_SplitPlayerConnect10CUtlMemoryIS5_iEEb"
+			}
+
+			"CBaseServer_RejectConnection"
+			{
+				"library"		"engine"
+				"linux"		"@_ZN11CBaseServer16RejectConnectionERK8netadr_sPcz"
+			}
+		}
+	}
+}
+
