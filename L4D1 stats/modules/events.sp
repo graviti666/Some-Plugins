@@ -2,6 +2,64 @@
 				Events - module
 ===============================================*/
 
+public void Event_OnPlayerHurtConcise(Event event, const char[] name, bool dontBroadcast)
+{
+	int attacker = event.GetInt("attackerentid");
+	int victim = GetClientOfUserId(event.GetInt("userid"));
+	
+	// Isnt valid survivors or ingame.
+	if (!IsSurvivor(attacker) || !IsSurvivor(victim))
+	{
+		return;
+	}
+	
+	// Damage done to health
+	int damage = event.GetInt("dmg_health");
+	
+	// Time to cache damage dealt by attacker to victim user, if the dmg isnt self-inflicted
+	if( victim != attacker )
+	{
+		g_iDamageCache[attacker][victim] += damage;
+		g_iDmgTotal[attacker] += damage;
+		g_iDmgTotalCache += damage;
+		g_iDmgReceivedTotal[victim] += damage;
+	}
+}
+
+public Action Event_OnPlayerFirstSpawn(Event event, const char[] name, bool dontBroadcast)
+{
+	int client = GetClientOfUserId(event.GetInt("userid"));
+	bool IsBot = event.GetBool("isbot");
+	
+	if (g_bRoundProgress)	// just incase
+		return Plugin_Continue;
+	
+	if (client && IsClientInGame(client) && GetClientTeam(client) == 2 && !IsBot)
+	{
+		CreateTimer(2.0, Timer_CalculateKits);
+	}
+	return Plugin_Continue;
+}
+
+public Action Timer_CalculateKits(Handle timer)
+{
+	MedkitStats_CalculateKits();
+}
+
+public void Event_OnPlayerHealed(Event event, const char[] name, bool dontBroadcast)
+{	
+	int client = GetClientOfUserId(event.GetInt("subject"));
+	
+	if (!g_bRoundProgress)
+		return;
+	
+	if (client && IsClientInGame(client) && GetClientTeam(client) == 2)
+	{
+		g_iKitsUsedClient[client]++;
+		g_iKitsTotalUsed++;
+	}
+}
+
 public void Event_OnPlayerSpawn(Event event, const char[] name, bool dontBroadcast)
 {
 	int client = GetClientOfUserId(event.GetInt("userid"));
@@ -104,7 +162,10 @@ public void Event_OnSurvivalStart(Event event, const char[] name, bool dontBroad
 		g_bRoundProgress = true;
 	
 		g_iSurvivalTime = GetTime();
+		
 		ResetStatsArrays();
+		ResetHealthArrays();
+		ResetFFArrays();
 		
 		char sHostNameFormat[64];
 		FormatEx(sHostNameFormat, sizeof(sHostNameFormat), "%s - Round starting..", g_sOriginalHostName);

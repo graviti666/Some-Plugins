@@ -64,8 +64,28 @@ int g_iSIKillsType[SI_TYPE];
 int g_iTankDamage[MAXPLAYERS + 1];
 int g_iTankDamageTotal;
 
-// modules - keep plugin from becoming 8k lines
-#include "events.sp"
+// Health item usage
+int g_iMedkitCount;
+
+int g_iKitsUsedClient[MAXPLAYERS + 1];
+int g_iKitsTotalUsed;
+
+/*
+ * Friendly Fire tracking
+*/
+int g_iDamageCache[MAXPLAYERS+1][MAXPLAYERS+1];		// attacker, victim
+
+int g_iDmgTotal[MAXPLAYERS+1];
+int g_iDmgReceivedTotal[MAXPLAYERS+1];
+
+int g_iDmgTotalCache;
+
+/*
+ * Modules - Keeping things clean
+*/
+#include "modules/events.sp"
+#include "modules/medkit_stats.sp"
+#include "modules/ff_stats.sp"
 
 public Plugin myinfo = 
 {
@@ -89,8 +109,14 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 
 public void OnPluginStart()
 {
+	// g_hCvarTrackingType = CreateConVar("l4d_stats_track_type", "0", "How should we track player kill percentages? 1 = Track with kills | 0 = Track by damage dealt", 0, true, 0.0, true, 1.0);
+	
+	RegConsoleCmd("sm_sicount", Command_DisplaySICounts);
 	RegConsoleCmd("sm_stats", Command_DisplayStats);
 	RegConsoleCmd("sm_stuck", Command_DisplayStuckReport);
+	RegConsoleCmd("sm_medstats", Command_DisplayMedkitStats);
+	RegConsoleCmd("sm_ff", Command_DisplayFFReport);
+	RegConsoleCmd("sm_ffe", Command_DisplayFFExtra);
 	
 	HookEvent("player_spawn", Event_OnPlayerSpawn);
 	HookEvent("player_death", Event_OnPlayerDeath); // Tracking SI + tank kills
@@ -98,6 +124,9 @@ public void OnPluginStart()
 	HookEvent("create_panic_event", Event_OnSurvivalStart);
 	HookEvent("round_end", Event_OnRoundEnd);
 	HookEvent("player_hurt", Event_PlayerHurt);
+	HookEvent("heal_success", Event_OnPlayerHealed);
+	HookEvent("player_first_spawn", Event_OnPlayerFirstSpawn);
+	HookEvent("player_hurt_concise", Event_OnPlayerHurtConcise);
 }
 
 public void OnMapStart()
@@ -117,6 +146,32 @@ public void GrabHostName(any data)
 {
 	convar_hostname = FindConVar("hostname");
 	GetConVarString(convar_hostname, g_sOriginalHostName, sizeof(g_sOriginalHostName));
+}
+
+/* ========================================================
+ *					Command callbacks
+==========================================================*/
+
+public Action Command_DisplayFFReport(int client, int args)
+{
+	FriendlyFire_ShowReport(client);
+}
+
+public Action Command_DisplayFFExtra(int client, int args)
+{
+	FriendlyFire_ShowReportExtra(client);
+}
+
+public Action Command_DisplaySICounts(int client, int args)
+{
+	SICounts(client);
+	return Plugin_Handled;
+}
+
+public Action Command_DisplayMedkitStats(int client, int args)
+{
+	MedkitStats(client);
+	return Plugin_Handled;
 }
 
 public Action Command_DisplayStats(int client, int args)
@@ -149,6 +204,22 @@ public Action Command_DisplayStuckReport(int client, int args)
 /*=============================================
 				Report functions
 ==============================================*/
+
+void SICounts(int client)
+{
+	float rate = GetRatePerMinute(g_iGlobalKills[SI]);
+	
+	float fTotalSIKills = g_iGlobalKills[SI] == 0 ? 1.0 : float(g_iGlobalKills[SI]);
+	
+	int smoker_pct = RoundToNearest((g_iSIKillsType[SMOKER] / fTotalSIKills) * 100);
+	int boomer_pct = RoundToNearest((g_iSIKillsType[BOOMER] / fTotalSIKills) * 100);
+	int hunter_pct = RoundToNearest((g_iSIKillsType[HUNTER] / fTotalSIKills) * 100);
+	
+	PrintToChat(client, "SI Counts [%f - %i killed | %i tanks | %i CI]:", rate, g_iGlobalKills[SI], g_iGlobalKills[TANK], g_iGlobalKills[CI]);
+	PrintToChat(client, "\x01Smokers: \x03%i\x01 (%i%s)", g_iSIKillsType[SMOKER], smoker_pct, "%");
+	PrintToChat(client, "\x01Boomers: \x03%i\x01 (%i%s)", g_iSIKillsType[BOOMER], boomer_pct, "%");
+	PrintToChat(client, "\x01Hunters: \x03%i\x01 (%i%s)", g_iSIKillsType[HUNTER], hunter_pct, "%");
+}
 
 void StatsDisplay(int client)
 {
@@ -236,4 +307,9 @@ float GetRatePerMinute(int iCount)
 		fRate = iCount/fMin;
 	}
 	return fRate;
+}
+
+bool IsSurvivor(int client)
+{
+	return (client > 0 && client <= MaxClients && IsClientInGame(client) && GetClientTeam(client) == 2);
 }
