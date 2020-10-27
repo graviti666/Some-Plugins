@@ -109,6 +109,7 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 
 public void OnPluginStart()
 {
+	// Add this maybe someday?
 	// g_hCvarTrackingType = CreateConVar("l4d_stats_track_type", "0", "How should we track player kill percentages? 1 = Track with kills | 0 = Track by damage dealt", 0, true, 0.0, true, 1.0);
 	
 	RegConsoleCmd("sm_sicount", Command_DisplaySICounts);
@@ -125,7 +126,6 @@ public void OnPluginStart()
 	HookEvent("round_end", Event_OnRoundEnd);
 	HookEvent("player_hurt", Event_PlayerHurt);
 	HookEvent("heal_success", Event_OnPlayerHealed);
-	HookEvent("player_first_spawn", Event_OnPlayerFirstSpawn);
 	HookEvent("player_hurt_concise", Event_OnPlayerHurtConcise);
 }
 
@@ -135,6 +135,7 @@ public void OnMapStart()
 	{
 		g_iSpawnTime[i] = 0;
 	}
+	MedkitStats_CalculateKits();
 }
 
 public void OnConfigsExecuted()
@@ -215,7 +216,7 @@ void SICounts(int client)
 	int boomer_pct = RoundToNearest((g_iSIKillsType[BOOMER] / fTotalSIKills) * 100);
 	int hunter_pct = RoundToNearest((g_iSIKillsType[HUNTER] / fTotalSIKills) * 100);
 	
-	PrintToChat(client, "SI Counts [%f - %i killed | %i tanks | %i CI]:", rate, g_iGlobalKills[SI], g_iGlobalKills[TANK], g_iGlobalKills[CI]);
+	PrintToChat(client, "SI Counts [%f SI/min - %i killed | %i tanks | %i CI]:", rate, g_iGlobalKills[SI], g_iGlobalKills[TANK], g_iGlobalKills[CI]);
 	PrintToChat(client, "\x01Smokers: \x03%i\x01 (%i%s)", g_iSIKillsType[SMOKER], smoker_pct, "%");
 	PrintToChat(client, "\x01Boomers: \x03%i\x01 (%i%s)", g_iSIKillsType[BOOMER], boomer_pct, "%");
 	PrintToChat(client, "\x01Hunters: \x03%i\x01 (%i%s)", g_iSIKillsType[HUNTER], hunter_pct, "%");

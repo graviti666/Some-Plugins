@@ -1,12 +1,100 @@
 /*======================================================
  *				Medkit stats module
 =======================================================*/
+/*
+	* Thanks for this list jim
+	Generator Room (l4d_hospital02_subway) - 8 kits/ 4 pills 
+	Gas Station (l4d_hospital03_sewers) - 8 kits/ 4 pills
+	Hospital (l4d_hospital04_interior) - 8 kits/ 32 pills
+	Rooftop (l4d_vs_hospital05_rooftop) - 8 kits/ 8 pills
+	Drains (l4d_smalltown02_drainage) - 8 kits/ 8 pills
+	Church (l4d_smalltown03_ranchhouse) - 8 kits 4 pills
+	Street (l4d_smalltown04_mainstreet) - 8 kits/ 8 pills
+	Boathouse (l4d_vs_smalltown05_houseboat) - 8 kits/ 8 pills
+	Crane (l4d_airport02_offices) - 8 kits/ 4 pills
+	Construction Site (l4d_airport03_garage) - 8 kits/ 8 pills
+	Terminal (l4d_airport04_terminal) - 8 kits/ 9 pills
+	Runway (l4d_vs_airport05_runway) - 12 kits/ 7 pills
+	Warehouse (l4d_farm02_traintunnel) - 8 kits/ 15 pills
+	Bridge (Blood Harvest) (l4d_farm03_bridge) - 8 kits/ 4 pills
+	Farmhouse (l4d_vs_farm05_cornfield) - 8 kits/ 4 pills
+	Bridge (Crash Course) (l4d_garage01_alleys) - 8 kits/ 7 pills
+	Truck Depot (l4d_garage02_lots) - 8 kits/ 4 pills
+	Traincar (l4d_river01_docks) - 8 kits/ 4 pills
+	Port (l4d_river03_port) - 8 kits/ 6 pills
+	Lighthouse (l4d_sv_lighthouse) - 8 kits/ 12 pills
+*/
 
 void MedkitStats_CalculateKits()
 {
-	g_iMedkitCount = ItemCount("weapon_first_aid_kit_spawn") + ItemCount("weapon_first_aid_kit");
+	char sMap[64];
+	GetCurrentMap(sMap, sizeof(sMap));
+	
+	if (StrEqual(sMap,  "l4d_hospital02_subway")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_hospital03_sewers")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_hospital04_interior")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_vs_hospital05_rooftop")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_smalltown02_drainage")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_smalltown03_ranchhouse")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_smalltown04_mainstreet")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_vs_smalltown05_houseboat")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_airport02_offices")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_airport03_garage")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_airport04_terminal")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_vs_airport05_runway")) {
+		g_iMedkitCount = 12;
+	}
+	else if (StrEqual(sMap, "l4d_farm02_traintunnel")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_farm03_bridge")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_vs_farm05_cornfield")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_garage01_alleys")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_garage02_lots")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_river01_docks")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_river03_port")) {
+		g_iMedkitCount = 8;
+	}
+	else if (StrEqual(sMap, "l4d_sv_lighthouse")) {
+		g_iMedkitCount = 8;
+	}
 }
 
+//	Not counting medkits automatically since on some maps items spawn outside of playable areas.
+//	You can calculate items automatically by hooking 'player_first_spawn' with a second delay but you need to exclude items outside of playable areas from the count.
+/* 
 int ItemCount(const char[] sClassname)
 {
     int count;
@@ -27,6 +115,7 @@ int ItemCount(const char[] sClassname)
 	}
     return count;
 }
+*/
 
 void MedkitStats(int client)
 {

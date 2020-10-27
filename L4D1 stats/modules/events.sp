@@ -26,26 +26,6 @@ public void Event_OnPlayerHurtConcise(Event event, const char[] name, bool dontB
 	}
 }
 
-public Action Event_OnPlayerFirstSpawn(Event event, const char[] name, bool dontBroadcast)
-{
-	int client = GetClientOfUserId(event.GetInt("userid"));
-	bool IsBot = event.GetBool("isbot");
-	
-	if (g_bRoundProgress)	// just incase
-		return Plugin_Continue;
-	
-	if (client && IsClientInGame(client) && GetClientTeam(client) == 2 && !IsBot)
-	{
-		CreateTimer(2.0, Timer_CalculateKits);
-	}
-	return Plugin_Continue;
-}
-
-public Action Timer_CalculateKits(Handle timer)
-{
-	MedkitStats_CalculateKits();
-}
-
 public void Event_OnPlayerHealed(Event event, const char[] name, bool dontBroadcast)
 {	
 	int client = GetClientOfUserId(event.GetInt("subject"));
