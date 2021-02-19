@@ -2,6 +2,69 @@
 				Events - module
 ===============================================*/
 
+public void Event_OnTankSpawn(Event event, const char[] name, bool dontBroadcast)
+{
+	int client = GetClientOfUserId(event.GetInt("userid"));
+	if (!IS_VALID_INFECTED(client)) return;
+	
+	// Reset the damage done to this tank for each survivor
+	for (int i = 1; i <= MaxClients; i++)
+	{
+		if (IS_VALID_SURVIVOR(i)) 
+		{
+			g_iTankDamageCache[client][i] = 0;
+		}
+	}
+	
+	// Track how much health this new tank has
+	int fHealth = GetClientHealth(client);
+	g_iTankLastHealth[client] = fHealth;
+	g_bTankIncap[client] = false;
+	g_iTankHealth[client] = fHealth;
+}
+
+public Action Event_OnPlayerHurt(Event event, const char[] name, bool dontBroadcast)
+{
+	int victim = GetClientOfUserId(event.GetInt("userid"));
+	int attacker = GetClientOfUserId(event.GetInt("attacker"));
+		
+	if (!IS_VALID_INFECTED(victim)) return Plugin_Continue;
+	
+	int zClass = GetEntProp(victim, Prop_Send, "m_zombieClass");
+	
+	// Track tank damage
+	switch (zClass)
+	{
+		case ZC_TANK:
+		{
+			if (IS_VALID_SURVIVOR(attacker))
+			{
+				// Track how much damage the survivor did to the tank
+				int dmg = GetEventInt(event, "dmg_health");
+				int incap = GetEntProp(victim, Prop_Send, "m_isIncapacitated");
+				
+				int nxtHealth = GetEventInt(event, "health");
+				
+				if (!g_bTankIncap[victim])
+				{
+					if (incap) 
+					{
+						dmg = g_iTankLastHealth[victim];
+						g_bTankIncap[victim] = true;
+					}
+					
+					g_iTankDamageCache[victim][attacker] += dmg;
+					g_iTankLastHealth[victim] = nxtHealth;
+					g_iTankDamageTotal += dmg;
+					
+					g_iTankDamage[attacker] += dmg;
+				}
+			}
+		}	
+	}
+	return Plugin_Continue;
+}
+
 public void Event_OnPlayerHurtConcise(Event event, const char[] name, bool dontBroadcast)
 {
 	int attacker = event.GetInt("attackerentid");
@@ -88,6 +151,11 @@ public void Event_OnPlayerDeath(Event event, const char[] name, bool dontBroadca
 			case ZC_TANK:
 			{
 				g_iGlobalKills[TANK] += 1;
+				
+				if (g_hTankReportEnabled.BoolValue)
+				{
+					DisplayTankReport(victim);
+				}
 			}
 		}
 	}
@@ -106,31 +174,6 @@ public void Event_OnInfectedDeath(Event event, const char[] name, bool dontBroad
 	}
 }
 
-public Action Event_PlayerHurt(Event hEvent, const char[] name, bool dontBroadcast)
-{
-	int victim = GetClientOfUserId( GetEventInt(hEvent, "userid") );
-	int attacker = GetClientOfUserId( GetEventInt(hEvent, "attacker") );
-	
-	if (!IS_VALID_INFECTED(victim)) return Plugin_Continue;
-	
-	int zClass = GetEntProp(victim, Prop_Send, "m_zombieClass");
-	switch (zClass)
-	{
-		case ZC_TANK:
-		{
-			if (IS_VALID_SURVIVOR(attacker))
-			{
-				// Track how much damage the survivor did to the tank
-				int dmg = GetEventInt(hEvent, "dmg_health");
-				
-				g_iTankDamage[attacker] += dmg;
-				g_iTankDamageTotal += dmg;
-			}
-		}	
-	}
-	return Plugin_Continue;
-}
-
 public void Event_OnSurvivalStart(Event event, const char[] name, bool dontBroadcast)
 {	
 	if (!g_bRoundProgress)
@@ -138,6 +181,9 @@ public void Event_OnSurvivalStart(Event event, const char[] name, bool dontBroad
 		#if DEBUG
 		PrintToChatAll("starting survival timer.");
 		#endif
+		
+		Call_StartForward(g_hForwardSurvivalStart);
+		Call_Finish();
 		
 		g_bRoundProgress = true;
 	

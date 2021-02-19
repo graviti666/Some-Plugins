@@ -6,6 +6,7 @@
 
 #define DEBUG	0
 
+// Get rid of these eventually
 #define IS_VALID_CLIENT(%1)     (%1 > 0 && %1 <= MaxClients)
 #define IS_SURVIVOR(%1)         (GetClientTeam(%1) == 2)
 #define IS_INFECTED(%1)         (GetClientTeam(%1) == 3)
@@ -36,6 +37,10 @@ enum SI_TYPE
 	HUNTER
 }
 
+ConVar g_hTankReportEnabled;
+
+Handle g_hForwardSurvivalStart;
+
 // Tracking SI alive time
 int g_iSpawnTime[MAXPLAYERS + 1];
 
@@ -59,6 +64,12 @@ int g_iKills[MAXPLAYERS + 1][KILL_TYPE];
 
 int g_iGlobalKills[KILL_TYPE];
 int g_iSIKillsType[SI_TYPE];
+
+// T dmg report specific
+int g_iTankDamageCache[MAXPLAYERS + 1][MAXPLAYERS + 1];
+int g_iTankLastHealth[MAXPLAYERS+1];
+int g_bTankIncap[MAXPLAYERS + 1];
+int g_iTankHealth[MAXPLAYERS + 1];
 
 // t dmg
 int g_iTankDamage[MAXPLAYERS + 1];
@@ -101,9 +112,15 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 	EngineVersion engine = GetEngineVersion();
 	if (engine != Engine_Left4Dead)
 	{
-		SetFailState("[SM] This plugin supports only left 4 dead.");
+		strcopy(error, err_max, "[SM] This plugin supports left 4 dead 1 only.");
 		return APLRes_SilentFailure;
 	}
+	
+	CreateNative("IsSurvivalInProgress", Native_IsSurvivalInProgress);
+	CreateNative("SICurrentAliveTime", Native_SICurrentAliveTime);
+	CreateNative("CurrentSIrate", Native_CurrentSIrate);
+	
+	g_hForwardSurvivalStart = CreateGlobalForward("OnSurvivalRoundStart", ET_Ignore);
 	return APLRes_Success;
 }
 
@@ -111,6 +128,7 @@ public void OnPluginStart()
 {
 	// Add this maybe someday?
 	// g_hCvarTrackingType = CreateConVar("l4d_stats_track_type", "0", "How should we track player kill percentages? 1 = Track with kills | 0 = Track by damage dealt", 0, true, 0.0, true, 1.0);
+	g_hTankReportEnabled = CreateConVar("l4d_stats_tankreport_enabled", "1", "Whether to display tank damage or not. \n1 = enabled \n0=disabled");
 	
 	RegConsoleCmd("sm_sicount", Command_DisplaySICounts);
 	RegConsoleCmd("sm_stats", Command_DisplayStats);
@@ -124,9 +142,31 @@ public void OnPluginStart()
 	HookEvent("infected_death", Event_OnInfectedDeath); // Tracking CI kills
 	HookEvent("create_panic_event", Event_OnSurvivalStart);
 	HookEvent("round_end", Event_OnRoundEnd);
-	HookEvent("player_hurt", Event_PlayerHurt);
 	HookEvent("heal_success", Event_OnPlayerHealed);
 	HookEvent("player_hurt_concise", Event_OnPlayerHurtConcise);
+	HookEvent("tank_spawn", Event_OnTankSpawn);
+	HookEvent("player_hurt", Event_OnPlayerHurt);
+}
+
+/*=========================================================
+ * 					Natives
+==========================================================*/
+
+public int Native_IsSurvivalInProgress(Handle plugin, int numParams)
+{
+	return view_as<bool>(g_bRoundProgress);
+}
+
+public int Native_SICurrentAliveTime(Handle plugin, int numParams)
+{
+	int client = GetNativeCell(1);
+	return view_as<int>(g_iSpawnTime[client]);
+}
+
+public int Native_CurrentSIrate(Handle plugin, int numParams)
+{
+	float rate = GetRatePerMinute(g_iGlobalKills[SI]);
+	return view_as<int>(rate);
 }
 
 public void OnMapStart()
@@ -205,6 +245,74 @@ public Action Command_DisplayStuckReport(int client, int args)
 /*=============================================
 				Report functions
 ==============================================*/
+
+void DisplayTankReport(int victim)
+{
+	int percentage, dmg, client;
+	
+	// Reset dmgOrder
+	int dmgOrder[MAXPLAYERS+1];
+	for (int i = 0; i < MAXPLAYERS; i++)
+	{
+		dmgOrder[i] = -1;
+	}
+	
+	// Add any survivor client that damaged the tank to the dmgOrder array
+	for (int i = 1; i <= MaxClients; i++) 
+	{
+		if (g_iTankDamageCache[victim][i] > 0)	// This client did damage to the tank
+		{
+			if (IS_VALID_SURVIVOR(i)) 		// This client is a survivor
+			{
+				// Add client to the first available node in the dmgOrder array
+				for (int j = 0; j < MAXPLAYERS; j++)	
+				{
+					client = dmgOrder[j];
+					if (client == -1)
+					{
+						dmgOrder[j] = i;
+						break;
+					}
+				}
+			}
+		}
+	}
+	
+	// Sort by damage done
+	int curClient,nxtClient,nxtDmg;
+	for (int i = 0; i < (MAXPLAYERS-1); i++)
+	{
+		if (dmgOrder[i] == -1) break;
+		for (int j = i+1; j<MAXPLAYERS; j++)
+		{
+			if (dmgOrder[j] == -1) break;
+			curClient = dmgOrder[i];
+			nxtClient = dmgOrder[j];
+			
+			dmg = g_iTankDamageCache[victim][curClient];
+			nxtDmg = g_iTankDamageCache[victim][nxtClient];
+			
+			if (dmg < nxtDmg)
+			{
+				dmgOrder[i] = nxtClient;
+				dmgOrder[j] = curClient;
+			}
+		}
+	}
+	
+	//Display damage summary
+	PrintToChatAll("[SM] Damage dealt to %N", victim);
+	
+	float fTankHealth;
+	for (int i = 0; i < MAXPLAYERS; i++)
+	{
+		if (dmgOrder[i] == -1) break;
+		client = dmgOrder[i];
+		fTankHealth = float(g_iTankHealth[victim]);
+		percentage = RoundToNearest((g_iTankDamageCache[victim][client]/fTankHealth) * 100);
+		PrintToChatAll("\x05%i\x01 [\x04%i%s%\x01]: \x03%N", g_iTankDamageCache[victim][client], percentage, "%", client);
+	}
+}
 
 void SICounts(int client)
 {
