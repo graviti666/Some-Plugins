@@ -23,3 +23,7 @@
 * A empty config file will be automatically created by the plugin to sourcemod/data folder (simodelspawns.cfg).
 * Optionally can download the cfg file from this folder which already
   has 6 sets of configs for all official maps, and place to ( sourcemod/data ).
+  
+  ## Version
+* 2.0 - Improved menu for ease of use. [Demo](https://youtu.be/O53xMbSKaCU). **TODO**: Add TLS maps to configs (only added some poses to atrium and motel so far).  
+* 1.0 - initial release  
