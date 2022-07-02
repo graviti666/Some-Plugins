@@ -1,0 +1,2057 @@
+//--------------------------------------------------------------------------------------------------------------
+// NamVet Response Rule File
+//--------------------------------------------------------------------------------------------------------------
+
+Criterion "NamVetNotSaidGrabbingCan" "SaidGrabbingCan" "!=1" "required" weight 0
+
+
+
+//Auto-generated blank response for padding out InfoRemarkables
+Response _PlayerInfoRemarkableBlankNamVet
+{
+	speak "NamVet_Blank" noscene //Blank
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C7M1
+//--------------------------------------------------------------------------------------------------------------
+Response C7M1_saferoom01aNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO02.vcd"  //Shut up, Francis.
+}
+Rule C7M1_saferoom01aNamVet
+{
+	criteria ConceptC7M1_saferoom01a IsNamVet
+	Response C7M1_saferoom01aNamVet
+}
+
+Response C7M1_saferoom03NamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO05.vcd"  then Any C7M1_saferoom03a foo:0 .1 //Nope. Gotta be a sail boat.
+}
+Rule C7M1_saferoom03NamVet
+{
+	criteria ConceptC7M1_saferoom03 IsNamVet
+	Response C7M1_saferoom03NamVet
+}
+
+Response C7M1_saferoom03bNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO06.vcd"  //I ain't stoppin' the boat every 15 minutes to go look for gas.
+}
+Rule C7M1_saferoom03bNamVet
+{
+	criteria ConceptC7M1_saferoom03b IsNamVet
+	Response C7M1_saferoom03bNamVet
+}
+
+Response C7M1_saferoom04aNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO08.vcd"  then Any C7M1_saferoom04b foo:0 .1 //'Cause we ain't stoppin' for gas.
+}
+Rule C7M1_saferoom04aNamVet
+{
+	criteria ConceptC7M1_saferoom04a IsNamVet
+	Response C7M1_saferoom04aNamVet
+}
+
+Response C7M1_saferoom04bNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO09.vcd"  //You know who runs around filling up things with gas? Idiots.
+}
+Rule C7M1_saferoom04bNamVet
+{
+	criteria ConceptC7M1_saferoom04b IsNamVet
+	Response C7M1_saferoom04bNamVet
+}
+
+Response C7M1_saferoom06aNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO12.vcd"  then Any C7M1_saferoom06b foo:0 .1 //That's not a sailboat.
+}
+Rule C7M1_saferoom06aNamVet
+{
+	criteria ConceptC7M1_saferoom06a IsNamVet
+	Response C7M1_saferoom06aNamVet
+}
+
+Response C7M1_saferoom06bNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO13.vcd"  //And it's on fire.
+}
+Rule C7M1_saferoom06bNamVet
+{
+	criteria ConceptC7M1_saferoom06b IsNamVet
+	Response C7M1_saferoom06bNamVet
+}
+
+Response C7M1_saferoom07NamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO15.vcd"  then Any C7M1_saferoom07a foo:0 .1 //We're out of track.
+}
+Rule C7M1_saferoom07NamVet
+{
+	criteria ConceptC7M1_saferoom07 IsNamVet
+	Response C7M1_saferoom07NamVet
+}
+
+Response C7M1_saferoom08NamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO16.vcd"  then Any C7M1_saferoom08a foo:0 .1 //Shut up, Francis.
+}
+Rule C7M1_saferoom08NamVet
+{
+	criteria ConceptC7M1_saferoom08 IsNamVet
+	Response C7M1_saferoom08NamVet
+}
+
+Response C7M1_saferoom08bNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO17.vcd"  //Both of you shut up.
+}
+Rule C7M1_saferoom08bNamVet
+{
+	criteria ConceptC7M1_saferoom08b IsNamVet
+	Response C7M1_saferoom08bNamVet
+}
+
+Response C7M1_saferoom09NamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO18.vcd"  then Any C7M1_saferoom09a foo:0 .1 //Zoey, I need you to trust me on this.
+}
+Rule C7M1_saferoom09NamVet
+{
+	criteria ConceptC7M1_saferoom09 IsNamVet
+	Response C7M1_saferoom09NamVet
+}
+
+Response C7M1_saferoom09aNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO19.vcd"  then Any C7M1_saferoom09b foo:0 .1 //Zoey, we're together and on our own.  That's what's important.
+	scene "scenes/NamVet/C6DLC3INTRO20.vcd"  then Any C7M1_saferoom09b foo:0 .1 //Zoey, we all made it together.  That was my plan.
+	scene "scenes/NamVet/C6DLC3INTRO21.vcd"  then Any C7M1_saferoom09b foo:0 .1 //Zoey, we all made this far together.  That was my plan.
+}
+Rule C7M1_saferoom09aNamVet
+{
+	criteria ConceptC7M1_saferoom09a IsNamVet
+	Response C7M1_saferoom09aNamVet
+}
+
+Response C7M1_saferoom10bNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO23.vcd"  //Train ride's over, you gotta focus.  This isn't gonna be easy.
+	scene "scenes/NamVet/C6DLC3INTRO24.vcd"  //Pull yourself together, if not for me then for them.
+}
+Rule C7M1_saferoom10bNamVet
+{
+	criteria ConceptC7M1_saferoom10b IsNamVet
+	Response C7M1_saferoom10bNamVet
+}
+
+Response C7M1_saferoom11aNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO27.vcd"  //Come on, let's move.
+}
+Rule C7M1_saferoom11aNamVet
+{
+	criteria ConceptC7M1_saferoom11a IsNamVet
+	Response C7M1_saferoom11aNamVet
+}
+
+Response C7M1_saferoom12bNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO28.vcd"  //Shut your traps, let's move out.
+}
+Rule C7M1_saferoom12bNamVet
+{
+	criteria ConceptC7M1_saferoom12b IsNamVet
+	Response C7M1_saferoom12bNamVet
+}
+
+Response C7M1_saferoom13aNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO29.vcd"  //I'll give you something to cry about, Francis.
+}
+Rule C7M1_saferoom13aNamVet
+{
+	criteria ConceptC7M1_saferoom13a IsNamVet
+	Response C7M1_saferoom13aNamVet
+}
+
+Response C7M1_saferoom14>NamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO31.vcd"  then Any C7M1_saferoom14a foo:0 .1 //You ever get tired of being an idiot, Francis?
+}
+Rule C7M1_saferoom14>NamVet
+{
+	criteria ConceptC7M1_saferoom14> IsNamVet
+	Response C7M1_saferoom14>NamVet
+}
+
+Response C7M1_saferoom15NamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO30.vcd"  then Any C7M1_saferoom15a foo:0 .1 //Zoey... Christ, kid. We come back for our own.
+	scene "scenes/NamVet/C6DLC3INTRO32.vcd"  then Any C7M1_saferoom15a foo:0 .1 //Zoey... No one here is being left behind..
+}
+Rule C7M1_saferoom15NamVet
+{
+	criteria ConceptC7M1_saferoom15 IsNamVet
+	Response C7M1_saferoom15NamVet
+}
+
+Response C7M1_saferoom16aNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO34.vcd"  then Any C7M1_saferoom16b foo:0 .1 //I can go find a boat on my own, Francis. Why don't you go back in the train car, shut your little eyes and have a good cry?
+	scene "scenes/NamVet/C6DLC3INTRO35.vcd"  then Any C7M1_saferoom16b foo:0 .1 //You gettin' tired, Francis? Tell you what: I'll go find us a boat. Then I'll come back, pick you up and carry you there.
+}
+Rule C7M1_saferoom16aNamVet
+{
+	criteria ConceptC7M1_saferoom16a IsNamVet
+	Response C7M1_saferoom16aNamVet
+}
+
+Response C7M1_saferoom20NamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO38.vcd"  then Any C7M1_saferoom20a foo:0 .1 //If we stayed, no one would have escaped.
+}
+Rule C7M1_saferoom20NamVet
+{
+	criteria ConceptC7M1_saferoom20 IsNamVet
+	Response C7M1_saferoom20NamVet
+}
+
+Response C7M1_saferoom20bNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO39.vcd"  //Zoey.  I can't.
+}
+Rule C7M1_saferoom20bNamVet
+{
+	criteria ConceptC7M1_saferoom20b IsNamVet
+	Response C7M1_saferoom20bNamVet
+}
+
+Response C7M1_saferoom21bNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO41.vcd"  //Francis, you'd have been walking the plank right now.
+}
+Rule C7M1_saferoom21bNamVet
+{
+	criteria ConceptC7M1_saferoom21b IsNamVet
+	Response C7M1_saferoom21bNamVet
+}
+
+Response C7M1_saferoom22NamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO42.vcd"  then Any C7M1_saferoom22a foo:0 .1 //It'll do you good son.
+}
+Rule C7M1_saferoom22NamVet
+{
+	criteria ConceptC7M1_saferoom22 IsNamVet
+	Response C7M1_saferoom22NamVet
+}
+
+Response C7M1_saferoom23aNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO44.vcd"  //Zoey...  I'm not leaving any of you behind.
+}
+Rule C7M1_saferoom23aNamVet
+{
+	criteria ConceptC7M1_saferoom23a IsNamVet
+	Response C7M1_saferoom23aNamVet
+}
+
+Response C7M1_saferoom24aNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO45.vcd"  //You're a regular health nut.
+}
+Rule C7M1_saferoom24aNamVet
+{
+	criteria ConceptC7M1_saferoom24a IsNamVet
+	Response C7M1_saferoom24aNamVet
+}
+
+Response C7M1_saferoom25aNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO47.vcd"  then Any C7M1_saferoom25b foo:0 .1 //Out here, they're immune, dead or zombies.
+}
+Rule C7M1_saferoom25aNamVet
+{
+	criteria ConceptC7M1_saferoom25a IsNamVet
+	Response C7M1_saferoom25aNamVet
+}
+
+Response C7M1OpenTankDoorNamVet
+{
+	scene "scenes/NamVet/C6DLC3OPENINGDOOR01.vcd"  //When this door opens, light the mother up.
+	scene "scenes/NamVet/C6DLC3OPENINGDOOR02.vcd"  //Get ready, I'm opening the door.
+	scene "scenes/NamVet/C6DLC3OPENINGDOOR03.vcd"  //Stand back and get ready.
+	scene "scenes/NamVet/C6DLC3OPENINGDOOR04.vcd"  //Door's opening up!
+}
+Rule C7M1OpenTankDoorNamVet
+{
+	criteria Conceptc7m1opentankdoorspeakNamVet IsNamVet _auto_NotsaidC7M1OpenTankDoor
+	ApplyContext "_auto_saidC7M1OpenTankDoor:1:10,_auto_saidC7M1OpenTankDoorLong:1:0"
+	applycontexttoworld
+	Response C7M1OpenTankDoorNamVet
+}
+
+Response C7M1SafeRoomIdleNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO01.vcd"  then Any C7M1_saferoom01 foo:0 .1 //End of the line, people!
+	scene "scenes/NamVet/C6DLC3INTRO03.vcd"  then Any C7M1_saferoom02 foo:0 .1 //Alright, let's move! No stragglers!
+	scene "scenes/NamVet/C6DLC3INTRO04.vcd"  then Any C7M1_saferoom02 foo:0 .1 //Alright, let's move! Everyone stay together!
+	scene "scenes/NamVet/C6DLC3INTRO07.vcd"  then Any C7M1_saferoom04 foo:0 .1 //Alright, everybody, remember: we're lookin' for a sail boat.
+	scene "scenes/NamVet/C6DLC3INTRO10.vcd"  //Alright, everybody, remember: we're lookin' for a sail boat. I aim to get to the Keys, and I ain't stoppin' for gas.
+	scene "scenes/NamVet/C6DLC3INTRO11.vcd"  then Any C7M1_saferoom06 foo:0 .1 //We gotta find a sail boat.
+	scene "scenes/NamVet/C6DLC3INTRO22.vcd"  then Any C7M1_saferoom10 foo:0 .1 //Zoey. You ready to head for the Keys?
+	scene "scenes/NamVet/C6DLC3INTRO25.vcd"  then Any C7M1_saferoom10 foo:0 .1 //Zoey. You ready to head to the Keys?
+	scene "scenes/NamVet/C6DLC3INTRO26.vcd"  then Any C7M1_saferoom11 foo:0 .1 //Zoey. You still mad?
+	scene "scenes/NamVet/C6DLC3INTRO33.vcd"  then Any C7M1_saferoom16 foo:0 .1 //End of the line. Let's move.
+	scene "scenes/NamVet/C6DLC3INTRO36.vcd"  then Any C7M1_saferoom17 foo:0 .1 //Almost there, people! We just gotta find a boat and we'll be in the Keys.
+	scene "scenes/NamVet/C6DLC3INTRO37.vcd"  then Any C7M1_saferoom18 foo:0 .1 //That's as far as the train's taking us. If we're gonna get to the Keys, we'll need a boat.
+	scene "scenes/NamVet/C6DLC3INTRO40.vcd"  then Any C7M1_saferoom21 foo:0 .1 //Let's find a boat that can make it to the Gulf.
+	scene "scenes/NamVet/C6DLC3INTRO43.vcd"  then Any C7M1_saferoom23 foo:0 .1 //End of the line sweeties.  Grab some gear and let's go.
+	scene "scenes/NamVet/C6DLC3INTRO46.vcd"  then Any C7M1_saferoom25 foo:0 .1 //The train rides over, time to get back to walking.
+}
+Rule C7M1SafeRoomIdleNamVet
+{
+	criteria ConceptTalkIdle IsNamVet IsMapc7m1_docks IsInStartArea AutoIsNotScavenge AutoIsNotSurvival _auto_IsSafeRoomStart _auto_NotSafeRoomQuiet _auto_NotC7M1SafeRoomConvo IsNotSpeakingWeight0
+	ApplyContext "Talk:1:8,_auto_C7M1SafeRoomConvo:1:0"
+	applycontexttoworld
+	Response C7M1SafeRoomIdleNamVet
+}
+
+Response C7M1SafeRoomStartNamVet
+{
+	scene "scenes/NamVet/Blank.vcd"  //Blank
+}
+Rule C7M1SafeRoomStartNamVet
+{
+	criteria ConceptTalkIdle IsNamVet IsMapc7m1_docks IsInStartArea AutoIsNotScavenge AutoIsNotSurvival _auto_NotSafeRoomStart IsNotSpeakingWeight0
+	ApplyContext "Talk:1:8,_auto_SafeRoomStart:1:300,_auto_SafeRoomQuiet:1:5"
+	applycontexttoworld
+	Response C7M1SafeRoomStartNamVet
+}
+
+Response InfoRemc7m1_harborblocked01NamVet
+{
+	scene "scenes/NamVet/C6DLC3HARBORBLOCKED05.vcd"  //LOUIS, the ocean doesn't flow into the river.
+}
+Rule InfoRemc7m1_harborblocked01NamVet
+{
+	criteria ConceptInfoRemc7m1_harborblocked01 IsNamVet IsManagerNear800
+	Response InfoRemc7m1_harborblocked01NamVet
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C7M2
+//--------------------------------------------------------------------------------------------------------------
+Response C7M2_saferoom01aNamVet
+{
+	scene "scenes/NamVet/C6DLC3FIRSTSAFEROOM02.vcd"  then Any C7M2_saferoom01b foo:0 .1 //Zoey. Listen. The four of us are all that matters now.
+}
+Rule C7M2_saferoom01aNamVet
+{
+	criteria ConceptC7M2_saferoom01a IsNamVet
+	Response C7M2_saferoom01aNamVet
+}
+
+Response C7M2_saferoom05NamVet
+{
+	scene "scenes/NamVet/C6DLC3FIRSTSAFEROOM03.vcd"  then Any C7M2_saferoom05a foo:0 .1 //I keep telling you: we're looking for a sail boat.
+}
+Rule C7M2_saferoom05NamVet
+{
+	criteria ConceptC7M2_saferoom05 IsNamVet
+	Response C7M2_saferoom05NamVet
+}
+
+Response C7M2_saferoom05bNamVet
+{
+	scene "scenes/NamVet/C6DLC3FIRSTSAFEROOM04.vcd"  then Any C7M2_saferoom05c foo:0 .1 //Shut up, Franc-- alright, that's not a bad idea.
+}
+Rule C7M2_saferoom05bNamVet
+{
+	criteria ConceptC7M2_saferoom05b IsNamVet
+	Response C7M2_saferoom05bNamVet
+}
+
+Response C7M2_saferoom06NamVet
+{
+	scene "scenes/NamVet/C6DLC3FIRSTSAFEROOM06.vcd"  //Dammit, Zoey! We trusted CEDA! We trusted the military! And they left us to die! Do you think they'll ever let us back in? We're on our own, kid. It's high time you started actin' like it.
+}
+Rule C7M2_saferoom06NamVet
+{
+	criteria ConceptC7M2_saferoom06 IsNamVet
+	Response C7M2_saferoom06NamVet
+}
+
+Response C7M2_saferoom07NamVet
+{
+	scene "scenes/NamVet/C6DLC3FIRSTSAFEROOM07.vcd"  //We'll find it, we'll find it.
+}
+Rule C7M2_saferoom07NamVet
+{
+	criteria ConceptC7M2_saferoom07 IsNamVet
+	Response C7M2_saferoom07NamVet
+}
+
+Response C7M2SafeRoomIdleNamVet
+{
+	scene "scenes/NamVet/C6DLC3FIRSTSAFEROOM01.vcd"  then Any C7M2_saferoom01 foo:0 .1 //Zoey. I know you're mad at me.
+}
+Rule C7M2SafeRoomIdleNamVet
+{
+	criteria ConceptTalkIdle IsNamVet IsMapc7m2_barge IsInStartArea AutoIsNotScavenge AutoIsNotSurvival _auto_IsSafeRoomStart _auto_NotSafeRoomQuiet _auto_NotC7M2SafeRoomConvo IsNotSpeakingWeight0
+	ApplyContext "Talk:1:8,_auto_C7M2SafeRoomConvo:1:0"
+	applycontexttoworld
+	Response C7M2SafeRoomIdleNamVet
+}
+
+Response C7M2SafeRoomStartNamVet
+{
+	scene "scenes/NamVet/Blank.vcd"  //Blank
+}
+Rule C7M2SafeRoomStartNamVet
+{
+	criteria ConceptTalkIdle IsNamVet IsMapc7m2_barge IsInStartArea AutoIsNotScavenge AutoIsNotSurvival _auto_NotSafeRoomStart IsNotSpeakingWeight0
+	ApplyContext "Talk:1:8,_auto_SafeRoomStart:1:300,_auto_SafeRoomQuiet:1:5"
+	applycontexttoworld
+	Response C7M2SafeRoomStartNamVet
+}
+
+Response InfoRemc7m2_listingtugNamVet
+{
+	scene "scenes/NamVet/C6DLC3OTHERBOATS03.vcd"  //No Francis.
+}
+Rule InfoRemc7m2_listingtugNamVet
+{
+	criteria ConceptInfoRemc7m2_listingtug IsNamVet IsNamVetNear800
+	Response InfoRemc7m2_listingtugNamVet
+}
+
+Response InfoRemc7m2_seebarge01NamVet
+{
+	scene "scenes/NamVet/C6DLC3SEEINGBIGSHIP01.vcd"  //No Francis, we can't.
+	scene "scenes/NamVet/C6DLC3SEEINGBIGSHIP02.vcd"  //You know how to pilot this thing, Francis?
+}
+Rule InfoRemc7m2_seebarge01NamVet
+{
+	criteria ConceptInfoRemc7m2_seebarge01 IsNamVet
+	Response InfoRemc7m2_seebarge01NamVet
+}
+
+Response Player.WarnMegaMobc7m201NamVet
+{
+	scene "scenes/NamVet/C6DLC3GRAVELHILL06.vcd"  //Get into that chute!
+	scene "scenes/NamVet/C6DLC3GRAVELHILL07.vcd"  //Everyone into the chute!
+}
+Rule Player.WarnMegaMobc7m201NamVet
+{
+	criteria ConceptPlayer.WarnMegaMobc7m201 IsNamVet
+	Response Player.WarnMegaMobc7m201NamVet
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C7M3
+//--------------------------------------------------------------------------------------------------------------
+Response C7M3_saferoom003NamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM01.vcd"  then Any C7M3_saferoom003a foo:0 .1 //Bah. Keep your computers, emails... whatever. Just give me a pen and paper.
+}
+Rule C7M3_saferoom003NamVet
+{
+	criteria ConceptC7M3_saferoom003 IsNamVet
+	Response C7M3_saferoom003NamVet
+}
+
+Response C7M3_saferoom003bNamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM02.vcd"  then Any C7M3_saferoom003c foo:0 .1 //NOOOO!
+}
+Rule C7M3_saferoom003bNamVet
+{
+	criteria ConceptC7M3_saferoom003b IsNamVet
+	Response C7M3_saferoom003bNamVet
+}
+
+Response C7M3_saferoom003cNamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM03.vcd"  //They didn't have electricity when I was born.
+}
+Rule C7M3_saferoom003cNamVet
+{
+	criteria ConceptC7M3_saferoom003c IsNamVet
+	Response C7M3_saferoom003cNamVet
+}
+
+Response C7M3_saferoom006NamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM05.vcd"  then Any C7M3_saferoom006a foo:0 .1 //Not far at all. We find an island, make it ours. No more army, no more CEDA, no more horseshit.
+}
+Rule C7M3_saferoom006NamVet
+{
+	criteria ConceptC7M3_saferoom006 IsNamVet
+	Response C7M3_saferoom006NamVet
+}
+
+Response C7M3_saferoom008aNamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM07.vcd"  then Any C7M3_saferoom008b foo:0 .1 //Unless you're gonna stop eating, we're gonna need a damn big boat to hold all the supplies.
+}
+Rule C7M3_saferoom008aNamVet
+{
+	criteria ConceptC7M3_saferoom008a IsNamVet
+	Response C7M3_saferoom008aNamVet
+}
+
+Response C7M3_saferoom009NamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM08.vcd"  then Any C7M3_saferoom009a foo:0 .1 //Yeah. A couple of 'em. We get there in one piece, we're gonna clear the island and spend the rest of our lives relaxing on the beach.
+}
+Rule C7M3_saferoom009NamVet
+{
+	criteria ConceptC7M3_saferoom009 IsNamVet
+	Response C7M3_saferoom009NamVet
+}
+
+Response C7M3_saferoom010NamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM09.vcd"  then Any C7M3_saferoom010a foo:0 .1 //Damn right I know how to fish, kid.
+}
+Rule C7M3_saferoom010NamVet
+{
+	criteria ConceptC7M3_saferoom010 IsNamVet
+	Response C7M3_saferoom010NamVet
+}
+
+Response C7M3_saferoom010bNamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM10.vcd"  //Tell you what: Once we clear the island and settle in, I'll make you a pro.
+}
+Rule C7M3_saferoom010bNamVet
+{
+	criteria ConceptC7M3_saferoom010b IsNamVet
+	Response C7M3_saferoom010bNamVet
+}
+
+Response C7M3_saferoom012NamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM12.vcd"  then Any C7M3_saferoom012a foo:0 .1 //Cut the horseshit, Francis.
+}
+Rule C7M3_saferoom012NamVet
+{
+	criteria ConceptC7M3_saferoom012 IsNamVet
+	Response C7M3_saferoom012NamVet
+}
+
+Response C7M3_saferoom012bNamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM13.vcd"  then Any C7M3_saferoom012c foo:0 .1 //They're defensible, Francis. Far as we know, zombies can't swim.
+}
+Rule C7M3_saferoom012bNamVet
+{
+	criteria ConceptC7M3_saferoom012b IsNamVet
+	Response C7M3_saferoom012bNamVet
+}
+
+Response C7M3_saferoom012dNamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM14.vcd"  then Any C7M3_saferoom012e foo:0 .1 //Speak up, son.
+}
+Rule C7M3_saferoom012dNamVet
+{
+	criteria ConceptC7M3_saferoom012d IsNamVet
+	Response C7M3_saferoom012dNamVet
+}
+
+Response C7M3_saferoom012fNamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM15.vcd"  //Noted. Let's go.
+}
+Rule C7M3_saferoom012fNamVet
+{
+	criteria ConceptC7M3_saferoom012f IsNamVet
+	Response C7M3_saferoom012fNamVet
+}
+
+Response C7M3BridgeBreaksNamVet
+{
+	scene "scenes/NamVet/C6DLC3BRIDGESTOPS01.vcd"  //Goddamn it, the bridge stopped!
+	scene "scenes/NamVet/C6DLC3BRIDGESTOPS02.vcd"  //Son of a bitch, that generator stalled!
+	scene "scenes/NamVet/C6DLC3BRIDGESTOPS03.vcd"  //Generator's stopped! Someone's gotta go down there!
+	scene "scenes/NamVet/C6DLC3BRIDGESTOPS04.vcd"  //Someone needs to restart the generator!
+	scene "scenes/NamVet/C6DLC3BRIDGESTOPS05.vcd"  //Jesus H Christ, the bridge stopped!
+	scene "scenes/NamVet/C6DLC3BRIDGESTOPS06.vcd"  //We ain't safe here! We gotta restart that generator!
+	scene "scenes/NamVet/C6DLC3BRIDGESTOPS07.vcd"  //That gennie's stopped! Someone get down there!
+}
+Rule C7M3BridgeBreaksNamVet
+{
+	criteria conceptC7M3BridgeBreaks IsNamVet _auto_NotSaidC7M3BridgeBreaks
+	ApplyContext "_auto_SaidC7M3BridgeBreaks:1:0"
+	applycontexttoworld
+	Response C7M3BridgeBreaksNamVet
+}
+
+Response C7M3FinalPressBikerNamVet
+{
+	scene "scenes/NamVet/C6DLC3FRANCISDIES01.vcd"  //Francis! No! NO!
+	scene "scenes/NamVet/C6DLC3FRANCISDIES02.vcd"  //Francis, you beautiful son of a bitch you did it!
+	scene "scenes/NamVet/C6DLC3FRANCISDIES03.vcd"  //Francis, I will not forget you.
+	scene "scenes/NamVet/C6DLC3FRANCISDIES04.vcd"  //Francis, I will not forget this.
+}
+Rule C7M3FinalPressBikerNamVet
+{
+	criteria ConceptC7M3FinalSpeakBiker IsNamVet IsLastGenerator IsNotBiker _auto_NotC7M3FinalPress
+	ApplyContext "_auto_C7M3FinalPress:1:0"
+	applycontexttoworld
+	Response C7M3FinalPressBikerNamVet
+}
+
+Response C7M3FinalPressManagerNamVet
+{
+	scene "scenes/NamVet/C6DLC3LOUISDIES01.vcd"  //LOOOOUUUIISSSS!!!
+	scene "scenes/NamVet/C6DLC3LOUISDIES02.vcd"  //Louis, you did it, you did it.
+	scene "scenes/NamVet/C6DLC3LOUISDIES03.vcd"  //Louis, Louis, goddamnit Louis!!
+	scene "scenes/NamVet/C6DLC3LOUISDIES04.vcd"  //Louis, you weren't supposed to die.
+}
+Rule C7M3FinalPressManagerNamVet
+{
+	criteria ConceptC7M3FinalSpeakManager IsNamVet IsLastGenerator IsNotManager _auto_NotC7M3FinalPress
+	ApplyContext "_auto_C7M3FinalPress:1:0"
+	applycontexttoworld
+	Response C7M3FinalPressManagerNamVet
+}
+
+Response C7M3FinalPressTeenGirlNamVet
+{
+	scene "scenes/NamVet/C6DLC3ZOEYDIES01.vcd"  //Damn it, kid.  NOOOOOOO!
+	scene "scenes/NamVet/C6DLC3ZOEYDIES02.vcd"  //ZOEY!!! It wasn't supposed to be you!
+	scene "scenes/NamVet/C6DLC3ZOEYDIES03.vcd"  //NO, NO, NOT ZOEY!
+	scene "scenes/NamVet/C6DLC3ZOEYDIES04.vcd"  //ZOOOOOOEEEEEYYYY!!!!
+	scene "scenes/NamVet/C6DLC3ZOEYDIES05.vcd"  //ZOEY! You did it!
+	scene "scenes/NamVet/C6DLC3ZOEYDIES06.vcd"  //Zoey! It wasn't supposed to end like this.
+}
+Rule C7M3FinalPressTeenGirlNamVet
+{
+	criteria ConceptC7M3FinalSpeakTeenGirl IsNamVet IsLastGenerator IsNotTeenGirl _auto_NotC7M3FinalPress
+	ApplyContext "_auto_C7M3FinalPress:1:0"
+	applycontexttoworld
+	Response C7M3FinalPressTeenGirlNamVet
+}
+
+Response C7M3GeneratorPress01NamVet
+{
+	scene "scenes/NamVet/C6DLC3PRESTART1STGEN01.vcd"  //Careful with these generators, they're gonna attract hordes!
+	scene "scenes/NamVet/C6DLC3PRESTART1STGEN02.vcd"  //We gotta start these generators.
+	scene "scenes/NamVet/C6DLC3PRESTART1STGEN03.vcd"  //If we power these generators we can raise that bridge.
+	scene "scenes/NamVet/C6DLC3PRESTART1STGEN04.vcd"  //These generators must be setup to power the bridge.
+	scene "scenes/NamVet/C6DLC3PRESTART1STGEN05.vcd"  //First one, everyone ready?
+	scene "scenes/NamVet/C6DLC3PRESTART1STGEN06.vcd"  //Get ready, this things  gonna make a racket.
+}
+Rule C7M3GeneratorPress01NamVet
+{
+	criteria ConceptC7M3GeneratorSpeakNamVet IsNamVet IsFirstGenerator _auto_NotC7M3PressingNamVet
+	ApplyContext "_auto_C7M3PressingNamVet:1:6,_auto_SaidCreshendoStartNear:1:0"
+	applycontexttoworld
+	Response C7M3GeneratorPress01NamVet
+}
+
+Response C7M3GeneratorPress02NamVet
+{
+	scene "scenes/NamVet/C6DLC3PRESTART2NDGEN01.vcd"  //Let's power up this generator.
+	scene "scenes/NamVet/C6DLC3PRESTART2NDGEN02.vcd"  //Let's do this better than the last one.
+	scene "scenes/NamVet/C6DLC3PRESTART2NDGEN03.vcd"  //Let's get prepared before we start it.
+	scene "scenes/NamVet/C6DLC3PRESTART2NDGEN04.vcd"  //If we're ready let's hit it.
+}
+Rule C7M3GeneratorPress02NamVet
+{
+	criteria ConceptC7M3GeneratorSpeakNamVet IsNamVet IsSecondGenerator _auto_NotC7M3PressingNamVet
+	ApplyContext "_auto_C7M3PressingNamVet:1:6,_auto_SaidCreshendoStartNear:1:0"
+	applycontexttoworld
+	Response C7M3GeneratorPress02NamVet
+}
+
+Response C7M3GeneratorPress03NamVet
+{
+	scene "scenes/NamVet/C6DLC3PRESTARTLASTGEN01.vcd"  //Get ready, let's do this.
+	scene "scenes/NamVet/C6DLC3PRESTARTLASTGEN02.vcd"  //Last one, let's be careful.
+}
+Rule C7M3GeneratorPress03NamVet
+{
+	criteria ConceptC7M3GeneratorSpeakNamVet IsNamVet IsThirdGenerator _auto_NotC7M3PressingNamVet
+	ApplyContext "_auto_C7M3PressingNamVet:1:6,_auto_SaidCreshendoStartNear:1:0"
+	applycontexttoworld
+	Response C7M3GeneratorPress03NamVet
+}
+
+Response C7M3PlayerGetToRescueVehicleNamVet
+{
+	scene "scenes/NamVet/C6DLC3BRIDGEAVAILABLE01.vcd" predelay ".1,4" //We can get on the bridge!
+	scene "scenes/NamVet/C6DLC3BRIDGEAVAILABLE02.vcd" predelay ".1,4" //Get to the bridge!
+	scene "scenes/NamVet/C6DLC3BRIDGEAVAILABLE03.vcd" predelay ".1,4" //Run to the bridge!
+	scene "scenes/NamVet/C6DLC3BRIDGEAVAILABLE04.vcd" predelay ".1,4" //We gotta raise the bridge!
+	scene "scenes/NamVet/C6DLC3BRIDGEAVAILABLE05.vcd" predelay ".1,4" //To the bridge! The bridge!
+	scene "scenes/NamVet/C6DLC3BRIDGEAVAILABLE06.vcd" predelay ".1,4" //Stop playing around and get to the bridge.
+}
+Rule C7M3PlayerGetToRescueVehicleNamVet
+{
+	criteria ConceptGetToVehicle IsNamVet ismapc7m3_port IsTalk IsTalkNamVet IsWorldTalkNamVet _auto_NotC7M3ToBridgeNamVet
+	ApplyContext "_auto_C7M3ToBridgeNamVet:1:0"
+	applycontexttoworld
+	Response C7M3PlayerGetToRescueVehicleNamVet
+}
+
+Response C7M3SafeRoomIdleNamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM06.vcd"  then Any C7M3_saferoom008 foo:0 .1 //We have to be getting close.  Once we're on the boat, we're home free.
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM11.vcd"  then Any C7M3_saferoom011 foo:0 .1 //Allright, people. There's gotta be a sailboat around here somewhere. We're gonna find it, get to the keys, and build ourselves a little piece of paradise.
+}
+Rule C7M3SafeRoomIdleNamVet
+{
+	criteria ConceptTalkIdle IsNamVet IsMapc7m3_port IsInStartArea AutoIsNotScavenge AutoIsNotSurvival _auto_IsSafeRoomStart _auto_NotSafeRoomQuiet _auto_NotC7M3SafeRoomConvo IsNotSpeakingWeight0
+	ApplyContext "Talk:1:8,_auto_C7M3SafeRoomConvo:1:0"
+	applycontexttoworld
+	Response C7M3SafeRoomIdleNamVet
+}
+
+Response C7M3SafeRoomStartNamVet
+{
+	scene "scenes/NamVet/Blank.vcd"  //Blank
+}
+Rule C7M3SafeRoomStartNamVet
+{
+	criteria ConceptTalkIdle IsNamVet IsMapc7m3_port IsInStartArea AutoIsNotScavenge AutoIsNotSurvival _auto_NotSafeRoomStart IsNotSpeakingWeight0
+	ApplyContext "Talk:1:8,_auto_SafeRoomStart:1:300,_auto_SafeRoomQuiet:1:5"
+	applycontexttoworld
+	Response C7M3SafeRoomStartNamVet
+}
+
+Response C7M3WaveOverGen1NamVet
+{
+	scene "scenes/NamVet/C6DLC3FIRSTEVENTOVER01.vcd" predelay "2,3" //Alright, I think that's it!
+	scene "scenes/NamVet/C6DLC3FIRSTEVENTOVER02.vcd" predelay "2,3" //That's the last of them, to the next generator.
+	scene "scenes/NamVet/C6DLC3FIRSTEVENTOVER03.vcd" predelay "2,3" //To the next generator!
+	scene "scenes/NamVet/C6DLC3FIRSTEVENTOVER04.vcd" predelay "2,3" //Let's get to the next generator!
+	scene "scenes/NamVet/C6DLC3FIRSTEVENTOVER05.vcd" predelay "2,3" //We got a break, let's go.
+	scene "scenes/NamVet/C6DLC3FIRSTEVENTOVER06.vcd" predelay "2,3" //Come on, two more to do.
+	scene "scenes/NamVet/C6DLC3FIRSTEVENTOVER07.vcd" predelay "2,3" //It's dying down. Two more.
+}
+Rule C7M3WaveOverGen1NamVet
+{
+	criteria conceptC7M3WaveOverGen1 IsNamVet IsSecondGenerator _auto_NotSaidC7M3WaveOverGen1
+	ApplyContext "_auto_SaidC7M3WaveOverGen1:1:0"
+	applycontexttoworld
+	Response C7M3WaveOverGen1NamVet
+}
+
+Response C7M3WaveOverGen2NamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDEVENTOVER01.vcd" predelay "2,3" //Way to go people, to the last generator.
+	scene "scenes/NamVet/C6DLC3SECONDEVENTOVER02.vcd" predelay "2,3" //Let's move out!
+	scene "scenes/NamVet/C6DLC3SECONDEVENTOVER03.vcd" predelay "2,3" //To the last generator!
+	scene "scenes/NamVet/C6DLC3SECONDEVENTOVER04.vcd" predelay "2,3" //To the last gennie.
+}
+Rule C7M3WaveOverGen2NamVet
+{
+	criteria conceptC7M3WaveOverGen2 IsNamVet IsThirdGenerator _auto_NotSaidC7M3WaveOverGen2
+	ApplyContext "_auto_SaidC7M3WaveOverGen2:1:0"
+	applycontexttoworld
+	Response C7M3WaveOverGen2NamVet
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Item Spotted
+//--------------------------------------------------------------------------------------------------------------
+Response SurvivorSpottedAdrenalineNamVet
+{
+	scene "scenes/NamVet/Look04.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look!
+	scene "scenes/NamVet/LookHere02.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look at this.
+	scene "scenes/NamVet/LookHere03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look over here.
+	scene "scenes/NamVet/LookHere04.vcd"  then any _SpotStuffResponse foo:0 0.01 //You're gonna want to see this.
+}
+Rule SurvivorSpottedAdrenalineNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsAdrenaline IsWorldTalkNamVet
+	ApplyContext "SaidSpotAdrenaline:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedAdrenalineNamVet
+}
+
+Response SurvivorSpottedAdrenalineAutoNamVet
+{
+	scene "scenes/NamVet/Look04.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look!
+	scene "scenes/NamVet/LookHere02.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look at this.
+	scene "scenes/NamVet/LookHere03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look over here.
+	scene "scenes/NamVet/LookHere04.vcd"  then any _SpotStuffResponse foo:0 0.01 //You're gonna want to see this.
+}
+Rule SurvivorSpottedAdrenalineAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotAdrenaline IsNotSaidSpot IsAdrenaline IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotAdrenaline:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedAdrenalineAutoNamVet
+}
+
+Response SurvivorSpottedGrenadeLauncherNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedGrenadeLauncherNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto Isgrenade_launcher IsWorldTalkNamVet
+	ApplyContext "SaidSpotgrenade_launcher:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedGrenadeLauncherNamVet
+}
+
+Response SurvivorSpottedGrenadeLauncherAutoNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedGrenadeLauncherAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotgrenade_launcher IsNotSaidSpot Isgrenade_launcher IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotgrenade_launcher:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedGrenadeLauncherAutoNamVet
+}
+
+Response SurvivorSpottedUpPack_ExplosiveNamVet
+{
+	scene "scenes/NamVet/Look04.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look!
+	scene "scenes/NamVet/LookHere02.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look at this.
+	scene "scenes/NamVet/LookHere03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look over here.
+	scene "scenes/NamVet/LookHere04.vcd"  then any _SpotStuffResponse foo:0 0.01 //You're gonna want to see this.
+}
+Rule SurvivorSpottedUpPack_ExplosiveNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsUpgradePack_Explosive  IsWorldTalkNamVet
+	ApplyContext "SaidSpotUpgradePack_Explosive:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedUpPack_ExplosiveNamVet
+}
+
+Response SurvivorSpottedUpPack_ExplosiveAutoNamVet
+{
+	scene "scenes/NamVet/Look04.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look!
+	scene "scenes/NamVet/LookHere02.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look at this.
+	scene "scenes/NamVet/LookHere03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look over here.
+	scene "scenes/NamVet/LookHere04.vcd"  then any _SpotStuffResponse foo:0 0.01 //You're gonna want to see this.
+}
+Rule SurvivorSpottedUpPack_ExplosiveAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotAlone IsNotSaidSpotUpgradePack_Explosive IsNotSaidSpot IsUpgradePack_Explosive IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotUpgradePack_Explosive:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedUpPack_ExplosiveAutoNamVet
+}
+
+Response SurvivorSpottedUpPack_IncendiaryNamVet
+{
+	scene "scenes/NamVet/Look04.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look!
+	scene "scenes/NamVet/LookHere02.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look at this.
+	scene "scenes/NamVet/LookHere03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look over here.
+	scene "scenes/NamVet/LookHere04.vcd"  then any _SpotStuffResponse foo:0 0.01 //You're gonna want to see this.
+}
+Rule SurvivorSpottedUpPack_IncendiaryNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsUpgradePack_Incendiary  IsWorldTalkNamVet
+	ApplyContext "SaidSpotUpgradePack_Incendiary:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedUpPack_IncendiaryNamVet
+}
+
+Response SurvivorSpottedUpPack_IncendiAutoNamVet
+{
+	scene "scenes/NamVet/Look04.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look!
+	scene "scenes/NamVet/LookHere02.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look at this.
+	scene "scenes/NamVet/LookHere03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look over here.
+	scene "scenes/NamVet/LookHere04.vcd"  then any _SpotStuffResponse foo:0 0.01 //You're gonna want to see this.
+}
+Rule SurvivorSpottedUpPack_IncendiAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotAlone IsNotSaidSpotUpgradePack_Incendiary IsNotSaidSpot IsUpgradePack_Incendiary IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotUpgradePack_Incendiary:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedUpPack_IncendiAutoNamVet
+}
+
+Response SurvivorSpottedVomitJarNamVet
+{
+	scene "scenes/NamVet/Look04.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look!
+	scene "scenes/NamVet/LookHere02.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look at this.
+	scene "scenes/NamVet/LookHere03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look over here.
+	scene "scenes/NamVet/LookHere04.vcd"  then any _SpotStuffResponse foo:0 0.01 //You're gonna want to see this.
+}
+Rule SurvivorSpottedVomitJarNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsVomitJar IsWorldTalkNamVet
+	ApplyContext "SaidSpoVomitJar:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedVomitJarNamVet
+}
+
+Response SurvivorSpottedVomitJarAutoNamVet
+{
+	scene "scenes/NamVet/Look04.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look!
+	scene "scenes/NamVet/LookHere02.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look at this.
+	scene "scenes/NamVet/LookHere03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look over here.
+	scene "scenes/NamVet/LookHere04.vcd"  then any _SpotStuffResponse foo:0 0.01 //You're gonna want to see this.
+}
+Rule SurvivorSpottedVomitJarAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotVomitJar IsNotSaidSpot IsVomitJar IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotVomitJar:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedVomitJarAutoNamVet
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Monster Spotted
+//--------------------------------------------------------------------------------------------------------------
+Response SurvivorSpottedChargerNamVet
+{
+	scene "scenes/NamVet/C6DLC3CREATURES01.vcd"  //CHARGER!
+	scene "scenes/NamVet/C6DLC3CREATURES02.vcd"  //CHARGER!
+	scene "scenes/NamVet/C6DLC3CREATURES03.vcd"  //CHARGER
+}
+Rule SurvivorSpottedChargerNamVet
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeCharger  IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsWorldTalkNamVet IsNotSpeakingWeight0
+	ApplyContext "SaidChargerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response SurvivorSpottedChargerNamVet
+}
+
+Response SurvivorSpottedChargerAlsoNamVet
+{
+	scene "scenes/NamVet/C6DLC3CREATURES01.vcd"  //CHARGER!
+	scene "scenes/NamVet/C6DLC3CREATURES02.vcd"  //CHARGER!
+	scene "scenes/NamVet/C6DLC3CREATURES03.vcd"  //CHARGER
+}
+Rule SurvivorSpottedChargerAlsoNamVet
+{
+	criteria ConceptPlayerAlsoWarnSpecial IsSpecialTypeCharger  IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsWorldTalkNamVet
+	ApplyContext "SaidChargerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response SurvivorSpottedChargerAlsoNamVet
+}
+
+Response SurvivorSpottedJockeyNamVet
+{
+	scene "scenes/NamVet/C6DLC3CREATURES07.vcd"  //Jockey!
+	scene "scenes/NamVet/C6DLC3CREATURES08.vcd"  //Jockey!
+	scene "scenes/NamVet/C6DLC3CREATURES09.vcd"  //Jockey!
+}
+Rule SurvivorSpottedJockeyNamVet
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeJockey IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsWorldTalkNamVet IsNotSpeakingWeight0
+	ApplyContext "SaidJockeyWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response SurvivorSpottedJockeyNamVet
+}
+
+Response SurvivorSpottedJockeyAlsoNamVet
+{
+	scene "scenes/NamVet/C6DLC3CREATURES07.vcd"  //Jockey!
+	scene "scenes/NamVet/C6DLC3CREATURES08.vcd"  //Jockey!
+	scene "scenes/NamVet/C6DLC3CREATURES09.vcd"  //Jockey!
+}
+Rule SurvivorSpottedJockeyAlsoNamVet
+{
+	criteria ConceptPlayerAlsoWarnSpecial IsSpecialTypeJockey IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsWorldTalkNamVet
+	ApplyContext "SaidJockeyWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response SurvivorSpottedJockeyAlsoNamVet
+}
+
+Response SurvivorSpottedSpitterNamVet
+{
+	scene "scenes/NamVet/C6DLC3CREATURES04.vcd"  //Spitter!
+	scene "scenes/NamVet/C6DLC3CREATURES05.vcd"  //Spitter!
+	scene "scenes/NamVet/C6DLC3CREATURES06.vcd"  //Spitter!
+}
+Rule SurvivorSpottedSpitterNamVet
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeSpitter IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsWorldTalkNamVet IsNotSpeakingWeight0
+	ApplyContext "SaidSpitterWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response SurvivorSpottedSpitterNamVet
+}
+
+Response SurvivorSpottedSpitterAlsoNamVet
+{
+	scene "scenes/NamVet/C6DLC3CREATURES04.vcd"  //Spitter!
+	scene "scenes/NamVet/C6DLC3CREATURES05.vcd"  //Spitter!
+	scene "scenes/NamVet/C6DLC3CREATURES06.vcd"  //Spitter!
+}
+Rule SurvivorSpottedSpitterAlsoNamVet
+{
+	criteria ConceptPlayerAlsoWarnSpecial IsSpecialTypeSpitter IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsWorldTalkNamVet
+	ApplyContext "SaidSpitterWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response SurvivorSpottedSpitterAlsoNamVet
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Not Rosetta - Responses
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerToTheRescueRosNamVet
+{
+	scene "scenes/NamVet/ToTheRescue01.vcd" predelay "0.75,1.5" //Hold on I'm on my way!
+	scene "scenes/NamVet/ToTheRescue02.vcd" predelay "0.75,1.5" //I'm coming!
+	scene "scenes/NamVet/ToTheRescue03.vcd" predelay "0.75,1.5" //Don't get your panties in a bunch, I'm comin'!
+}
+Rule PlayerToTheRescueRosNamVet
+{
+	criteria ConceptPlayerToTheRescue IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsWorldTalkNamVet
+	ApplyContext "SaidRescueComing:1:20"
+	applycontexttoworld
+	Response PlayerToTheRescueRosNamVet
+}
+
+Response SurvivorTauntResponseNamVet
+{
+	scene "scenes/NamVet/ReactionPositive02.vcd"  //Heh hehhh
+	scene "scenes/NamVet/ReactionPositive05.vcd"  //[chuckles and giggles]
+	scene "scenes/NamVet/ReactionPositive06.vcd"  //[chuckles and giggles]
+	scene "scenes/NamVet/ReactionPositive07.vcd"  //[chuckles and giggles]
+	scene "scenes/NamVet/Taunt01.vcd"  //[loud, evil laugh]
+	scene "scenes/NamVet/Taunt02.vcd"  //[loud, evil laugh]
+}
+Rule SurvivorTauntResponseNamVet
+{
+	criteria ConceptPlayerTaunt IsSurvivor IsNotSpeaking IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsWorldTalkNamVet
+	Response SurvivorTauntResponseNamVet
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Remarkable Vocalize
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerRemarkc7m1_bricktopNamVet
+{
+	scene "scenes/NamVet/C6DLC3GENERIC05.vcd"  //On top the bricks.
+}
+Rule PlayerRemarkc7m1_bricktopNamVet
+{
+	criteria ConceptRemark IsNamVet Isc7m1_bricktop IsNotSaidc7m1_bricktop IsNotCoughing NotInCombat IsTalk IsTalkNamVet IsWorldTalkNamVet IsSubjectNear100 IsNotSpeakingWeight0
+	ApplyContext "Saidc7m1_bricktop:1:0"
+	applycontexttoworld
+	Response PlayerRemarkc7m1_bricktopNamVet
+}
+
+Response PlayerRemarkc7m1_harborblockedNamVet
+{
+	scene "scenes/NamVet/C6DLC3HARBORBLOCKED01.vcd"  //Have to find a boat on the other side of this bridge.
+	scene "scenes/NamVet/C6DLC3HARBORBLOCKED02.vcd"  //That bridge is blocking the harbor.
+	scene "scenes/NamVet/C6DLC3HARBORBLOCKED03.vcd"  //Let's head down river to find the boat.
+	scene "scenes/NamVet/C6DLC3HARBORBLOCKED04.vcd"  //Let's follow the river.
+}
+Rule PlayerRemarkc7m1_harborblockedNamVet
+{
+	criteria ConceptRemark IsNamVet Isc7m1_harborblocked IsNotSaidc7m1_harborblocked IsNotCoughing NotInCombat IsTalk IsTalkNamVet IsWorldTalkNamVet IsSubjectNear800 IsNotSpeakingWeight0
+	ApplyContext "Saidc7m1_harborblocked:1:0"
+	applycontexttoworld
+	Response PlayerRemarkc7m1_harborblockedNamVet
+}
+
+Response PlayerRemarkc7m1_pastbricksNamVet
+{
+	scene "scenes/NamVet/C6DLC3GENERIC06.vcd"  //Past the bricks.
+}
+Rule PlayerRemarkc7m1_pastbricksNamVet
+{
+	criteria ConceptRemark IsNamVet Isc7m1_pastbricks IsNotSaidc7m1_pastbricks IsNotCoughing NotInCombat IsTalk IsTalkNamVet IsWorldTalkNamVet IsSubjectNear700 IsNotSpeakingWeight0
+	ApplyContext "Saidc7m1_pastbricks:1:0"
+	applycontexttoworld
+	Response PlayerRemarkc7m1_pastbricksNamVet
+}
+
+Response PlayerRemarkc7m1_pretankNamVet
+{
+	scene "scenes/NamVet/C6DLC3TANKINTRAINYARD01.vcd"  //Goddamn it.  Only the military would think putting a tank in a train was a good idea.
+	scene "scenes/NamVet/C6DLC3TANKINTRAINYARD02.vcd"  //Careful opening that door, he sounds frisky.
+	scene "scenes/NamVet/C6DLC3TANKINTRAINYARD03.vcd"  //Get ready. Let's set a trap for this son of a bitch.
+}
+Rule PlayerRemarkc7m1_pretankNamVet
+{
+	criteria ConceptRemark IsNamVet Isc7m1_pretank IsNotSaidc7m1_pretank IsNotCoughing NotInCombat IsTalk IsTalkNamVet IsWorldTalkNamVet IsSubjectNear200 IsNotSpeakingWeight0 _auto_NotsaidC7M1OpenTankDoorLong
+	ApplyContext "Saidc7m1_pretank:1:0"
+	applycontexttoworld
+	Response PlayerRemarkc7m1_pretankNamVet
+}
+
+Response PlayerRemarkc7m1_tankcarNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTANKTRAINCAR01.vcd"  //This is not pretty.
+	scene "scenes/NamVet/C6DLC3INTANKTRAINCAR02.vcd"  //Can't believe this car held that thing.
+	scene "scenes/NamVet/C6DLC3INTANKTRAINCAR03.vcd"  //Stinks like shit in here.
+}
+Rule PlayerRemarkc7m1_tankcarNamVet
+{
+	criteria ConceptRemark IsNamVet Isc7m1_tankcar IsNotSaidc7m1_tankcar IsNotCoughing NotInCombat IsTalk IsTalkNamVet IsWorldTalkNamVet IsSubjectNear400 IsNotSpeakingWeight0
+	ApplyContext "Saidc7m1_tankcar:1:0"
+	applycontexttoworld
+	Response PlayerRemarkc7m1_tankcarNamVet
+}
+
+Response PlayerRemarkc7m2_gravelhillNamVet
+{
+	scene "scenes/NamVet/C6DLC3GRAVELHILL01.vcd"  //Goddamn pile of rocks.
+	scene "scenes/NamVet/C6DLC3GRAVELHILL02.vcd"  //Don't give up on me, keep going!
+	scene "scenes/NamVet/C6DLC3GRAVELHILL08.vcd"  //Double time up the hill!
+}
+Rule PlayerRemarkc7m2_gravelhillNamVet
+{
+	criteria ConceptRemark IsNamVet Isc7m2_gravelhill IsNotSaidc7m2_gravelhill IsNotCoughing NotInCombat IsTalk IsTalkNamVet IsWorldTalkNamVet IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "Saidc7m2_gravelhill:1:0"
+	applycontexttoworld
+	Response PlayerRemarkc7m2_gravelhillNamVet
+}
+
+Response PlayerRemarkc7m2_onbargeNamVet
+{
+	scene "scenes/NamVet/C6DLC3ONBIGSHIP01.vcd"  //Don't get pulled off the port side.
+	scene "scenes/NamVet/C6DLC3ONBIGSHIP02.vcd"  //Run to the bow.
+}
+Rule PlayerRemarkc7m2_onbargeNamVet
+{
+	criteria ConceptRemark IsNamVet Isc7m2_onbarge IsNotSaidc7m2_onbarge IsNotCoughing NotInCombat IsTalk IsTalkNamVet IsWorldTalkNamVet IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "Saidc7m2_onbarge:1:0"
+	applycontexttoworld
+	Response PlayerRemarkc7m2_onbargeNamVet
+}
+
+Response PlayerRemarkc7m2_overboatNamVet
+{
+	scene "scenes/NamVet/C6DLC3GENERIC01.vcd"  //Over the ship!
+}
+Rule PlayerRemarkc7m2_overboatNamVet
+{
+	criteria ConceptRemark IsNamVet Isc7m2_overboat IsNotSaidc7m2_overboat IsNotCoughing NotInCombat IsTalk IsTalkNamVet IsWorldTalkNamVet IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "Saidc7m2_overboat:1:0"
+	applycontexttoworld
+	Response PlayerRemarkc7m2_overboatNamVet
+}
+
+Response PlayerRemarkc7m2_throughhereNamVet
+{
+	scene "scenes/NamVet/GenericDirections05.vcd"  //Through here!
+	scene "scenes/NamVet/WorldFarmHouse0204.vcd"  //Through here!
+	scene "scenes/NamVet/WorldHospital0327.vcd"  //Through here!
+}
+Rule PlayerRemarkc7m2_throughhereNamVet
+{
+	criteria ConceptRemark IsNamVet Isc7m2_throughhere IsNotSaidc7m2_throughhere IsNotCoughing NotInCombat IsTalk IsTalkNamVet IsWorldTalkNamVet IsSubjectNear200 IsNotSpeakingWeight0
+	ApplyContext "Saidc7m2_throughhere:1:0"
+	applycontexttoworld
+	Response PlayerRemarkc7m2_throughhereNamVet
+}
+
+Response PlayerRemarkc7m3_seesailboatNamVet
+{
+	scene "scenes/NamVet/C6DLC3SPOTTINGSAILBOAT01.vcd"  //Christ, bridge is in the way. We'll need to raise it.
+	scene "scenes/NamVet/C6DLC3SPOTTINGSAILBOAT02.vcd"  //If we wanna take that boat down river, we'll need to raise that bridge.
+	scene "scenes/NamVet/C6DLC3SPOTTINGSAILBOAT03.vcd"  //There's a sailboat by the bridge! We can take that.
+	scene "scenes/NamVet/C6DLC3SPOTTINGSAILBOAT04.vcd"  //There's a sailboat on the wrong side of the bridge. We can raise the bridge and go!
+	scene "scenes/NamVet/C6DLC3SPOTTINGSAILBOAT05.vcd"  //If we raise that bridge, we can use that sailboat.
+}
+Rule PlayerRemarkc7m3_seesailboatNamVet
+{
+	criteria ConceptRemark IsNamVet Isc7m3_seesailboat IsNotSaidc7m3_seesailboat IsNotCoughing NotInCombat IsTalk IsTalkNamVet IsWorldTalkNamVet IsFirstGenerator IsNotSpeakingWeight0
+	ApplyContext "Saidc7m3_seesailboat:1:0"
+	applycontexttoworld
+	Response PlayerRemarkc7m3_seesailboatNamVet
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Rosetta - Manners
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerYellRunNamVet
+{
+	scene "scenes/NamVet/EmphaticRun01.vcd"  //RUN!
+	scene "scenes/NamVet/EmphaticRun02.vcd"  //RUN!
+	scene "scenes/NamVet/EmphaticRun03.vcd"  //BUG OUT!
+	scene "scenes/NamVet/EmphaticRun04.vcd"  //HAUL ASS!
+}
+Rule PlayerYellRunNamVet
+{
+	criteria ConceptPlayerYellRun IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsWorldTalkNamVet
+	Response PlayerYellRunNamVet
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Scavenge
+//--------------------------------------------------------------------------------------------------------------
+Response GrabbingGasSCNamVet
+{
+	scene "scenes/NamVet/KillConfirmation02.vcd"  //Got it
+	scene "scenes/NamVet/KillConfirmation08.vcd"  //Got it
+}
+Rule GrabbingGasSCNamVet
+{
+	criteria ConceptPlayerEquippedScavengeItem IsNamVet IsTalk IsTalkNamVet IsWorldTalkNamVet NamVetNotSaidGrabbingCan
+	ApplyContext "SaidGrabbingCan:1:5"
+	applycontexttoworld
+	Response GrabbingGasSCNamVet
+}
+
+Response PlayerShotGasCanNamVet
+{
+	scene "scenes/NamVet/ReactionNegative07.vcd" predelay "1,1.5" //God dammit
+	scene "scenes/NamVet/ReactionNegative09.vcd" predelay "1,1.5" //Son of a bitch
+	scene "scenes/NamVet/ReactionNegative10.vcd" predelay "1,1.5" //Dammit
+	scene "scenes/NamVet/Swears04.vcd" predelay "1,1.5" //Bull-frickin-horseshit.
+	scene "scenes/NamVet/Swears09.vcd" predelay "1,1.5" //God DAMMIT.
+	scene "scenes/NamVet/Swears10.vcd" predelay "1,1.5" //Mother of mercy.
+	scene "scenes/NamVet/Swears19.vcd" predelay "1,1.5" //What a crock a' shit...
+}
+Rule PlayerShotGasCanNamVet
+{
+	criteria ConceptPlayerShotGasCan IsNamVet IsNotSaidPlayerShotGasCan IsScavenge
+	ApplyContext "SaidPlayerShotGasCan1:10"
+	applycontexttoworld
+	Response PlayerShotGasCanNamVet
+}
+
+Response ScavengeStartNamVet
+{
+	scene "scenes/NamVet/MoveOn01.vcd"  //Allright, let's go.
+	scene "scenes/NamVet/MoveOn02.vcd"  //Let's move people.
+	scene "scenes/NamVet/MoveOn08.vcd"  //Alright, let's go.
+	scene "scenes/NamVet/MoveOn10.vcd"  //Come on, let's go.
+	scene "scenes/NamVet/MoveOn12.vcd"  //Let's go, people!
+}
+Rule ScavengeStartNamVet
+{
+	criteria ConceptSurvivorLeavingCheckpoint IsNamVet IsTalk IsTalkNamVet IsWorldTalkNamVet IsScavenge IsNotSaidStartScavenge
+	ApplyContext "SaidStartScavenge:1:4"
+	applycontexttoworld
+	Response ScavengeStartNamVet
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer
+//--------------------------------------------------------------------------------------------------------------
+Response FinaleAheadc7m3NamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO07.vcd"  //Alright, everybody, remember: we're lookin' for a sail boat.
+	scene "scenes/NamVet/C6DLC3INTRO11.vcd"  //We gotta find a sail boat.
+	scene "scenes/NamVet/C6DLC3INTRO36.vcd"  //Almost there, people! We just gotta find a boat and we'll be in the Keys.
+	scene "scenes/NamVet/C6DLC3INTRO40.vcd"  //Let's find a boat that can make it to the Gulf.
+	scene "scenes/NamVet/MoveOn02.vcd"  //Let's move people.
+	scene "scenes/NamVet/MoveOn07.vcd"  //Let's move it out people
+}
+Rule FinaleAheadc7m3NamVet
+{
+	criteria ConceptPlayerNearFinale IsNotCoughing IsNamVet IsNotSaidFinaleAhead NotInCombat IsTalk IsTalkNamVet IsNotIncapacitated IsWorldTalkNamVet Ismapc7m3_port
+	ApplyContext "SaidFinaleAhead:1:30"
+	applycontexttoworld
+	Response FinaleAheadc7m3NamVet
+}
+
+Response Player.C7M2CrowsFlyNamVet
+{
+	scene "scenes/NamVet/C6DLC3GRAVELHILL03.vcd" predelay "1,2" then Any Player.WarnMegaMobc7m201 3 1 //Goddamn it... crows!
+	scene "scenes/NamVet/C6DLC3GRAVELHILL04.vcd" predelay "1,2" then Any Player.WarnMegaMobc7m201 3 1 //Horseshit goddamn birds...
+	scene "scenes/NamVet/C6DLC3GRAVELHILL05.vcd" predelay "1,2" then Any Player.WarnMegaMobc7m201 3 1 //Shut-up you goddamn birds!
+}
+Rule Player.C7M2CrowsFlyNamVet
+{
+	criteria ConceptC7M2CrowsFlySpeakNamVet ismapc7m2_barge IsNamVet _auto_NotC7M2CrowsFlySpeak
+	ApplyContext "_auto_C7M2CrowsFlySpeak:1:0"
+	applycontexttoworld
+	Response Player.C7M2CrowsFlyNamVet
+}
+
+Response Player.C7M3BridgeLeapNamVet
+{
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE01.vcd"  //Stay there, I got it.
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE02.vcd"  //Don't get off the bridge, I have this.
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE03.vcd"  //Stay there! I got this!
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE04.vcd"  //You take care.
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE05.vcd"  //Remember: Stay together! No matter what!
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE06.vcd"  //Do not follow me!
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE07.vcd"  //Nobody try to help me! I'm doing this alone!
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE08.vcd"  //I'm not horseshittin' around, don't follow me!
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE09.vcd"  //Take care of each other!
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE10.vcd"  //Be safe! Get to the Keys!
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE11.vcd"  //You guys mean everything to me! Stay there!
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE12.vcd"  //You guys are the only family I got! Take care of each other!
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE13.vcd"  //Stay on the goddamn bridge, I have this.
+	scene "scenes/NamVet/C6DLC3JUMPINGOFFBRIDGE14.vcd"  //No matter what happens: stay together.
+}
+Rule Player.C7M3BridgeLeapNamVet
+{
+	criteria ConceptC7M3BridgeLeapSpeakNamVet IsNotCoughing IsNamVet  IsTalk IsTalkNamVet IsNotSpeaking  ismapc7m3_port IsWorldTalkNamVet IsNotScavenge _auto_NotSaidC7M3BridgeLeap
+	ApplyContext "WarnMegaMob:1:300,SaidSpecialWarn:1:30,_auto_SaidC7M3BridgeLeap:1:0"
+	applycontexttoworld
+	Response Player.C7M3BridgeLeapNamVet
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer - Pickups
+//--------------------------------------------------------------------------------------------------------------
+Response SurvivorPickupAdrenalineNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupAdrenalineNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival IsNotCoughing IsNamVet IsPickedUpAdrenaline IsNotSpeaking IsInSafeSpot IsNotInStartArea IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupAdrenalineNamVet
+}
+
+Response SurvivorPickupAdrenalineAlwaysNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupAdrenalineAlwaysNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpAdrenaline IsNotSpeaking IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupAdrenalineAlwaysNamVet
+}
+
+Response SurvivorPickupbaseball_batNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupbaseball_batNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpbaseball_bat IsNotSpeaking  NamVetNotPickedUpItem IsTalk IsTalkNamVet IsWorldTalkNamVet IsNotInStartArea ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupbaseball_batNamVet
+}
+
+Response SurvivorPickupchainsawNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupchainsawNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpchainsaw IsNotSpeaking  NamVetNotPickedUpItem IsTalk IsTalkNamVet IsWorldTalkNamVet IsNotInStartArea ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupchainsawNamVet
+}
+
+Response SurvivorPickupcricket_batNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupcricket_batNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpcricket_bat IsNotSpeaking  NamVetNotPickedUpItem IsTalk IsTalkNamVet IsWorldTalkNamVet IsNotInStartArea ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupcricket_batNamVet
+}
+
+Response SurvivorPickupCricketBatNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupCricketBatNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpcricket_bat IsNotSpeaking  NamVetNotPickedUpItem IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupCricketBatNamVet
+}
+
+Response SurvivorPickupCrowBarNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupCrowBarNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpCrowBar  IsNotSpeaking  NamVetNotPickedUpItem IsTalk IsTalkNamVet IsWorldTalkNamVet  IsNotInStartArea ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupCrowBarNamVet
+}
+
+Response SurvivorPickupelectric_guitarNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupelectric_guitarNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpelectric_guitar IsNotSpeaking  NamVetNotPickedUpItem IsTalk IsTalkNamVet IsWorldTalkNamVet IsNotInStartArea ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupelectric_guitarNamVet
+}
+
+Response SurvivorPickupFireAxeNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupFireAxeNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpFireAxe  IsNotSpeaking  NamVetNotPickedUpItem IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupFireAxeNamVet
+}
+
+Response SurvivorPickupFryingPanNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupFryingPanNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpFryingPan IsNotSpeaking  NamVetNotPickedUpItem IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupFryingPanNamVet
+}
+
+Response SurvivorPickupGrenadeLauncherNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupGrenadeLauncherNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpGrenadeLauncher IsNotSpeaking IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupGrenadeLauncherNamVet
+}
+
+Response SurvivorPickupIncendiaryAmmoNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupIncendiaryAmmoNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpIncendiaryAmmo IsNotSpeaking  ChanceToFire40Percent NamVetNotPickedUpItem IsNotInStartArea IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupIncendiaryAmmoNamVet
+}
+
+Response SurvivorPickupKatanaNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupKatanaNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpKatana IsNotSpeaking  NamVetNotPickedUpItem IsTalk IsTalkNamVet IsWorldTalkNamVet IsNotInStartArea ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupKatanaNamVet
+}
+
+Response SurvivorPickupLaserSightsAlwaysNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupLaserSightsAlwaysNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpLaserSights IsNotSpeaking ChanceToFire50Percent NamVetNotPickedUpItem IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupLaserSightsAlwaysNamVet
+}
+
+Response SurvivorPickupMacheteNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupMacheteNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpMachete IsNotSpeaking  NamVetNotPickedUpItem IsTalk IsTalkNamVet IsWorldTalkNamVet IsNotInStartArea ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupMacheteNamVet
+}
+
+Response SurvivorPickupMagnumNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupMagnumNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpMagnum IsNotSpeaking IsInSafeSpot ChanceToFire30Percent NamVetNotPickedUpItem IsNotInStartArea IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupMagnumNamVet
+}
+
+Response SurvivorPickupMagnumAlwaysNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupMagnumAlwaysNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpMagnum IsNotSpeaking IsNotInSafeSpot ChanceToFire30Percent NamVetNotPickedUpItem IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupMagnumAlwaysNamVet
+}
+
+Response SurvivorPickuptonfaNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickuptonfaNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUptonfa IsNotSpeaking  NamVetNotPickedUpItem IsTalk IsTalkNamVet IsWorldTalkNamVet IsNotInStartArea ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickuptonfaNamVet
+}
+
+Response SurvivorPickupUpExplosiveAmmoNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupUpExplosiveAmmoNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpExplosiveAmmo IsNotSpeaking  IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupUpExplosiveAmmoNamVet
+}
+
+Response SurvivorPickupUpExplosivesNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupUpExplosivesNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpUpgradePack_Explosive IsNotSpeaking  IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupUpExplosivesNamVet
+}
+
+Response SurvivorPickupUpIncendiaryNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupUpIncendiaryNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpUpgradePack_Incendiary IsNotSpeaking  IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupUpIncendiaryNamVet
+}
+
+Response SurvivorPickupUpIncendiaryAmmoNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupUpIncendiaryAmmoNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpIncendiaryAmmo IsNotSpeaking  IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupUpIncendiaryAmmoNamVet
+}
+
+Response SurvivorPickupVomitJarNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupVomitJarNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpVomitJar IsNotSpeaking IsInSafeSpot IsNotInStartArea IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupVomitJarNamVet
+}
+
+Response SurvivorPickupVomitJarAlwaysNamVet
+{
+	scene "scenes/NamVet/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/NamVet/Yes03.vcd"  //Yeah.
+	scene "scenes/NamVet/Yes04.vcd"  //Okay.
+}
+Rule SurvivorPickupVomitJarAlwaysNamVet
+{
+	criteria ConceptPlayerPickup AutoIsNotScavenge AutoIsNotSurvival  IsNotCoughing IsNamVet IsPickedUpVomitJar IsNotSpeaking IsTalk IsTalkNamVet IsWorldTalkNamVet ChanceToFire30Percent
+	ApplyContext "NamVetPickedUpItem:1:30"
+	Response SurvivorPickupVomitJarAlwaysNamVet
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer Convo (AUTO)
+//--------------------------------------------------------------------------------------------------------------
+Response InfoReminfo_carnotboatNamVet
+{
+	scene "scenes/NamVet/C6DLC3OTHERBOATS06.vcd"  //Francis, that's a car.
+}
+Rule InfoReminfo_carnotboatNamVet
+{
+	criteria ConceptInfoReminfo_carnotboat IsNamVet
+	Response InfoReminfo_carnotboatNamVet
+}
+
+Response InfoRemInfo_powerboatNamVet
+{
+	scene "scenes/NamVet/C6DLC3INTRO12.vcd"  //That's not a sailboat.
+	scene "scenes/NamVet/C6DLC3OTHERBOATS01.vcd"  //Sail boat, Francis.
+	scene "scenes/NamVet/C6DLC3OTHERBOATS02.vcd"  //Sailboat Francis. Sailboat.
+	scene "scenes/NamVet/C6DLC3OTHERBOATS04.vcd"  //Francis, does it have a sail?
+	scene "scenes/NamVet/C6DLC3OTHERBOATS05.vcd"  //Not that boat Francis.
+}
+Rule InfoRemInfo_powerboatNamVet
+{
+	criteria ConceptInfoRemInfo_powerboat IsNamVet
+	Response InfoRemInfo_powerboatNamVet
+}
+
+Response InfoReminfo_sunkboatthere01NamVet
+{
+	scene "scenes/NamVet/C6DLC3OTHERBOATS07.vcd"  //Francis, that boat's underwater.
+}
+Rule InfoReminfo_sunkboatthere01NamVet
+{
+	criteria ConceptInfoReminfo_sunkboatthere01 IsNamVet IsBikerNear800
+	Response InfoReminfo_sunkboatthere01NamVet
+}
+
+Response InfoReminfo_trailerboatNamVet
+{
+	scene "scenes/NamVet/C6DLC3OTHERBOATS09.vcd"  //Son, that's a trailer and you're an idiot.
+}
+Rule InfoReminfo_trailerboatNamVet
+{
+	criteria ConceptInfoReminfo_trailerboat IsNamVet IsBikerNear800
+	Response InfoReminfo_trailerboatNamVet
+}
+
+Response InfoReminfo_trailerboatruckNamVet
+{
+	scene "scenes/NamVet/C6DLC3SECONDSAFEROOM12.vcd"  //Cut the horseshit, Francis.
+}
+Rule InfoReminfo_trailerboatruckNamVet
+{
+	criteria ConceptInfoReminfo_trailerboatruck IsNamVet
+	Response InfoReminfo_trailerboatruckNamVet
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Volcalize
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerLostCallNamVet
+{
+	scene "scenes/NamVet/LostCall01.vcd"  //Hello?
+	scene "scenes/NamVet/LostCall02.vcd"  //Where are you?
+	scene "scenes/NamVet/LostCall03.vcd"  //Where is everyone?
+	scene "scenes/NamVet/LostCall04.vcd"  //Is anyone there?
+	scene "scenes/NamVet/LostCall05.vcd"  //Report in, people! Report!
+	scene "scenes/NamVet/LostCall06.vcd"  //Hello?
+	scene "scenes/NamVet/LostCall08.vcd"  //Anybody out there?
+	scene "scenes/NamVet/LostCall09.vcd"  //Is anyone out there?
+}
+Rule PlayerLostCallNamVet
+{
+	criteria ConceptTalkIdle IsNamVet IsClosestSurvivorFar3000 IsNotSaidPlayerLostCall _auto_NotNoLostCall IsNotSpeakingWeight0
+	ApplyContext "SaidPlayerLostCall:1:50"
+	applycontexttoworld
+	Response PlayerLostCallNamVet
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Weapon Spotted
+//--------------------------------------------------------------------------------------------------------------
+Response SurvivorSpottedChainsawNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedChainsawNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsChainsaw IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedChainsawNamVet
+}
+
+Response SurvivorSpottedChainsawAutoNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedChainsawAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsChainsaw IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedChainsawAutoNamVet
+}
+
+Response SurvivorSpottedcricket_batNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedcricket_batNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto Iscricket_bat IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedcricket_batNamVet
+}
+
+Response SurvivorSpottedcricket_batAutoNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedcricket_batAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot Iscricket_bat IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedcricket_batAutoNamVet
+}
+
+Response SurvivorSpottedcrowbarNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedcrowbarNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto Iscrowbar IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedcrowbarNamVet
+}
+
+Response SurvivorSpottedcrowbarAutoNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedcrowbarAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot Iscrowbar IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedcrowbarAutoNamVet
+}
+
+Response SurvivorSpottedGuitarNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedGuitarNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsGuitar IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedGuitarNamVet
+}
+
+Response SurvivorSpottedGuitarAutoNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedGuitarAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsGuitar IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedGuitarAutoNamVet
+}
+
+Response SurvivorSpottedKatanaNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedKatanaNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsKatana IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedKatanaNamVet
+}
+
+Response SurvivorSpottedKatanaAutoNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedKatanaAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsKatana IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedKatanaAutoNamVet
+}
+
+Response SurvivorSpottedLaserSightsNamVet
+{
+	scene "scenes/NamVet/Look04.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look!
+	scene "scenes/NamVet/LookHere02.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look at this.
+	scene "scenes/NamVet/LookHere03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look over here.
+	scene "scenes/NamVet/LookHere04.vcd"  then any _SpotStuffResponse foo:0 0.01 //You're gonna want to see this.
+}
+Rule SurvivorSpottedLaserSightsNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsLaserSights IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedLaserSightsNamVet
+}
+
+Response SurvivorSpottedLaserSightsAutoNamVet
+{
+	scene "scenes/NamVet/Look04.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look!
+	scene "scenes/NamVet/LookHere02.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look at this.
+	scene "scenes/NamVet/LookHere03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Look over here.
+	scene "scenes/NamVet/LookHere04.vcd"  then any _SpotStuffResponse foo:0 0.01 //You're gonna want to see this.
+}
+Rule SurvivorSpottedLaserSightsAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsLaserSights IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedLaserSightsAutoNamVet
+}
+
+Response SurvivorSpottedMacheteNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedMacheteNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsMachete IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedMacheteNamVet
+}
+
+Response SurvivorSpottedMacheteAutoNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedMacheteAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsMachete IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedMacheteAutoNamVet
+}
+
+Response SurvivorSpottedMagnumNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedMagnumNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsMagnum IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedMagnumNamVet
+}
+
+Response SurvivorSpottedMagnumAutoNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedMagnumAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsMagnum IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedMagnumAutoNamVet
+}
+
+Response SurvivorSpottedtonfaNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedtonfaNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto Istonfa IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedtonfaNamVet
+}
+
+Response SurvivorSpottedtonfaAutoNamVet
+{
+	scene "scenes/NamVet/SpotWeapons01.vcd"  then any _SpotStuffResponse foo:0 0.01 //Weapons here!
+	scene "scenes/NamVet/SpotWeapons02.vcd"  then any _SpotStuffResponse foo:0 0.01 //We've got to stick together.
+	scene "scenes/NamVet/SpotWeapons03.vcd"  then any _SpotStuffResponse foo:0 0.01 //Stay close.
+}
+Rule SurvivorSpottedtonfaAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot Istonfa IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedtonfaAutoNamVet
+}
+
+Rule SurvivorSpottedAutoShotgunNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsAutoShotgun IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedWeaponNamVet
+}
+
+Rule SurvivorSpottedAutoShotgunAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsAutoShotgun IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedWeaponNamVet
+}
+
+Rule SurvivorSpottedHuntingRifleNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsHuntingRifle IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedWeaponNamVet
+}
+
+Rule SurvivorSpottedHuntingRifleAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsHuntingRifle IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedWeaponNamVet
+}
+
+Rule SurvivorSpottedPumpShotgunNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsPumpShotgun IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedWeaponNamVet
+}
+
+Rule SurvivorSpottedRifleNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsRifle IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedWeaponNamVet
+}
+
+Rule SurvivorSpottedRifle_AK47NamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsRifle_AK47 IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedWeaponNamVet
+}
+
+Rule SurvivorSpottedRifle_AK47AutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsRifle_AK47 IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedWeaponNamVet
+}
+
+Rule SurvivorSpottedRifleAutoNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotWeapons IsNotSaidSpot IsRifle IsWorldTalkNamVet _auto_NotNoSpotting IsNotSpeakingWeight0
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedWeaponNamVet
+}
+
+Rule SurvivorSpottedSecondPistolNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsSecondPistol IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedWeaponNamVet
+}
+
+Rule SurvivorSpottedShotgun_ChromeNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsShotgun_Chrome IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedWeaponNamVet
+}
+
+Rule SurvivorSpottedSMGNamVet
+{
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsNamVet IsTalk IsTalkNamVet IsNotSmartLookAuto IsSMG IsWorldTalkNamVet
+	ApplyContext "SaidSpotWeapons:1:5,SaidSpot:1:20"
+	applycontexttoworld
+	Response SurvivorSpottedWeaponNamVet
+}
+

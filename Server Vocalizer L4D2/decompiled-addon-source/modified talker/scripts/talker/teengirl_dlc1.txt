@@ -1,0 +1,654 @@
+//--------------------------------------------------------------------------------------------------------------
+// TeenGirl Response Rule File
+//--------------------------------------------------------------------------------------------------------------
+
+
+
+Response L4D1PlayerNiceShotTeenGirl
+{
+	scene "scenes/TeenGirl/NiceJob07.vcd"  //Nicely played sir
+	scene "scenes/TeenGirl/NiceShot06.vcd"  //Great shot!
+	scene "scenes/TeenGirl/NiceShot07.vcd"  //Nice shot!
+	scene "scenes/TeenGirl/NiceShot11.vcd"  //Good one!
+	scene "scenes/TeenGirl/NiceShot13.vcd"  //Sweet shot!
+	scene "scenes/TeenGirl/NiceShot14.vcd"  //Killer shot!
+}
+Rule L4D1PlayerNiceShotTeenGirl
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsTeenGirl IsSubjectDistNear1500  IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl IsNotSpeaking ChanceToFire70Percent
+	Response L4D1PlayerNiceShotTeenGirl
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M1
+//--------------------------------------------------------------------------------------------------------------
+Response C6M1Intro_01TeenGirl01TeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting05.vcd"  then Mechanic C6M1Intro_11a foo:0 -0.910 //Nice car!
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting06.vcd"  then Mechanic C6M1Intro_11a foo:0 -1.426 //Nice car, dude!
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting11.vcd"  then Producer C6M1Intro_12a foo:0 -9.087 //and then once you get over here, we can fill up the generator. The generator will make a lot of noise but don't worry Ellis we can cover you from up here. You got all that?
+}
+Rule C6M1Intro_01TeenGirl01TeenGirl
+{
+	criteria ConceptintroC6M1 IsTeenGirl IsZoeyIntroActor IsNotSaidIntroScene MoreThan0  LessThan30 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01TeenGirl01TeenGirl
+}
+
+Response C6M1Intro_01TeenGirl02TeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting08.vcd"  then Mechanic C6M1Intro_13a foo:0 -4.002 //Hello down there! Sorry but we can't lower the bridge.
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting09.vcd"  then Mechanic C6M1Intro_13a foo:0 -3.987 //Hello down there! Sorry but we can't lower the bridge.
+}
+Rule C6M1Intro_01TeenGirl02TeenGirl
+{
+	criteria ConceptintroC6M1 IsTeenGirl IsZoeyIntroActor IsNotSaidIntroScene MoreThan30  LessThan40 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01TeenGirl02TeenGirl
+}
+
+Response C6M1Intro_01TeenGirl03TeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting19.vcd"  then Producer C6M1Intro_22a foo:0 -1.117 //Hello down there!
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting21.vcd"  then Producer C6M1Intro_22a foo:0 -1.253 //Hello down there!
+}
+Rule C6M1Intro_01TeenGirl03TeenGirl
+{
+	criteria ConceptintroC6M1 IsTeenGirl IsZoeyIntroActor IsNotSaidIntroScene MoreThan40  LessThan60 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01TeenGirl03TeenGirl
+}
+
+Response C6M1Intro_01TeenGirl04TeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting02.vcd"  then Coach C6M1Intro_08a foo:0 -5.459 //You need to get to the other side to lower this bridge. Road's clear past that.
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting12.vcd"  then Gambler C6M1Intro_15a foo:0 -1.855 //Sorry, I can't lower the bridge.
+}
+Rule C6M1Intro_01TeenGirl04TeenGirl
+{
+	criteria ConceptintroC6M1 IsTeenGirl IsZoeyIntroActor IsNotSaidIntroScene MoreThan60  LessThan100 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01TeenGirl04TeenGirl
+}
+
+Response C6M1Intro_03aTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting01.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //Sorry, can't! We got wounded up here. If you can get to the other side of the bridge, we can help you can get it down.
+}
+Rule C6M1Intro_03aTeenGirl
+{
+	criteria ConceptC6M1Intro_03a IsTeenGirl
+	Response C6M1Intro_03aTeenGirl
+}
+
+Response C6M1Intro_04aTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting03.vcd"  then Coach C6M1Intro_04b foo:0 -1.676 //Generator's out on the other side!
+}
+Rule C6M1Intro_04aTeenGirl
+{
+	criteria ConceptC6M1Intro_04a IsTeenGirl
+	Response C6M1Intro_04aTeenGirl
+}
+
+Response C6M1Intro_04cTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting04.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //Sorry, can't! We got wounded up here. If you can get to the other side of the bridge, we can help you can get it down.
+}
+Rule C6M1Intro_04cTeenGirl
+{
+	criteria ConceptC6M1Intro_04c IsTeenGirl
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_04cTeenGirl
+}
+
+Response C6M1Intro_11bTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting07.vcd"  then Mechanic C6M1Intro_11c foo:0 -7.175 //Sorry man, no can do. Generators out. Get to the other side of the river and we can help you get it down.
+}
+Rule C6M1Intro_11bTeenGirl
+{
+	criteria ConceptC6M1Intro_11b IsTeenGirl
+	Response C6M1Intro_11bTeenGirl
+}
+
+Response C6M1Intro_13dTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting10.vcd"  then Coach C6M1Intro_13e foo:0 -3.130 //You are going to need to get to the other side of the bridge. We can help you there.
+}
+Rule C6M1Intro_13dTeenGirl
+{
+	criteria ConceptC6M1Intro_13d IsTeenGirl
+	Response C6M1Intro_13dTeenGirl
+}
+
+Response C6M1Intro_15bTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting13.vcd"  then Producer C6M1Intro_15c foo:0 -4.693 //Boohoo hoo, I don't know what to do… Go to hell Colonel Sanders
+}
+Rule C6M1Intro_15bTeenGirl
+{
+	criteria ConceptC6M1Intro_15b IsTeenGirl
+	Response C6M1Intro_15bTeenGirl
+}
+
+Response C6M1Intro_15dTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting14.vcd"  then Gambler C6M1Intro_15e foo:0 -2.385 //I could shoot you where you stand.
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting15.vcd"  then Gambler C6M1Intro_15e foo:0 -2.340 //I could shoot you where you stand.
+}
+Rule C6M1Intro_15dTeenGirl
+{
+	criteria ConceptC6M1Intro_15d IsTeenGirl
+	Response C6M1Intro_15dTeenGirl
+}
+
+Response C6M1Intro_17aTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting16.vcd"  then Producer C6M1Intro_17b foo:0 -9.916 //I'm sorry, there really isn't. If you can get to the other side of the river we can help you lower it. But we lost a man and another's hurt, we really can't do it by ourselves.
+}
+Rule C6M1Intro_17aTeenGirl
+{
+	criteria ConceptC6M1Intro_17a IsTeenGirl
+	Response C6M1Intro_17aTeenGirl
+}
+
+Response C6M1Intro_17cTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting17.vcd"  then Producer C6M1Intro_17d foo:0 -2.035 //Sorry, good luck?
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting18.vcd"  then Producer C6M1Intro_17d foo:0 -2.335 //Sorry, good luck?
+}
+Rule C6M1Intro_17cTeenGirl
+{
+	criteria ConceptC6M1Intro_17c IsTeenGirl
+	Response C6M1Intro_17cTeenGirl
+}
+
+Response C6M1Intro_22bTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting20.vcd"  then Producer C6M1Intro_22c foo:0 -1.387 //Yeah, I know that feeling.
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting23.vcd"  then Producer C6M1Intro_22c foo:0 -1.913 //Yeah, I know that feeling.
+}
+Rule C6M1Intro_22bTeenGirl
+{
+	criteria ConceptC6M1Intro_22b IsTeenGirl
+	Response C6M1Intro_22bTeenGirl
+}
+
+Response C6M1Intro_22dTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting22.vcd"  then Producer C6M1Intro_22f foo:0 -7.980 //Sorry can't. We lost a guy and another's injured. If you can find another way over, we can help you get the bridge down.
+}
+Rule C6M1Intro_22dTeenGirl
+{
+	criteria ConceptC6M1Intro_22d IsTeenGirl
+	Response C6M1Intro_22dTeenGirl
+}
+
+Response C6M1Intro_22gTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting24.vcd"  then Producer C6M1Intro_22h foo:0 -0.623 //Good luck.
+}
+Rule C6M1Intro_22gTeenGirl
+{
+	criteria ConceptC6M1Intro_22g IsTeenGirl
+	Response C6M1Intro_22gTeenGirl
+}
+
+Response C6M1Intro_23aTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting25.vcd"  then Mechanic C6M1Intro_23b foo:0 -1.285 //Not exactly.
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting27.vcd"  then Mechanic C6M1Intro_23b foo:0 -1.920 //Well... no.
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting28.vcd"  then Mechanic C6M1Intro_23b foo:0 -2.054 //Umm, no, I can't.
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting29.vcd"  then Mechanic C6M1Intro_23b foo:0 -2.037 //Umm, no.
+}
+Rule C6M1Intro_23aTeenGirl
+{
+	criteria ConceptC6M1Intro_23a IsTeenGirl
+	Response C6M1Intro_23aTeenGirl
+}
+
+Response C6M1Intro_23cTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M1_InitialMeeting26.vcd"  then Mechanic C6M1Intro_23d foo:0 -9.236 //Uh, no... Generator is out of gas. If you get over to the other side and fill it up, we can cover you. Best I can offer.
+}
+Rule C6M1Intro_23cTeenGirl
+{
+	criteria ConceptC6M1Intro_23c IsTeenGirl
+	Response C6M1Intro_23cTeenGirl
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M3
+//--------------------------------------------------------------------------------------------------------------
+Response c6m3_outroL4D1TeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic15.vcd"  //(10 commandments) Go - proclaim liberty throughout all the lands, and to all the inhabitants thereof!
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic16.vcd"  //(Planet of the apes) You finally really did it. You maniacs! You blew it up! God damn you! God damn you all to hell!
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic18.vcd"  //Remember soylent green is people!
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic19.vcd"  //Y'all come back now!
+}
+Rule c6m3_outroL4D1TeenGirl
+{
+	criteria Conceptc6m3_outro3 IsTeenGirl isC6m3_port IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1TeenGirl
+}
+
+Response c6m3_outroL4D101aTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic01.vcd"  //Yeah, but... it's us three now.
+}
+Rule c6m3_outroL4D101aTeenGirl
+{
+	criteria Conceptc6m3_outroL4D101a IsTeenGirl
+	Response c6m3_outroL4D101aTeenGirl
+}
+
+Response c6m3_outroL4D102bTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic02.vcd"  //Don't worry, they won't be the last.
+}
+Rule c6m3_outroL4D102bTeenGirl
+{
+	criteria Conceptc6m3_outroL4D102b IsTeenGirl
+	Response c6m3_outroL4D102bTeenGirl
+}
+
+Response c6m3_outroL4D103aTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic03.vcd"  //No. It's hard enough out there.
+}
+Rule c6m3_outroL4D103aTeenGirl
+{
+	criteria Conceptc6m3_outroL4D103a IsTeenGirl
+	Response c6m3_outroL4D103aTeenGirl
+}
+
+Response c6m3_outroL4D104aTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic08.vcd"  then Biker c6m3_outroL4D104b foo:0 -4.872 //Francis, it's nice to see you still have that in you.
+}
+Rule c6m3_outroL4D104aTeenGirl
+{
+	criteria Conceptc6m3_outroL4D104a IsTeenGirl
+	Response c6m3_outroL4D104aTeenGirl
+}
+
+Response c6m3_outroL4D105aTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic12.vcd"  //Where? At the mall?
+}
+Rule c6m3_outroL4D105aTeenGirl
+{
+	criteria Conceptc6m3_outroL4D105a IsTeenGirl
+	Response c6m3_outroL4D105aTeenGirl
+}
+
+Response c6m3_outroL4D107aTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic14.vcd"  //Yeah, for about 10 minutes.
+}
+Rule c6m3_outroL4D107aTeenGirl
+{
+	criteria Conceptc6m3_outroL4D107a IsTeenGirl
+	Response c6m3_outroL4D107aTeenGirl
+}
+
+Response c6m3_outroL4D109aTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic22.vcd"  //Sure you are Francis, sure you are.
+}
+Rule c6m3_outroL4D109aTeenGirl
+{
+	criteria Conceptc6m3_outroL4D109a IsTeenGirl
+	Response c6m3_outroL4D109aTeenGirl
+}
+
+Response c6m3_outroL4D1AllTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic04.vcd"  //Bye Ellis! Bye Rochelle! Bye Coach! Bye Nick!
+}
+Rule c6m3_outroL4D1AllTeenGirl
+{
+	criteria Conceptc6m3_outro3 IsTeenGirl isC6m3_port IsEveryoneAliveWeight0 IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1AllTeenGirl
+}
+
+Response c6m3_outroL4D1MechanicTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic21.vcd"  then Biker c6m3_outroL4D108a foo:0 -5.788 //I ever tell you about the time my buddy Ellis stole a race car from the mall and drove it over some zombies?
+}
+Rule c6m3_outroL4D1MechanicTeenGirl
+{
+	criteria Conceptc6m3_outro3 IsTeenGirl isC6m3_port IsMechanicAlive IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1MechanicTeenGirl
+}
+
+Response c6m3_outroL4D1MechanicZoeyTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic06.vcd"  //Ellis! ELLIS!!! Maybe we should have gone with him?
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic07.vcd"  //Ellis! ELLIS!!! Maybe he should have come with us?
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic23.vcd"  //I'm going to miss Ellis.
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic24.vcd"  //Hm. I'm going to miss Ellis.
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic25.vcd"  then Biker c6m3_outroL4D1010a foo:0 -1.261 //I'm going to miss Ellis.
+}
+Rule c6m3_outroL4D1MechanicZoeyTeenGirl
+{
+	criteria Conceptc6m3_outro3 IsTeenGirl isC6m3_port IsZoeyIntroActor ZoeyGroup1 IsMechanicAlive IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1MechanicZoeyTeenGirl
+}
+
+Response c6m3_outroL4D1MechanicZoey2TeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic06.vcd"  //Ellis! ELLIS!!! Maybe we should have gone with him?
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic07.vcd"  //Ellis! ELLIS!!! Maybe he should have come with us?
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic23.vcd"  //I'm going to miss Ellis.
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic24.vcd"  //Hm. I'm going to miss Ellis.
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleCinematic25.vcd"  then Biker c6m3_outroL4D1010a foo:0 -1.261 //I'm going to miss Ellis.
+}
+Rule c6m3_outroL4D1MechanicZoey2TeenGirl
+{
+	criteria Conceptc6m3_outro3 IsTeenGirl isC6m3_port IsZoeyIntroActor ZoeyGroup2 IsMechanicAlive IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1MechanicZoey2TeenGirl
+}
+
+Response C6M3VocalizeLookOutTeenGirl
+{
+	scene "scenes/TeenGirl/LookOut01.vcd"  //Look out!
+	scene "scenes/TeenGirl/LookOut03.vcd"  //Watch out!
+	scene "scenes/TeenGirl/LookOut08.vcd"  //Behind you!!
+}
+Rule C6M3VocalizeLookOutTeenGirl
+{
+	criteria ConceptPlayerLookOut IsNotCoughing IsTeenGirl IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl
+	Response C6M3VocalizeLookOutTeenGirl
+}
+
+Response L4D1_AttractPlayerForThrowTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_FinaleL4D1ThrowItems04.vcd"  //Heads up!
+	scene "scenes/TeenGirl/LookHere06.vcd"  //Look over here!
+	scene "scenes/TeenGirl/LookHere07.vcd"  //Look here.
+	scene "scenes/TeenGirl/LostCall06.vcd"  //Helloooo?
+}
+Rule L4D1_AttractPlayerForThrowTeenGirl
+{
+	criteria ConceptL4D1_AttractPlayerForThrow IsTeenGirl
+	Response L4D1_AttractPlayerForThrowTeenGirl
+}
+
+Response L4D1_SurvivorBotTakeThisItemTeenGirl
+{
+	scene "scenes/TeenGirl/AlertGiveItem03.vcd"  //Take this.
+	scene "scenes/TeenGirl/AlertGiveItem07.vcd"  //Hey, take this.
+	scene "scenes/TeenGirl/DLC1_C6M3_FinaleL4D1ThrowItems01.vcd"  //Here you go!
+	scene "scenes/TeenGirl/DLC1_C6M3_FinaleL4D1ThrowItems02.vcd"  //Here you go!
+	scene "scenes/TeenGirl/DLC1_C6M3_FinaleL4D1ThrowItems03.vcd"  //Take this!
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleFinalGas01.vcd"  //Here, be safe.
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleFinalGas03.vcd"  //Take this, good luck.
+}
+Rule L4D1_SurvivorBotTakeThisItemTeenGirl
+{
+	criteria ConceptL4D1_SurvivorBotTakeThisItem IsTeenGirl
+	Response L4D1_SurvivorBotTakeThisItemTeenGirl
+}
+
+Response WorldC6M3_ByBridge01TeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleBridgeRun01.vcd"  //GO! THE BRIDGE IS DOWN!
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleBridgeRun02.vcd"  //We got your backs, go!
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleBridgeRun03.vcd"  //Go, go, go! We'll hold them off.
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleBridgeRun06.vcd"  //Go! We'll hold them off.
+}
+Rule WorldC6M3_ByBridge01TeenGirl
+{
+	criteria ConceptWorldC6M3_ByBridge01 IsTeenGirl
+	Response WorldC6M3_ByBridge01TeenGirl
+}
+
+Response WorldC6M3_ByBridge01EllisTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleBridgeRun04.vcd"  //Get to your car Ellis!
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleBridgeRun05.vcd"  //Get to your car Ellis!
+	scene "scenes/TeenGirl/DLC1_C6M3_L4D1FinaleBridgeRun07.vcd"  //Ellis, the car's calling!
+}
+Rule WorldC6M3_ByBridge01EllisTeenGirl
+{
+	criteria ConceptWorldC6M3_ByBridge01Ellis IsTeenGirl
+	Response WorldC6M3_ByBridge01EllisTeenGirl
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Monster Spotted
+//--------------------------------------------------------------------------------------------------------------
+Response L4D1AlsoSpottedBoomerTeenGirl
+{
+	scene "scenes/TeenGirl/WarnBoomer01.vcd"  //BOOMER!
+	scene "scenes/TeenGirl/WarnBoomer02.vcd"  //BOOMER!
+	scene "scenes/TeenGirl/WarnBoomer03.vcd"  //BOOMER!
+}
+Rule L4D1AlsoSpottedBoomerTeenGirl
+{
+	criteria ConceptPlayerAlsoWarnBoomer IsNotCoughing IsTeenGirl IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl
+	ApplyContext "SaidBoomerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1AlsoSpottedBoomerTeenGirl
+}
+
+Response L4D1AlsoSpottedHunterTeenGirl
+{
+	scene "scenes/TeenGirl/WarnHunter01.vcd"  //HUNTER!
+	scene "scenes/TeenGirl/WarnHunter02.vcd"  //HUNTER!
+	scene "scenes/TeenGirl/WarnHunter03.vcd"  //HUNTER!
+}
+Rule L4D1AlsoSpottedHunterTeenGirl
+{
+	criteria ConceptPlayerAlsoWarnHunter IsNotCoughing IsTeenGirl IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl
+	ApplyContext "SaidHunterWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1AlsoSpottedHunterTeenGirl
+}
+
+Response L4D1AlsoSpottedSmokerTeenGirl
+{
+	scene "scenes/TeenGirl/WarnSmoker01.vcd"  //SMOKER!
+	scene "scenes/TeenGirl/WarnSmoker02.vcd"  //SMOKER!
+	scene "scenes/TeenGirl/WarnSmoker03.vcd"  //SMOKER!
+}
+Rule L4D1AlsoSpottedSmokerTeenGirl
+{
+	criteria ConceptPlayerAlsoWarnSmoker IsNotCoughing IsTeenGirl IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl
+	ApplyContext "SaidSmokerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1AlsoSpottedSmokerTeenGirl
+}
+
+Response L4D1AlsoSpottedTankTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_L4D1Tank01.vcd"  //Guys come back!
+	scene "scenes/TeenGirl/DLC1_L4D1Tank02.vcd"  //Guys let us cover you!
+	scene "scenes/TeenGirl/DLC1_L4D1Tank03.vcd" odds 1 //TWO TANKS!
+	scene "scenes/TeenGirl/DLC1_L4D1Tank04.vcd"  //Bring the tanks back here!
+}
+Rule L4D1AlsoSpottedTankTeenGirl
+{
+	criteria ConceptPlayerAlsoWarnTank IsNotCoughing IsTeenGirl IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl Isc6m3_port
+	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
+	applycontexttoworld
+	Response L4D1AlsoSpottedTankTeenGirl
+}
+
+Response L4D1SpottedBoomerTeenGirl
+{
+	scene "scenes/TeenGirl/WarnBoomer01.vcd"  //BOOMER!
+	scene "scenes/TeenGirl/WarnBoomer02.vcd"  //BOOMER!
+	scene "scenes/TeenGirl/WarnBoomer03.vcd"  //BOOMER!
+}
+Rule L4D1SpottedBoomerTeenGirl
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeBoomer IsNotCoughing IsTeenGirl IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl IsNotSpeaking
+	ApplyContext "SaidBoomerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedBoomerTeenGirl
+}
+
+Response L4D1SpottedChargerTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_L4D1Charger01.vcd"  //CHARGER!
+	scene "scenes/TeenGirl/DLC1_L4D1Charger02.vcd"  //CHARGER!
+	scene "scenes/TeenGirl/DLC1_L4D1Charger03.vcd"  //CHARGER!
+}
+Rule L4D1SpottedChargerTeenGirl
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeCharger  IsNotCoughing IsTeenGirl IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl IsNotSpeakingWeight0
+	ApplyContext "SaidChargerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedChargerTeenGirl
+}
+
+Response L4D1SpottedHunterTeenGirl
+{
+	scene "scenes/TeenGirl/WarnHunter01.vcd"  //HUNTER!
+	scene "scenes/TeenGirl/WarnHunter02.vcd"  //HUNTER!
+	scene "scenes/TeenGirl/WarnHunter03.vcd"  //HUNTER!
+}
+Rule L4D1SpottedHunterTeenGirl
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeHunter IsNotCoughing IsTeenGirl IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl IsNotSpeakingWeight0
+	ApplyContext "SaidHunterWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedHunterTeenGirl
+}
+
+Response L4D1SpottedJockeyTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_L4D1Jockey01.vcd"  //JOCKEY!
+	scene "scenes/TeenGirl/DLC1_L4D1Jockey02.vcd"  //JOCKEY!
+	scene "scenes/TeenGirl/DLC1_L4D1Jockey03.vcd"  //JOCKEY!
+}
+Rule L4D1SpottedJockeyTeenGirl
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeJockey IsNotCoughing IsTeenGirl IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl IsNotSpeakingWeight0
+	ApplyContext "SaidJockeyWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedJockeyTeenGirl
+}
+
+Response L4D1SpottedSmokerTeenGirl
+{
+	scene "scenes/TeenGirl/WarnSmoker01.vcd"  //SMOKER!
+	scene "scenes/TeenGirl/WarnSmoker02.vcd"  //SMOKER!
+	scene "scenes/TeenGirl/WarnSmoker03.vcd"  //SMOKER!
+}
+Rule L4D1SpottedSmokerTeenGirl
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeSmoker IsNotCoughing IsTeenGirl IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl IsNotSpeakingWeight0
+	ApplyContext "SaidSmokerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedSmokerTeenGirl
+}
+
+Response L4D1SpottedSpitterTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_L4D1Spitter01.vcd"  //SPITTER!
+	scene "scenes/TeenGirl/DLC1_L4D1Spitter02.vcd"  //SPITTER!
+	scene "scenes/TeenGirl/DLC1_L4D1Spitter03.vcd"  //SPITTER!
+}
+Rule L4D1SpottedSpitterTeenGirl
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeSpitter IsNotCoughing IsTeenGirl IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl IsNotSpeakingWeight0
+	ApplyContext "SaidSpitterWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedSpitterTeenGirl
+}
+
+Response L4D1SpottedTankTeenGirl
+{
+	scene "scenes/TeenGirl/DLC1_L4D1Tank01.vcd"  //Guys come back!
+	scene "scenes/TeenGirl/DLC1_L4D1Tank02.vcd"  //Guys let us cover you!
+	scene "scenes/TeenGirl/DLC1_L4D1Tank03.vcd" odds 1 //TWO TANKS!
+	scene "scenes/TeenGirl/DLC1_L4D1Tank04.vcd"  //Bring the tanks back here!
+}
+Rule L4D1SpottedTankTeenGirl
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeTank IsNotCoughing IsTeenGirl IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl Isc6m3_port IsNotSpeakingWeight0
+	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
+	applycontexttoworld
+	Response L4D1SpottedTankTeenGirl
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Player File
+//--------------------------------------------------------------------------------------------------------------
+Response L4D1_ReloadingTeenGirl
+{
+	scene "scenes/TeenGirl/Reloading01.vcd"  //Reloading!
+	scene "scenes/TeenGirl/Reloading02.vcd"  //Reloading!
+	scene "scenes/TeenGirl/Reloading03.vcd"  //Reloading!
+	scene "scenes/TeenGirl/Reloading04.vcd"  //I'm Reloading!
+}
+Rule L4D1_ReloadingTeenGirl
+{
+	criteria ConceptPlayerReloading IsNotSpeaking IsTeenGirl IsTalk IsTalkTeenGirl IsWorldTalkTeenGirl
+	Response L4D1_ReloadingTeenGirl
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer
+//--------------------------------------------------------------------------------------------------------------
+Response L4D1PlayerKillConfirmationTeenGirl
+{
+	scene "scenes/TeenGirl/KillConfirmation01.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.802 //Got it!
+	scene "scenes/TeenGirl/KillConfirmation03.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.815 //Nailed it!
+	scene "scenes/TeenGirl/KillConfirmation04.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.555 //Got 'em
+	scene "scenes/TeenGirl/KillConfirmation05.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.539 //Got it!
+	scene "scenes/TeenGirl/KillConfirmation06.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.504 //Got 'em
+	scene "scenes/TeenGirl/KillConfirmation08.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.475 //Got 'em
+}
+Rule L4D1PlayerKillConfirmationTeenGirl
+{
+	criteria ConceptKilledZombie IsNotCoughing IsTeenGirl  IsTalk IsTalkTeenGirl IsSubjectFar300 ChanceToFire80Percent IsWorldTalkTeenGirl
+	Response L4D1PlayerKillConfirmationTeenGirl
+}
+
+Response L4D1PlayerWarnMegaMobTeenGirl
+{
+	scene "scenes/TeenGirl/Incoming02.vcd" predelay "2.5,3.5" //Incoming!
+	scene "scenes/TeenGirl/Incoming04.vcd" predelay "2.5,3.5" //They're coming!
+	scene "scenes/TeenGirl/Incoming05.vcd" predelay "2.5,3.5" //Here they come!
+	scene "scenes/TeenGirl/Incoming06.vcd" predelay "2.5,3.5" //Get ready!
+	scene "scenes/TeenGirl/Incoming07.vcd" predelay "2.5,3.5" //Oh god, get ready, here they come!
+}
+Rule L4D1PlayerWarnMegaMobTeenGirl
+{
+	criteria ConceptPlayerWarnMegaMob IsNotCoughing IsTeenGirl IsNotWarnMegaMob IsTalk IsTalkTeenGirl IsNotSpeaking IsWorldTalkTeenGirl
+	ApplyContext "WarnMegaMob:1:300,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1PlayerWarnMegaMobTeenGirl
+}
+

@@ -1,0 +1,362 @@
+//--------------------------------------------------------------------------------------------------------------
+// Manager Response Rule File
+//--------------------------------------------------------------------------------------------------------------
+
+
+
+Response L4D1PlayerNiceShotManager
+{
+	scene "scenes/Manager/NiceJob03.vcd"  //Nice job.
+	scene "scenes/Manager/NiceJob05.vcd"  //That was great.
+	scene "scenes/Manager/NiceShot01.vcd"  //Nice shot!
+	scene "scenes/Manager/NiceShot02.vcd" odds 5 //Oh man, great shot.
+	scene "scenes/Manager/NiceShot03.vcd" odds 2 //Wooo, nice baby!
+	scene "scenes/Manager/NiceShot05.vcd"  //Nice one!
+	scene "scenes/Manager/NiceShot07.vcd"  //Nice shot!
+	scene "scenes/Manager/NiceShot08.vcd"  //Great shot!
+}
+Rule L4D1PlayerNiceShotManager
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsManager IsSubjectDistNear1500  IsTalk IsTalkManager IsWorldTalkManager IsNotSpeaking ChanceToFire70Percent
+	Response L4D1PlayerNiceShotManager
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M3
+//--------------------------------------------------------------------------------------------------------------
+Response c6m3_outroL4D1Manager
+{
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleCinematic13.vcd"  //Bye! Be safe! We're gonna miss you!
+}
+Rule c6m3_outroL4D1Manager
+{
+	criteria Conceptc6m3_outro3 IsManager isC6m3_port IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1Manager
+}
+
+Response c6m3_outroL4D102aManager
+{
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleCinematic02.vcd"  then TeenGirl c6m3_outroL4D102b foo:0 -2.130 //It was nice see normal people again.
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleCinematic03.vcd"  //It was nice see normal people again. Except for that Nick guy...
+}
+Rule c6m3_outroL4D102aManager
+{
+	criteria Conceptc6m3_outroL4D102a IsManager
+	Response c6m3_outroL4D102aManager
+}
+
+Response c6m3_outroL4D106aManager
+{
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleCinematic11.vcd"  //Go Ellis! GO!
+}
+Rule c6m3_outroL4D106aManager
+{
+	criteria Conceptc6m3_outroL4D106a IsManager
+	Response c6m3_outroL4D106aManager
+}
+
+Response c6m3_outroL4D1AllManager
+{
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleCinematic01.vcd"  then Manager c6m3_outroL4D102a foo:0 -1.024 //I'm gonna miss them.
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleCinematic04.vcd"  then TeenGirl c6m3_outroL4D103a foo:0 -1.146 //Should we have told them?
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleCinematic05.vcd"  //BYE RO! BYE COACH! BYE ELLIS! BYE WHATEVER YOUR NAME IS!
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleCinematic12.vcd"  then TeenGirl c6m3_outroL4D107a foo:0 -3.412 //I've got a good feeling about them. I think they're gonna be okay.
+}
+Rule c6m3_outroL4D1AllManager
+{
+	criteria Conceptc6m3_outro3 IsManager isC6m3_port IsEveryoneAliveWeight0 IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1AllManager
+}
+
+Response c6m3_outroL4D1CoachManager
+{
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleCinematic06.vcd"  //Bye Coach! Keep it positive!
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleCinematic08.vcd"  //I think we're gonna be seeing more of that guy!
+}
+Rule c6m3_outroL4D1CoachManager
+{
+	criteria Conceptc6m3_outro3 IsManager isC6m3_port IsCoachAlive IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1CoachManager
+}
+
+Response c6m3_outroL4D1GamblerManager
+{
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleCinematic09.vcd"  then TeenGirl c6m3_outroL4D105a foo:0 -2.622 //I think we're gonna be seeing more of that guy!
+}
+Rule c6m3_outroL4D1GamblerManager
+{
+	criteria Conceptc6m3_outro3 IsManager isC6m3_port IsGamblerAlive IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1GamblerManager
+}
+
+Response c6m3_outroL4D1MechanicManager
+{
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleCinematic10.vcd"  then Manager c6m3_outroL4D106a foo:0 -3.335 //Bye Ellis! You're gonna make it to New Orleans! I know you will!
+}
+Rule c6m3_outroL4D1MechanicManager
+{
+	criteria Conceptc6m3_outro3 IsManager isC6m3_port IsMechanicAlive IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1MechanicManager
+}
+
+Response C6M3VocalizeLookOutManager
+{
+	scene "scenes/Manager/LookOut01.vcd"  //Look out!
+	scene "scenes/Manager/LookOut02.vcd"  //Look out!
+	scene "scenes/Manager/LookOut03.vcd"  //Watch out!
+	scene "scenes/Manager/LookOut04.vcd"  //Watch out!
+	scene "scenes/Manager/LookOut05.vcd"  //Heads up!
+	scene "scenes/Manager/LookOut06.vcd"  //Heads up!
+}
+Rule C6M3VocalizeLookOutManager
+{
+	criteria ConceptPlayerLookOut IsNotCoughing IsManager IsTalk IsTalkManager IsWorldTalkManager
+	Response C6M3VocalizeLookOutManager
+}
+
+Response L4D1_NiceJobPourManager
+{
+	scene "scenes/Manager/NiceJob02.vcd"  //Nice work.
+	scene "scenes/Manager/NiceJob03.vcd"  //Nice job.
+}
+Rule L4D1_NiceJobPourManager
+{
+	criteria ConceptL4D1_NiceJobPour IsManager
+	Response L4D1_NiceJobPourManager
+}
+
+Response WorldC6M3_ByBridge01Manager
+{
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleBridgeRun01.vcd"  //Get to your car, we got 'em.
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleBridgeRun02.vcd"  //Get going! Get going!
+}
+Rule WorldC6M3_ByBridge01Manager
+{
+	criteria ConceptWorldC6M3_ByBridge01 IsManager
+	Response WorldC6M3_ByBridge01Manager
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Monster Spotted
+//--------------------------------------------------------------------------------------------------------------
+Response L4D1AlsoSpottedBoomerManager
+{
+	scene "scenes/Manager/WarnBoomer01.vcd"  //BOOMER!
+	scene "scenes/Manager/WarnBoomer02.vcd"  //BOOMER!
+	scene "scenes/Manager/WarnBoomer03.vcd"  //BOOMER!
+}
+Rule L4D1AlsoSpottedBoomerManager
+{
+	criteria ConceptPlayerAlsoWarnBoomer IsNotCoughing IsManager IsTalk IsTalkManager IsWorldTalkManager
+	ApplyContext "SaidBoomerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1AlsoSpottedBoomerManager
+}
+
+Response L4D1AlsoSpottedHunterManager
+{
+	scene "scenes/Manager/WarnHunter01.vcd"  //HUNTER!
+	scene "scenes/Manager/WarnHunter02.vcd"  //HUNTER!
+	scene "scenes/Manager/WarnHunter03.vcd"  //HUNTER!
+}
+Rule L4D1AlsoSpottedHunterManager
+{
+	criteria ConceptPlayerAlsoWarnHunter IsNotCoughing IsManager IsTalk IsTalkManager IsWorldTalkManager
+	ApplyContext "SaidHunterWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1AlsoSpottedHunterManager
+}
+
+Response L4D1AlsoSpottedSmokerManager
+{
+	scene "scenes/Manager/WarnSmoker01.vcd"  //SMOKER!
+	scene "scenes/Manager/WarnSmoker02.vcd"  //SMOKER!
+	scene "scenes/Manager/WarnSmoker03.vcd"  //SMOKER!
+}
+Rule L4D1AlsoSpottedSmokerManager
+{
+	criteria ConceptPlayerAlsoWarnSmoker IsNotCoughing IsManager IsTalk IsTalkManager IsWorldTalkManager
+	ApplyContext "SaidSmokerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1AlsoSpottedSmokerManager
+}
+
+Response L4D1AlsoSpottedTankManager
+{
+	scene "scenes/Manager/DLC1_L4D1Tank01.vcd"  //Lead those puppies this way!
+	scene "scenes/Manager/DLC1_L4D1Tank02.vcd"  //I am going to rip those tanks up!
+	scene "scenes/Manager/DLC1_L4D1Tank03.vcd"  //This is just why we put this up here!
+	scene "scenes/Manager/DLC1_L4D1Tank04.vcd"  //This is why we put this baby up here!
+	scene "scenes/Manager/DLC1_L4D1Tank04.vcd"  //This is why we put this baby up here!
+	scene "scenes/Manager/DLC1_L4D1Tank05.vcd" odds 1 //TWO TANKS!
+}
+Rule L4D1AlsoSpottedTankManager
+{
+	criteria ConceptPlayerAlsoWarnTank IsNotCoughing IsManager IsTalk IsTalkManager IsWorldTalkManager Isc6m3_port
+	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
+	applycontexttoworld
+	Response L4D1AlsoSpottedTankManager
+}
+
+Response L4D1SpottedBoomerManager
+{
+	scene "scenes/Manager/WarnBoomer01.vcd"  //BOOMER!
+	scene "scenes/Manager/WarnBoomer02.vcd"  //BOOMER!
+	scene "scenes/Manager/WarnBoomer03.vcd"  //BOOMER!
+}
+Rule L4D1SpottedBoomerManager
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeBoomer IsNotCoughing IsManager IsTalk IsTalkManager IsWorldTalkManager IsNotSpeaking
+	ApplyContext "SaidBoomerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedBoomerManager
+}
+
+Response L4D1SpottedChargerManager
+{
+	scene "scenes/Manager/DLC1_L4D1Charger01.vcd"  //CHARGER!
+	scene "scenes/Manager/DLC1_L4D1Charger02.vcd"  //CHARGER!
+	scene "scenes/Manager/DLC1_L4D1Charger03.vcd"  //CHARGER!
+}
+Rule L4D1SpottedChargerManager
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeCharger  IsNotCoughing IsManager IsTalk IsTalkManager IsWorldTalkManager IsNotSpeakingWeight0
+	ApplyContext "SaidChargerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedChargerManager
+}
+
+Response L4D1SpottedHunterManager
+{
+	scene "scenes/Manager/WarnHunter01.vcd"  //HUNTER!
+	scene "scenes/Manager/WarnHunter02.vcd"  //HUNTER!
+	scene "scenes/Manager/WarnHunter03.vcd"  //HUNTER!
+}
+Rule L4D1SpottedHunterManager
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeHunter IsNotCoughing IsManager IsTalk IsTalkManager IsWorldTalkManager IsNotSpeakingWeight0
+	ApplyContext "SaidHunterWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedHunterManager
+}
+
+Response L4D1SpottedJockeyManager
+{
+	scene "scenes/Manager/DLC1_L4D1Jockey01.vcd"  //JOCKEY!
+	scene "scenes/Manager/DLC1_L4D1Jockey02.vcd"  //JOCKEY!
+	scene "scenes/Manager/DLC1_L4D1Jockey03.vcd"  //JOCKEY!
+}
+Rule L4D1SpottedJockeyManager
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeJockey IsNotCoughing IsManager IsTalk IsTalkManager IsWorldTalkManager IsNotSpeakingWeight0
+	ApplyContext "SaidJockeyWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedJockeyManager
+}
+
+Response L4D1SpottedSmokerManager
+{
+	scene "scenes/Manager/WarnSmoker01.vcd"  //SMOKER!
+	scene "scenes/Manager/WarnSmoker02.vcd"  //SMOKER!
+	scene "scenes/Manager/WarnSmoker03.vcd"  //SMOKER!
+}
+Rule L4D1SpottedSmokerManager
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeSmoker IsNotCoughing IsManager IsTalk IsTalkManager IsWorldTalkManager IsNotSpeakingWeight0
+	ApplyContext "SaidSmokerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedSmokerManager
+}
+
+Response L4D1SpottedSpitterManager
+{
+	scene "scenes/Manager/DLC1_L4D1Spitter01.vcd"  //SPITTER!
+	scene "scenes/Manager/DLC1_L4D1Spitter02.vcd"  //SPITTER!
+	scene "scenes/Manager/DLC1_L4D1Spitter03.vcd"  //SPITTER!
+}
+Rule L4D1SpottedSpitterManager
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeSpitter IsNotCoughing IsManager IsTalk IsTalkManager IsWorldTalkManager IsNotSpeakingWeight0
+	ApplyContext "SaidSpitterWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedSpitterManager
+}
+
+Response L4D1SpottedTankManager
+{
+	scene "scenes/Manager/DLC1_L4D1Tank01.vcd"  //Lead those puppies this way!
+	scene "scenes/Manager/DLC1_L4D1Tank02.vcd"  //I am going to rip those tanks up!
+	scene "scenes/Manager/DLC1_L4D1Tank03.vcd"  //This is just why we put this up here!
+	scene "scenes/Manager/DLC1_L4D1Tank04.vcd"  //This is why we put this baby up here!
+	scene "scenes/Manager/DLC1_L4D1Tank04.vcd"  //This is why we put this baby up here!
+	scene "scenes/Manager/DLC1_L4D1Tank05.vcd" odds 1 //TWO TANKS!
+}
+Rule L4D1SpottedTankManager
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeTank IsNotCoughing IsManager IsTalk IsTalkManager IsWorldTalkManager Isc6m3_port IsNotSpeakingWeight0
+	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
+	applycontexttoworld
+	Response L4D1SpottedTankManager
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer
+//--------------------------------------------------------------------------------------------------------------
+Response L4D1PlayerKillConfirmationManager
+{
+	scene "scenes/Manager/KillConfirmation01.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.960 //Got it!
+	scene "scenes/Manager/KillConfirmation02.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.810 //Killed it!
+	scene "scenes/Manager/KillConfirmation03.vcd"  then Any L4D1PlayerNiceShot foo:0 -1.099 //Dead!
+	scene "scenes/Manager/KillConfirmation04.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.672 //Got it!
+	scene "scenes/Manager/KillConfirmation05.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.875 //Killed it!
+	scene "scenes/Manager/KillConfirmation06.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.736 //Dead!
+}
+Rule L4D1PlayerKillConfirmationManager
+{
+	criteria ConceptKilledZombie IsNotCoughing IsManager  IsTalk IsTalkManager IsSubjectFar300 ChanceToFire80Percent IsWorldTalkManager
+	Response L4D1PlayerKillConfirmationManager
+}
+
+Response L4D1PlayerKillConfirmationTankManager
+{
+	scene "scenes/Manager/DLC1_KILLFINALTANK01.vcd"  then Any L4D1PlayerNiceShot foo:0 -2.251 //That is for Bill!
+	scene "scenes/Manager/DLC1_KILLFINALTANK02.vcd"  then Any L4D1PlayerNiceShot foo:0 -2.166 //That is for Bill!
+}
+Rule L4D1PlayerKillConfirmationTankManager
+{
+	criteria ConceptKilledZombie IsNotCoughing IsManager  IsTalk IsTalkManager IsWorldTalkManager SubjectIsTank ChanceToFire30Percent
+	Response L4D1PlayerKillConfirmationTankManager
+}
+
+Response L4D1PlayerWarnMegaMobManager
+{
+	scene "scenes/Manager/Incoming01.vcd" predelay "2.5,3.5" //Here they come!
+	scene "scenes/Manager/Incoming02.vcd" predelay "2.5,3.5" //They're comin'!
+	scene "scenes/Manager/Incoming03.vcd" predelay "2.5,3.5" //Incoming!
+}
+Rule L4D1PlayerWarnMegaMobManager
+{
+	criteria ConceptPlayerWarnMegaMob IsNotCoughing IsManager IsNotWarnMegaMob IsTalk IsTalkManager IsNotSpeaking IsWorldTalkManager
+	ApplyContext "WarnMegaMob:1:300,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1PlayerWarnMegaMobManager
+}
+

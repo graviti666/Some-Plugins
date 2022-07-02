@@ -1,0 +1,861 @@
+//--------------------------------------------------------------------------------------------------------------
+// Biker Response Rule File
+//--------------------------------------------------------------------------------------------------------------
+
+
+
+Response L4D1PlayerNiceShotBiker
+{
+	scene "scenes/Biker/NiceJob03.vcd"  //Nice job.
+	scene "scenes/Biker/NiceShot07.vcd"  //Whoah. Nice shot.
+	scene "scenes/Biker/NiceShot10.vcd"  //Good one!
+}
+Rule L4D1PlayerNiceShotBiker
+{
+	criteria ConceptL4D1PlayerNiceShot IsNotCoughing IsBiker IsSubjectDistNear1500  IsTalk IsTalkBiker IsWorldTalkBiker IsNotSpeaking ChanceToFire70Percent
+	Response L4D1PlayerNiceShotBiker
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M1
+//--------------------------------------------------------------------------------------------------------------
+Response C6M1Intro_01bBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting02.vcd"  then Mechanic C6M1Intro_01c foo:0 -0.675 //Nope!
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting03.vcd"  then Mechanic C6M1Intro_01c foo:0 -1.915 //Nope, not a chance.
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting05.vcd"  then Mechanic C6M1Intro_01c foo:0 -1.663 //Nope, no way in hell.
+}
+Rule C6M1Intro_01bBiker
+{
+	criteria ConceptC6M1Intro_01b IsBiker IsNotVersus
+	Response C6M1Intro_01bBiker
+}
+
+Response C6M1Intro_01Biker01Biker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting01.vcd"  then Mechanic C6M1Intro_01a foo:0 -2.440 //Heyyy! Nice ride!
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting07.vcd"  then Mechanic C6M1Intro_01a foo:0 -2.001 //Heyyy! Nice ride!
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting08.vcd"  then Mechanic C6M1Intro_02a foo:0 -2.371 //Heyy! Are you a racecar driver?
+}
+Rule C6M1Intro_01Biker01Biker
+{
+	criteria ConceptintroC6M1 IsBiker IsFrancisIntroActor IsNotSaidIntroScene FrancisGroup1 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01Biker01Biker
+}
+
+Response C6M1Intro_01Biker03Biker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting10.vcd"  then Producer C6M1Intro_05a foo:0 -8.640 //Ma'am uhh Miss? I'm sorry but I can't lower the bridge myself. If you can get to the other side I can help you lower it.
+}
+Rule C6M1Intro_01Biker03Biker
+{
+	criteria ConceptintroC6M1 IsBiker IsFrancisIntroActor IsNotSaidIntroScene FrancisGroup3 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01Biker03Biker
+}
+
+Response C6M1Intro_01Biker05Biker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting30.vcd"  then Gambler C6M1Intro_14a foo:0 -7.878 //Brother, that's what I'm trying to tell ya. We can't get this thing down ourselves. You have to get to the other side.
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting33.vcd"  then Gambler C6M1Intro_16a foo:0 -5.625 //And I'm telling you, I can't lower the bridge. You gotta get around to the other side.
+}
+Rule C6M1Intro_01Biker05Biker
+{
+	criteria ConceptintroC6M1 IsBiker IsFrancisIntroActor IsNotSaidIntroScene FrancisGroup5 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01Biker05Biker
+}
+
+Response C6M1Intro_01Biker06Biker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting19.vcd"  then Biker C6M1Intro_07a foo:0 -4.449 //You down there, be calm. We're cops.
+}
+Rule C6M1Intro_01Biker06Biker
+{
+	criteria ConceptintroC6M1 IsBiker IsFrancisIntroActor IsNotSaidIntroScene FrancisGroup6 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01Biker06Biker
+}
+
+Response C6M1Intro_01Biker07Biker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting20.vcd"  then Gambler C6M1Intro_09a foo:0 -0.634 //Hey!
+}
+Rule C6M1Intro_01Biker07Biker
+{
+	criteria ConceptintroC6M1 IsBiker IsFrancisIntroActor IsNotSaidIntroScene FrancisGroup7 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01Biker07Biker
+}
+
+Response C6M1Intro_01Biker08Biker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting39.vcd"  then Producer C6M1Intro_20a foo:0 -2.249 //Are any of you vampires?
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting39.vcd"  then Coach C6M1Intro_21a foo:0 -2.249 //Are any of you vampires?
+}
+Rule C6M1Intro_01Biker08Biker
+{
+	criteria ConceptintroC6M1 IsBiker IsFrancisIntroActor IsNotSaidIntroScene FrancisGroup8 IsNotVersus
+	ApplyContext "SaidIntroScene:1:0,Talk:1:30"
+	applycontexttoworld
+	Response C6M1Intro_01Biker08Biker
+}
+
+Response C6M1Intro_01dBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting04.vcd"  //Generator's out. Get to the other side and we'll help you get this thing down!
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting06.vcd"  //Can't generator's out
+}
+Rule C6M1Intro_01dBiker
+{
+	criteria ConceptC6M1Intro_01d IsBiker IsNotVersus
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_01dBiker
+}
+
+Response C6M1Intro_02bBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting09.vcd"  //Can't! Generator's out. Get to the other side and fill it up! We'll cover ya!
+}
+Rule C6M1Intro_02bBiker
+{
+	criteria ConceptC6M1Intro_02b IsBiker
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_02bBiker
+}
+
+Response C6M1Intro_05bBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting11.vcd"  then Producer C6M1Intro_05c foo:0 -2.613 //Ahh sorry, No Ma'am.
+}
+Rule C6M1Intro_05bBiker
+{
+	criteria ConceptC6M1Intro_05b IsBiker
+	Response C6M1Intro_05bBiker
+}
+
+Response C6M1Intro_05dBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting12.vcd"  then Producer C6M1Intro_05e foo:0 -0.733 //No ma'am.
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting14.vcd"  then Producer C6M1Intro_05e foo:0 -0.879 //No ma'am.
+}
+Rule C6M1Intro_05dBiker
+{
+	criteria ConceptC6M1Intro_05d IsBiker
+	Response C6M1Intro_05dBiker
+}
+
+Response C6M1Intro_06aBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting13.vcd"  then Producer C6M1Intro_06b foo:0 -5.500 //If I could, I would. Can't. Get to the other side and we can lower it together.
+}
+Rule C6M1Intro_06aBiker
+{
+	criteria ConceptC6M1Intro_06a IsBiker
+	Response C6M1Intro_06aBiker
+}
+
+Response C6M1Intro_06cBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting15.vcd"  then Producer C6M1Intro_06d foo:0 -1.656 //(fumbling) Uhhh yyyeaaah.
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting16.vcd"  then Producer C6M1Intro_06d foo:0 -0.630 //Yeah.
+}
+Rule C6M1Intro_06cBiker
+{
+	criteria ConceptC6M1Intro_06c IsBiker
+	Response C6M1Intro_06cBiker
+}
+
+Response C6M1Intro_06eBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting17.vcd"  //HELL YEAH!
+}
+Rule C6M1Intro_06eBiker
+{
+	criteria ConceptC6M1Intro_06e IsBiker
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_06eBiker
+}
+
+Response C6M1Intro_07aBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting18.vcd"  then Gambler C6M1Intro_07b foo:0 -13.539 //If you want to keep going this way, you're gonna have to walk to the other side of this bridge and then me and an some uhh other cops up here can help you lower the bridge.
+}
+Rule C6M1Intro_07aBiker
+{
+	criteria ConceptC6M1Intro_07a IsBiker
+	Response C6M1Intro_07aBiker
+}
+
+Response C6M1Intro_09cBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting21.vcd"  then Gambler C6M1Intro_09d foo:0 -2.371 //I was talking to the little lady.
+}
+Rule C6M1Intro_09cBiker
+{
+	criteria ConceptC6M1Intro_09c IsBiker
+	Response C6M1Intro_09cBiker
+}
+
+Response C6M1Intro_09gBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting22.vcd"  //Ahh shit. Nooo. But if you can get to the other side we can help you lower it.
+}
+Rule C6M1Intro_09gBiker
+{
+	criteria ConceptC6M1Intro_09g IsBiker
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_09gBiker
+}
+
+Response C6M1Intro_10aBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting23.vcd"  then Producer C6M1Intro_10b foo:0 -1.469 //Go to hell suit.
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting24.vcd"  then Producer C6M1Intro_10b foo:0 -1.723 //Bite me Colonel Sanders.
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting25.vcd"  then Producer C6M1Intro_10b foo:0 -1.978 //Bite me Colonel Sanders.
+}
+Rule C6M1Intro_10aBiker
+{
+	criteria ConceptC6M1Intro_10a IsBiker
+	Response C6M1Intro_10aBiker
+}
+
+Response C6M1Intro_10cBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting26.vcd"  then Producer C6M1Intro_10d foo:0 -2.294 //Hell yeah, I'll help *YOU*.
+}
+Rule C6M1Intro_10cBiker
+{
+	criteria ConceptC6M1Intro_10c IsBiker
+	Response C6M1Intro_10cBiker
+}
+
+Response C6M1Intro_14bBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting31.vcd"  then Gambler C6M1Intro_14c foo:0 -3.067 //Is there anyone of you four who isn't an asshole?
+}
+Rule C6M1Intro_14bBiker
+{
+	criteria ConceptC6M1Intro_14b IsBiker
+	Response C6M1Intro_14bBiker
+}
+
+Response C6M1Intro_16bBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting32.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //Look, I don't love this bridge. But we just lost a man and… Sorry brother, but you are on your own.
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting34.vcd"  then Any WorldC6M1_HistoricTour foo:0 1 //Brother, I don't love this bridge, but right now we just lost a man and got a man down. Sorry, you are on your own.
+}
+Rule C6M1Intro_16bBiker
+{
+	criteria ConceptC6M1Intro_16b IsBiker
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_16bBiker
+}
+
+Response C6M1Intro_18aBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting35.vcd"  then Producer C6M1Intro_18b foo:0 -4.013 //Okay! Bridge is down! That's as far as it goes.
+}
+Rule C6M1Intro_18aBiker
+{
+	criteria ConceptC6M1Intro_18a IsBiker
+	Response C6M1Intro_18aBiker
+}
+
+Response C6M1Intro_18cBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting36.vcd"  then Producer C6M1Intro_18d foo:0 -4.074 //Really, this is as far as it goes. Never saw it any lower.
+}
+Rule C6M1Intro_18cBiker
+{
+	criteria ConceptC6M1Intro_18c IsBiker
+	Response C6M1Intro_18cBiker
+}
+
+Response C6M1Intro_18eBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting37.vcd"  //Oh yeah... uh, yeah it is.
+}
+Rule C6M1Intro_18eBiker
+{
+	criteria ConceptC6M1Intro_18e IsBiker
+	ApplyContext "Talk:0:0"
+	applycontexttoworld
+	Response C6M1Intro_18eBiker
+}
+
+Response C6M1Intro_19aBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting38.vcd"  then Producer C6M1Intro_19b foo:0 -14.246 //Kick ASS! Now all you gotta do is go back into town, find some way to cross the river, fight your way to the other side of this bridge, refuel the generator and get it back going. Then its kissing time!
+}
+Rule C6M1Intro_19aBiker
+{
+	criteria ConceptC6M1Intro_19a IsBiker
+	Response C6M1Intro_19aBiker
+}
+
+Response C6M1Intro_20cBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting40.vcd"  then Producer C6M1Intro_20d foo:0 -1.184 //Sorry, can't.
+}
+Rule C6M1Intro_20cBiker
+{
+	criteria ConceptC6M1Intro_20c IsBiker
+	Response C6M1Intro_20cBiker
+}
+
+Response C6M1Intro_20eBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting41.vcd"  then Biker C6M1Intro_20f foo:0 -2.573 //Louis! I told you, there were vampires!
+}
+Rule C6M1Intro_20eBiker
+{
+	criteria ConceptC6M1Intro_20e IsBiker
+	Response C6M1Intro_20eBiker
+}
+
+Response C6M1Intro_20fBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting42.vcd"  then Producer C6M1Intro_20g foo:0 -3.033 //I'm not talking to any goddamn vampires.
+}
+Rule C6M1Intro_20fBiker
+{
+	criteria ConceptC6M1Intro_20f IsBiker
+	Response C6M1Intro_20fBiker
+}
+
+Response C6M1Intro_21cBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting40.vcd"  then Coach C6M1Intro_21d foo:0 -1.184 //Sorry, can't.
+}
+Rule C6M1Intro_21cBiker
+{
+	criteria ConceptC6M1Intro_21c IsBiker
+	Response C6M1Intro_21cBiker
+}
+
+Response C6M1Intro_21eBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting41.vcd"  then Biker C6M1Intro_21f foo:0 -2.573 //Louis! I told you, there were vampires!
+}
+Rule C6M1Intro_21eBiker
+{
+	criteria ConceptC6M1Intro_21e IsBiker
+	Response C6M1Intro_21eBiker
+}
+
+Response C6M1Intro_21fBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting42.vcd"  then Coach C6M1Intro_21g>> foo:0 -3.033 //I'm not talking to any goddamn vampires.
+}
+Rule C6M1Intro_21fBiker
+{
+	criteria ConceptC6M1Intro_21f IsBiker
+	Response C6M1Intro_21fBiker
+}
+
+Response C6M1Intro_24bBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting43.vcd"  then Mechanic C6M1Intro_24c foo:0 -2.676 //Yeah! Yeah! That's what I've been saying.
+}
+Rule C6M1Intro_24bBiker
+{
+	criteria ConceptC6M1Intro_24b IsBiker
+	Response C6M1Intro_24bBiker
+}
+
+Response C6M1Intro_24dBiker
+{
+	scene "scenes/Biker/DLC1_C6M1_InitialMeeting44.vcd"  then Mechanic C6M1Intro_24e foo:0 -5.854 //Sorry brother. Like I've been telling you. This bridge is up until the generator gets refueled.
+}
+Rule C6M1Intro_24dBiker
+{
+	criteria ConceptC6M1Intro_24d IsBiker
+	Response C6M1Intro_24dBiker
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// C6M3
+//--------------------------------------------------------------------------------------------------------------
+Response c6m3_outroBiker
+{
+	scene "scenes/Biker/blank.vcd" predelay "3" then Any c6m3_outro3 foo:0 0 //
+}
+Rule c6m3_outroBiker
+{
+	criteria Conceptc6m3_outro IsBiker IsNotSaidc6m3_outro isC6m3_port
+	ApplyContext "Saidc6m3_outro:1:0"
+	applycontexttoworld
+	Response c6m3_outroBiker
+}
+
+Response c6m3_outroL4D1Biker
+{
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic13.vcd"  //I hate goodbyes.
+}
+Rule c6m3_outroL4D1Biker
+{
+	criteria Conceptc6m3_outro3 IsBiker isC6m3_port IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1Biker
+}
+
+Response c6m3_outroL4D1010aBiker
+{
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic19.vcd"  //Yeah.
+}
+Rule c6m3_outroL4D1010aBiker
+{
+	criteria Conceptc6m3_outroL4D1010a IsBiker
+	Response c6m3_outroL4D1010aBiker
+}
+
+Response c6m3_outroL4D104bBiker
+{
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic09.vcd"  //What? Seriously, what?
+}
+Rule c6m3_outroL4D104bBiker
+{
+	criteria Conceptc6m3_outroL4D104b IsBiker
+	Response c6m3_outroL4D104bBiker
+}
+
+Response c6m3_outroL4D108aBiker
+{
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic12.vcd"  //No, I haven't heard that one.
+}
+Rule c6m3_outroL4D108aBiker
+{
+	criteria Conceptc6m3_outroL4D108a IsBiker
+	Response c6m3_outroL4D108aBiker
+}
+
+Response c6m3_outroL4D1AllBiker
+{
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic01.vcd"  then TeenGirl c6m3_outroL4D101a foo:0 -2.209 //You know, they were all right.
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic02.vcd"  then Manager c6m3_outroL4D102a foo:0 -1.086 //I'm gonna miss them.
+}
+Rule c6m3_outroL4D1AllBiker
+{
+	criteria Conceptc6m3_outro3 IsBiker isC6m3_port IsEveryoneAliveWeight0 IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1AllBiker
+}
+
+Response c6m3_outroL4D1CoachBiker
+{
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic10.vcd"  //Bye Coach! Keep the pedal to the metal!
+}
+Rule c6m3_outroL4D1CoachBiker
+{
+	criteria Conceptc6m3_outro3 IsBiker isC6m3_port IsCoachAlive IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1CoachBiker
+}
+
+Response c6m3_outroL4D1CopBiker
+{
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic14.vcd"  then TeenGirl c6m3_outroL4D109a foo:0 -2.074 //I really am a cop you know!
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic15.vcd"  then TeenGirl c6m3_outroL4D109a foo:0 -1.275 //I really am a cop!
+}
+Rule c6m3_outroL4D1CopBiker
+{
+	criteria Conceptc6m3_outro3 IsBiker isC6m3_port FrancisGroup6 IsFrancisIntroActor IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1CopBiker
+}
+
+Response c6m3_outroL4D1GamblerBiker
+{
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic05.vcd"  //Nick! Good luck, my brother!
+}
+Rule c6m3_outroL4D1GamblerBiker
+{
+	criteria Conceptc6m3_outro3 IsBiker isC6m3_port IsGamblerAlive IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1GamblerBiker
+}
+
+Response c6m3_outroL4D1GibbsBiker
+{
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic03.vcd"  //I love that car.
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic04.vcd"  //Look at that car go!
+}
+Rule c6m3_outroL4D1GibbsBiker
+{
+	criteria Conceptc6m3_outro3 IsBiker isC6m3_port FrancisGroup1 IsFrancisIntroActor IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1GibbsBiker
+}
+
+Response c6m3_outroL4D1MechanicBiker
+{
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic11.vcd"  //See Ya Ellis! Keep the pedal to the metal!
+}
+Rule c6m3_outroL4D1MechanicBiker
+{
+	criteria Conceptc6m3_outro3 IsBiker isC6m3_port IsMechanicAlive IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1MechanicBiker
+}
+
+Response c6m3_outroL4D1ProducerBiker
+{
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic07.vcd"  //Bye-bye RO! My lovely little angel.
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic08.vcd"  then TeenGirl c6m3_outroL4D104a foo:0 -2.660 //I'm gonna miss Ro.
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic16.vcd"  //Bye RO! I love you!!!!!!!
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic17.vcd"  //Bye RO! I love you!!!!!!! (sobbing) I love you!
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleCinematic18.vcd"  //Go, Ro, go!
+}
+Rule c6m3_outroL4D1ProducerBiker
+{
+	criteria Conceptc6m3_outro3 IsBiker isC6m3_port IsProducerAlive IsNotVersus IsNotSaidc6m3_outro3
+	ApplyContext "Saidc6m3_outro3:1:0"
+	applycontexttoworld
+	forceweight 1
+	Response c6m3_outroL4D1ProducerBiker
+}
+
+Response C6M3VocalizeLookOutBiker
+{
+	scene "scenes/Biker/LookOut01.vcd"  //Look out!
+	scene "scenes/Biker/LookOut02.vcd"  //Look out!
+	scene "scenes/Biker/LookOut03.vcd"  //Watch out!
+	scene "scenes/Biker/LookOut04.vcd"  //Watch out!
+	scene "scenes/Biker/LookOut05.vcd"  //Watch your ass!
+	scene "scenes/Biker/LookOut06.vcd"  //Heads up!
+}
+Rule C6M3VocalizeLookOutBiker
+{
+	criteria ConceptPlayerLookOut IsNotCoughing IsBiker IsTalk IsTalkBiker IsWorldTalkBiker
+	Response C6M3VocalizeLookOutBiker
+}
+
+Response IncapBounce2Biker
+{
+	scene "scenes/Biker/StayTogether03.vcd"  then Biker InCapBounce2 foo:0 -1.321 //Keep together!
+	scene "scenes/Biker/StayTogether04.vcd"  then Biker InCapBounce2 foo:0 -1.456 //Stay together!
+	scene "scenes/Biker/StayTogether05.vcd"  then Biker InCapBounce2 foo:0 -1.145 //Don't split up!
+	scene "scenes/Biker/StayTogether09.vcd"  then Biker InCapBounce2 foo:0 -2.048 //Stay together!
+	scene "scenes/Biker/StayTogether12.vcd"  then Biker InCapBounce2 foo:0 -1.301 //Keep together!
+}
+Rule IncapBounce2Biker
+{
+	criteria ConceptInCapBounce2 IsBiker IsNotSaidInCapBounce2 isC6m3_port
+	ApplyContext "SaidInCapBounce2:1:0"
+	applycontexttoworld
+	Response IncapBounce2Biker
+}
+
+Response L4D1_AttractPlayerForThrowBiker
+{
+	scene "scenes/Biker/AlertGiveItem06.vcd"  //Hold up I got something for you.
+	scene "scenes/Biker/DLC1_C6M3_FinaleL4D1ThrowItems01.vcd"  //Hey come over here.
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleFinalGas02.vcd"  //Here, you're gonna need this.
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleFinalGas04.vcd"  //You lookin' for this?
+	scene "scenes/Biker/LookHere01.vcd"  //Check this out.
+	scene "scenes/Biker/LookHere02.vcd"  //Look at this.
+	scene "scenes/Biker/LookHere05.vcd"  //Look here.
+	scene "scenes/Biker/LostCall01.vcd"  //Hello
+}
+Rule L4D1_AttractPlayerForThrowBiker
+{
+	criteria ConceptL4D1_AttractPlayerForThrow IsBiker
+	Response L4D1_AttractPlayerForThrowBiker
+}
+
+Response L4D1_SurvivorBotTakeThisItemBiker
+{
+	scene "scenes/Biker/AlertGiveItem01.vcd"  //Here, take this.
+	scene "scenes/Biker/AlertGiveItem07.vcd"  //Take it. Hell, I don't need it.
+	scene "scenes/Biker/DLC1_C6M3_FinaleL4D1ThrowItems02.vcd"  //Take this!
+	scene "scenes/Biker/DLC1_C6M3_FinaleL4D1ThrowItems03.vcd"  //You can have this.
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleFinalGas01.vcd"  //Here, you're gonna need this.
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleFinalGas03.vcd"  //Take this, now be safe.
+}
+Rule L4D1_SurvivorBotTakeThisItemBiker
+{
+	criteria ConceptL4D1_SurvivorBotTakeThisItem IsBiker
+	Response L4D1_SurvivorBotTakeThisItemBiker
+}
+
+Response WorldC6M3_ByBridge01Biker
+{
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleBridgeRun01.vcd"  //Don't just stand there! HAUL ASS!
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleBridgeRun02.vcd"  //Don't just stand there! HAUL ASS!
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleBridgeRun03.vcd"  //Get to your car, we'll hold them off!
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleBridgeRun04.vcd"  //Get your asses to your car!
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleBridgeRun05.vcd"  //Get your goddamn asses to your car!
+}
+Rule WorldC6M3_ByBridge01Biker
+{
+	criteria ConceptWorldC6M3_ByBridge01 IsBiker
+	Response WorldC6M3_ByBridge01Biker
+}
+
+Response WorldC6M3_ByBridge01EllisBiker
+{
+	scene "scenes/Biker/DLC1_C6M3_L4D1FinaleBridgeRun06.vcd"  //Hey Ellis, I HATE YOUR HAT! [laughs]
+}
+Rule WorldC6M3_ByBridge01EllisBiker
+{
+	criteria ConceptWorldC6M3_ByBridge01Ellis IsBiker
+	Response WorldC6M3_ByBridge01EllisBiker
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Monster Spotted
+//--------------------------------------------------------------------------------------------------------------
+Response L4D1AlsoSpottedBoomerBiker
+{
+	scene "scenes/Biker/WarnBoomer01.vcd"  //BOOMER!
+	scene "scenes/Biker/WarnBoomer02.vcd"  //BOOMER!
+	scene "scenes/Biker/WarnBoomer03.vcd"  //BOOMER!
+}
+Rule L4D1AlsoSpottedBoomerBiker
+{
+	criteria ConceptPlayerAlsoWarnBoomer IsNotCoughing IsBiker IsTalk IsTalkBiker IsWorldTalkBiker
+	ApplyContext "SaidBoomerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1AlsoSpottedBoomerBiker
+}
+
+Response L4D1AlsoSpottedHunterBiker
+{
+	scene "scenes/Biker/WarnHunter01.vcd"  //HUNTER!
+	scene "scenes/Biker/WarnHunter02.vcd"  //HUNTER!
+	scene "scenes/Biker/WarnHunter03.vcd"  //HUNTER!
+}
+Rule L4D1AlsoSpottedHunterBiker
+{
+	criteria ConceptPlayerAlsoWarnHunter IsNotCoughing IsBiker IsTalk IsTalkBiker IsWorldTalkBiker
+	ApplyContext "SaidHunterWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1AlsoSpottedHunterBiker
+}
+
+Response L4D1AlsoSpottedSmokerBiker
+{
+	scene "scenes/Biker/WarnSmoker01.vcd"  //SMOKER!
+	scene "scenes/Biker/WarnSmoker02.vcd"  //SMOKER!
+	scene "scenes/Biker/WarnSmoker03.vcd"  //SMOKER!
+}
+Rule L4D1AlsoSpottedSmokerBiker
+{
+	criteria ConceptPlayerAlsoWarnSmoker IsNotCoughing IsBiker IsTalk IsTalkBiker IsWorldTalkBiker
+	ApplyContext "SaidSmokerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1AlsoSpottedSmokerBiker
+}
+
+Response L4D1AlsoSpottedTankBiker
+{
+	scene "scenes/Biker/DLC1_L4D1Tank01.vcd"  //Lead 'em over here!
+	scene "scenes/Biker/DLC1_L4D1Tank02.vcd" odds 1 //Oh shit, two tanks!
+	scene "scenes/Biker/DLC1_L4D1Tank03.vcd" odds 1 //TWO TANKS! I HATE THE SOUTH!
+}
+Rule L4D1AlsoSpottedTankBiker
+{
+	criteria ConceptPlayerAlsoWarnTank IsNotCoughing IsBiker IsTalk IsTalkBiker IsWorldTalkBiker Isc6m3_port
+	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
+	applycontexttoworld
+	Response L4D1AlsoSpottedTankBiker
+}
+
+Response L4D1SpottedBoomerBiker
+{
+	scene "scenes/Biker/WarnBoomer01.vcd"  //BOOMER!
+	scene "scenes/Biker/WarnBoomer02.vcd"  //BOOMER!
+	scene "scenes/Biker/WarnBoomer03.vcd"  //BOOMER!
+}
+Rule L4D1SpottedBoomerBiker
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeBoomer IsNotCoughing IsBiker IsTalk IsTalkBiker IsWorldTalkBiker IsNotSpeaking
+	ApplyContext "SaidBoomerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedBoomerBiker
+}
+
+Response L4D1SpottedChargerBiker
+{
+	scene "scenes/Biker/DLC1_L4D1Charger01.vcd"  //CHARGER!
+	scene "scenes/Biker/DLC1_L4D1Charger02.vcd"  //CHARGER!
+	scene "scenes/Biker/DLC1_L4D1Charger03.vcd"  //CHARGER!
+}
+Rule L4D1SpottedChargerBiker
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeCharger  IsNotCoughing IsBiker IsTalk IsTalkBiker IsWorldTalkBiker IsNotSpeakingWeight0
+	ApplyContext "SaidChargerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedChargerBiker
+}
+
+Response L4D1SpottedHunterBiker
+{
+	scene "scenes/Biker/WarnHunter01.vcd"  //HUNTER!
+	scene "scenes/Biker/WarnHunter02.vcd"  //HUNTER!
+	scene "scenes/Biker/WarnHunter03.vcd"  //HUNTER!
+}
+Rule L4D1SpottedHunterBiker
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeHunter IsNotCoughing IsBiker IsTalk IsTalkBiker IsWorldTalkBiker IsNotSpeakingWeight0
+	ApplyContext "SaidHunterWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedHunterBiker
+}
+
+Response L4D1SpottedJockeyBiker
+{
+	scene "scenes/Biker/DLC1_L4D1Jockey01.vcd"  //JOCKEY!
+	scene "scenes/Biker/DLC1_L4D1Jockey02.vcd"  //JOCKEY!
+	scene "scenes/Biker/DLC1_L4D1Jockey03.vcd"  //JOCKEY!
+}
+Rule L4D1SpottedJockeyBiker
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeJockey IsNotCoughing IsBiker IsTalk IsTalkBiker IsWorldTalkBiker IsNotSpeakingWeight0
+	ApplyContext "SaidJockeyWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedJockeyBiker
+}
+
+Response L4D1SpottedSmokerBiker
+{
+	scene "scenes/Biker/WarnSmoker01.vcd"  //SMOKER!
+	scene "scenes/Biker/WarnSmoker02.vcd"  //SMOKER!
+	scene "scenes/Biker/WarnSmoker03.vcd"  //SMOKER!
+}
+Rule L4D1SpottedSmokerBiker
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeSmoker IsNotCoughing IsBiker IsTalk IsTalkBiker IsWorldTalkBiker IsNotSpeakingWeight0
+	ApplyContext "SaidSmokerWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedSmokerBiker
+}
+
+Response L4D1SpottedSpitterBiker
+{
+	scene "scenes/Biker/DLC1_L4D1Spitter01.vcd"  //SPITTER!
+	scene "scenes/Biker/DLC1_L4D1Spitter02.vcd"  //SPITTER!
+	scene "scenes/Biker/DLC1_L4D1Spitter03.vcd"  //SPITTER!
+}
+Rule L4D1SpottedSpitterBiker
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeSpitter IsNotCoughing IsBiker IsTalk IsTalkBiker IsWorldTalkBiker IsNotSpeakingWeight0
+	ApplyContext "SaidSpitterWarn:1:20,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1SpottedSpitterBiker
+}
+
+Response L4D1SpottedTankBiker
+{
+	scene "scenes/Biker/DLC1_L4D1Tank01.vcd"  //Lead 'em over here!
+	scene "scenes/Biker/DLC1_L4D1Tank02.vcd" odds 1 //Oh shit, two tanks!
+	scene "scenes/Biker/DLC1_L4D1Tank03.vcd" odds 1 //TWO TANKS! I HATE THE SOUTH!
+}
+Rule L4D1SpottedTankBiker
+{
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeTank IsNotCoughing IsBiker IsTalk IsTalkBiker IsWorldTalkBiker Isc6m3_port IsNotSpeakingWeight0
+	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
+	applycontexttoworld
+	Response L4D1SpottedTankBiker
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Player File
+//--------------------------------------------------------------------------------------------------------------
+Response L4D1_ReloadingBiker
+{
+	scene "scenes/Biker/Reloading01.vcd"  //Reloading!
+	scene "scenes/Biker/Reloading02.vcd"  //Reloading!
+	scene "scenes/Biker/Reloading03.vcd"  //Reloading!
+}
+Rule L4D1_ReloadingBiker
+{
+	criteria ConceptPlayerReloading IsNotSpeaking IsBiker IsTalk IsTalkBiker IsWorldTalkBiker
+	Response L4D1_ReloadingBiker
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Vocalizer
+//--------------------------------------------------------------------------------------------------------------
+Response L4D1PlayerKillConfirmationBiker
+{
+	scene "scenes/Biker/KillConfirmation01.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.679 //Got it!
+	scene "scenes/Biker/KillConfirmation02.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.942 //Nailed it!
+	scene "scenes/Biker/KillConfirmation03.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.768 //Down!
+	scene "scenes/Biker/KillConfirmation04.vcd"  then Any L4D1PlayerNiceShot foo:0 -1.328 //That's mine.
+	scene "scenes/Biker/KillConfirmation05.vcd"  then Any L4D1PlayerNiceShot foo:0 -1.205 //Dead!
+	scene "scenes/Biker/KillConfirmation06.vcd"  then Any L4D1PlayerNiceShot foo:0 -0.928 //Popped it!
+	scene "scenes/Biker/KillConfirmation07.vcd"  then Any L4D1PlayerNiceShot foo:0 -2.096 //Popped a cap in his ass!
+}
+Rule L4D1PlayerKillConfirmationBiker
+{
+	criteria ConceptKilledZombie IsNotCoughing IsBiker  IsTalk IsTalkBiker IsSubjectFar300 ChanceToFire80Percent IsWorldTalkBiker
+	Response L4D1PlayerKillConfirmationBiker
+}
+
+Response L4D1PlayerKillConfirmationTankBiker
+{
+	scene "scenes/Biker/DLC1_KILLFINALTANK01.vcd"  then Any L4D1PlayerNiceShot foo:0 -1.198 //I hate tanks.
+	scene "scenes/Biker/DLC1_KILLFINALTANK01.vcd"  then Any L4D1PlayerNiceShot foo:0 -1.198 //I hate tanks.
+	scene "scenes/Biker/DLC1_KILLFINALTANK02.vcd"  then Any L4D1PlayerNiceShot foo:0 -2.028 //I hate tanks.
+	scene "scenes/Biker/DLC1_KILLFINALTANK02.vcd"  then Any L4D1PlayerNiceShot foo:0 -2.028 //I hate tanks.
+	scene "scenes/Biker/DLC1_KILLFINALTANK02.vcd"  then Any L4D1PlayerNiceShot foo:0 -2.028 //I hate tanks.
+	scene "scenes/Biker/DLC1_KILLFINALTANK02.vcd"  then Any L4D1PlayerNiceShot foo:0 -2.028 //I hate tanks.
+	scene "scenes/Biker/DLC1_KILLFINALTANK03.vcd"  then Any L4D1PlayerNiceShot foo:0 -1.383 //I hate tanks.
+	scene "scenes/Biker/DLC1_KILLFINALTANK03.vcd"  then Any L4D1PlayerNiceShot foo:0 -1.383 //I hate tanks.
+	scene "scenes/Biker/DLC1_KILLFINALTANK03.vcd"  then Any L4D1PlayerNiceShot foo:0 -1.383 //I hate tanks.
+	scene "scenes/Biker/DLC1_KILLFINALTANK03.vcd"  then Any L4D1PlayerNiceShot foo:0 -1.383 //I hate tanks.
+}
+Rule L4D1PlayerKillConfirmationTankBiker
+{
+	criteria ConceptKilledZombie IsNotCoughing IsBiker  IsTalk IsTalkBiker IsWorldTalkBiker SubjectIsTank ChanceToFire30Percent
+	Response L4D1PlayerKillConfirmationTankBiker
+}
+
+Response L4D1PlayerWarnMegaMobBiker
+{
+	scene "scenes/Biker/Incoming02.vcd" predelay "2.5,3.5" //Holy shit, here they come!
+	scene "scenes/Biker/Incoming03.vcd" predelay "2.5,3.5" //They're coming!
+	scene "scenes/Biker/Incoming04.vcd" predelay "2.5,3.5" //Incoming!
+	scene "scenes/Biker/Incoming05.vcd" predelay "2.5,3.5" //Get ready ladies!
+	scene "scenes/Biker/Incoming07.vcd" predelay "2.5,3.5" //This is gonna be good.
+}
+Rule L4D1PlayerWarnMegaMobBiker
+{
+	criteria ConceptPlayerWarnMegaMob IsNotCoughing IsBiker IsNotWarnMegaMob IsTalk IsTalkBiker IsNotSpeaking IsWorldTalkBiker
+	ApplyContext "WarnMegaMob:1:300,SaidSpecialWarn:1:30"
+	applycontexttoworld
+	Response L4D1PlayerWarnMegaMobBiker
+}
+
