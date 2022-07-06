@@ -54,6 +54,10 @@ StringMap g_hHunterCount;
 StringMap g_hSpitterCount;
 StringMap g_hJockeyCount;
 StringMap g_hChargerCount;
+
+StringMap g_hSIDamage;
+StringMap g_hCIDamage;
+
 new g_iTotalSI;
 new g_iSmokerTotal;
 new g_iBoomerTotal;
@@ -110,6 +114,9 @@ new bool:g_bTankReportEnabled;
 new Handle:g_hAutoDisplay;
 new bool:g_bAutoDisplay;
 
+int g_iCommonTotalDmg;
+int g_iSITotalDmg;
+
 public OnPluginStart()
 {
 	g_hTankReportEnabled = CreateConVar("l4d_AnnounceTankDamage", "1", "Enables stat tracking", _, true, 0.0, true, 1.0);
@@ -128,6 +135,7 @@ public OnPluginStart()
 	RegConsoleCmd("sm_stats", Cmd_DisplaySIStats);
 	RegConsoleCmd("sm_stats2", Cmd_DetailedStats);
 	RegConsoleCmd("sm_estats", Cmd_DisplayEffectiveStats);
+	RegConsoleCmd("sm_dstats", Cmd_DisplayDamageStats, "Displays stats by damage.");
 	
 	RegConsoleCmd("sm_istats", Cmd_DisplayIndividualDamageReport);
 	RegConsoleCmd("sm_sicount", Cmd_DisplayIndSIReport);
@@ -151,6 +159,8 @@ Init()
 	g_bRoundStart = false;
 	g_bRoundStart = false;
 	
+	g_hSIDamage = CreateTrie();
+	g_hCIDamage = CreateTrie();
 	g_hTotalSI = CreateTrie();
 	g_hSmokerCount = CreateTrie();
 	g_hBoomerCount = CreateTrie();
@@ -333,6 +343,12 @@ GetClientStats(Handle:hTarget, client)
 //=====================
 // Command Handlers
 //=====================
+
+public Action Cmd_DisplayDamageStats(int client, int args)
+{
+	DisplayDamageStats(client);
+	return Plugin_Handled;
+}
 
 /*
 	[9/30/2020, 6:33 AM]
@@ -529,6 +545,12 @@ ResetStats()
 	g_iTankDamageTotal = 0;
 	g_iCommonTotal = 0;
 	
+	g_iCommonTotalDmg = 0;
+	g_iSITotalDmg = 0;
+	
+	ClearTrie(g_hSIDamage);
+	ClearTrie(g_hCIDamage);
+	
 	ClearTrie(g_hTotalSI);
 	ClearTrie(g_hSmokerCount);
 	ClearTrie(g_hBoomerCount);
@@ -650,6 +672,69 @@ GetCurrentSurvivalTime(String:sTime[32])
 //====================
 // Report Functions
 //====================
+
+int GetMVPClient()
+{
+	int iLowestVal = 50;
+	int mvpClient;
+	
+	for (int i = 1; i <= MaxClients; i++)
+	{
+		if (!IsClientInGame(i))continue;
+		
+		if (GetClientTeam(i) == 2)
+		{
+			int iMVPScore = GetClientMVPScore(i);
+			if (iMVPScore > iLowestVal)
+			{
+				iLowestVal = iMVPScore;
+				mvpClient = i;
+			}
+		}
+	}
+	return mvpClient;
+}
+
+int GetClientMVPScore(int client)
+{
+	int tdamageclient = GetValueFromTrie(g_hTankDamageTotal, client);
+	int ciDamageclient = GetValueFromTrie(g_hCIDamage, client);
+	int SIDamageclient = GetValueFromTrie(g_hSIDamage, client);
+	return tdamageclient + ciDamageclient + SIDamageclient;
+}
+
+void DisplayDamageStats(int client)
+{
+	int dmgMVP = GetMVPClient();
+	
+	// Display the overall percentages and count
+	PrintToChat(client, "\x01Stats report (by damage) [DMG MVP: \x04%N\x01]:", dmgMVP);
+	
+	new Float:fTankHealth = g_iTankDamageTotal == 0 ? 1.0 : float(g_iTankDamageTotal);
+	new Float:fTotalSIDamage = g_iSITotalDmg == 0 ? 1.0 : float(g_iSITotalDmg);
+	new Float:fTotalCommonDamage = g_iCommonTotalDmg == 0 ? 1.0 : float(g_iCommonTotalDmg);
+	
+	new tankDmgPercent, siDamagePercent, commonDamage;
+	
+	// Display the report to any valid survivor
+	for (new i = 0; i < MAXPLAYERS; i++)
+	{
+		if (IS_VALID_SURVIVOR(i))
+		{
+			// Calculate the percentages for this survivor
+			tankDmgPercent = RoundToNearest((GetValueFromTrie(g_hTankDamageTotal, i)/fTankHealth) * 100);
+			siDamagePercent = RoundToNearest((GetValueFromTrie(g_hSIDamage, i)/fTotalSIDamage) * 100);
+			commonDamage = RoundToNearest((GetValueFromTrie(g_hCIDamage, i)/fTotalCommonDamage) * 100);
+			
+			int tdmgVal = GetValueFromTrie(g_hTankDamageTotal, i);
+			int sidmgVal = GetValueFromTrie(g_hSIDamage, i);
+			int cidmgVal = GetValueFromTrie(g_hCIDamage, i);
+			
+			// Display to client
+			PrintToChat(client, "\x04%N\x01: \x05%i%s\x01 [%i dmg] (S), \x05%i%s\x01 [%i dmg] (T), \x05%i%s\x01 [%i dmg] (C)", i, siDamagePercent, "%", sidmgVal, tankDmgPercent, "%", tdmgVal, commonDamage, "%", cidmgVal);
+		}
+	}
+}
 
 DisplayEffectiveStats(client)
 {		
@@ -1428,6 +1513,14 @@ public Action:Event_InfectedHurt(Handle:hEvent, const String:name[], bool:dontBr
 	
 	new attacker = GetClientOfUserId( GetEventInt(hEvent, "attacker") );
 	
+	if (IS_VALID_SURVIVOR(attacker)) 
+	{
+		int amount = GetEventInt(hEvent, "amount");
+		AddValueToTrie(g_hCIDamage, attacker, amount);
+		
+		g_iCommonTotalDmg += amount;
+	}
+	
 	g_bCurrentShotHit[attacker] = true;
 	new hitgroup = GetEventInt(hEvent, "hitgroup");
 	if (hitgroup == HITGROUP_HEAD)
@@ -1478,32 +1571,39 @@ public Action:Event_PlayerHurt(Handle:hEvent, const String:name[], bool:dontBroa
 	new zClass = GetEntProp(victim, Prop_Send, "m_zombieClass");
 	
 	// Track tank damage
-	switch (zClass)
+	if (zClass == ZC_TANK) 
 	{
-		case ZC_TANK:
+		if (IS_VALID_SURVIVOR(attacker))
 		{
-			if (IS_VALID_SURVIVOR(attacker))
+			// Track how much damage the survivor did to the tank
+			new dmg = GetEventInt(hEvent, "dmg_health");
+			new incap = GetEntProp(victim, Prop_Send, "m_isIncapacitated");
+				
+			new nxtHealth = GetEventInt(hEvent, "health");
+					
+			if (!g_bTankIncap[victim])
 			{
-				// Track how much damage the survivor did to the tank
-				new dmg = GetEventInt(hEvent, "dmg_health");
-				new incap = GetEntProp(victim, Prop_Send, "m_isIncapacitated");
-				
-				new nxtHealth = GetEventInt(hEvent, "health");
-				
-				if (!g_bTankIncap[victim])
+				if (incap) 
 				{
-					if (incap) 
-					{
-						dmg = g_iTankLastHealth[victim];
-						g_bTankIncap[victim] = true;
-					}
-					g_iTankDamage[victim][attacker] += dmg;
-					g_iTankLastHealth[victim] = nxtHealth;
-					g_iTankDamageTotal += dmg;
-					AddValueToTrie(g_hTankDamageTotal, attacker, dmg);
+					dmg = g_iTankLastHealth[victim];
+					g_bTankIncap[victim] = true;
 				}
+				g_iTankDamage[victim][attacker] += dmg;
+				g_iTankLastHealth[victim] = nxtHealth;
+				g_iTankDamageTotal += dmg;
+				AddValueToTrie(g_hTankDamageTotal, attacker, dmg);
 			}
 		}	
+	}
+	else // SI
+	{
+		if (IS_VALID_SURVIVOR(attacker))
+		{
+			new dmg = GetEventInt(hEvent, "dmg_health");
+			
+			AddValueToTrie(g_hSIDamage, attacker, dmg);
+			g_iSITotalDmg += dmg;
+		}
 	}
 	
 	return Plugin_Continue;
