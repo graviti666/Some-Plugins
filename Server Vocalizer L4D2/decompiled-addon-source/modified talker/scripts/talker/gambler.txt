@@ -388,7 +388,7 @@ Response PlayerC3M1FerryLanded2Gambler
 }
 Rule PlayerC3M1FerryLanded2Gambler
 {
-	criteria ConceptC3M1FerryLanded2 IsGambler IsTalk IsTalkGambler IsNotSaidC3M1FerryLaunched2 IsNotSaidC3M1FerryLanded2 IsNotSaidWorldC3M1FerryCrossing IsNotIncapacitated IsNotAlone IsWorldTalkGambler AutoIsNotScavenge 
+	criteria ConceptC3M1FerryLanded2 IsGambler IsTalk IsTalkGambler IsNotSaidC3M1FerryLaunched2 IsNotSaidC3M1FerryLanded2 IsNotSaidWorldC3M1FerryCrossing IsNotIncapacitated IsNotAlone IsWorldTalkGambler AutoIsNotScavenge AutoIsNotSurvival
 	ApplyContext "SaidC3M1FerryLanded2:1:2"
 	applycontexttoworld
 	Response PlayerC3M1FerryLanded2Gambler
@@ -1571,7 +1571,6 @@ Rule InfoRemC3M3Unsanitarya2Gambler
 	Response InfoRemC3M3Unsanitarya2Gambler
 }
 
-
 //--------------------------------------------------------------------------------------------------------------
 // C3M4
 //--------------------------------------------------------------------------------------------------------------
@@ -1588,7 +1587,7 @@ Response C3M4BoatNagsGambler
 }
 Rule C3M4BoatNagsGambler
 {
-	criteria ConceptTalkIdle IsGambler IsTalk  IsNotIncapacitated ChanceToFire80Percent AutoIsNotScavenge IsNotSpeakingWeight0
+	criteria ConceptTalkIdle IsGambler IsTalk ismapc3m4_plantation IsNotIncapacitated ChanceToFire80Percent AutoIsNotScavenge AutoIsNotSurvival _auto_IsGateExploded _auto_NotTimerLockA IsNotSpeakingWeight0
 	ApplyContext "Talk:1:1.066,_auto_TimerLockA:1:6"
 	applycontexttoworld
 	Response C3M4BoatNagsGambler
