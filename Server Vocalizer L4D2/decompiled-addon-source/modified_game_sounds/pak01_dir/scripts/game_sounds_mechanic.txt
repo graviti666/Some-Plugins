@@ -7,8 +7,50 @@
 //--------------------------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------------------------------
-// Last Updated: 10/01/09
+// Last Updated: 09/07/2022
 //--------------------------------------------------------------------------------------------------------------
+
+// just like the music video!!
+"Mechanic_worldc2m5b62"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.90"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_90dB"
+	"wave"			"player\survivor\voice\Mechanic\worldc2m5b62.wav"
+}
+
+// Thank you midnight riders!
+"Mechanic_worldc2m5b51"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.90"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_90dB"
+	"wave"			"player\survivor\voice\Mechanic\worldc2m5b51.wav"	
+}
+
+// hit the spot lights baby!
+"Mechanic_worldc2m5b36"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.90"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_90dB"
+	"wave"			"player\survivor\voice\Mechanic\worldc2m5b36.wav"	
+}
+
+// Oohh man roller coaster
+"Mechanic_worldc2m3b11"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.80"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_70dB"
+	"wave"			"player\survivor\voice\Mechanic\worldc2m3b11.wav"
+}
+
+
 
 //Adrenaline shot here!
 "Mechanic_Adrenaline01"

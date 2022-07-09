@@ -20,6 +20,16 @@
 	"wave"			"player\survivor\voice\Coach\worldc1m1b35.wav"
 }
 
+// Lords name in vain
+"Coach_CustomHurrah1"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.66"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_90dB"
+	"wave"			"player\survivor\voice\Coach\worldc1m1b35.wav"
+}
+
 //Adrenaline shot here!
 "Coach_Adrenaline01"
 {
@@ -8352,16 +8362,6 @@
 	"wave"			"player\survivor\voice\Coach\NameEllis12.wav"
 }
 
-// burger tank oohh we made it
-"Coach_worldc4m4b09"
-{
-	"channel"		"CHAN_VOICE"
-	"volume"		"0.5"
-	"pitch"			"PITCH_NORM"
-	"soundlevel"		"SNDLVL_90dB"
-	"wave"			"player\survivor\voice\Coach\worldc4m4b09.wav"
-}
-
 
 //Hey suit.
 "Coach_NameGamblerC101"
@@ -14362,7 +14362,7 @@
 "Coach_WorldC1M1B109"
 {
 	"channel"		"CHAN_VOICE"
-	"volume"		"0.56"
+	"volume"		"0.70"
 	"pitch"			"PITCH_NORM"
 	"soundlevel"		"SNDLVL_70dB"
 	"wave"			"player\survivor\voice\Coach\WorldC1M1B109.wav"
@@ -14777,6 +14777,18 @@
 	"soundlevel"		"SNDLVL_70dB"
 	"wave"			"player\survivor\voice\Coach\WorldC1M1B36.wav"
 }
+
+
+//YEAH, I'm serious.
+"Coach_WorldC1M1B37"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.65"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_70dB"
+	"wave"			"player\survivor\voice\Coach\WorldC1M1B37.wav"
+}
+
 
 //Jumpin' Jehosaphat! What ARE these things?
 "Coach_WorldC1M1B38"
@@ -15783,6 +15795,65 @@
 	"wave"			"player\survivor\voice\Coach\WorldC1M3B21.wav"
 }
 
+// I love this music i love all these notes
+"Coach_worldc2m5b91"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.91"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_90dB"
+	"wave"			"player\survivor\voice\Coach\worldc2m5b91.wav"
+}
+
+// Its workin'
+"Coach_worldc2m5b109"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.91"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_90dB"
+	"wave"			"player\survivor\voice\Coach\worldc2m5b109.wav"
+}
+
+// I'll be damned even i didnt think that was gonna happen'
+"Coach_worldc2m5b110"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.90"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_90dB"
+	"wave"			"player\survivor\voice\Coach\worldc2m5b110.wav"
+}
+
+// All right midnight riders!
+"Coach_worldc2m5b117"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.90"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_90dB"
+	"wave"			"player\survivor\voice\Coach\worldc2m5b117.wav"
+}
+
+// Wooooh get on the choppa
+"Coach_worldc2m5b124"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.90"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_90dB"
+	"wave"			"player\survivor\voice\Coach\worldc2m5b124.wav"
+}
+
+// Come on midngit riders! worldc2m5b99
+"Coach_worldc2m5b99"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.91"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_90dB"
+	"wave"			"player\survivor\voice\Coach\worldc2m5b99.wav"
+}
 
 //Ohh heyyy! Jimmy Gibbs!
 "Coach_WorldC1M3B22"
@@ -16911,6 +16982,27 @@
 	"wave"			"player\survivor\voice\Coach\WorldC2M2B02.wav"
 }
 
+// Burger tank ohh we made it!
+"Coach_worldc4m4b09"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.93"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_90dB"
+	"wave"			"player\survivor\voice\Coach\worldc4m4b09.wav"	
+}
+
+//oohh look up there virgil sees us!
+"Coach_worldc4m4b18"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.93"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"		"SNDLVL_90dB"
+	"wave"			"player\survivor\voice\Coach\worldc4m4b18.wav"	
+}
+
+
 
 //Hey, the Midnight Riders! I used to LOVE that band. Best pyrotechnics in the business.
 "Coach_WorldC2M2B03"
@@ -17739,7 +17831,7 @@
 "Coach_WorldC2M5B102"
 {
 	"channel"		"CHAN_VOICE"
-	"volume"		"0.72"
+	"volume"		"0.75"
 	"pitch"			"PITCH_NORM"
 	"soundlevel"		"SNDLVL_90dB"
 	"wave"			"player\survivor\voice\Coach\WorldC2M5B102.wav"
@@ -17750,7 +17842,7 @@
 "Coach_WorldC2M5B103"
 {
 	"channel"		"CHAN_VOICE"
-	"volume"		"0.72"
+	"volume"		"0.75"
 	"pitch"			"PITCH_NORM"
 	"soundlevel"		"SNDLVL_90dB"
 	"wave"			"player\survivor\voice\Coach\WorldC2M5B103.wav"
@@ -18186,15 +18278,6 @@
 	"pitch"			"PITCH_NORM"
 	"soundlevel"		"SNDLVL_90dB"
 	"wave"			"player\survivor\voice\Coach\worldc2m5b60.wav"
-}
-
-"Coach_worldc2m5b57"
-{
-	"channel"		"CHAN_VOICE"
-	"volume"		"0.90"
-	"pitch"			"PITCH_NORM"
-	"soundlevel"		"SNDLVL_90dB"
-	"wave"			"player\survivor\voice\Coach\worldc2m5b57.wav"
 }
 
 "Coach_worldc2m208"
@@ -20189,23 +20272,23 @@
 "Coach_WorldC4M412"
 {
 	"channel"		"CHAN_VOICE"
-	"volume"		"0.58"
+	"volume"		"0.65"
 	"pitch"			"PITCH_NORM"
 	"soundlevel"		"SNDLVL_70dB"
 	"wave"			"player\survivor\voice\Coach\WorldC4M412.wav"
 }
 
-
-//Burger tank to the rescue!
-"Coach_worldc4m415"
+// Wind up the choppa
+"Coach_worldc5m513"
 {
 	"channel"		"CHAN_VOICE"
 	"volume"		"0.90"
 	"pitch"			"PITCH_NORM"
 	"soundlevel"		"SNDLVL_90dB"
-	"wave"			"player\survivor\voice\Coach\worldc4m415.wav"
+	"wave"			"player\survivor\voice\Coach\worldc5m513.wav"
 }
 
+//Burger tank to the rescue!
 "Coach_WorldC4M413"
 {
 	"channel"		"CHAN_VOICE"
@@ -20677,25 +20760,6 @@
 	"wave"			"player\survivor\voice\Coach\WorldC5M3B19.wav"
 }
 
-// wind up the chopper
-"Coach_worldc5m513"
-{
-	"channel"		"CHAN_VOICE"
-	"volume"		"0.90"
-	"pitch"			"PITCH_NORM"
-	"soundlevel"		"SNDLVL_70dB"
-	"wave"			"player\survivor\voice\Coach\worldc5m513.wav"
-}
-
-// one good song, worldc2m2b13
-"Coach_worldc2m2b13"
-{
-	"channel"		"CHAN_VOICE"
-	"volume"		"0.90"
-	"pitch"			"PITCH_NORM"
-	"soundlevel"		"SNDLVL_70dB"
-	"wave"			"player\survivor\voice\Coach\worldc2m2b13.wav"
-}
 
 //Everybody take it slow, now.
 "Coach_WorldC5M3B22"

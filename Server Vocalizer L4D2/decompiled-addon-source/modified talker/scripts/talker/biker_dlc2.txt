@@ -4816,6 +4816,20 @@ Response PlayerHurrahBiker
 	scene "scenes/Biker/Hurrah22.vcd"  //I think we gotta chance
 	scene "scenes/Biker/Hurrah23.vcd"  then Any HurrahAlso foo:0 0 //lookin good
 	scene "scenes/Biker/Hurrah24.vcd"  then Any HurrahAlso foo:0 0 //Hey, this is just gettin fun.
+	
+	scene "scenes/Biker/nervoushumming01.vcd" // humming
+	scene "scenes/Biker/nervoushumming02.vcd" // humming
+	scene "scenes/Biker/nervoushumming03.vcd" // humming
+	scene "scenes/Biker/nervoushumming04.vcd" // humming
+	scene "scenes/Biker/nervoushumming05.vcd" // humming
+	scene "scenes/Biker/nervoushumming06.vcd" // humming
+	scene "scenes/Biker/nervoushumming07.vcd" // humming
+	
+	scene "scenes/Biker/playertransitionclose01.vcd"
+	scene "scenes/Biker/playertransitionclose02.vcd"
+	
+	scene "scenes/Biker/positivenoise02.vcd" // hhmhmmph
+	scene "scenes/Biker/positivenoise05.vcd" // hhhmmphh
 }
 Rule PlayerHurrahBiker
 {

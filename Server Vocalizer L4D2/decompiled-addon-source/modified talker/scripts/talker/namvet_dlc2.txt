@@ -20,16 +20,16 @@ Response _PlayerInfoRemarkableBlankNamVet
 Response PlayerNiceShotNamVet
 {
 	scene "scenes/NamVet/NiceShot01.vcd"  //Nice shot!
-	scene "scenes/NamVet/NiceShot02.vcd" odds 1 //damn, kid, that was a good shot.
-	scene "scenes/NamVet/NiceShot03.vcd" odds 2 //godDAMN that was a nice shot.
+	scene "scenes/NamVet/NiceShot02.vcd"  //damn, kid, that was a good shot.
+	scene "scenes/NamVet/NiceShot03.vcd"  //godDAMN that was a nice shot.
 	scene "scenes/NamVet/NiceShot04.vcd"  //Nice shot!
-	scene "scenes/NamVet/NiceShot05.vcd" odds 2 //damn, kid, that was a good shot.
-	scene "scenes/NamVet/NiceShot06.vcd" odds 1 //godDAMN that was a nice shot.
+	scene "scenes/NamVet/NiceShot05.vcd"  //damn, kid, that was a good shot.
+	scene "scenes/NamVet/NiceShot06.vcd"  //godDAMN that was a nice shot.
 	scene "scenes/NamVet/NiceShot07.vcd"  //Good shot, kid.
 	scene "scenes/NamVet/NiceShot07.vcd"  //Good shot, kid.
 	scene "scenes/NamVet/NiceShot08.vcd"  //Good shot!
 	scene "scenes/NamVet/NiceShot08.vcd"  //Good shot!
-	scene "scenes/NamVet/NiceShot09.vcd" odds 1 //Damn, now that was a shot!
+	scene "scenes/NamVet/NiceShot09.vcd"  //Damn, now that was a shot!
 	scene "scenes/NamVet/NiceShot09.vcd"  //Damn, now that was a shot!
 	scene "scenes/NamVet/NiceShot13.vcd"  //Nice shooting
 	scene "scenes/NamVet/NiceShot14.vcd"  //Nice

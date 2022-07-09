@@ -1188,7 +1188,6 @@ Rule c2m4SeeChopperCoach
 	Response c2m4SeeChopperCoach
 }
 
-
 //--------------------------------------------------------------------------------------------------------------
 // C2M5
 //--------------------------------------------------------------------------------------------------------------
@@ -2815,7 +2814,7 @@ Response SurvivorSpottedGamblerClose2C1Coach
 }
 Rule SurvivorSpottedGamblerClose2C1Coach
 {
-	criteria ConceptPlayerLook IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto  SubjectIsGambler IsGamblerNear400 IsWorldTalkCoach
+	criteria ConceptPlayerLook IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto  SubjectIsGambler IsGamblerNear400 IsWorldTalkCoach ismap_c1m1_hotelC1 NoKnowNames
 	Response SurvivorSpottedGamblerClose2C1Coach
 }
 
@@ -2829,7 +2828,7 @@ Response SurvivorSpottedGamblerCloseC1Coach
 }
 Rule SurvivorSpottedGamblerCloseC1Coach
 {
-	criteria ConceptPlayerLookHere IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto  SubjectIsGambler IsGamblerNear400 IsWorldTalkCoach
+	criteria ConceptPlayerLookHere IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto  SubjectIsGambler IsGamblerNear400 IsWorldTalkCoach ismap_c1m1_hotelC1 NoKnowNames
 	Response SurvivorSpottedGamblerCloseC1Coach
 }
 
@@ -2856,7 +2855,7 @@ Response SurvivorSpottedGamblerFarC1Coach
 }
 Rule SurvivorSpottedGamblerFarC1Coach
 {
-	criteria ConceptPlayerLook IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto SubjectIsGambler IsGamblerFar400 IsWorldTalkCoach
+	criteria ConceptPlayerLook IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto SubjectIsGambler IsGamblerFar400 IsWorldTalkCoach ismap_c1m1_hotelC1 NoKnowNames
 	Response SurvivorSpottedGamblerFarC1Coach
 }
 
@@ -3186,7 +3185,7 @@ Response SurvivorSpottedProducerClose2C1Coach
 }
 Rule SurvivorSpottedProducerClose2C1Coach
 {
-	criteria ConceptPlayerLook IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto  SubjectIsProducer IsProducerNear400 IsWorldTalkCoach
+	criteria ConceptPlayerLook IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto  SubjectIsProducer IsProducerNear400 IsWorldTalkCoach ismap_c1m1_hotelC1 NoKnowNames
 	Response SurvivorSpottedProducerClose2C1Coach
 }
 
@@ -3203,7 +3202,7 @@ Response SurvivorSpottedProducerCloseC1Coach
 }
 Rule SurvivorSpottedProducerCloseC1Coach
 {
-	criteria ConceptPlayerLookHere IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto  SubjectIsProducer IsProducerNear400 IsWorldTalkCoach
+	criteria ConceptPlayerLookHere IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto  SubjectIsProducer IsProducerNear400 IsWorldTalkCoach ismap_c1m1_hotelC1 NoKnowNames
 	Response SurvivorSpottedProducerCloseC1Coach
 }
 
@@ -3227,7 +3226,7 @@ Response SurvivorSpottedProducerFarC1Coach
 }
 Rule SurvivorSpottedProducerFarC1Coach
 {
-	criteria ConceptPlayerLook IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto SubjectIsProducer  IsProducerFar400 IsWorldTalkCoach
+	criteria ConceptPlayerLook IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSmartLookAuto SubjectIsProducer  IsProducerFar400 IsWorldTalkCoach ismap_c1m1_hotelC1 NoKnowNames
 	Response SurvivorSpottedProducerFarC1Coach
 }
 
@@ -4122,12 +4121,12 @@ Rule PlayerToTheRescueRosCoach
 
 Response SurvivorTauntResponseCoach
 {
-	scene "scenes/Coach/Taunt01.vcd" odds 5 //Hell yeah!
-	scene "scenes/Coach/Taunt02.vcd" odds 4 //Goddamn right!
-	scene "scenes/Coach/Taunt03.vcd" odds 2 //Goddamn right!
-	scene "scenes/Coach/Taunt04.vcd" odds 4 //Aw riiiight.
-	scene "scenes/Coach/Taunt05.vcd" odds 4 //Oh hell yeah!
-	scene "scenes/Coach/Taunt06.vcd" odds 3 //Ooh. How ya like me now? Mmm.
+	scene "scenes/Coach/Taunt01.vcd"  //Hell yeah!
+	scene "scenes/Coach/Taunt02.vcd"  //Goddamn right!
+	scene "scenes/Coach/Taunt03.vcd"  //Goddamn right!
+	scene "scenes/Coach/Taunt04.vcd"  //Aw riiiight.
+	scene "scenes/Coach/Taunt05.vcd"  //Oh hell yeah!
+	scene "scenes/Coach/Taunt06.vcd"  //Ooh. How ya like me now? Mmm.
 	scene "scenes/Coach/Taunt07.vcd"  //[Loud, evil laugh]
 	scene "scenes/Coach/Taunt08.vcd"  //[Loud, evil laugh]
 	
@@ -4143,10 +4142,10 @@ Response SurvivorTauntResponseCoach
 	scene "scenes/Coach/WorldSigns41.vcd"  //Don't mind if I do, hehehe.
 	scene "scenes/Coach/teaserintromovie01.vcd"  //This used to be a nice neighborhood!
 	scene "scenes/Coach/teaserintromovie02.vcd"  //This used to be a nice neighborhood!
-	scene "scenes/Coach/teaserintromovie03.vcd" //This used to be a nice neighborhood!
-	scene "scenes/Coach/teaserintromovie04.vcd"  odds 5//This used to be a nice neighborhood!
-	scene "scenes/Coach/teaserintromovie05.vcd" odds 5 //This used to be a nice neighborhood!
-	scene "scenes/Coach/teaserintromovie06.vcd" odds 5 //This used to be a nice neighborhood!
+	scene "scenes/Coach/teaserintromovie03.vcd"  //This used to be a nice neighborhood!
+	scene "scenes/Coach/teaserintromovie04.vcd"  //This used to be a nice neighborhood!
+	scene "scenes/Coach/teaserintromovie05.vcd"  //This used to be a nice neighborhood!
+	scene "scenes/Coach/teaserintromovie06.vcd"  //This used to be a nice neighborhood!
 	scene "scenes/Coach/Taunt01.vcd"  //Hell yeah!
 	scene "scenes/Coach/Taunt02.vcd"  //Goddamn right!
 	scene "scenes/Coach/Taunt03.vcd"  //Goddamn right!
@@ -4159,7 +4158,6 @@ Response SurvivorTauntResponseCoach
 	scene "scenes/Coach/WorldC2M2B06.vcd"  //[singing] ...Every lady's crazy when her daddy's not around... dunh-nuh-NAH-nuh-NAH-nha!
 	scene "scenes/Coach/WorldC3M116.vcd"  //Though I walk through the valley of the shadow of death, I will fear no evil
 	scene "scenes/Coach/WorldC3M117.vcd"  //Though I walk through the valley of the shadow of death, I will fear no evil
-	scene "scenes/Coach/DLC1_C6M2_SuitcasePistols01.vcd"  // Suitcase full of pistols and money!
 }
 Rule SurvivorTauntResponseCoach
 {
@@ -8224,8 +8222,10 @@ Response PlayerThanksCoach
 	scene "scenes/Coach/Thanks05.vcd"  //Thanks, we straight?
 	scene "scenes/Coach/Thanks07.vcd"  //THANKS!
 	scene "scenes/Coach/DLC1_C6M3_finalel4d1items08.vcd"  //I'm game.
-	scene "scenes/Coach/DLC1_C6M3_finalel4d1items02.vcd"  //I'm game.
+	scene "scenes/Coach/dlc1_c6m3_finalel4d1items07.vcd"  // Thanks for sharing
 	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Items02.vcd"  //Thanks my man.
+	scene "scenes/Coach/dlc1_c6m3_finalel4d1items01.vcd"  // Thanks for sharing
+	scene "scenes/Coach/dlc1_c6m3_finalel4d1items10.vcd"  // Thanks for the supplies
 }
 Rule PlayerThanksCoach
 {
@@ -8331,16 +8331,11 @@ Response PlayerNegativeCoach
 	scene "scenes/Coach/worldc1m1b20.vcd" // Mista...
 	scene "scenes/Coach/worldc1m1b24.vcd" // not a violent man...
 	
-	scene "scenes/Coach/TeamKillAccident01.vcd"  //Woah, that there is some screwed up shit.
-	scene "scenes/Coach/TeamKillAccident05.vcd"  //What the f'...  don't be doin that.
-	scene "scenes/Coach/TeamKillAccident06.vcd"  //Hey! Don't be doin that.
-	scene "scenes/Coach/TeamKillAccident07.vcd"  //You try that shit on me and you'll be wishin' your momma never met ya father.
-	scene "scenes/Coach/TeamKillAccident08.vcd"  //Keep goin at em like that and you gonna be the last man on earth.
+	scene "scenes/Coach/dlc1_c6m2_phase2inwater07.vcd" // ohh jesus ellis
+	scene "scenes/Coach/dlc1_c6m2_phase2inwater08.vcd" // ohh jesus ellis
+	scene "scenes/Coach/dlc1_c6m2_phase2inwater09.vcd" // ohh jesus ellis
 	
-	scene "scenes/Coach/worldc4m203.vcd"  // bitches every xx . .
-	scene "scenes/Coach/WorldC4M208.vcd" // bitches like sugar
-	
-	scene "scenes/Coach/dlc1_footlocker04.vcd" // open the bitch up
+	scene "scenes/Coach/dlc1_footlocker04.vcd" // Open the bitch up
 }
 Rule PlayerNegativeCoach
 {
@@ -8404,9 +8399,9 @@ Rule PlayerHeardTankCoach
 
 Response PlayerHurrahCoach
 {
-	scene "scenes/Coach/Hurrah01.vcd" 	//We cool.
-	scene "scenes/Coach/Hurrah02.vcd" 	//We gonna be all right.
-	scene "scenes/Coach/Hurrah03.vcd" //We good, this ain't shit.
+	scene "scenes/Coach/Hurrah01.vcd"  //We cool.
+	scene "scenes/Coach/Hurrah02.vcd"  //We gonna be all right.
+	scene "scenes/Coach/Hurrah03.vcd"  //We good, this ain't shit.
 	scene "scenes/Coach/Hurrah04.vcd"  //We gonna do this.
 	scene "scenes/Coach/Hurrah05.vcd"  //We got this.
 	scene "scenes/Coach/Hurrah06.vcd"  //Those things ain't shit.
@@ -8488,10 +8483,23 @@ Response PlayerHurrahCoach
 	scene "scenes/Coach/worldc2m2b07.vcd" // Heyy the midnight riders!
 	scene "scenes/Coach/worldc2m2b08.vcd" // Heyy the midnight riders!
 	scene "scenes/Coach/worldc2m2b13.vcd" // Heyy the midnight riders!
+	scene "scenes/Coach/worldc2m5b99.vcd" // Come on midnight riders!
 	
 	scene "scenes/Coach/WorldC1M3B21.vcd"  //Heyyy! Jimmy Gibbs!
 	scene "scenes/Coach/worldc1m3b22.vcd"  //Heyyy! Jimmy Gibbs!
 	scene "scenes/Coach/worldc1m3b23.vcd"  //Heyyy! Jimmy Gibbs!
+	scene "scenes/Coach/WorldC2M5B38.vcd"  //Finale's on! Get ready to rock!
+	scene "scenes/Coach/WorldC2M5B08.vcd"  //These zombies better be ready to rock.
+	scene "scenes/Coach/WorldC2M5B90.vcd"  //I love you, Midnight Riders!
+	scene "scenes/Coach/WorldC2M5B108.vcd"  //All right Midnight Riders!
+	scene "scenes/Coach/WorldC2M5B103.vcd"  //I ain't normally a rock music man, but damn I love the Riders!
+	scene "scenes/Coach/WorldC2M5B102.vcd"  //They nailed this damn song!
+	scene "scenes/Coach/worldc2m5b91.vcd"  //I love this music i love all these notes
+	scene "scenes/Coach/worldc2m5b109.vcd"  //ITS WORKIN'
+	scene "scenes/Coach/worldc2m5b110.vcd"  //I'll be damned even i didnt think that was gonna happen'
+	scene "scenes/Coach/WorldC2M5B111.vcd"  //I'll be damned! Even I didn't think that was gonna work!
+	scene "scenes/Coach/worldc2m5b117.vcd"  // All right midnight riders!
+	scene "scenes/Coach/worldc2m5b124.vcd"  // Wooh get on the choppa'
 	
 	
 	scene "scenes/Coach/worldc1m1b28.vcd"  // sweet georgia brown
@@ -8501,12 +8509,6 @@ Response PlayerHurrahCoach
 	scene "scenes/Coach/worldc1m1b37.vcd"  // yee im serious
 	scene "scenes/Coach/worldc1m1b109.vcd"
 	
-	scene "scenes/Coach/WorldC1M2B44.vcd"   //Barrier's down! Let's move, baby!
-	scene "scenes/Coach/WorldC1M2B45.vcd"  //Path clear! Let's get to that mall!
-	scene "scenes/Coach/WorldC1M2B46.vcd"   //[laughs] When that man says he's gonna clear a path, he clears a path!
-	scene "scenes/Coach/WorldC1M2B47.vcd"   //That's how I used clear a path when I played college ball.
-	scene "scenes/Coach/WorldC1M2B48.vcd"   //Path's clear! Let's move, baby!
-	scene "scenes/Coach/WorldC1M2B49.vcd"   //Path's clear! Let's get to that mall!
 	scene "scenes/Coach/worldc1m2b50.vcd"   //Haha theres the mall!
 	scene "scenes/Coach/worldc1m2b51.vcd"   //cola and nuts
 	
@@ -8515,10 +8517,6 @@ Response PlayerHurrahCoach
 	scene "scenes/Coach/worldc1m4b11.vcd"   // get gas
 	scene "scenes/Coach/worldc1m4b12.vcd"   // come on baby come on
 	scene "scenes/Coach/worldc1m4b13.vcd"   // come on baby come on
-	scene "scenes/Coach/worldc1m4b14.vcd"   // pls baby baby pls pls
-	scene "scenes/Coach/worldc1m4b15.vcd"   // pls baby baby pls pls
-	scene "scenes/Coach/worldc1m4b16.vcd"   // pls baby baby pls pls
-	scene "scenes/Coach/worldc1m4b17.vcd"   // pls baby baby pls pls
 	
 	scene "scenes/Coach/worldc1m4b35.vcd"   // car
 	scene "scenes/Coach/worldc1m4b36.vcd"   // car
@@ -8528,9 +8526,6 @@ Response PlayerHurrahCoach
 	scene "scenes/Coach/worldc1m4b41.vcd"   // thank u mister gibbs
 	scene "scenes/Coach/worldc2m1b11.vcd"
 	scene "scenes/Coach/worldc2m1b12.vcd"
-	scene "scenes/Coach/worldc2m2b03.vcd"
-	scene "scenes/Coach/worldc2m2b31.vcd"
-	scene "scenes/Coach/worldc2m2b32.vcd"
 	scene "scenes/Coach/worldc2m4b06.vcd"
 	scene "scenes/Coach/worldc2m5b46.vcd"
 	scene "scenes/Coach/worldc2m5b50.vcd"
@@ -8538,31 +8533,23 @@ Response PlayerHurrahCoach
 	scene "scenes/Coach/worldc2m5b56.vcd"
 	scene "scenes/Coach/worldc2m5b57.vcd"
 	scene "scenes/Coach/worldc2m5b60.vcd"
-	scene "scenes/Coach/worldc2m208.vcd"
 	
-	scene "scenes/Coach/worldc3m4b07.vcd" // oh shit gate open!
-	scene "scenes/Coach/worldc3m4b10.vcd" // Our cajun friend opened the gate!"
-	scene "scenes/Coach/worldc4m4b09.vcd" // Burger tank ohh we made it
-	scene "scenes/Coach/WorldC4M4B14.vcd" // The Signs lit!
-	
+	scene "scenes/Coach/worldc4m4b09.vcd" // Burger tank ohh we made it!
+	scene "scenes/Coach/worldc4m4b18.vcd" // Ohh look up there virgil sees us!
 	scene "scenes/Coach/WorldC4M412.vcd"  //I knew Burger Tank wouldn't let us down.
-	scene "scenes/Coach/WorldC4M413.vcd"  //Burger tank to the rescue!
+	scene "scenes/Coach/worldc5m513.vcd"  // WIND UP THE CHOPPER BECAUSE HERE WE COME
+	scene "scenes/Coach/WorldC2M5B106.vcd"  then any C2M5_PlanWorked foo:0 0.01 //The chopper's coming!
 	
-	scene "scenes/Coach/worldc4m415.vcd"  //he came back everyone to the boat!
+	scene "scenes/Coach/dlc1_c6m2_phase2inwater02.vcd"  // hey nick, try and keep your head above water
+	scene "scenes/Coach/dlc1_c6m2_phase2inwater03.vcd"  // dont trip nick
+	scene "scenes/Coach/dlc1_c6m2_phase2inwater04.vcd"  // gotta keep ya head above water
 	
-	scene "scenes/Coach/WorldC5M3B18.vcd"  then gambler C5M3manhole01 foo:0 0.1 //Nick! Good news - we're going down into this sewer.
-	scene "scenes/Coach/worldc5m513.vcd"	// wind up the choppah
-	
-	scene "scenes/Coach/WorldC2M5B08.vcd"  //These zombies better be ready to rock.
-	scene "scenes/Coach/WorldC2M5B38.vcd"  //Finale's on! Get ready to rock!
-	
-	scene "scenes/Coach/dlc1_c6m3_finalecinematic01.vcd"
-	scene "scenes/Coach/DLC1_C6M3_FinaleCinematic03.vcd"
-	scene "scenes/Coach/DLC1_C6M3_FinaleFinalGas04.vcd"
-	scene "scenes/Coach/DLC1_C6M3_FinaleFinalGas03.vcd"
-	
-	scene "scenes/Coach/dlc1_community04.vcd"
-	scene "scenes/Coach/dlc1_community16.vcd"
+	scene "scenes/Coach/dlc1_c6m3_finalel4d1killing01.vcd"  // alright louis keep tearing em up
+	scene "scenes/Coach/DLC1_C6M3_FinaleL4D1Killing02.vcd"  // Louis in the hoouse!
+	scene "scenes/Coach/dlc1_c6m3_finalel4d1killing03.vcd"  // Go zoey!
+	scene "scenes/Coach/dlc1_c6m3_finalel4d1killing03.vcd"  // Go zoey!
+	scene "scenes/Coach/dlc1_c6m3_finalel4d1killing07.vcd"  // Niice shot francis!
+	scene "scenes/Coach/dlc1_c6m3_finalel4d1killing04.vcd"  // Keep it up zoey
 	
 }
 Rule PlayerHurrahCoach
@@ -9069,7 +9056,7 @@ Response PlayerKillConfirmationCoach
 
 Rule PlayerKillConfirmationCoach
 {
-	criteria ConceptKilledZombie IsNotCoughing IsCoach  IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectFar100
+	criteria ConceptKilledZombie IsNotCoughing IsCoach  IsTalk IsTalkCoach IsWorldTalkCoach IsSubjectFar100 ChanceToFire60Percent
 	Response PlayerKillConfirmationCoach
 }
 
@@ -9725,10 +9712,9 @@ Response SurvivorDeathCoach
 	scene "scenes/Coach/DeathScream08.vcd"  //[Death rattle]
 	scene "scenes/Coach/DeathScream09.vcd"  //[Death rattle]
 }
-
 Rule SurvivorDeathCoach
 {
-	criteria ConceptPlayerDeath IsNotCoughing IsCoach IsTalk IsTalkCoach IsWorldTalkCoach AutoIsNotSurvival
+	criteria ConceptPlayerDeath IsNotCoughing IsCoach IsTalk IsTalkCoach IsWorldTalkCoach
 	Response SurvivorDeathCoach
 }
 
@@ -9756,7 +9742,7 @@ Response SurvivorGooedBySpitterC1Coach
 }
 Rule SurvivorGooedBySpitterC1Coach
 {
-	criteria ConceptGooedBySpitter IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSaidGooedBySpitter IsWorldTalkCoach
+	criteria ConceptGooedBySpitter IsNotCoughing IsCoach IsTalk IsTalkCoach IsNotSaidGooedBySpitter IsCampaignl4d2_1 IsWorldTalkCoach C1M1orC1M2
 	ApplyContext "SaidGooedBySpitter:1:20,TalkCoach:1:3"
 	Response SurvivorGooedBySpitterC1Coach
 }
@@ -9797,7 +9783,7 @@ Response SurvivorGrabbedByTongueC1Coach
 }
 Rule SurvivorGrabbedByTongueC1Coach
 {
-	criteria ConceptPlayerGrabbedByTongue IsNotCoughing IsCoach IsTalk IsTalkCoach IsWorldTalkCoach
+	criteria ConceptPlayerGrabbedByTongue IsNotCoughing IsCoach IsTalk IsTalkCoach IsCampaignl4d2_1 IsWorldTalkCoach  C1M1orC1M2
 	Response SurvivorGrabbedByTongueC1Coach
 }
 

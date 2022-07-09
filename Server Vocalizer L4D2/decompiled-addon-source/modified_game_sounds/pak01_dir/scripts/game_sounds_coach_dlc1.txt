@@ -1521,7 +1521,7 @@
 "Coach_DLC1_C6M2_Phase2InWater02"
 {
 	"channel"		"CHAN_VOICE"
-	"volume"		"0.53"
+	"volume"		"0.60"
 	"pitch"			"PITCH_NORM"
 	"soundlevel"		"SNDLVL_70dB"
 	"wave"			"player\survivor\voice\Coach\DLC1_C6M2_Phase2InWater02.wav"
@@ -1532,7 +1532,7 @@
 "Coach_DLC1_C6M2_Phase2InWater03"
 {
 	"channel"		"CHAN_VOICE"
-	"volume"		"0.52"
+	"volume"		"0.60"
 	"pitch"			"PITCH_NORM"
 	"soundlevel"		"SNDLVL_70dB"
 	"wave"			"player\survivor\voice\Coach\DLC1_C6M2_Phase2InWater03.wav"
@@ -1543,7 +1543,7 @@
 "Coach_DLC1_C6M2_Phase2InWater04"
 {
 	"channel"		"CHAN_VOICE"
-	"volume"		"0.51"
+	"volume"		"0.60"
 	"pitch"			"PITCH_NORM"
 	"soundlevel"		"SNDLVL_70dB"
 	"wave"			"player\survivor\voice\Coach\DLC1_C6M2_Phase2InWater04.wav"
@@ -1576,7 +1576,7 @@
 "Coach_DLC1_C6M2_Phase2InWater07"
 {
 	"channel"		"CHAN_VOICE"
-	"volume"		"0.77"
+	"volume"		"0.80"
 	"pitch"			"PITCH_NORM"
 	"soundlevel"		"SNDLVL_90B"
 	"wave"			"player\survivor\voice\Coach\DLC1_C6M2_Phase2InWater07.wav"

@@ -4052,6 +4052,7 @@ Response PlayerHurrahManager
 	scene "scenes/Manager/PositiveNoise03.vcd"  //[Improv non-verbal pleasure & interest sounds]
 	scene "scenes/Manager/PositiveNoise04.vcd"  //[Improv non-verbal pleasure & interest sounds]
 	scene "scenes/Manager/ReactionPositive10.vcd"  //That's what I'm talkin' about
+	scene "scenes/Manager/ReactionPositive03.vcd"  //That's what I'm talkin' about
 	scene "scenes/Manager/ReactionPositive05.vcd"  //That's what I'm talkin' about
 	scene "scenes/Manager/ReactionPositive06.vcd"  //That's what I'm talkin' about
 	scene "scenes/Manager/ReactionPositive07.vcd"  //That's what I'm talkin' about
@@ -4061,6 +4062,14 @@ Response PlayerHurrahManager
 	scene "scenes/Manager/SafeSpotAheadReaction05.vcd"  //That's what I'm talkin' about
 	scene "scenes/Manager/riflerange_02.vcd"  //That's what I'm talkin' about
 	scene "scenes/Manager/ZombieGenericShort14.vcd" //Stay positive, guys! I got a good feeling about this.
+	
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleBridgeRun01.vcd"  //Get to your car, we got 'em.
+	scene "scenes/Manager/DLC1_C6M3_L4D1FinaleBridgeRun02.vcd"  //Get going! Get going!
+	scene "scenes/Manager/dlc1_c6m3_l4d1finalebridgerun03.vcd" 
+	
+	scene "scenes/Manager/nervouswhislte01.vcd" // nervous whistle
+	scene "scenes/Manager/nervoushumming01.vcd" // humming
+	scene "scenes/Manager/nervoushumming02.vcd" // humming
 }
 Rule PlayerHurrahManager
 {

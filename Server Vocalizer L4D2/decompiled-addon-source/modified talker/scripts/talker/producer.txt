@@ -30,7 +30,7 @@ Response C1M1InSmokeProducer
 }
 Rule C1M1InSmokeProducer
 {
-	criteria ConceptTalkIdle IsProducer IsSaidC1M1InSmoke ismap_c1m1_hotel AutoIsNotScavenge  IsNotSpeakingWeight0
+	criteria ConceptTalkIdle IsProducer IsSaidC1M1InSmoke  AutoIsNotScavenge  IsNotSpeakingWeight0
 	Response C1M1InSmokeProducer
 }
 
@@ -88,7 +88,7 @@ Response C1M4SafeRoomProducer
 }
 Rule C1M4SafeRoomProducer
 {
-	criteria ConceptTalkIdle Joined2 IsProducer IsNotSaidC1M4SafeRoom2 ismap_c1m4_atrium IsInStartArea AutoIsNotScavenge  IsNotSpeakingWeight0
+	criteria ConceptTalkIdle Joined2 IsProducer IsNotSaidC1M4SafeRoom2  IsInStartArea AutoIsNotScavenge  IsNotSpeakingWeight0
 	ApplyContext "SaidC1M4SafeRoom2:1:0"
 	applycontexttoworld
 	Response C1M4SafeRoomProducer
@@ -160,7 +160,7 @@ Response SurvivorMournGamblerC1Producer
 }
 Rule SurvivorMournGamblerC1Producer
 {
-	criteria ConceptPlayerSeeDeadPlayer IsNotCoughing IsProducer IsDeadGambler IsNotSaidSomeoneDied IsTalk IsTalkProducer IsNotIncapacitated IsCampaignl4d2_1 HasNotDefibrillator IsWorldTalkProducer  NoKnowNames ismap_c1m1_hotel
+	criteria ConceptPlayerSeeDeadPlayer IsNotCoughing IsProducer IsDeadGambler IsNotSaidSomeoneDied IsTalk IsTalkProducer IsNotIncapacitated IsCampaignl4d2_1 HasNotDefibrillator IsWorldTalkProducer  NoKnowNames 
 	Response SurvivorMournGamblerC1Producer
 }
 
@@ -182,7 +182,7 @@ Response SurvivorMournMechanicC1Producer
 }
 Rule SurvivorMournMechanicC1Producer
 {
-	criteria ConceptPlayerSeeDeadPlayer IsNotCoughing IsProducer IsDeadMechanic IsNotSaidSomeoneDied IsTalk IsTalkProducer IsNotIncapacitated IsCampaignl4d2_1 HasNotDefibrillator IsWorldTalkProducer  NoKnowNames ismap_c1m1_hotel
+	criteria ConceptPlayerSeeDeadPlayer IsNotCoughing IsProducer IsDeadMechanic IsNotSaidSomeoneDied IsTalk IsTalkProducer IsNotIncapacitated IsCampaignl4d2_1 HasNotDefibrillator IsWorldTalkProducer  NoKnowNames 
 	Response SurvivorMournMechanicC1Producer
 }
 
@@ -249,7 +249,7 @@ Response PlayerC1M2GrabbingCola2Producer
 }
 Rule PlayerC1M2GrabbingCola2Producer
 {
-	criteria ConceptPlayerPickup IsProducer IsTalk IsTalkProducer  IsNotSaidC1M2GrabbingCola2 IsWorldTalkProducer AutoIsNotScavenge  IsPickedUpColaBottles ismap_c1m2_streets
+	criteria ConceptPlayerPickup IsProducer IsTalk IsTalkProducer  IsNotSaidC1M2GrabbingCola2 IsWorldTalkProducer AutoIsNotScavenge  IsPickedUpColaBottles 
 	ApplyContext "SaidC1M2GrabbingCola2:1:5,Talk:1:2.279,_auto_SaidC1M2GrabbedCola:1:0"
 	applycontexttoworld
 	Response PlayerC1M2GrabbingCola2Producer
@@ -396,7 +396,7 @@ Response PlayerintroC1M1Producer
 }
 Rule PlayerintroC1M1Producer
 {
-	criteria ConceptintroFarm IsProducer IsTalk IsTalkProducer IsNotSaidintroFarm ismap_c1m1_hotel IsWorldTalkProducer
+	criteria ConceptintroFarm IsProducer IsTalk IsTalkProducer IsNotSaidintroFarm  IsWorldTalkProducer
 	ApplyContext "SaidintroFarm:1:0,_auto_TurnOffJoinLast:1:0"
 	applycontexttoworld
 	Response PlayerintroC1M1Producer
@@ -714,7 +714,7 @@ Response C1M2LeavingSafeRoomProducer
 }
 Rule C1M2LeavingSafeRoomProducer
 {
-	criteria ConceptSurvivorLeavingInitialCheckpoint IsProducer IsNotSaidC1M2LeavingSafeRoom ismap_c1m2_streets _auto_NotTellingStory
+	criteria ConceptSurvivorLeavingInitialCheckpoint IsProducer IsNotSaidC1M2LeavingSafeRoom  _auto_NotTellingStory
 	ApplyContext "SaidC1M2LeavingSafeRoom:1:0,Talk:1:3.298"
 	applycontexttoworld
 	Response C1M2LeavingSafeRoomProducer
@@ -726,7 +726,7 @@ Response C1M2SafeRoomProducer
 }
 Rule C1M2SafeRoomProducer
 {
-	criteria ConceptTalkIdle  Joined2 IsProducer IsNotSaidC1M2SafeRoom2 ismap_c1m2_streets IsInStartArea AutoIsNotScavenge  IsNotSpeakingWeight0
+	criteria ConceptTalkIdle  Joined2 IsProducer IsNotSaidC1M2SafeRoom2  IsInStartArea AutoIsNotScavenge  IsNotSpeakingWeight0
 	ApplyContext "SaidC1M2SafeRoom2:1:0"
 	applycontexttoworld
 	Response C1M2SafeRoomProducer
@@ -821,7 +821,7 @@ Response C1M4GasPourProducer
 }
 Rule C1M4GasPourProducer
 {
-	criteria ConceptPlayerPourStarted IsProducer IsTalk IsTalkProducer IsWorldTalkProducer _auto_NotNoGasPourLine
+	criteria ConceptPlayerPourStarted IsProducer IsTalk IsTalkProducer IsWorldTalkProducer IsNotScavenge  _auto_NotNoGasPourLine
 	ApplyContext "TalkProducer:1:2"
 	Response C1M4GasPourProducer
 }
@@ -833,7 +833,7 @@ Response C1M4PlayerGetToRescueVehicleProducer
 }
 Rule C1M4PlayerGetToRescueVehicleProducer
 {
-	criteria ConceptGetToVehicle IsProducer IsNotSaidPlayerGetToRescueVehicle ismap_c1m4_atrium IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptGetToVehicle IsProducer IsNotSaidPlayerGetToRescueVehicle  IsTalk IsTalkProducer IsWorldTalkProducer
 	ApplyContext "SaidPlayerGetToRescueVehicle:1:0"
 	applycontexttoworld
 	Response C1M4PlayerGetToRescueVehicleProducer
@@ -856,7 +856,7 @@ Response FinaleStartC1M4Producer
 }
 Rule FinaleStartC1M4Producer
 {
-	criteria ConceptFinaleTriggered IsProducer IsTalk IsTalkProducer IsWorldTalkProducer ismap_c1m4_atrium IsNotScavenge IsNotSaidFinaleStartC1M4
+	criteria ConceptFinaleTriggered IsProducer IsTalk IsTalkProducer IsWorldTalkProducer  IsNotScavenge IsNotSaidFinaleStartC1M4
 	ApplyContext "Talk:1:3,SaidFinaleStartC1M4:1:0,_auto_NoLostCall:1:0"
 	applycontexttoworld
 	Response FinaleStartC1M4Producer
@@ -869,7 +869,7 @@ Response GasPourDoneC1M4Producer
 }
 Rule GasPourDoneC1M4Producer
 {
-	criteria ConceptPlayerPourFinished IsProducer IsTalk IsTalkProducer IsWorldTalkProducer IsNotScavenge ismap_c1m4_atrium ScoreDoneSC
+	criteria ConceptPlayerPourFinished IsProducer IsTalk IsTalkProducer IsWorldTalkProducer IsNotScavenge  ScoreDoneSC
 	Response GasPourDoneC1M4Producer
 }
 
@@ -884,7 +884,7 @@ Response C2M2CarouselIdleProducer
 }
 Rule C2M2CarouselIdleProducer
 {
-	criteria ConceptTalkIdle IsProducer ChanceToFire30Percent IsNotIncapacitated ismap_c2m2 IsNotInSafeSpot AutoIsNotScavenge  _auto_IsCarouselOn _auto_NotTimerLockA _auto_NotTimerLockProducer _auto_NotSawTunnelOfLove IsNotSpeakingWeight0
+	criteria ConceptTalkIdle IsProducer ChanceToFire30Percent IsNotIncapacitated  IsNotInSafeSpot AutoIsNotScavenge  _auto_IsCarouselOn _auto_NotTimerLockA _auto_NotTimerLockProducer _auto_NotSawTunnelOfLove IsNotSpeakingWeight0
 	ApplyContext "_auto_TimerLockA:1:13,_auto_TimerLockProducer:1:20"
 	applycontexttoworld
 	Response C2M2CarouselIdleProducer
@@ -948,7 +948,7 @@ Response PlayerRemarkc2m3_saferoomaProducer
 }
 Rule PlayerRemarkc2m3_saferoomaProducer
 {
-	criteria ConceptTalkIdle IsProducer IsInStartArea Ismap_c2m3 AutoIsNotScavenge  IsNotSrcGrp_C2M3_007 IsNotSpeakingWeight0
+	criteria ConceptTalkIdle IsProducer IsInStartArea  AutoIsNotScavenge  IsNotSrcGrp_C2M3_007 IsNotSpeakingWeight0
 	ApplyContext "Talk:1:10,_auto_SafeRoomStart:1:300,_auto_SafeRoomQuiet:1:5,SrcGrp_C2M3_007:1:0"
 	applycontexttoworld
 	Response PlayerRemarkc2m3_saferoomaProducer
@@ -964,7 +964,7 @@ Response c2m4_saferoominitProducer
 }
 Rule c2m4_saferoominitProducer
 {
-	criteria ConceptTalkIdle IsProducer IsInStartArea ismap_c2m4 AutoIsNotScavenge  IsNotSrcGrp_C2M4_700 IsNotSpeakingWeight0
+	criteria ConceptTalkIdle IsProducer IsInStartArea  AutoIsNotScavenge  IsNotSrcGrp_C2M4_700 IsNotSpeakingWeight0
 	ApplyContext "Talk:1:10,_auto_SafeRoomStart:1:300,_auto_SafeRoomQuiet:1:5,SrcGrp_C2M4_700:1:0"
 	applycontexttoworld
 	Response c2m4_saferoominitProducer
@@ -988,7 +988,7 @@ Response C2M4GateIdle1Producer
 }
 Rule C2M4GateIdle1Producer
 {
-	criteria ConceptTalkIdle IsProducer IsNotIncapacitated ismap_c2m4 NotInCombat TimeSinceGroupInCombat02 AutoIsNotScavenge  IsNotSrcGrp_C2M4_008 _auto_IsNearGate _auto_NotTimerLockA _auto_NotTimerLockProducer _auto_NotButtonPressed IsNotSpeakingWeight0
+	criteria ConceptTalkIdle IsProducer IsNotIncapacitated  NotInCombat TimeSinceGroupInCombat02 AutoIsNotScavenge  IsNotSrcGrp_C2M4_008 _auto_IsNearGate _auto_NotTimerLockA _auto_NotTimerLockProducer _auto_NotButtonPressed IsNotSpeakingWeight0
 	ApplyContext "Talk:1:1.726,_auto_TimerLockA:1:20,_auto_TimerLockProducer:1:23,_auto_NearGateNag:1:0,SrcGrp_C2M4_008:1:0"
 	applycontexttoworld
 	Response C2M4GateIdle1Producer
@@ -1002,7 +1002,7 @@ Response C2M4GateIdle2Producer
 }
 Rule C2M4GateIdle2Producer
 {
-	criteria ConceptTalkIdle IsProducer IsNotIncapacitated ismap_c2m4 NotInCombat TimeSinceGroupInCombat02 AutoIsNotScavenge  _auto_IsNearGateNag _auto_IsNearGate _auto_NotTimerLockA _auto_NotTimerLockProducer _auto_NotButtonPressed IsNotSpeakingWeight0
+	criteria ConceptTalkIdle IsProducer IsNotIncapacitated  NotInCombat TimeSinceGroupInCombat02 AutoIsNotScavenge  _auto_IsNearGateNag _auto_IsNearGate _auto_NotTimerLockA _auto_NotTimerLockProducer _auto_NotButtonPressed IsNotSpeakingWeight0
 	ApplyContext "Talk:1:0.854,_auto_TimerLockA:1:20,_auto_TimerLockProducer:1:23"
 	applycontexttoworld
 	Response C2M4GateIdle2Producer
@@ -1014,7 +1014,7 @@ Response C2M4GateOpenIdleProducer
 }
 Rule C2M4GateOpenIdleProducer
 {
-	criteria ConceptTalkIdle IsProducer IsNotIncapacitated ismap_c2m4 AutoIsNotScavenge  IsNotSrcGrp_C2M4_009 _auto_IsGateOpen _auto_NotTimerLockA IsNotSpeakingWeight0
+	criteria ConceptTalkIdle IsProducer IsNotIncapacitated  AutoIsNotScavenge  IsNotSrcGrp_C2M4_009 _auto_IsGateOpen _auto_NotTimerLockA IsNotSpeakingWeight0
 	ApplyContext "Talk:1:0.878,SrcGrp_C2M4_009:1:0"
 	applycontexttoworld
 	Response C2M4GateOpenIdleProducer
@@ -1971,7 +1971,7 @@ Response SurvivorSpotFirstWeaponsProducer
 }
 Rule SurvivorSpotFirstWeaponsProducer
 {
-	criteria ConceptPlayerPickup IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer ismap_c1m1_hotel IsNotSaidFirstWeapon IsWorldTalkProducer
+	criteria ConceptPlayerPickup IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer  IsNotSaidFirstWeapon IsWorldTalkProducer
 	ApplyContext "SaidFirstWeapon:1:0"
 	applycontexttoworld
 	Response SurvivorSpotFirstWeaponsProducer
@@ -2049,7 +2049,7 @@ Response SurvivorSpottedCoachClose2C1Producer
 }
 Rule SurvivorSpottedCoachClose2C1Producer
 {
-	criteria ConceptPlayerLook IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto  SubjectIsCoach IsCoachNear400 IsWorldTalkProducer ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptPlayerLook IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto  SubjectIsCoach IsCoachNear400 IsWorldTalkProducer C1 NoKnowNames
 	Response SurvivorSpottedCoachClose2C1Producer
 }
 
@@ -2061,7 +2061,7 @@ Response SurvivorSpottedCoachCloseC1Producer
 }
 Rule SurvivorSpottedCoachCloseC1Producer
 {
-	criteria ConceptPlayerLookHere IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto  SubjectIsCoach IsCoachNear400 IsWorldTalkProducer ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptPlayerLookHere IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto  SubjectIsCoach IsCoachNear400 IsWorldTalkProducer C1 NoKnowNames
 	Response SurvivorSpottedCoachCloseC1Producer
 }
 
@@ -2088,7 +2088,7 @@ Response SurvivorSpottedCoachFarC1Producer
 }
 Rule SurvivorSpottedCoachFarC1Producer
 {
-	criteria ConceptPlayerLook IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto SubjectIsCoach IsCoachFar400 IsWorldTalkProducer ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptPlayerLook IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto SubjectIsCoach IsCoachFar400 IsWorldTalkProducer C1 NoKnowNames
 	Response SurvivorSpottedCoachFarC1Producer
 }
 
@@ -2151,7 +2151,7 @@ Response SurvivorSpottedGamblerClose2C1Producer
 }
 Rule SurvivorSpottedGamblerClose2C1Producer
 {
-	criteria ConceptPlayerLook IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto  SubjectIsGambler IsGamblerNear400 IsWorldTalkProducer ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptPlayerLook IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto  SubjectIsGambler IsGamblerNear400 IsWorldTalkProducer C1 NoKnowNames
 	Response SurvivorSpottedGamblerClose2C1Producer
 }
 
@@ -2164,7 +2164,7 @@ Response SurvivorSpottedGamblerCloseC1Producer
 }
 Rule SurvivorSpottedGamblerCloseC1Producer
 {
-	criteria ConceptPlayerLookHere IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto  SubjectIsGambler IsGamblerNear400 IsWorldTalkProducer ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptPlayerLookHere IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto  SubjectIsGambler IsGamblerNear400 IsWorldTalkProducer C1 NoKnowNames
 	Response SurvivorSpottedGamblerCloseC1Producer
 }
 
@@ -2191,7 +2191,7 @@ Response SurvivorSpottedGamblerFarC1Producer
 }
 Rule SurvivorSpottedGamblerFarC1Producer
 {
-	criteria ConceptPlayerLook IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto SubjectIsGambler IsGamblerFar400 IsWorldTalkProducer ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptPlayerLook IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto SubjectIsGambler IsGamblerFar400 IsWorldTalkProducer C1 NoKnowNames
 	Response SurvivorSpottedGamblerFarC1Producer
 }
 
@@ -2337,7 +2337,7 @@ Response SurvivorSpottedMechanicClose2C1Producer
 }
 Rule SurvivorSpottedMechanicClose2C1Producer
 {
-	criteria ConceptPlayerLook IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto  SubjectIsMechanic IsMechanicNear400 IsWorldTalkProducer ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptPlayerLook IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto  SubjectIsMechanic IsMechanicNear400 IsWorldTalkProducer C1 NoKnowNames
 	Response SurvivorSpottedMechanicClose2C1Producer
 }
 
@@ -2349,7 +2349,7 @@ Response SurvivorSpottedMechanicCloseC1Producer
 }
 Rule SurvivorSpottedMechanicCloseC1Producer
 {
-	criteria ConceptPlayerLookHere IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto  SubjectIsMechanic IsMechanicNear400 IsWorldTalkProducer ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptPlayerLookHere IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto  SubjectIsMechanic IsMechanicNear400 IsWorldTalkProducer C1 NoKnowNames
 	Response SurvivorSpottedMechanicCloseC1Producer
 }
 
@@ -2380,7 +2380,7 @@ Response SurvivorSpottedMechanicFarC1Producer
 }
 Rule SurvivorSpottedMechanicFarC1Producer
 {
-	criteria ConceptPlayerLook IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto SubjectIsMechanic IsMechanicFar400 IsWorldTalkProducer ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptPlayerLook IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto SubjectIsMechanic IsMechanicFar400 IsWorldTalkProducer C1 NoKnowNames
 	Response SurvivorSpottedMechanicFarC1Producer
 }
 
@@ -2563,7 +2563,7 @@ Response SurvivorSpottedVomitJarAutoC1Producer
 }
 Rule SurvivorSpottedVomitJarAutoC1Producer
 {
-	criteria ConceptPlayerSpotWeapon IsNotCoughing IsProducer IsTalk IsTalkProducer IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotVomitJar IsNotSaidSpot IsVomitJar IsWorldTalkProducer ismap_c1m1_hotelC1 _auto_NotNoSpotting IsNotSpeakingWeight0
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsProducer IsTalk IsTalkProducer IsSmartLookAuto IsNotInSafeSpot IsNotAlone IsNotSaidSpotVomitJar IsNotSaidSpot IsVomitJar IsWorldTalkProducer C1 _auto_NotNoSpotting IsNotSpeakingWeight0
 	ApplyContext "SaidSpotVomitJar:1:5,SaidSpot:1:20"
 	applycontexttoworld
 	Response SurvivorSpottedVomitJarAutoC1Producer
@@ -2576,7 +2576,7 @@ Response SurvivorSpottedVomitJarC1Producer
 }
 Rule SurvivorSpottedVomitJarC1Producer
 {
-	criteria ConceptPlayerSpotWeapon IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto IsVomitJar IsWorldTalkProducer ismap_c1m1_hotelC1
+	criteria ConceptPlayerSpotWeapon IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSmartLookAuto IsVomitJar IsWorldTalkProducer C1
 	ApplyContext "SaidSpoVomitJar:1:5,SaidSpot:1:20"
 	applycontexttoworld
 	Response SurvivorSpottedVomitJarC1Producer
@@ -2648,7 +2648,7 @@ Response SurvivorSpottedBoomerC1Producer
 }
 Rule SurvivorSpottedBoomerC1Producer
 {
-	criteria ConceptPlayerWarnSpecial IsSpecialTypeBoomer IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeBoomer IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer  IsNotSpeakingWeight0
 	ApplyContext "SaidBoomerWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedBoomerC1Producer
@@ -2705,7 +2705,7 @@ Response SurvivorSpottedChargerAlsoC1Producer
 }
 Rule SurvivorSpottedChargerAlsoC1Producer
 {
-	criteria ConceptPlayerAlsoWarnSpecial IsSpecialTypeCharger  IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptPlayerAlsoWarnSpecial IsSpecialTypeCharger  IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer 
 	ApplyContext "SaidChargerWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedChargerAlsoC1Producer
@@ -2719,7 +2719,7 @@ Response SurvivorSpottedChargerC1Producer
 }
 Rule SurvivorSpottedChargerC1Producer
 {
-	criteria ConceptPlayerWarnSpecial IsSpecialTypeCharger IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeCharger IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer  IsNotSpeakingWeight0
 	ApplyContext "SaidChargerWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedChargerC1Producer
@@ -2765,7 +2765,7 @@ Response SurvivorSpottedHunterC1Producer
 }
 Rule SurvivorSpottedHunterC1Producer
 {
-	criteria ConceptPlayerWarnSpecial IsSpecialTypeHunter IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeHunter IsProducer IsTalk IsTalkProducer IsWorldTalkProducer  IsNotSpeakingWeight0
 	ApplyContext "SaidHunterWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedHunterC1Producer
@@ -2835,7 +2835,7 @@ Response SurvivorSpottedJockeyAlsoC1Producer
 }
 Rule SurvivorSpottedJockeyAlsoC1Producer
 {
-	criteria ConceptPlayerAlsoWarnSpecial IsSpecialTypeJockey IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer C1M1orC1M2
+	criteria ConceptPlayerAlsoWarnSpecial IsSpecialTypeJockey IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer 
 	ApplyContext "SaidJockeyWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedJockeyAlsoC1Producer
@@ -2848,7 +2848,7 @@ Response SurvivorSpottedJockeyC1Producer
 }
 Rule SurvivorSpottedJockeyC1Producer
 {
-	criteria ConceptPlayerWarnSpecial IsSpecialTypeJockey IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeJockey IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer  IsNotSpeakingWeight0
 	ApplyContext "SaidJockeyWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedJockeyC1Producer
@@ -2910,7 +2910,7 @@ Response SurvivorSpottedSmokerC1Producer
 }
 Rule SurvivorSpottedSmokerC1Producer
 {
-	criteria ConceptPlayerWarnSpecial IsSpecialTypeSmoker IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeSmoker IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer  IsNotSpeakingWeight0
 	ApplyContext "SaidSmokerWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedSmokerC1Producer
@@ -2952,7 +2952,7 @@ Response SurvivorSpottedSpitterAlsoC1Producer
 }
 Rule SurvivorSpottedSpitterAlsoC1Producer
 {
-	criteria ConceptPlayerAlsoWarnSpecial IsSpecialTypeSpitter IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptPlayerAlsoWarnSpecial IsSpecialTypeSpitter IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer 
 	ApplyContext "SaidSpitterWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedSpitterAlsoC1Producer
@@ -2966,7 +2966,7 @@ Response SurvivorSpottedSpitterC1Producer
 }
 Rule SurvivorSpottedSpitterC1Producer
 {
-	criteria ConceptPlayerWarnSpecial IsSpecialTypeSpitter IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeSpitter IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer  IsNotSpeakingWeight0
 	ApplyContext "SaidSpitterWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedSpitterC1Producer
@@ -3000,7 +3000,7 @@ Response SurvivorSpottedTankC1Producer
 }
 Rule SurvivorSpottedTankC1Producer
 {
-	criteria ConceptPlayerWarnSpecial IsSpecialTypeTank IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeTank IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer  C1 IsNotSpeakingWeight0
 	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
 	applycontexttoworld
 	Response SurvivorSpottedTankC1Producer
@@ -3027,7 +3027,7 @@ Response SurvivorSpottedWitchC1Producer
 }
 Rule SurvivorSpottedWitchC1Producer
 {
-	criteria ConceptPlayerWarnSpecial IsSpecialTypeWitch IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer IsNotSpeakingWeight0
+	criteria ConceptPlayerWarnSpecial IsSpecialTypeWitch IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer  IsNotSpeakingWeight0
 	ApplyContext "SaidWitchWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedWitchC1Producer
@@ -3043,7 +3043,7 @@ Rule SurvivorAlsoSpottedBoomerProducer
 
 Rule SurvivorAlsoSpottedBoomerC1Producer
 {
-	criteria ConceptPlayerAlsoWarnBoomer IsNotCoughing IsProducer IsTalk IsTalkProducer  IsWorldTalkProducer
+	criteria ConceptPlayerAlsoWarnBoomer IsNotCoughing IsProducer IsTalk IsTalkProducer  IsWorldTalkProducer  
 	ApplyContext "SaidBoomerWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedBoomerProducer
@@ -3059,7 +3059,7 @@ Rule SurvivorAlsoSpottedHunterProducer
 
 Rule SurvivorAlsoSpottedHunterC1Producer
 {
-	criteria ConceptPlayerAlsoWarnHunter IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptPlayerAlsoWarnHunter IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer 
 	ApplyContext "SaidHunterWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedHunterProducer
@@ -3075,7 +3075,7 @@ Rule SurvivorAlsoSpottedSmokerProducer
 
 Rule SurvivorAlsoSpottedSmokerC1Producer
 {
-	criteria ConceptPlayerAlsoWarnSmoker IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptPlayerAlsoWarnSmoker IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer  
 	ApplyContext "SaidSmokerWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedSmokerProducer
@@ -3091,7 +3091,7 @@ Rule SurvivorAlsoSpottedTankProducer
 
 Rule SurvivorAlsoSpottedTankC1Producer
 {
-	criteria ConceptPlayerAlsoWarnTank IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptPlayerAlsoWarnTank IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer  C1
 	ApplyContext "SaidTankWarn:1:20,SaidSpecialWarn:1:30,SaidTankWarn2:1:60"
 	applycontexttoworld
 	Response SurvivorSpottedTankProducer
@@ -3107,7 +3107,7 @@ Rule SurvivorAlsoSpottedWitchProducer
 
 Rule SurvivorAlsoSpottedWitchC1Producer
 {
-	criteria ConceptPlayerAlsoWarnWitch IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer
+	criteria ConceptPlayerAlsoWarnWitch IsNotCoughing IsProducer IsTalk IsTalkProducer IsWorldTalkProducer 
 	ApplyContext "SaidWitchWarn:1:20,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response SurvivorSpottedWitchProducer
@@ -3137,7 +3137,7 @@ Response PlayerAlertGiveItemC1Producer
 }
 Rule PlayerAlertGiveItemC1Producer
 {
-	criteria ConceptPlayerAlertGiveItem IsNotCoughing IsProducer IsTalk IsTalkProducer IsCampaignl4d2_1 IsWorldTalkProducer NoKnowNames ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptPlayerAlertGiveItem IsNotCoughing IsProducer IsTalk IsTalkProducer IsCampaignl4d2_1 IsWorldTalkProducer NoKnowNames C1 NoKnowNames
 	Response PlayerAlertGiveItemC1Producer
 }
 
@@ -3215,7 +3215,7 @@ Response PlayerFriendlyFireC1Producer
 }
 Rule PlayerFriendlyFireC1Producer
 {
-	criteria ConceptPlayerFriendlyFire IsNotCoughing IsProducer IsNotProducerFriendlyFire IsDamageTypeBullet IsTalk IsTalkProducer IsCampaignl4d2_1 IsWorldTalkProducer  NoKnowNames ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptPlayerFriendlyFire IsNotCoughing IsProducer IsNotProducerFriendlyFire IsDamageTypeBullet IsTalk IsTalkProducer IsCampaignl4d2_1 IsWorldTalkProducer  NoKnowNames C1 NoKnowNames
 	ApplyContext "ProducerFriendlyFire:1:10"
 	applycontexttoworld
 	Response PlayerFriendlyFireC1Producer
@@ -3227,7 +3227,7 @@ Response PlayerFriendlyFireFromGamblerC1Producer
 }
 Rule PlayerFriendlyFireFromGamblerC1Producer
 {
-	criteria ConceptPlayerFriendlyFire IsNotCoughing IsProducer IsNotProducerFriendlyFire IsDamageTypeBullet IsTalk IsTalkProducer SubjectIsGambler ChanceToFire50Percent IsWorldTalkProducer ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptPlayerFriendlyFire IsNotCoughing IsProducer IsNotProducerFriendlyFire IsDamageTypeBullet IsTalk IsTalkProducer SubjectIsGambler ChanceToFire50Percent IsWorldTalkProducer C1 NoKnowNames
 	ApplyContext "ProducerFriendlyFire:1:10"
 	applycontexttoworld
 	Response PlayerFriendlyFireFromGamblerC1Producer
@@ -3255,7 +3255,7 @@ Response PlayerFriendlyFireNoBulletC1Producer
 }
 Rule PlayerFriendlyFireNoBulletC1Producer
 {
-	criteria ConceptPlayerFriendlyFire IsNotCoughing IsProducer IsNotProducerFriendlyFire IsNotDamageTypeBullet IsTalk IsTalkProducer IsWorldTalkProducer ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptPlayerFriendlyFire IsNotCoughing IsProducer IsNotProducerFriendlyFire IsNotDamageTypeBullet IsTalk IsTalkProducer IsWorldTalkProducer C1 NoKnowNames
 	ApplyContext "ProducerFriendlyFire:1:10"
 	Response PlayerFriendlyFireNoBulletC1Producer
 }
@@ -3411,7 +3411,7 @@ Response PlayerReloadingTankC1Producer
 }
 Rule PlayerReloadingTankC1Producer
 {
-	criteria ConceptPlayerReloading IsSurvivor IsNotSpeaking IsProducer IsNotIncapacitated IsTalk IsTalkProducer ChanceToFire70Percent  IsZombiePresentTank IsSaidTankWarn2 IsWorldTalkProducer ismap_c1m2_streets
+	criteria ConceptPlayerReloading IsSurvivor IsNotSpeaking IsProducer IsNotIncapacitated IsTalk IsTalkProducer ChanceToFire70Percent  IsZombiePresentTank IsSaidTankWarn2 IsWorldTalkProducer 
 	ApplyContext "SaidReloadingTank:1:10,SaidTankWarn2:1:20"
 	applycontexttoworld
 	Response PlayerReloadingTankC1Producer
@@ -3446,7 +3446,7 @@ Response PlayerTonguePullStartResponseC1Producer
 }
 Rule PlayerTonguePullStartResponseC1Producer
 {
-	criteria ConceptPlayerTonguePullStart IsSurvivor IsProducer IsTalk IsTalkProducer IsCampaignl4d2_1 IsWorldTalkProducer  C1M1orC1M2
+	criteria ConceptPlayerTonguePullStart IsSurvivor IsProducer IsTalk IsTalkProducer IsCampaignl4d2_1 IsWorldTalkProducer  
 	Response PlayerTonguePullStartResponseC1Producer
 }
 
@@ -3540,7 +3540,7 @@ Response SurvivorJockeyHurtMajorC1Producer
 }
 Rule SurvivorJockeyHurtMajorC1Producer
 {
-	criteria IsSurvivor InPain IsMajorPain IsProducer IsTalk IsTalkProducer SubjectIsJockey IsNotSaidBeenJockeyedProducer IsWorldTalkProducer C1M1orC1M2 IsBeingJockeyed
+	criteria IsSurvivor InPain IsMajorPain IsProducer IsTalk IsTalkProducer SubjectIsJockey IsNotSaidBeenJockeyedProducer IsWorldTalkProducer  IsBeingJockeyed
 	ApplyContext "SaidBeenJockeyedProducer:1:6,_auto_NoSpotting:1:4"
 	applycontexttoworld
 	Response SurvivorJockeyHurtMajorC1Producer
@@ -3580,7 +3580,7 @@ Response SurvivorJockeyHurtMinorC1Producer
 }
 Rule SurvivorJockeyHurtMinorC1Producer
 {
-	criteria IsSurvivor InPain IsMinorPain IsProducer IsTalk IsTalkProducer SubjectIsJockey IsNotSaidBeenJockeyedProducer IsWorldTalkProducer C1M1orC1M2 IsBeingJockeyed
+	criteria IsSurvivor InPain IsMinorPain IsProducer IsTalk IsTalkProducer SubjectIsJockey IsNotSaidBeenJockeyedProducer IsWorldTalkProducer  IsBeingJockeyed
 	ApplyContext "SaidBeenJockeyedProducer:1:6,_auto_NoSpotting:1:4"
 	applycontexttoworld
 	Response SurvivorJockeyHurtMinorC1Producer
@@ -4492,7 +4492,7 @@ Response PlayerRemarkc2m2_saferoomaProducer
 }
 Rule PlayerRemarkc2m2_saferoomaProducer
 {
-	criteria ConceptTalkIdle IsProducer IsInStartArea Ismap_c2m2 AutoIsNotScavenge  IsNotSrcGrp_C2M2_910 IsNotSpeakingWeight0
+	criteria ConceptTalkIdle IsProducer IsInStartArea  AutoIsNotScavenge  IsNotSrcGrp_C2M2_910 IsNotSpeakingWeight0
 	ApplyContext "Talk:1:10,_auto_SafeRoomStart:1:300,_auto_SafeRoomQuiet:1:5,SrcGrp_C2M2_910:1:0"
 	applycontexttoworld
 	Response PlayerRemarkc2m2_saferoomaProducer
@@ -6772,6 +6772,11 @@ Response PlayerThanksProducer
 	scene "scenes/Producer/Thanks02.vcd"  //Hey, thanks!
 	scene "scenes/Producer/Thanks03.vcd"  //Thanks!
 	scene "scenes/Producer/Thanks05.vcd"  //Thanks.
+	
+	scene "scenes/Producer/dlc1_c6m3_finalel4d1items05.vcd" // Thank you guys
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Items07.vcd" // thanks for the stuff
+	scene "scenes/Producer/DLC1_C6M3_FinaleL4D1Items08.vcd" // thanks sexy guy
+	
 }
 Rule PlayerThanksProducer
 {
@@ -6958,8 +6963,7 @@ Response PlayerHurrahProducer
 	scene "scenes/Producer/WorldC1M2B48.vcd"  //Woo!
 	scene "scenes/Producer/WorldC2M2B27.vcd"  //Woo!
 	
-	scene "scenes/Producer/PositiveNoise08.vcd"  //[Improv non-verbal pleasure & interest sounds]
-	scene "scenes/Producer/PositiveNoise09.vcd"  //[Improv non-verbal pleasure & interest sounds]
+	scene "scenes/Producer/WorldC1M4B12.vcd"  //Dibs on Gibbs!
 }
 Rule PlayerHurrahProducer
 {
@@ -7263,7 +7267,7 @@ Response PlayerAlertGiveItemStopC1Producer
 }
 Rule PlayerAlertGiveItemStopC1Producer
 {
-	criteria ConceptAlertGiveItemStop IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSaidAlertGiveItemStopProducer IsCampaignl4d2_1 IsWorldTalkProducer  ismap_c1m1_hotelC1 NoKnowNames
+	criteria ConceptAlertGiveItemStop IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSaidAlertGiveItemStopProducer IsCampaignl4d2_1 IsWorldTalkProducer  C1 NoKnowNames
 	ApplyContext "SaidAlertGiveItemStopProducer:1:10"
 	Response PlayerAlertGiveItemStopC1Producer
 }
@@ -7298,7 +7302,7 @@ Response PlayerCoachPouncedC1Producer
 }
 Rule PlayerCoachPouncedC1Producer
 {
-	criteria ConceptSurvivorWasPounced ChanceToFire30Percent IsNotCoughing SubjectIsCoach IsNotSaidCoachPounced IsProducer IsTalk IsTalkProducer IsWorldTalkProducer C1M1orC1M2
+	criteria ConceptSurvivorWasPounced ChanceToFire30Percent IsNotCoughing SubjectIsCoach IsNotSaidCoachPounced IsProducer IsTalk IsTalkProducer IsWorldTalkProducer 
 	ApplyContext "CoachPounced:1:60"
 	applycontexttoworld
 	Response PlayerCoachPouncedC1Producer
@@ -7336,7 +7340,7 @@ Response PlayerGamblerPouncedC1Producer
 }
 Rule PlayerGamblerPouncedC1Producer
 {
-	criteria ConceptSurvivorWasPounced ChanceToFire30Percent IsNotCoughing SubjectIsGambler IsNotSaidGamblerPounced IsProducer IsTalk IsTalkProducer IsWorldTalkProducer C1M1orC1M2
+	criteria ConceptSurvivorWasPounced ChanceToFire30Percent IsNotCoughing SubjectIsGambler IsNotSaidGamblerPounced IsProducer IsTalk IsTalkProducer IsWorldTalkProducer 
 	ApplyContext "GamblerPounced:1:60"
 	applycontexttoworld
 	Response PlayerGamblerPouncedC1Producer
@@ -7390,7 +7394,7 @@ Response PlayerGrabbedByJockeyC1Producer
 }
 Rule PlayerGrabbedByJockeyC1Producer
 {
-	criteria ConceptSurvivorJockeyed IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSaidBeenJockeyedProducer IsWorldTalkProducer  C1M1orC1M2
+	criteria ConceptSurvivorJockeyed IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSaidBeenJockeyedProducer IsWorldTalkProducer  
 	ApplyContext "SaidBeenJockeyedProducer:1:6,_auto_NoSpotting:1:4"
 	applycontexttoworld
 	Response PlayerGrabbedByJockeyC1Producer
@@ -7439,7 +7443,7 @@ Response PlayerGrenadeVomitJarC1Producer
 }
 Rule PlayerGrenadeVomitJarC1Producer
 {
-	criteria ConceptThrewGrenade IsNotCoughing IsProducer IsTalk IsTalkProducer IsGrenadeVomitJar IsWorldTalkProducer ismap_c1m1_hotelC1
+	criteria ConceptThrewGrenade IsNotCoughing IsProducer IsTalk IsTalkProducer IsGrenadeVomitJar IsWorldTalkProducer C1
 	Response PlayerGrenadeVomitJarC1Producer
 }
 
@@ -7459,22 +7463,21 @@ Rule PlayerIncapacitatedInitialProducer
 
 Response PlayerKillConfirmationProducer
 {
-	scene "scenes/Producer/KillConfirmation01.vcd"   //Got it!
-	scene "scenes/Producer/KillConfirmation02.vcd"   //Taken care of.
-	scene "scenes/Producer/KillConfirmation03.vcd"   //That was mine.
-	scene "scenes/Producer/KillConfirmation04.vcd"   //Dead.
-	scene "scenes/Producer/KillConfirmation05.vcd"   //Got 'em.
-	scene "scenes/Producer/KillConfirmation06.vcd"   //Got 'em.
-	scene "scenes/Producer/KillConfirmation07.vcd"   //Kicked it.
-	scene "scenes/Producer/KillConfirmation08.vcd"   //Kicked it's ass.
+	scene "scenes/Producer/KillConfirmation01.vcd"  then Any PlayerNiceShot foo:0 -0.465 //Got it!
+	scene "scenes/Producer/KillConfirmation02.vcd"  then Any PlayerNiceShot foo:0 -0.976 //Taken care of.
+	scene "scenes/Producer/KillConfirmation03.vcd"  then Any PlayerNiceShot foo:0 -0.940 //That was mine.
+	scene "scenes/Producer/KillConfirmation04.vcd"  then Any PlayerNiceShot foo:0 -0.630 //Dead.
+	scene "scenes/Producer/KillConfirmation05.vcd"  then Any PlayerNiceShot foo:0 -0.730 //Got 'em.
+	scene "scenes/Producer/KillConfirmation06.vcd"  then Any PlayerNiceShot foo:0 -1.380 //Got 'em.
+	scene "scenes/Producer/KillConfirmation07.vcd"  then Any PlayerNiceShot foo:0 -0.886 //Kicked it.
+	scene "scenes/Producer/KillConfirmation08.vcd"  then Any PlayerNiceShot foo:0 -0.931 //Kicked it's ass.
 	
 	scene "scenes/Producer/worldc1m2b47.vcd"   //boom headshot!
 	scene "scenes/Producer/worldc1m2b48.vcd"   //boom headshot!
 }
-
 Rule PlayerKillConfirmationProducer
 {
-	criteria ConceptKilledZombie IsNotCoughing IsProducer  IsTalk IsTalkProducer ChanceToFire60Percent IsSubjectFar100 IsWorldTalkProducer
+	criteria ConceptKilledZombie IsNotCoughing IsProducer  IsTalk IsTalkProducer IsSubjectFar100 ChanceToFire60Percent IsWorldTalkProducer
 	Response PlayerKillConfirmationProducer
 }
 
@@ -7498,7 +7501,7 @@ Response PlayerMechanicPouncedC1Producer
 }
 Rule PlayerMechanicPouncedC1Producer
 {
-	criteria ConceptSurvivorWasPounced ChanceToFire30Percent IsNotCoughing SubjectIsMechanic IsNotSaidMechanicPounced IsProducer IsTalk IsTalkProducer IsWorldTalkProducer C1M1orC1M2
+	criteria ConceptSurvivorWasPounced ChanceToFire30Percent IsNotCoughing SubjectIsMechanic IsNotSaidMechanicPounced IsProducer IsTalk IsTalkProducer IsWorldTalkProducer 
 	ApplyContext "MechanicPounced:1:60"
 	applycontexttoworld
 	Response PlayerMechanicPouncedC1Producer
@@ -7672,7 +7675,7 @@ Response PlayerWarnHeardBoomerC1Producer
 }
 Rule PlayerWarnHeardBoomerC1Producer
 {
-	criteria ConceptPlayerWarnHearZombie IsBoomerClass IsNotCoughing IsProducer IsNotWarnHeardBoomer NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsWorldTalkProducer C1M1orC1M2
+	criteria ConceptPlayerWarnHearZombie IsBoomerClass IsNotCoughing IsProducer IsNotWarnHeardBoomer NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsWorldTalkProducer 
 	ApplyContext "WarnHeardBoomer :1:300,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response PlayerWarnHeardBoomerC1Producer
@@ -7705,7 +7708,7 @@ Response PlayerWarnHeardChargerC1Producer
 }
 Rule PlayerWarnHeardChargerC1Producer
 {
-	criteria ConceptPlayerWarnHearZombie IsChargerClass IsNotCoughing IsProducer IsNotWarnHeardCharger NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsWorldTalkProducer C1M1orC1M2
+	criteria ConceptPlayerWarnHearZombie IsChargerClass IsNotCoughing IsProducer IsNotWarnHeardCharger NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsWorldTalkProducer 
 	ApplyContext "WarnHeardCharger :1:300,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response PlayerWarnHeardChargerC1Producer
@@ -7739,7 +7742,7 @@ Response PlayerWarnHeardHunterC1Producer
 }
 Rule PlayerWarnHeardHunterC1Producer
 {
-	criteria ConceptPlayerWarnHearZombie IsHunterClass IsNotCoughing IsProducer IsNotWarnHeardHunter NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsWorldTalkProducer C1M1orC1M2
+	criteria ConceptPlayerWarnHearZombie IsHunterClass IsNotCoughing IsProducer IsNotWarnHeardHunter NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsWorldTalkProducer 
 	ApplyContext "WarnHeardHunter :1:300,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response PlayerWarnHeardHunterC1Producer
@@ -7766,7 +7769,7 @@ Response PlayerWarnHeardJockeyC1Producer
 }
 Rule PlayerWarnHeardJockeyC1Producer
 {
-	criteria ConceptPlayerWarnHearZombie IsJockeyClass IsNotCoughing IsProducer IsNotWarnHeardJockey NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsCampaignl4d2_1 IsWorldTalkProducer C1M1orC1M2
+	criteria ConceptPlayerWarnHearZombie IsJockeyClass IsNotCoughing IsProducer IsNotWarnHeardJockey NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsCampaignl4d2_1 IsWorldTalkProducer 
 	ApplyContext "WarnHeardJockey:1:300,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response PlayerWarnHeardJockeyC1Producer
@@ -7799,7 +7802,7 @@ Response PlayerWarnHeardSmokerC1Producer
 }
 Rule PlayerWarnHeardSmokerC1Producer
 {
-	criteria ConceptPlayerWarnHearZombie IsSmokerClass IsNotCoughing IsProducer IsNotWarnHeardSmoker NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsWorldTalkProducer C1M1orC1M2
+	criteria ConceptPlayerWarnHearZombie IsSmokerClass IsNotCoughing IsProducer IsNotWarnHeardSmoker NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsWorldTalkProducer 
 	ApplyContext "WarnHeardSmoker :1:300,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response PlayerWarnHeardSmokerC1Producer
@@ -7833,7 +7836,7 @@ Response PlayerWarnHeardSpitterC1Producer
 }
 Rule PlayerWarnHeardSpitterC1Producer
 {
-	criteria ConceptPlayerWarnHearZombie IsSpitterClass IsNotCoughing IsProducer IsNotWarnHeardSpitter NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsWorldTalkProducer C1M1orC1M2
+	criteria ConceptPlayerWarnHearZombie IsSpitterClass IsNotCoughing IsProducer IsNotWarnHeardSpitter NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsWorldTalkProducer 
 	ApplyContext "WarnHearSpitter :1:300,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response PlayerWarnHeardSpitterC1Producer
@@ -7862,7 +7865,7 @@ Response PlayerWarnHeardWitchC1Producer
 }
 Rule PlayerWarnHeardWitchC1Producer
 {
-	criteria ConceptPlayerWarnHearZombie IsWitchClass IsNotCoughing IsProducer IsNotWarnHeardWitch NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsCampaignl4d2_1 IsWorldTalkProducer  C1M1orC1M2
+	criteria ConceptPlayerWarnHearZombie IsWitchClass IsNotCoughing IsProducer IsNotWarnHeardWitch NotInCombat IsNotSaidSpecialWarn IsTalk IsTalkProducer IsCampaignl4d2_1 IsWorldTalkProducer  
 	ApplyContext "WarnHeardWitch:1:300,SaidSpecialWarn:1:30"
 	applycontexttoworld
 	Response PlayerWarnHeardWitchC1Producer
@@ -8033,7 +8036,7 @@ Response SurvivorGooedBySpitterC1Producer
 }
 Rule SurvivorGooedBySpitterC1Producer
 {
-	criteria ConceptGooedBySpitter IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSaidGooedBySpitter IsCampaignl4d2_1 IsWorldTalkProducer C1M1orC1M2
+	criteria ConceptGooedBySpitter IsNotCoughing IsProducer IsTalk IsTalkProducer IsNotSaidGooedBySpitter IsCampaignl4d2_1 IsWorldTalkProducer 
 	ApplyContext "SaidGooedBySpitter:1:20,TalkProducer:1:3"
 	Response SurvivorGooedBySpitterC1Producer
 }
@@ -8067,7 +8070,7 @@ Response SurvivorGrabbedByTongueC1Producer
 }
 Rule SurvivorGrabbedByTongueC1Producer
 {
-	criteria ConceptPlayerGrabbedByTongue IsNotCoughing IsProducer IsTalk IsTalkProducer IsCampaignl4d2_1 IsWorldTalkProducer  C1M1orC1M2
+	criteria ConceptPlayerGrabbedByTongue IsNotCoughing IsProducer IsTalk IsTalkProducer IsCampaignl4d2_1 IsWorldTalkProducer  
 	Response SurvivorGrabbedByTongueC1Producer
 }
 
@@ -9001,7 +9004,7 @@ Response SurvivorPickupVomitJarAlwaysC1Producer
 }
 Rule SurvivorPickupVomitJarAlwaysC1Producer
 {
-	criteria ConceptPlayerPickup IsNotCoughing IsProducer IsPickedUpVomitJar IsNotSpeaking IsTalk IsTalkProducer IsWorldTalkProducer ismap_c1m1_hotelC1
+	criteria ConceptPlayerPickup IsNotCoughing IsProducer IsPickedUpVomitJar IsNotSpeaking IsTalk IsTalkProducer IsWorldTalkProducer C1
 	ApplyContext "ProducerPickedUpItem:1:30"
 	Response SurvivorPickupVomitJarAlwaysC1Producer
 }
@@ -9012,7 +9015,7 @@ Response SurvivorPickupVomitJarC1Producer
 }
 Rule SurvivorPickupVomitJarC1Producer
 {
-	criteria ConceptPlayerPickup IsNotCoughing IsProducer IsPickedUpVomitJar IsNotSpeaking IsInSafeSpot IsNotInStartArea IsTalk IsTalkProducer IsWorldTalkProducer ismap_c1m1_hotelC1
+	criteria ConceptPlayerPickup IsNotCoughing IsProducer IsPickedUpVomitJar IsNotSpeaking IsInSafeSpot IsNotInStartArea IsTalk IsTalkProducer IsWorldTalkProducer C1
 	ApplyContext "ProducerPickedUpItem:1:30"
 	Response SurvivorPickupVomitJarC1Producer
 }
@@ -9648,7 +9651,7 @@ Response C1M1CoughProducer
 }
 Rule C1M1CoughProducer
 {
-	criteria ConceptC1M1Cough IsProducer ismap_c1m1_hotel AutoIsNotScavenge 
+	criteria ConceptC1M1Cough IsProducer  AutoIsNotScavenge 
 	Response C1M1CoughProducer
 }
 
@@ -9658,7 +9661,7 @@ Response C1M2SafeRoom2Producer
 }
 Rule C1M2SafeRoom2Producer
 {
-	criteria ConceptC1M2SafeRoom2 IsProducer ismap_c1m2_streets AutoIsNotScavenge 
+	criteria ConceptC1M2SafeRoom2 IsProducer  AutoIsNotScavenge 
 	ApplyContext "Talk:1:2.270"
 	applycontexttoworld
 	Response C1M2SafeRoom2Producer
@@ -9746,7 +9749,7 @@ Response C1M4SafeRoom2Producer
 }
 Rule C1M4SafeRoom2Producer
 {
-	criteria ConceptC1M4SafeRoom2 IsProducer ismap_c1m4_atrium AutoIsNotScavenge 
+	criteria ConceptC1M4SafeRoom2 IsProducer  AutoIsNotScavenge 
 	ApplyContext "Talk:1:1.923"
 	applycontexttoworld
 	Response C1M4SafeRoom2Producer
@@ -9771,7 +9774,7 @@ Response C1M4SafeRoomEndProducer
 }
 Rule C1M4SafeRoomEndProducer
 {
-	criteria ConceptSurvivorLeavingInitialCheckpoint ismap_c1m4_atrium IsProducer IsNotSaidC1M4LeftSafeRoom _auto_NotTellingStory
+	criteria ConceptSurvivorLeavingInitialCheckpoint  IsProducer IsNotSaidC1M4LeftSafeRoom _auto_NotTellingStory
 	ApplyContext "SaidC1M4LeftSafeRoom:1:0"
 	applycontexttoworld
 	Response C1M4SafeRoomEndProducer
@@ -10012,7 +10015,7 @@ Response PlayerCoverMeHealC1Producer
 }
 Rule PlayerCoverMeHealC1Producer
 {
-	criteria ConceptPlayerHealing IsNotCoughing IsProducer IsNotAskedForCoverProducer IsTalk IsTalkProducer IsNotAlone IsCampaignl4d2_1 IsWorldTalkProducer  ismap_c1m1_hotelC1
+	criteria ConceptPlayerHealing IsNotCoughing IsProducer IsNotAskedForCoverProducer IsTalk IsTalkProducer IsNotAlone IsCampaignl4d2_1 IsWorldTalkProducer  C1
 	ApplyContext "ProducerAskForCover:1:30"
 	Response PlayerCoverMeHealC1Producer
 }
@@ -10550,7 +10553,7 @@ Rule SurvivorSpottedWeaponProducer
 //--------------------------------------------------------------------------------------------------------------
 Rule C2M3AlarmOffNagProducer
 {
-	criteria ConceptTalkIdle IsProducer ChanceToFire50Percent IsNotIncapacitated ismap_c2m3 AutoIsNotScavenge  _auto_IsCoasterStarted _auto_NotTimerLockA _auto_NotTimerLockProducer _auto_IsCoasterOff _auto_NotCoasterOver IsNotSpeakingWeight0
+	criteria ConceptTalkIdle IsProducer ChanceToFire50Percent IsNotIncapacitated  AutoIsNotScavenge  _auto_IsCoasterStarted _auto_NotTimerLockA _auto_NotTimerLockProducer _auto_IsCoasterOff _auto_NotCoasterOver IsNotSpeakingWeight0
 	ApplyContext "_auto_TimerLockA:1:8,_auto_TimerLockProducer:1:11,_auto_TracksOK:0:0"
 	applycontexttoworld
 	Response PlayerRemarkc2m3_coasteroffaProducer
