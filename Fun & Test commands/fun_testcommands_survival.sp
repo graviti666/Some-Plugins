@@ -136,17 +136,36 @@ public Action OnSay(int client, const char[] command, int argc)
 	
 	if (g_bHasChatColor[client])
 	{
-		char sText[256];
-		GetCmdArgString(sText, sizeof(sText));
-		StripQuotes(sText);
-		
-		if (StrEqual(g_sChatColor[client], "gold") && StrContains(sText, "/") == -1) {
-			PrintToChatAll("\x04%N \x01:  %s", client, sText);
-		}
-		else if (StrContains(sText, "/") == -1)
+		// Khan's
+		char text[128];
+		int startidx = 0;
+		char dest[128];
+	
+		if (GetCmdArgString(text, sizeof(text)) < 1)
+			return Plugin_Continue;
+	
+		StripQuotes(text);
+	
+		if (text[strlen(text)-1] == '"')
 		{
-			CPrintToChatAll("%s%N {default}:  %s", g_sChatColor[client], client, sText);
+			text[strlen(text)-1] = '\0';
+			startidx = 1;
 		}
+		Format(dest, sizeof(dest), text[startidx]);
+		
+		// Don't display the command iterators when using a chat color
+		if ((dest[0] == '/') || (dest[0] == '!'))
+			return Plugin_Continue;
+		
+		if (StrEqual(g_sChatColor[client], "gold")) 
+		{
+			PrintToChatAll("\x04%N \x01:  %s", client, text);
+		}
+		else
+		{
+			CPrintToChatAll("%s%N {default}:  %s", g_sChatColor[client], client, text);
+		}
+		// Don't output the original text
 		return Plugin_Handled;
 	}
 	return Plugin_Continue;
