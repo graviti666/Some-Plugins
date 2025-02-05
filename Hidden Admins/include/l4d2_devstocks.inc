@@ -637,3 +637,46 @@ stock int GetRealPlayerCount()
 	}
 	return count;
 }
+
+/*
+ * Find a entity index by classname.
+ * @return - Entity index on success, -1 on failure.
+*/
+int FindEntityByName(char[] classname)
+{
+	int ent;
+	while((ent = FindEntityByClassname(ent, classname)) != -1)
+	{
+		if (IsValidEntity(ent))
+		{
+			return ent;
+		}
+	}
+	return -1;
+}
+
+/*
+ * Find a entity index by the location supplied.
+ * @classname - Classname of the entity
+ * @EntPos[3] - Vector of the location to look at
+ * @tolerance - Default 5.0 units, the distance to scan at the specified vector
+ * @return - Entity index near the location supplied or -1 on failure
+*/
+int FindEntityByLocation(char[] classname, float EntPos[3], float tolerance = 5.0)
+{
+	int ent;
+	while((ent = FindEntityByClassname(ent, classname)) != -1)
+	{
+		if (IsValidEntity(ent) )
+		{
+			float vec[3];
+			GetEntPropVector(ent, Prop_Send, "m_vecOrigin", vec);
+			
+			if (GetVectorDistance(vec, EntPos) < tolerance )
+			{
+				return ent;
+			}
+		}
+	}
+	return -1;
+}
