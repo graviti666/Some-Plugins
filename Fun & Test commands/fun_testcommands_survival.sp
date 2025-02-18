@@ -15,6 +15,11 @@ int TheCount;
 char g_sChatColor[MAXPLAYERS + 1][42];
 bool g_bHasChatColor[MAXPLAYERS + 1];
 
+bool g_bListenForGlowColorTarget[MAXPLAYERS + 1];
+StringMap g_hGlowMap;
+
+bool g_bGascansOnBacks;
+
 // Rock settings, default
 bool g_bRockFly;
 
@@ -22,6 +27,8 @@ float g_fRockStartHeight 	= 15.0;
 float g_fRockSpeed 			= 600.0;
 float g_fRockUpVel 			= 0.0;
 float g_fRockDamage 		= 24.0;
+
+float g_fDelay[MAXPLAYERS + 1] = 0.0;
 
 char g_CoachAnims[][] = 
 {
@@ -85,6 +92,8 @@ public void OnPluginStart()
 	RegAdminCmd("sm_ledgehang", Cmd_OnLedgeHangCommand, ADMFLAG_ROOT, "Sets a selected player to ledge hang.");
 	RegAdminCmd("sm_defib", Cmd_OnDefibCommand, ADMFLAG_ROOT, "Defibs (respawns) a selected player.");
 	RegAdminCmd("sm_explode", Cmd_OnExplodeCommand, ADMFLAG_ROOT, "Sets an explosion on a specific player.");
+	RegAdminCmd("sm_gascansonbacks", Cmd_GasOnBacks, ADMFLAG_ROOT, "Toggle gascans on backs of players.");
+	RegAdminCmd("sm_deathfall", Cmd_DeathFall, ADMFLAG_ROOT, "Deathfall");
 	//RegAdminCmd("sm_dronestrike", Cmd_OnDroneStrikeCommand, ADMFLAG_ROOT, "Starts a drone strike.");
 	
 	LoadTranslations("common.phrases");
@@ -96,6 +105,8 @@ public void OnPluginStart()
 	}
 	
 	AddCommandListener(OnSay, "say");
+	
+	g_hGlowMap = new StringMap();
 }
 
 public void OnMapStart()
@@ -114,8 +125,14 @@ public void OnMapStart()
 	
 	for (int i = 1; i <= MaxClients; i++)
 	{
+		g_bListenForGlowColorTarget[i] = false;
 		g_bHasChatColor[i] = false;
 		strcopy(g_sChatColor[i], sizeof(g_sChatColor[]), "default");
+	}
+	
+	for (int i = 1; i <= MaxClients; i++)
+	{
+		g_fDelay[i] = 0.0;
 	}
 	
 	/*
@@ -136,6 +153,10 @@ public Action OnSay(int client, const char[] command, int argc)
 	
 	if (g_bHasChatColor[client])
 	{
+		// Prevent spam
+		if (GetGameTime() < g_fDelay[client])
+			return Plugin_Handled;
+		
 		// Khan's
 		char text[128];
 		int startidx = 0;
@@ -160,14 +181,56 @@ public Action OnSay(int client, const char[] command, int argc)
 		if (StrEqual(g_sChatColor[client], "gold")) 
 		{
 			PrintToChatAll("\x04%N \x01:  %s", client, text);
+			g_fDelay[client] = GetGameTime() + 1.0;
 		}
 		else
 		{
 			CPrintToChatAll("%s%N {default}:  %s", g_sChatColor[client], client, text);
+			g_fDelay[client] = GetGameTime() + 1.0;
 		}
 		// Don't output the original text
 		return Plugin_Handled;
 	}
+	else if (g_bListenForGlowColorTarget[client])
+	{
+		char text[128];
+		int startidx = 0;
+		char dest[128];
+	
+		if (GetCmdArgString(text, sizeof(text)) < 1)
+			return Plugin_Continue;
+	
+		StripQuotes(text);
+	
+		if (text[strlen(text)-1] == '"')
+		{
+			text[strlen(text)-1] = '\0';
+			startidx = 1;
+		}
+		Format(dest, sizeof(dest), text[startidx]);
+		
+		int text_int = StringToInt(dest);
+		
+		//PrintToChat(client, "Debug output of text: %i", text_int);
+		
+		int userid = -1;
+		g_hGlowMap.GetValue("target_id", userid);
+		
+		int target = GetClientOfUserId(userid);
+		if (target && IsClientInGame(target)) 
+		{
+			SetEntProp(target, Prop_Send, "m_iGlowType", 3);
+			SetEntProp(target, Prop_Send, "m_glowColorOverride", text_int);
+			
+			PrintToChat(client, "\x01Setting Glow Color \x04%s\x01 on \x05%N", text, target);
+		}
+		
+		g_bListenForGlowColorTarget[client] = false;
+		
+		// Don't output the original text
+		return Plugin_Handled;
+	}
+	
 	return Plugin_Continue;
 }
 
@@ -183,6 +246,125 @@ public Action Cmd_OnDroneStrikeCommand(int client, int args)
 	return Plugin_Handled;
 }
 */
+
+public Action Cmd_DeathFall(int client, int args)
+{
+	if (!client) {
+		return Plugin_Handled;
+	}
+	
+	char map[32];
+	GetCurrentMap(map, sizeof(map));
+	
+	// Camera pos
+	float coord[3], ang[3];
+	if (strcmp(map, "c1m4_atrium") == 0)
+	{
+		int random = GetRandomInt(0, 1);
+		switch (random)
+		{
+			case 0:
+			{
+				coord =  { -4566.485352, -4112.074219, 807.747131 };
+				ang =  { 42.966412, 159.349060, 0.000000 };		
+			}
+			case 1:
+			{
+				coord =  { -4290.582520, -3264.315918, 803.209961 };
+				ang =  { 41.184063, -135.016983, 0.000000 };		
+			}
+		}
+	}
+	
+	int ent = CreateEntityByName("point_deathfall_camera");
+	if (ent == -1) { 
+		PrintToChat(client, "Couldn't create fall camera'"); 
+		return Plugin_Handled; 
+	}
+	
+	TeleportEntity(ent, coord, ang, NULL_VECTOR);
+	DispatchKeyValue(ent, "fov", "45");
+	DispatchKeyValue(ent, "fov_rate", "1.0");
+	DispatchSpawn(ent);
+
+	float distance = 80.0; // Adjust for how far away you want the position
+
+	// Convert yaw to radians
+	float yaw = DegToRad(ang[1]);
+
+	// Compute new position
+	float newCoord[3];
+	newCoord[0] = coord[0] + Cosine(yaw) * distance;
+	newCoord[1] = coord[1] + Sine(yaw) * distance;
+	newCoord[2] = coord[2] + 40.0; // Keep the height the same
+	
+	SpawnAndSetTimeScale("0.7");
+	CreateTimer(3.0, Timer_ResetTimeScale);
+
+	for (int i = 1; i <= MaxClients; i++)
+	{
+		if (!IsClientInGame(i))continue;
+		if (GetClientTeam(i) == 2 || GetClientTeam(i) == 3)
+		{
+			TeleportEntity(i, newCoord, NULL_VECTOR, NULL_VECTOR);
+			FacePlayerToCamera(i, coord);
+		}
+	}
+	
+	return Plugin_Handled;
+}
+
+void SpawnAndSetTimeScale(const char[] desiredscale)
+{
+	int eTime = CreateEntityByName("func_timescale");
+	if (eTime != -1)
+	{
+		DispatchKeyValue(eTime, "desiredTimescale", desiredscale);
+		DispatchSpawn(eTime);
+		AcceptEntityInput(eTime, "Start");
+		AcceptEntityInput(eTime, "Kill");	
+	}
+}
+
+public Action Timer_ResetTimeScale(Handle timer)
+{
+	SpawnAndSetTimeScale("1.0");
+}
+
+void FacePlayerToCamera(int player, float cameraPos[3])
+{
+    float playerPos[3], direction[3];
+    
+    // Get player's current position
+    GetClientAbsOrigin(player, playerPos);
+    
+    // Calculate the direction vector (Camera - Player)
+    direction[0] = cameraPos[0] - playerPos[0];
+    direction[1] = cameraPos[1] - playerPos[1];
+    direction[2] = cameraPos[2] - playerPos[2]; // Used for pitch calculation
+    
+    // Compute yaw and pitch
+    float angles[3];
+    angles[1] = ArcTangent2(direction[1], direction[0]); // Yaw (left/right)
+    angles[0] = -ArcTangent2(direction[2], SquareRoot(direction[0] * direction[0] + direction[1] * direction[1])); // Pitch (up/down)
+
+    // Apply new angles
+    TeleportEntity(player, NULL_VECTOR, angles, NULL_VECTOR);
+}
+
+#define DIRECTORSCRIPT_TYPE1	"DirectorScript.MapScript.LocalScript.DirectorOptions"
+public Action Cmd_GasOnBacks(int client, int args)
+{
+	if (!client) {
+		return Plugin_Handled;
+	}
+	
+	g_bGascansOnBacks = !g_bGascansOnBacks;
+	
+	L4D2_RunScript("%s.GasCansOnBacks <- %s", DIRECTORSCRIPT_TYPE1, g_bGascansOnBacks ? "true;" : "false;");
+	PrintToChat(client, "\x01Gascans on backs is now \x05%s", g_bGascansOnBacks ? "Enabled" : "Disabled");
+	return Plugin_Handled;
+}
 
 public Action Cmd_SpawnAnimProp(int client, int args)
 {
@@ -981,6 +1163,19 @@ public void OnAdminMenuReady(Handle topmenu)
 		AddToTopMenu(topmenu, "l4dledgehangplayer", TopMenuObject_Item, MenuItem_LedgehangPlayer, players_commands, "l4dledgehangplayer");
 		AddToTopMenu(topmenu, "l4drespawnplayer", TopMenuObject_Item, MenuItem_RespawnPlayer, players_commands, "l4drespawnplayer");
 		AddToTopMenu(topmenu, "l4d2explodeplayer", TopMenuObject_Item, MenuItem_ExplodePlayer, players_commands, "l4d2explodeplayer");
+		AddToTopMenu(topmenu, "l4d2glowplayer", TopMenuObject_Item, MenuItem_GlowPlayer, players_commands, "l4d2glowplayer");
+	}
+}
+
+public void MenuItem_GlowPlayer(Handle topmenu, TopMenuAction action, TopMenuObject object_id, int param, char[] buffer, int maxlength)
+{
+	if (action == TopMenuAction_DisplayOption)
+	{
+		Format(buffer, maxlength, "Glow Player", "", param);
+	}
+	if(action == TopMenuAction_SelectOption)
+	{
+		DisplayGlowPlayerMenu(param);
 	}
 }
 
@@ -1084,6 +1279,15 @@ public void MenuItem_ExplodePlayer(Handle topmenu, TopMenuAction action, TopMenu
 	Display menus' select player
 *****************************/
 
+void DisplayGlowPlayerMenu(int client)
+{
+	Menu menu2 = CreateMenu(MenuHandler_GlowPlayer);
+	SetMenuTitle(menu2, "Player to Glow:");
+	SetMenuExitBackButton(menu2, true);
+	AddTargetsToMenu2(menu2, client, COMMAND_FILTER_CONNECTED);
+	DisplayMenu(menu2, client, MENU_TIME_FOREVER);
+}
+
 void DisplayPathPlayerMenu(int client)
 {
 	Menu menu2 = CreateMenu(MenuHandler_PathPlayer);
@@ -1154,6 +1358,38 @@ void DisplayExplodePlayerMenu(int client)
 	SetMenuExitBackButton(menu2, true);
 	AddTargetsToMenu2(menu2, client, COMMAND_FILTER_CONNECTED);
 	DisplayMenu(menu2, client, MENU_TIME_FOREVER);
+}
+
+public int MenuHandler_GlowPlayer(Handle menu2, MenuAction action, int param1, int param2)
+{
+	if (action == MenuAction_End)
+	{
+		CloseHandle(menu2);
+	}
+	else if (action == MenuAction_Cancel)
+	{
+		// Redraw previous menu position if cancelled
+		if (param2 == MenuCancel_ExitBack && GetAdminTopMenu() != INVALID_HANDLE)
+		{
+			DisplayTopMenu(GetAdminTopMenu(), param1, TopMenuPosition_LastCategory);
+		}
+	}
+	else if (action == MenuAction_Select)
+	{
+		char info[32];
+		GetMenuItem(menu2, param2, info, sizeof(info));
+		
+		int userid = StringToInt(info);
+		WaitTypeToChatAndApplyGlow(param1, userid);
+	}
+}
+
+void WaitTypeToChatAndApplyGlow(int client, int target_id)
+{
+	g_hGlowMap.SetValue("target_id", target_id, true);
+	g_bListenForGlowColorTarget[client] = true;
+	
+	PrintToChat(client, "Type to chat the RGB value for selected target.");
 }
 
 public int MenuHandler_PathPlayer(Handle menu2, MenuAction action, int param1, int param2)
