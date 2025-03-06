@@ -31,9 +31,8 @@ char sInfectedWeapons_Readable[MAX_INFECTED_WEAPONS][] =
 
 Handle g_hBaseAbilityCreate;
 
-Handle g_hTimerOnce[MAXPLAYERS+1];
-
-bool bHasAbility[MAXPLAYERS + 1];
+#define DROP_WEAPON_IN_SLOT		571
+Handle g_hDropWeaponSlot;
 
 #define TANK_MODEL "models/infected/hulk.mdl"
 
@@ -64,12 +63,22 @@ public void OnPluginStart()
 	
 	Handle gdata = LoadGameConfigFile("SurvivalRoundManager");
 	StartPrepSDKCall(SDKCall_Entity);
-	if (!PrepSDKCall_SetFromConf(gdata, SDKConf_Virtual, "CBaseAbility::OnCreate()")) SetFailState("Signature set fail for % CBaseAbility::OnCreate() %");
+	if (!PrepSDKCall_SetFromConf(gdata, SDKConf_Virtual, "CBaseAbility::OnCreate()")) 
+		SetFailState("Signature set fail for % CBaseAbility::OnCreate() %");
 	PrepSDKCall_AddParameter(SDKType_CBasePlayer, SDKPass_Pointer);
 	
 	g_hBaseAbilityCreate = EndPrepSDKCall();
 	if (g_hBaseAbilityCreate == null)
-		SetFailState("Bad offset % CTerrorPlayer::RoundRespawn() % contact police");
+		SetFailState("Bad offset CBaseAbility::OnCreate()");
+	
+	StartPrepSDKCall(SDKCall_Player);
+	if (!PrepSDKCall_SetVirtual(DROP_WEAPON_IN_SLOT))
+		SetFailState("Failed to set CTerrorPlayer::DropWeaponInSlot(int) virtual");
+	PrepSDKCall_AddParameter(SDKType_PlainOldData, SDKPass_Plain); // Slot 0 = primary 1 = secondary etc
+	
+	g_hDropWeaponSlot = EndPrepSDKCall();
+	if (g_hDropWeaponSlot == null)
+		SetFailState("Failed to set CTerrorPlayer::DropWeaponInSlot(int) virtual");
 	
 	delete gdata;
 }
@@ -79,14 +88,6 @@ public void OnMapStart()
 	for (int i = 0; i < MAX_INFECTED_WEAPONS; i++)
 	{
 		PrecacheModel(sSpecialModels[i], true);
-	}
-	
-	for (int i = 1; i <= MaxClients; i++)
-	{
-		bKeepSurvivorModel[i] = false;
-		bHasAbility[i] = false;
-		
-		g_hTimerOnce[i] = null;
 	}
 }
 
@@ -112,6 +113,8 @@ void MakeMenu(int client)
 	menu.Display(client, MENU_TIME_FOREVER);
 }
 
+int g_OldWeapon[MAXPLAYERS+1];
+
 public int Menu_Callback(Menu menu, MenuAction action, int param1, int param2)
 {
 	if (action == MenuAction_Select)
@@ -123,13 +126,31 @@ public int Menu_Callback(Menu menu, MenuAction action, int param1, int param2)
 		
 		if (StrEqual(sInfo, "reset"))
 		{
-			bHasAbility[param1] = false;
+			// Already reset?
+			if (GetEntPropEnt(param1, Prop_Send, "m_customAbility") == -1) {
+				PrintToChat(param1, "Failed. You don't have any ability.");
+				return 0;
+			}
 			
-			SetEntProp(param1, Prop_Send, "m_customAbility", -1);
+			SetEntPropEnt(param1, Prop_Send, "m_customAbility", -1);
+			
 			int slot = GetPlayerWeaponSlot(param1, 0);
-			if (slot != -1 && IsValidEntity(slot))
+			if (slot != -1)
 			{
-				AcceptEntityInput(slot, "kill");
+				char class[32];
+				GetEdictClassname(slot, class, sizeof(class));	
+				for (int i = 0; i < MAX_INFECTED_WEAPONS; i++)
+				{
+					if (strcmp(class, sInfectedWeapons[i]) == 0)
+						AcceptEntityInput(slot, "kill");
+				}
+				
+				if (g_OldWeapon[param1] != INVALID_ENT_REFERENCE)
+				{
+					int old = EntRefToEntIndex(g_OldWeapon[param1]);
+					if (old != 0 && IsValidEdict(old))
+						EquipPlayerWeapon(param1, old);
+				}
 			}
 			
 			int character = GetEntProp(param1, Prop_Send, "m_survivorCharacter");
@@ -177,7 +198,7 @@ public int Menu_Callback(Menu menu, MenuAction action, int param1, int param2)
 				}
 			}
 			
-			PrintToChat(param1, "Ability reset.");
+			PrintToChat(param1, "Ability Removed.");
 			return 0;
 		}
 		else if (StrEqual(sInfo, "keepmodel"))
@@ -188,8 +209,26 @@ public int Menu_Callback(Menu menu, MenuAction action, int param1, int param2)
 				bKeepSurvivorModel[param1] = false;
 			
 			PrintToChat(param1, "%s", bKeepSurvivorModel[param1] ? "Now keeping Survivor Model (tank excluded)" : "Now using SI models");
-			
 			return 0;
+		}
+	
+		// Handle the old weapon, kill SI weapon or drop gun
+		int ent = GetPlayerWeaponSlot(param1, 0);
+		if (ent != -1)
+		{
+			char ent_class[32];
+			GetEdictClassname(ent, ent_class, sizeof(ent_class));
+			for (int i = 0; i < MAX_INFECTED_WEAPONS; i++)
+			{
+				if (strcmp(ent_class, sInfectedWeapons[i]) == 0) {
+					AcceptEntityInput(ent, "kill");
+				}
+				else
+				{
+					g_OldWeapon[param1] = EntIndexToEntRef(ent);
+					SDKCall(g_hDropWeaponSlot, param1, ent);
+				}
+			}
 		}
 	
 		int wp_index = GivePlayerItem(param1, sInfo);
@@ -200,8 +239,6 @@ public int Menu_Callback(Menu menu, MenuAction action, int param1, int param2)
 		
 		EquipPlayerWeapon(param1, wp_index);
 		TrySetAbility(param1, sInfo);
-		
-		bHasAbility[param1] = true;
 	}
 	else if (action == MenuAction_End)
 	{
@@ -272,7 +309,7 @@ void TrySetAbility(int client, const char[] wp)
 
 void Ability(int client, const char[] name)
 {
-    int entity = CreateEntityByName(name);
+    int entity = CreateEntityByName(name);    	
     DispatchSpawn(entity);
     
     if (!IsValidEdict(entity))
