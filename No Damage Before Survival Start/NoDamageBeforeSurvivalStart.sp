@@ -56,7 +56,29 @@ public void Event_LedgeGrab(Event event, const char[] name, bool dontBroadcast)
 	if (IsFakeClient(client) && !g_hAffectBots.BoolValue)
 		return;
 
-	SetEntProp(client, Prop_Send, "m_isHangingFromLedge", 0);
+	//SetEntProp(client, Prop_Send, "m_isHangingFromLedge", 0);
+	CreateTimer(0.1, Timer_SetHealth, GetClientUserId(client));
+}
+
+public Action Timer_SetHealth(Handle timer, any userid)
+{
+	int client = GetClientOfUserId(userid);
+	if (client != 0 && IsClientInGame(client))
+		HealPlayer(client);
+	return Plugin_Continue;
+}
+
+void HealPlayer(int client)
+{
+	// Heal player to 100 permanent health
+	int iflags = GetCommandFlags("give");
+	SetCommandFlags("give", iflags & ~FCVAR_CHEAT);
+	FakeClientCommand(client,"give health");
+	SetCommandFlags("give", iflags);
+	
+	// Remove temp health and reset revive count
+	SetEntPropFloat(client, Prop_Send, "m_healthBuffer", 0.0);
+	SetEntProp(client, Prop_Send, "m_currentReviveCount", 0);
 }
 
 public void Event_OnSurvivalStart(Event event, const char[] name, bool dontBroadcast)
