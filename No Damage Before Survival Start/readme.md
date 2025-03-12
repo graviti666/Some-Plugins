@@ -2,7 +2,6 @@
 <h3>Requested by LuckySpock</h3>
 
 <pre>
-- No Fall damage
+- No damage at all, FF, fall, etc..
 - No ledge grabbing
-- No FF
 </pre>
