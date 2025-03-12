@@ -60,6 +60,8 @@ public void Event_LedgeGrab(Event event, const char[] name, bool dontBroadcast)
 	SetEntProp(client, Prop_Send, "m_isIncapacitated", 0);
 	SetEntProp(client, Prop_Send, "m_currentReviveCount", 0);
 	SetEntPropFloat(client, Prop_Send, "m_healthBuffer", 0.0);
+	SetEntProp(client, Prop_Send, "m_iMaxHealth", 100);
+	SetEntProp(client, Prop_Send, "m_iHealth", 100);
 }
 
 public void Event_OnSurvivalStart(Event event, const char[] name, bool dontBroadcast)
